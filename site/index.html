@@ -177,7 +177,7 @@ tbody tr:hover td{background:var(--p2)}
  <div class="find"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><circle cx="10" cy="10" r="7"/><path d="M15 15l6 6"/></svg><input id="find" type="search" placeholder="Search player" autocomplete="off" aria-label="Search player"><ul class="drop" id="findl" hidden></ul></div>
 </div></header>
 <main class="in" id="app"><div class="load">Loading ratings</div></main>
-<footer class="foot"><div class="in"><span>German Pool Rating by Aleksandrs Horsuns</span><span>Results from CueScore, TournamentApp, nuLiga, EPBF and Matchroom</span><a href="#support">Support the project</a></div></footer>
+<footer class="foot"><div class="in"><span>German Pool Rating by Aleksandrs Horsuns</span><span>Results from CueScore, TournamentApp, nuLiga, VeVeTo, EPBF, Matchroom and PBS</span><a href="#support">Support the project</a></div></footer>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -489,7 +489,7 @@ function info(){
  <p>Ratings use the FargoRate scale. A player rated 100 points higher is expected to win two racks for every one he loses. At 200 points the ratio is 4 to 1.</p>
  <h2>Which results count</h2>
  <ul><li>Singles in 8-ball, 9-ball, 10-ball and Multiball, played to at least 3 racks.</li>
- <li>Tournaments in Germany on CueScore and TournamentApp, Bavarian league and championship results from nuLiga, and all EPBF and Matchroom events.</li>
+ <li>Tournaments in Germany on CueScore and TournamentApp, league and championship results from Bavaria (nuLiga) and Hessen (VeVeTo), and all EPBF, Matchroom and Predator Pro Billiard Series events. In events played in sets, every set counts as a separate match.</li>
  <li>Singles from league match days. Doubles are left out.</li>
  <li>Matches against foreign players. They are rated in the background, and players with an established FargoRate keep it as a fixed value.</li></ul>
  <h2>Left out</h2>
@@ -499,7 +499,7 @@ function info(){
  <p>When a player has more than one profile, the profiles are joined.</p>
  <h2>Corrections</h2>
  <p>A wrong profile merge or a missing tournament? Write to ahorsun@gmail.com.</p>
- <p class="fine" style="margin-top:28px">Sources: cuescore.com, tournamentapp.de, bbv-billard.liga.nu, epbf.com, wntlivescores.com. Last calculation ${ds(di(GEN))}.</p></div>`;
+ <p class="fine" style="margin-top:28px">Sources: cuescore.com, tournamentapp.de, bbv-billard.liga.nu, hpbv-veveto.de, epbf.com, wntlivescores.com, probilliardseries.com. Last calculation ${ds(di(GEN))}.</p></div>`;
 }
 </script>
 </body>

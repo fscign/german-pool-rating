@@ -156,6 +156,31 @@ if os.path.exists('data/wnt_data.json.gz'):
             d['matches'].append([tid, tid * 1000 + k, ids[0], ids[1], str(sa), str(sb), int(race.group(1)) if race else 0,
                                  int(datetime.datetime(md.year, md.month, md.day, 12).timestamp()), rnd, ''])
 
+# ---------- Predator Pro Billiard Series (PBS, WPA world championships): CueScore tournaments, collected in the Latvian repo ----------
+# Every set is a separate match (decided 4 Nov 2026). Used rows: race, set, set_3_3 (3:3 racks, shootout ignored), set_fixed.
+# Not used: bad, shootout, no_racks. Player ids are CueScore ids, so they join the German CueScore profiles directly.
+PB_M = 2_000_000_000_000
+PB_USE = {'race', 'set', 'set_3_3', 'set_fixed'}
+PB_SKIP = re.compile(r'parasport|wheelchair|exhibition|doubles|one ?pocket|bank', re.I)
+if os.path.exists('data/pbs_data.json.gz'):
+    pb = json.load(gzip.open('data/pbs_data.json.gz', 'rt', encoding='utf-8'))
+    for e in pb['events']:
+        g = re.search(r'\b(8|9|10)-Ball', e.get('discipline') or '', re.I)
+        tid = int(e['id'])
+        if not g or PB_SKIP.search(e.get('name') or '') or tid in SOURCE or not e.get('matches'): continue
+        sd = datetime.date.fromisoformat(e['start'][:10])
+        d['tournaments'].append([tid, e['name'], sd.strftime('%d.%m.%y'), e.get('venue') or '', f"{g.group(1)}-ball", 'PBS', 0, {}])
+        SOURCE[tid] = 'cuescore'
+        for m in e['matches']:
+            mid, setno, rnd, when, race, ia, na, ca, sa, sb, nb, ib, cb, flag = m[:14]
+            if flag not in PB_USE or sa is None or sb is None or not ia or not ib: continue
+            for i, n, c in ((ia, na, ca), (ib, nb, cb)):
+                w = (n or '').split()
+                add_cs_player(str(i), [' '.join(w[:-1]), w[-1] if w else '', c])
+            md = datetime.date.fromisoformat(when[:10]) if when else sd
+            d['matches'].append([tid, PB_M + int(mid) * 10 + int(setno), str(ia), str(ib), str(sa), str(sb), int(race or 0),
+                                 int(datetime.datetime(md.year, md.month, md.day, 12).timestamp()), rnd + (f' set {setno}' if setno else ''), ''])
+
 # ---------- profile merges and fixes (Germany: none yet; add confirmed ones here) ----------
 MANUAL_MERGES = []
 EXCLUDE_PLAYERS = set()     # rated in the background, not shown

@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install numpy requests beautifulsoup4 lxml
-      - name: Get EPBF and Matchroom data from the Latvian repo
+      - name: Get EPBF, Matchroom and PBS data from the Latvian repo
         uses: actions/checkout@v4
         continue-on-error: true      # if the token is missing or expired, the last copies in this repo are used
         with:
@@ -26,7 +26,9 @@ jobs:
           token: ${{ secrets.LV_REPO_TOKEN }}
           path: lv
           sparse-checkout: data
-      - run: cp lv/data/epbf_data.json.gz lv/data/wnt_data.json.gz data/ && rm -rf lv || echo "Latvian repo not reachable, kept the old EPBF/WNT files"
+      - run: |
+          for f in epbf_data.json.gz wnt_data.json.gz pbs_data.json.gz; do cp "lv/data/$f" data/ || echo "Latvian repo: $f not copied, kept the old file"; done
+          rm -rf lv
       - run: sh run_update.sh
       - name: Save new results
         run: |
