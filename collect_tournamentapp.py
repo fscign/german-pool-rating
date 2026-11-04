@@ -88,10 +88,25 @@ def parse_results(h, tab, dt):
             if sid: players[str(sid)] = [name, fl]
     return out, players
 
+def detail_labels(h):
+    """Rows 'Art', 'Disziplin', 'Kategorie' of the tournament page -> (kind, disc, cat) in the list-page codes."""
+    lines = [x.strip() for x in soup(h).get_text('\n').split('\n') if x.strip()]
+    val = lambda k: next((lines[i + 1] for i, x in enumerate(lines[:-1]) if x.rstrip(':').lower() == k), '')
+    art, dis, kat = val('art'), val('disziplin'), val('kategorie')
+    kind = 'WT' if re.search(r'wertung|rangliste', art, re.I) else 'OP' if re.search(r'open', art, re.I) else 'FREI' if art else ''
+    balls = set(re.findall(r'\b(8|9|10)\s*-?\s*ball', dis, re.I))
+    disc = ('Multiball' if len(balls) > 1 or re.search(r'multi', dis, re.I) else f'{balls.pop()}-Ball' if balls
+            else 'Diverse' if re.search(r'divers', dis, re.I) else dis)
+    cat = 'DP' if re.search(r'doppel|paar|scotch', kat, re.I) else 'MAD' if re.search(r'mädchen|maedchen', kat, re.I) else 'DAM' if re.search(r'damen|ladies|frauen', kat, re.I) else kat
+    return kind, disc, cat
+
 def read_tournament(t):
     dt = tdate(t['date'])
     if not dt: return t, None
     h = get(f"kalender-details.php?s=&tID={t['tid']}")
+    if not t['disc']:   # list page without labels (seen on GitHub, 4 Nov 2026): take them from the tournament page
+        k, dsc, c = detail_labels(h)
+        t = dict(t, kind=t['kind'] or k, disc=dsc, cat=t['cat'] or c)
     tabs = list(dict.fromkeys(re.findall(r'rub=rs&(?:amp;)?tabID=(\d+)', h))) or list(dict.fromkeys(re.findall(r'tabID=(\d+)', h)))
     ms, pl = [], {}
     for tab in tabs:
@@ -99,6 +114,17 @@ def read_tournament(t):
         for r in rows: r[0] = t['tid']
         ms += rows; pl.update(p)
     return t, (dt, ms, pl)
+
+def guess_disc(name, ms):
+    """Used when the list page has no discipline label (seen on GitHub, 4 Nov 2026): from the name, else from the match games."""
+    if re.search(r'14\s*[./+]\s*1|straight|dart', name, re.I): return ''
+    hits = set(re.findall(r'\b(8|9|10)\s*-?\s*ball', name, re.I))
+    if len(hits) == 1: return f'{hits.pop()}-Ball'
+    if len(hits) > 1 or re.search(r'multi', name, re.I): return 'Multiball'
+    games = {m[3] for m in ms if m[3] in ('8', '9', '10')}
+    if len(games) == 1: return f'{games.pop()}-Ball'
+    if len(games) > 1: return 'Multiball'
+    return ''
 
 if __name__ == '__main__':
     os.makedirs('data', exist_ok=True)
@@ -122,7 +148,12 @@ if __name__ == '__main__':
     for t, r in res:
         if not r: continue
         dt, ms, pl = r
-        row = [t['tid'], t['name'], f'{dt[0]:02d}.{dt[1]:02d}.{str(dt[2])[2:]}', t['kind'], t['disc'], t['cat'], t['city'], t['status'], t['date']]
+        old = have.get(t['tid'])
+        keep = lambda v, i: v or (old[i] if old and len(old) > i else '')   # the list page sometimes comes without its labels: keep what we had
+        row = [t['tid'], keep(t['name'], 1), f'{dt[0]:02d}.{dt[1]:02d}.{str(dt[2])[2:]}', keep(t['kind'], 3), keep(t['disc'], 4), keep(t['cat'], 5),
+               keep(t['city'], 6), t['status'], t['date']]
+        if not row[4]: row[4] = guess_disc(row[1], ms)
+        if not row[4]: print('no discipline for tournament', t['tid'], row[1], flush=True)
         D['matches'] = [m for m in D['matches'] if m[0] != t['tid']] + ms
         D['tournaments'] = [x for x in D['tournaments'] if x[0] != t['tid']] + [row]
         D['players'].update(pl)
