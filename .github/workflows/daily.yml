@@ -1,0 +1,39 @@
+name: Daily rating update
+on:
+  schedule:
+    - cron: '47 2 * * *'   # every day 02:47 UTC (before the Latvian update at 03:23); off the full hour, when GitHub is busiest
+  workflow_dispatch:       # "Run workflow" button for manual updates
+permissions:
+  contents: write
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install numpy requests beautifulsoup4 lxml
+      - name: Get EPBF and Matchroom data from the Latvian repo
+        uses: actions/checkout@v4
+        continue-on-error: true      # if the token is missing or expired, the last copies in this repo are used
+        with:
+          repository: ${{ github.repository_owner }}/latvian-pool-rating
+          token: ${{ secrets.LV_REPO_TOKEN }}
+          path: lv
+          sparse-checkout: data
+      - run: cp lv/data/epbf_data.json.gz lv/data/wnt_data.json.gz data/ && rm -rf lv || echo "Latvian repo not reachable, kept the old EPBF/WNT files"
+      - run: sh run_update.sh
+      - name: Save new results
+        run: |
+          cat report.txt >> "$GITHUB_STEP_SUMMARY" || true
+          git config user.name "rating-bot"
+          git config user.email "rating-bot@users.noreply.github.com"
+          git add site data
+          git commit -m "Daily update $(date +%Y-%m-%d)" || echo "No changes"
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 10; done
+          exit 1

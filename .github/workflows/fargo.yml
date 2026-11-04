@@ -1,0 +1,32 @@
+name: FargoRate refresh
+on:
+  schedule:
+    - cron: '17 5 * * 0'   # every Sunday 05:17 UTC
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: repo-writes
+  cancel-in-progress: false
+jobs:
+  fargo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install numpy requests beautifulsoup4 lxml
+      - name: Build the player list and look them up on FargoRate
+        run: |
+          python3 -I build_db.py > build_log.txt 2>&1
+          python3 -I fargo_update.py | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Save
+        run: |
+          git config user.name "rating-bot"
+          git config user.email "rating-bot@users.noreply.github.com"
+          git add data/fargo_foreign.json
+          git commit -m "FargoRate refresh $(date +%Y-%m-%d)" || echo "No changes"
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 10; done
+          exit 1
