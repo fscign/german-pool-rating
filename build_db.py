@@ -11,6 +11,9 @@ s = lambda v: v if isinstance(v, str) else ''
 # ---------- CueScore: German tournaments ----------
 CS_GAME = {'8-Ball': '8-ball', '9-Ball': '9-ball', '10-Ball': '10-ball', 'Multiball': 'multiball'}
 SOURCE = {}            # tournament id -> 'cuescore'
+# Events abroad (Aleksandrs 6 Nov 2026): every source except CueScore is collected in full; for events outside Germany the
+# German rating counts only the matches with a German player. Events in Germany and EPBF/Matchroom/PBS count all matches.
+ABROAD_GER_ONLY = set()
 CSIDS = set()          # player ids that come from CueScore
 CS_GERMAN = set()      # CueScore ids of German players with another flag (to fill in)
 CS_EXCLUDE = set()     # placeholder profiles
@@ -66,9 +69,6 @@ TA_T, TA_P, TA_M = 7_000_000_000, 8_000_000_000, 7_000_000_000   # id offsets, s
 TA_GAME = {'8': '8-ball', '9': '9-ball', '10': '10-ball', '8910': 'multiball', 'Multiball': 'multiball', 'Diverse': 'multiball',
            '8-Ball': '8-ball', '9-Ball': '9-ball', '10-Ball': '10-ball'}
 TA_ABROAD = {'Ettelbruck', 'Wien', 'Tallinn', 'Worben', 'Eupen / Belgien'}   # tournamentapp.de events outside Germany (checked 3 Nov 2026)
-# Events abroad (Aleksandrs 6 Nov 2026): every source except CueScore is collected in full; for events outside Germany the
-# German rating counts only the matches with a German player. Events in Germany and EPBF/Matchroom/PBS count all matches.
-ABROAD_GER_ONLY = set()
 TA_CC = {'ger': 'GER', 'aut': 'AUT', 'sui': 'SUI', 'ned': 'NED', 'lux': 'LUX', 'fra': 'FRA', 'ita': 'ITA', 'pol': 'POL', 'tur': 'TUR'}
 if os.path.exists('data/ta_raw.json'):
     ta = json.load(open('data/ta_raw.json', encoding='utf-8'))
@@ -184,6 +184,24 @@ if os.path.exists('data/pbs_data.json.gz'):
             md = datetime.date.fromisoformat(when[:10]) if when else sd
             d['matches'].append([tid, PB_M + int(mid) * 10 + int(setno), str(ia), str(ib), str(sa), str(sb), int(race or 0),
                                  int(datetime.datetime(md.year, md.month, md.day, 12).timestamp()), rnd + (f' set {setno}' if setno else ''), ''])
+
+# ---------- CueScore events abroad: other countries' CueScore data (added 6 Nov 2026) ----------
+# Collected in other repos (polish-pool-rating: Poland + Czech Republic) and copied here by the daily workflow.
+# Only matches with a German player count (ABROAD_GER_ONLY). Player ids are CueScore ids, so they join German profiles directly.
+CS_ABROAD = [('data/pl_cuescore_raw.json.gz', 'data/pl_team_raw.json'), ('data/cz_cuescore_raw.json.gz', 'data/cz_team_raw.json')]
+for ev_file, team_file in CS_ABROAD:
+    for f_, is_team in ((ev_file, False), (team_file, True)):
+        if not os.path.exists(f_): continue
+        xs = json.load(gzip.open(f_, 'rt', encoding='utf-8') if f_.endswith('.gz') else open(f_, encoding='utf-8'))
+        new_t = set()
+        for t in xs['tournaments']:
+            if t[0] in SOURCE: continue                 # already loaded (e.g. a PBS event): keep the earlier rule
+            add_cs_tournament(t, 'team' if is_team else '')
+            if t[0] in SOURCE: new_t.add(t[0]); ABROAD_GER_ONLY.add(t[0])
+            if is_team and t[0] in SOURCE: TEAM_SINGLES.add(t[0])
+        for k, v in xs['players'].items(): add_cs_player(name_id(k) if is_team else k, v)
+        for x in xs['matches']:
+            if x[0] in new_t: add_cs_match(x, name_id if is_team else str)
 
 # ---------- profile merges and fixes (Germany: none yet; add confirmed ones here) ----------
 MANUAL_MERGES = []
