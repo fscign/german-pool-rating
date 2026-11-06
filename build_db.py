@@ -338,9 +338,9 @@ if os.path.exists('data/hessen_veveto.json.gz'):
 # Mostly North Rhine-Westphalia clubs. Players have Score Trek ids (some entries are names only). No nationality:
 # country from a same-name player in the other sources, otherwise GER. All events count, also those in Belgium (Eupen) and
 # Austria (Aleksandrs 6 Nov 2026: add everything, the data will also be used for a European rating).
-# Singles only (a side with two players is doubles), 8/9/10-ball only (14.1 and others skipped), no handicap games.
+# Singles only (a side with two players is doubles), 8/9/10-ball and Multiball (14.1 skipped), no handicap games.
 ST_T, ST_P, ST_M = 1_000_000_000, 2_000_000_000, 1_000_000_000_000
-ST_GAME = {'game08': '8-Ball', 'game09': '9-Ball', 'game10': '10-Ball'}
+ST_GAME = {'game08': '8-Ball', 'game09': '9-Ball', 'game10': '10-Ball', 'gameMulti': 'Multiball'}   # Multiball counts in Germany
 if os.path.exists('data/scoretrek_raw.json.gz'):
     import hashlib
     st = json.load(gzip.open('data/scoretrek_raw.json.gz', 'rt', encoding='utf-8'))
@@ -486,11 +486,19 @@ canon = {}
 def find(k):
     while canon.get(k, k) != k: k = canon[k]
     return k
-# Player ids already on the site keep their id when profiles are merged, so page links never break
-try: KEEP_IDS = {str(p[0]) for p in json.load(open('site/data.json', encoding='utf-8'))['players']}
-except Exception: KEEP_IDS = set()
+# Player ids already on the site keep their id when profiles are merged, so page links never break.
+# data/site_ids.json remembers when each id was first shown; in a merged group the oldest shown id stays the main id
+# (6 Nov 2026: a new source's profile must never take over a player's existing id).
+SITE_IDS_FILE = 'data/site_ids.json'
+try: SITE_IDS = json.load(open(SITE_IDS_FILE, encoding='utf-8'))
+except Exception: SITE_IDS = {}
+try:
+    for p_ in json.load(open('site/data.json', encoding='utf-8'))['players']: SITE_IDS.setdefault(str(p_[0]), datetime.date.today().isoformat())
+except Exception: pass
+KEEP_IDS = set(SITE_IDS)
+def keep_order(k): return (k not in KEEP_IDS, SITE_IDS.get(k, ''), -cnt[k], int(k))
 def union(ids):
-    roots = sorted({find(k) for k in ids}, key=lambda k: (k not in KEEP_IDS, -cnt[k], int(k)))   # fixed order, so ids stay the same between runs
+    roots = sorted({find(k) for k in ids}, key=keep_order)   # fixed order, so ids stay the same between runs
     for r in roots[1:]: canon[r] = roots[0]
 groups = collections.defaultdict(list)
 for k, v in P.items():
@@ -514,13 +522,20 @@ for cid in sorted(CSIDS, key=int):
     if cid in CS_MANUAL: attach(cid, CS_MANUAL[cid]); continue
     key = tuple(sorted([ph(s(v[0])), ph(s(v[1]))]))
     if key in ts_index:
-        roots = sorted({find(k) for k in ts_index[key]}, key=lambda r: (-cnt[r], int(r)))
+        roots = sorted({find(k) for k in ts_index[key]}, key=keep_order)   # an id already shown on the site first, then most matches
         attach(cid, roots[0])
     elif is_person(v) and not ABBREV(v): cs_new[(v[2],) + key].append(cid)   # same name and country: merged (abbreviated names like "Alex W." are not)
 for ids in cs_new.values():
     if len(ids) > 1: union(ids)
 LATE_MERGES = []   # [main id, other id] confirmed by Aleksandrs
 for ids in LATE_MERGES: union(ids)
+# every merged group keeps its oldest shown id as the main id (the CueScore attach step above does not look at site ids)
+members = collections.defaultdict(list)
+for k in set(cnt) | set(canon): members[find(k)].append(k)
+for r, ms in members.items():
+    best = min(ms, key=keep_order)
+    if best != r and best in KEEP_IDS:
+        canon.pop(best, None); canon[r] = best
 C = lambda k: find(k)
 
 # ---------- everyone in the counted events is rated; only German players are shown on the site ----------
@@ -646,6 +661,9 @@ for m in matches:
     db.execute('INSERT INTO matches VALUES(?,?,?,?,?,?,?,?,?,?,?,?)', (m['mid'], msrc, str(m['mid'] - CS_MATCH_OFFSET if msrc == 'cuescore' else m['mid']), m['tid'], m['date'].isoformat(), m['stage'],
                int(m['race']) if str(m['race']).isdigit() else None, int(m['a']), int(m['b']), m['sa'], m['sb'], T[m['tid']]['game']))
 db.commit()
+for k in used:   # remember every id shown on the site (first date shown)
+    if k in SHOWN: SITE_IDS.setdefault(str(k), datetime.date.today().isoformat())
+json.dump(SITE_IDS, open(SITE_IDS_FILE, 'w', encoding='utf-8'), separators=(',', ':'), sort_keys=True)
 print('tournaments total', len(T), 'used', len({m['tid'] for m in matches}))
 print('excluded', collections.Counter(t['excl'] for t in T.values()))
 print('dropped odd long matches', sum(odd_long.values()), 'in', len(odd_long), 'events')
