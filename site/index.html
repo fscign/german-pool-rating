@@ -228,7 +228,7 @@ tr.pin.last td{border-bottom:2px solid var(--gold2)}
  <div class="lng" role="group" aria-label="Sprache / Language"><button data-l="de">DE</button><button data-l="en">EN</button></div>
 </div></header>
 <main class="in" id="app"><div class="load" data-t="loading">Ratings werden geladen</div></main>
-<footer class="foot"><div class="in"><span data-t="fBrand">Pool-Rating Deutschland</span><span data-t="fUnoff">Inoffizielles Rating auf Basis gesammelter Turnier- und Ligaergebnisse</span><span data-t="fSources">Ergebnisse von CueScore, TournamentApp, Score Trek, nuLiga, VeVeTo, EPBF, Matchroom und PBS</span><a href="#support" data-t="fSupport">Projekt unterstützen</a></div></footer>
+<footer class="foot"><div class="in"><span data-t="fBrand">Pool-Rating Deutschland</span><span data-t="fUnoff">Inoffizielles Rating auf Basis gesammelter Turnier- und Ligaergebnisse</span><span data-t="fSources">Ergebnisse von CueScore, TournamentApp, Score Trek, nuLiga, VeVeTo, EPBF, Matchroom und PBS</span><span><a href="#support" data-t="fSupport">Projekt unterstützen</a> &nbsp; <a href="#privacy" data-t="fPrivacy">Datenschutz</a></span></div></footer>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -242,7 +242,23 @@ const back=y=>{const d=new Date(NOW);d.setUTCMonth(d.getUTCMonth()-Math.round(y*
 const fmt=n=>Number(n).toLocaleString(LANG==='de'?'de-DE':'en-GB');
 const mem=(k,v)=>{try{if(v===undefined)return JSON.parse(localStorage.getItem('gpr_'+k));localStorage.setItem('gpr_'+k,JSON.stringify(v))}catch(e){return null}};
 const TX={
-en:{brand:'GERMAN <b>POOL</b> RATING',title:'German Pool Rating',nRanking:'Ranking',nLeaders:'Leaders',nH2H:'H2H',nTournaments:'Tournaments',nInfo:'Info',nSupport:'Support',
+en:{brand:'GERMAN <b>POOL</b> RATING',fPrivacy:'Privacy',privacy:()=>`<h1>Privacy</h1>
+ <p class="sub">What happens with data on this site</p>
+ <h2>Responsible</h2>
+ <p>Aleksandrs Horsuns, email poolrating@gmail.com.</p>
+ <h2>No cookies, no tracking</h2>
+ <p>This site sets no cookies, uses no tracking or analytics tools and shows no ads. The fonts are loaded from this site itself, not from Google or other outside services.</p>
+ <h2>Stored in your browser</h2>
+ <p>Your language choice and the players you follow (☆) are saved only in your own browser (local storage) so the site remembers them on your next visit. This data never leaves your device. You can delete it at any time by clearing the site data in your browser.</p>
+ <h2>Hosting</h2>
+ <p>The site is hosted on Cloudflare Pages (Cloudflare, Inc.). When you open the site, Cloudflare processes technically necessary data such as your IP address to deliver the pages and protect the site against attacks. This is based on the legitimate interest in providing the site securely (Art. 6(1)(f) GDPR).</p>
+ <h2>Links to other sites</h2>
+ <p>The site links to Ko-fi and to the result sites (CueScore, TournamentApp and others). When you follow such a link, the privacy rules of that site apply.</p>
+ <h2>Player data</h2>
+ <p>Player names and match results come from publicly available tournament and league results. They are used only to calculate and show the rating. If you are listed and want a correction, or do not want to be shown, write to poolrating@gmail.com.</p>
+ <h2>Your rights</h2>
+ <p>You have the right to access, correction, deletion and restriction of your data and to object to its processing. You can also complain to a data protection authority.</p>`,
+ title:'German Pool Rating',nRanking:'Ranking',nLeaders:'Leaders',nH2H:'H2H',nTournaments:'Tournaments',nInfo:'Info',nSupport:'Support',
  search:'Search player',loading:'Loading ratings',loadErr:'The rating data could not be loaded. Reload the page to try again.',noPlayer:'No player found',
  fBrand:'German Pool Rating',fUnoff:'Unofficial rating based on collected tournament and league results',fSources:'Results from CueScore, TournamentApp, Score Trek, nuLiga, VeVeTo, EPBF, Matchroom and PBS',fSupport:'Support the project',
  follow:'Follow this player',unfollow:'Stop following',provTip:'Provisional: fewer than 200 racks',prov:'PROV',
@@ -295,7 +311,23 @@ en:{brand:'GERMAN <b>POOL</b> RATING',title:'German Pool Rating',nRanking:'Ranki
  <h2>Contact and corrections</h2>
  <p>The rating is built and maintained by Aleksandrs Horsuns. A wrong profile merge or a missing tournament? Do you know a website or platform with pool results that is not included yet? Write to poolrating@gmail.com.</p>
  <p class="fine" style="margin-top:28px">Sources: cuescore.com, tournamentapp.de, bbv-billard.liga.nu, hpbv-veveto.de, battle.score-trek.de, epbf.com, wntlivescores.com, probilliardseries.com. Last calculation ${d}.</p>`},
-de:{brand:'POOL-RATING <b>DEUTSCHLAND</b>',title:'Pool-Rating Deutschland',nRanking:'Rangliste',nLeaders:'Bestenlisten',nH2H:'H2H',nTournaments:'Turniere',nInfo:'Info',nSupport:'Unterstützen',
+de:{brand:'POOL-RATING <b>DEUTSCHLAND</b>',fPrivacy:'Datenschutz',privacy:()=>`<h1>Datenschutz</h1>
+ <p class="sub">Was auf dieser Seite mit Daten passiert</p>
+ <h2>Verantwortlich</h2>
+ <p>Aleksandrs Horsuns, E-Mail poolrating@gmail.com.</p>
+ <h2>Keine Cookies, kein Tracking</h2>
+ <p>Diese Seite setzt keine Cookies, verwendet keine Tracking- oder Analysewerkzeuge und zeigt keine Werbung. Die Schriftarten werden von dieser Seite selbst geladen, nicht von Google oder anderen externen Diensten.</p>
+ <h2>Im Browser gespeichert</h2>
+ <p>Deine Sprachwahl und die Spieler, denen du folgst (☆), werden nur in deinem eigenen Browser gespeichert (Local Storage), damit die Seite sie beim nächsten Besuch noch kennt. Diese Daten verlassen dein Gerät nicht. Du kannst sie jederzeit löschen, indem du die Websitedaten in deinem Browser entfernst.</p>
+ <h2>Hosting</h2>
+ <p>Die Seite wird bei Cloudflare Pages (Cloudflare, Inc.) gehostet. Beim Aufruf verarbeitet Cloudflare technisch notwendige Daten wie deine IP-Adresse, um die Seiten auszuliefern und die Seite vor Angriffen zu schützen. Grundlage ist das berechtigte Interesse an einer sicheren Bereitstellung der Seite (Art. 6 Abs. 1 lit. f DSGVO).</p>
+ <h2>Links zu anderen Seiten</h2>
+ <p>Die Seite verlinkt auf Ko-fi und auf die Ergebnisseiten (CueScore, TournamentApp und andere). Wenn du einem solchen Link folgst, gelten die Datenschutzbestimmungen der jeweiligen Seite.</p>
+ <h2>Spielerdaten</h2>
+ <p>Namen und Ergebnisse der Spieler stammen aus öffentlich zugänglichen Turnier- und Ligaergebnissen. Sie werden nur verwendet, um das Rating zu berechnen und anzuzeigen. Wenn du hier aufgeführt bist und eine Korrektur wünschst oder nicht angezeigt werden möchtest, schreib an poolrating@gmail.com.</p>
+ <h2>Deine Rechte</h2>
+ <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner Daten sowie auf Widerspruch gegen die Verarbeitung. Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren.</p>`,
+ title:'Pool-Rating Deutschland',nRanking:'Rangliste',nLeaders:'Bestenlisten',nH2H:'H2H',nTournaments:'Turniere',nInfo:'Info',nSupport:'Unterstützen',
  search:'Spieler suchen',loading:'Ratings werden geladen',loadErr:'Die Rating-Daten konnten nicht geladen werden. Bitte lade die Seite neu.',noPlayer:'Kein Spieler gefunden',
  fBrand:'Pool-Rating Deutschland',fUnoff:'Inoffizielles Rating auf Basis gesammelter Turnier- und Ligaergebnisse',fSources:'Ergebnisse von CueScore, TournamentApp, Score Trek, nuLiga, VeVeTo, EPBF, Matchroom und PBS',fSupport:'Projekt unterstützen',
  follow:'Spieler folgen',unfollow:'Nicht mehr folgen',provTip:'Vorläufig: weniger als 200 Spiele',prov:'VORL.',
@@ -391,6 +423,7 @@ function route(){
  if((m=h.match(/^h2h(?:-(\d+)-(\d+))?$/)))return h2hPage(m[1],m[2]);
  if(h==='info')return info();
  if(h==='support')return support();
+ if(h==='privacy')return privacy();
  ranking();
 }
 
@@ -746,6 +779,7 @@ function support(){
  <p style="margin:26px 0"><a class="cta" href="https://ko-fi.com/ahorsun" target="_blank" rel="noopener">${t('sBtn')}</a></p>
  <p class="fine">${t('sFine')}</p></div>`;
 }
+function privacy(){$('#app').innerHTML=`<div class="text">${t('privacy')}</div>`}
 function info(){
  const yrs=Object.values(TO).map(x=>+x.date.slice(0,4));
  $('#app').innerHTML=`<div class="text">${t('info',fmt(Object.keys(TO).length),fmt(D.matches.length),fmt(Object.values(PL).filter(p=>p.de).length),Math.min(...yrs),Math.max(...yrs),ds(di(GEN)))}</div>`;
