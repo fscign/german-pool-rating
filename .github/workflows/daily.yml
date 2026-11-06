@@ -1,7 +1,7 @@
 name: Daily rating update
 on:
   schedule:
-    - cron: '47 2 * * *'   # every day 02:47 UTC (before the Latvian update at 03:23); off the full hour, when GitHub is busiest
+    - cron: '47 2 * * *'   # every day 02:47 UTC, after the collection workflows (01:07-02:11) and before the Latvian update at 03:23; off the full hour, when GitHub is busiest
   workflow_dispatch:       # "Run workflow" button for manual updates
 permissions:
   contents: write
@@ -11,7 +11,7 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -29,10 +29,22 @@ jobs:
       - run: |
           for f in epbf_data.json.gz wnt_data.json.gz pbs_data.json.gz; do cp "lv/data/$f" data/ || echo "Latvian repo: $f not copied, kept the old file"; done
           rm -rf lv
-      - run: sh run_update.sh
+      - name: Build the rating from the collected data (each source is collected by its own workflow before this)
+        run: sh run_update.sh --no-collect
       - name: Save new results
         run: |
           cat report.txt >> "$GITHUB_STEP_SUMMARY" || true
+          # Data sources: when each collector last ran and whether it worked (a source not collected today keeps older data)
+          today=$(date -u +%Y-%m-%d)
+          {
+            echo; echo "### Data sources"; echo; echo "| Source | Last collected | Result | Last log line |"; echo "|---|---|---|---|"
+            for f in data/status/*.txt; do
+              [ -f "$f" ] || continue
+              n=$(basename "$f" .txt); IFS='|' read -r when res last < "$f"
+              case "$when" in "$today"*) flag="";; *) flag=" ⚠ not today";; esac
+              echo "| $n | $when$flag | $res | $last |"
+            done
+          } >> "$GITHUB_STEP_SUMMARY" || true
           git config user.name "rating-bot"
           git config user.email "rating-bot@users.noreply.github.com"
           git add site data

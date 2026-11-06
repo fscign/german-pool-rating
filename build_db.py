@@ -334,6 +334,67 @@ if os.path.exists('data/hessen_veveto.json.gz'):
             d['matches'].append([tid, HV_M + k_m, a, b, sa, sb, int(race.group(1)) if race else 0,
                                  int(datetime.datetime(day.year, day.month, day.day, 12).timestamp()), f'{g.group(1)}-Ball', ''])
 
+# ---------- Score Trek Battle (battle.score-trek.de): tournaments and league match days (added 6 Nov 2026) ----------
+# Mostly North Rhine-Westphalia clubs. Players have Score Trek ids (some entries are names only). No nationality:
+# country from a same-name player in the other sources, otherwise GER. All events count, also those in Belgium (Eupen) and
+# Austria (Aleksandrs 6 Nov 2026: add everything, the data will also be used for a European rating).
+# Singles only (a side with two players is doubles), 8/9/10-ball only (14.1 and others skipped), no handicap games.
+ST_T, ST_P, ST_M = 1_000_000_000, 2_000_000_000, 1_000_000_000_000
+ST_GAME = {'game08': '8-Ball', 'game09': '9-Ball', 'game10': '10-Ball'}
+if os.path.exists('data/scoretrek_raw.json.gz'):
+    import hashlib
+    st = json.load(gzip.open('data/scoretrek_raw.json.gz', 'rt', encoding='utf-8'))
+    def st_hash(x, mod): return int(hashlib.sha1(x.encode('utf-8')).hexdigest()[:15], 16) % mod
+    known_st = {}
+    for k, v in P.items():
+        if is_person(v): known_st.setdefault(tuple(sorted([ph(s(v[0])), ph(s(v[1]))])), v[2])
+    def st_player(q):
+        name = re.sub(r'\s+', ' ', s(q.get('fullName')) or s((q.get('player') or {}).get('name'))).strip()
+        w = name.split(' ')
+        if len(w) < 2 or not re.search(r'[^\W\d_]', name): return None
+        key = s(q.get('playerId')) or s((q.get('player') or {}).get('id')) or 'name:' + name.lower()
+        pid = str(ST_P + st_hash(key, 1_000_000_000))
+        if pid not in P:
+            P[pid] = [w[-1], ' '.join(w[:-1]), known_st.get(tuple(sorted([ph(w[-1]), ph(' '.join(w[:-1]))])), 'GER'), '', None, 'm']
+        return pid
+    st_skipped = collections.Counter()
+    def st_event(kind, eid, ev, name, day, city, org, url, team_singles):
+        teams = {t['id']: t for t in ev.get('teams') or []}
+        games = []
+        for gm in ev.get('games') or []:
+            gt = ST_GAME.get(gm.get('gameType'))
+            if not gt: st_skipped['other game'] += 1; continue
+            if gm.get('handicap1') or gm.get('handicap2'): st_skipped['handicap'] += 1; continue
+            ta, tb = teams.get(gm.get('team1')), teams.get(gm.get('team2'))
+            if not ta or not tb: continue                                   # bye
+            if len(ta['participants']) != 1 or len(tb['participants']) != 1: st_skipped['doubles'] += 1; continue
+            a, b = st_player(ta['participants'][0]), st_player(tb['participants'][0])
+            if not a or not b: continue
+            games.append((gm, gt, a, b))
+        if not games: return
+        tid = ST_T + st_hash(kind + eid, 900_000_000)
+        kinds = {gt for _, gt, _, _ in games}
+        disc = next(iter(kinds)).lower() if len(kinds) == 1 else 'multiball'
+        d['tournaments'].append([tid, name, day.strftime('%d.%m.%y'), city, disc, org, 0, {}])
+        SOURCE[tid] = 'scoretrek'; EXT_URL[tid] = url
+        if team_singles: TEAM_SINGLES.add(tid)
+        for gm, gt, a, b in games:
+            ts = gm.get('dateTimeStartTimestamp') or int(datetime.datetime(day.year, day.month, day.day, 12).timestamp())
+            d['matches'].append([tid, ST_M + st_hash(gm['id'] + eid, 999_000_000_000), a, b, str(gm.get('result1')), str(gm.get('result2')),
+                                 int(gm.get('gameTarget') or 0), int(ts), gt if team_singles else '', ''])
+    for eid, ev in sorted(st['tournaments'].items()):
+        t = ev['t']
+        if t.get('isCancelled') or not t.get('dateTimeTournamentDate'): continue
+        st_event('t', eid, ev, s(t.get('title')).strip() or 'Score Trek Turnier', datetime.date.fromisoformat(t['dateTimeTournamentDate'][:10]),
+                 s(t.get('locationCity')), s(t.get('clubName')) or 'Score Trek', f'https://battle.score-trek.de/tournament/live/{eid}', False)
+    for eid, ev in sorted(st['matchdays'].items()):
+        md = ev['md']
+        if not md.get('dateTimeMatchdayDate'): continue
+        st_event('m', eid, ev, f"{s(md.get('groupLabel'))} {s(md.get('seasonLabel'))}, {s(md.get('title'))}".strip(),
+                 datetime.date.fromisoformat(md['dateTimeMatchdayDate'][:10]), s(md.get('locationCity')), 'Score Trek Liga',
+                 f'https://battle.score-trek.de/league/matchday/{eid}', True)
+    print('Score Trek skipped', dict(st_skipped))
+
 # ---------- tournaments ----------
 # BPL MINI events checked on CueScore (description / handicap setting): 2024-2025 MINIs were played without handicap
 MINI_NO_HCP = {40348549, 41569429, 46429630, 49205425, 50947813, 56092414, 60456046}
@@ -573,7 +634,7 @@ for k in sorted(used, key=int):
     db.execute('INSERT INTO players VALUES(?,?,?,?,?,?,?,?,?,NULL,?)', (int(k), first, last, v[2], city, birth, v[5], ts_id, cs_id, int(k in SHOWN)))
 for k, v in P.items():
     if is_person(v) and C(k) in used:
-        db.execute('INSERT INTO player_profiles VALUES(?,?,?,?)', ('cuescore' if k in CSIDS else 'tournamentapp' if TA_P <= int(k) < 9_000_000_000 else 'epbf' if EP_P <= int(k) < TA_T else 'wnt' if WN_P <= int(k) < EP_T else 'nuliga' if BB_P <= int(k) < WN_T else 'veveto' if HV_P <= int(k) < BB_T else 'other', k, int(C(k)), f'{s(v[1])} {s(v[0])}'))
+        db.execute('INSERT INTO player_profiles VALUES(?,?,?,?)', ('cuescore' if k in CSIDS else 'tournamentapp' if TA_P <= int(k) < 9_000_000_000 else 'epbf' if EP_P <= int(k) < TA_T else 'wnt' if WN_P <= int(k) < EP_T else 'nuliga' if BB_P <= int(k) < WN_T else 'veveto' if HV_P <= int(k) < BB_T else 'scoretrek' if ST_P <= int(k) < ST_P + 1_000_000_000 else 'other', k, int(C(k)), f'{s(v[1])} {s(v[0])}'))
 for t in T.values():
     src = SOURCE.get(t['id'], 'tournamentservice')
     url = f"https://cuescore.com/tournament/x/{t['id']}" if src == 'cuescore' else EXT_URL.get(t['id']) or f"https://www.tournamentapp.de/kalender-details.php?tID={t['id'] - TA_T}"

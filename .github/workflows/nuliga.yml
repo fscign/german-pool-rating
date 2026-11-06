@@ -1,0 +1,17 @@
+name: Collect nuLiga Bavaria
+on:
+  schedule:
+    - cron: '43 1 * * *'   # 01:43 UTC daily
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: collect-nuliga
+  cancel-in-progress: false
+jobs:
+  collect:
+    uses: ./.github/workflows/collect.yml
+    with:
+      script: collect_nuliga.py
+      files: data/bbv_nuliga_data.json.gz
+      timeout: 90

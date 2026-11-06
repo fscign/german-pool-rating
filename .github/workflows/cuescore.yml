@@ -1,0 +1,17 @@
+name: Collect CueScore
+on:
+  schedule:
+    - cron: '7 1 * * *'   # 01:07 UTC daily
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: collect-cuescore
+  cancel-in-progress: false
+jobs:
+  collect:
+    uses: ./.github/workflows/collect.yml
+    with:
+      script: collect_cuescore.py
+      files: data/cuescore_raw.json.gz
+      timeout: 120

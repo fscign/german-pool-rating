@@ -1,0 +1,39 @@
+# Shared steps for the collection workflows (one per source). Each source runs on its own: if one site is down,
+# only that source keeps yesterday's data, and the daily rating update still runs with everything else.
+name: Collect (shared steps)
+on:
+  workflow_call:
+    inputs:
+      script: {required: true, type: string}     # collector to run, e.g. collect_veveto.py
+      files:  {required: true, type: string}     # data file(s) it writes, saved to the repo
+      timeout: {required: false, type: number, default: 120}
+permissions:
+  contents: write
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: ${{ inputs.timeout }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install numpy requests beautifulsoup4 lxml
+      - name: Collect
+        id: collect
+        run: python3 -I ${{ inputs.script }} 2>&1 | tee collect_log.txt; exit ${PIPESTATUS[0]}
+        shell: bash
+      - name: Save the collected data (also after a failed or partial run, so nothing read is lost)
+        if: always()
+        run: |
+          { echo '```'; tail -40 collect_log.txt; cat update_log.txt 2>/dev/null; echo '```'; } >> "$GITHUB_STEP_SUMMARY" || true
+          # status line per source, shown in the daily rating update's summary (data/status/<collector>.txt)
+          mkdir -p data/status
+          res="${{ steps.collect.outcome }}"; [ "$res" = "success" ] && res=OK || res=FAILED
+          echo "$(date -u +'%Y-%m-%d %H:%M') UTC | $res | $(grep -v '^\s*$' collect_log.txt | tail -1 | cut -c1-200)" > "data/status/${{ inputs.script }}.txt"
+          git config user.name "rating-bot"
+          git config user.email "rating-bot@users.noreply.github.com"
+          git add ${{ inputs.files }} data/status || true
+          git commit -m "Collect ${{ inputs.script }} $(date +%Y-%m-%d)" || { echo "No changes"; exit 0; }
+          for i in 1 2 3 4 5; do git pull --rebase && git push && exit 0; sleep 15; done
+          exit 1
