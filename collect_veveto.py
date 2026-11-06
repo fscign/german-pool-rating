@@ -79,7 +79,11 @@ todo = [m for m in D['matches'] if m.get('status') == 'Gespielt'
 read = 0
 for m in todo:
     h = get(f"/spielart/1/spielbetrieb/1/saison/{m['s']}/spielergebnisse/{m['id']}/anzeige")
-    if h: D['details'][str(m['id'])] = report_text(h); read += 1
+    if h:
+        t = report_text(h)
+        pn = re.search(r'Partie-Nr\.:\n(\d+)', t)
+        if pn and pn.group(1) == str(m.get('number')): D['details'][str(m['id'])] = t; read += 1
+        else: m['status'] = 'not pool'   # snooker match ids open a pool report with the same id (6 Nov 2026): not stored, not read again
 print(f'VeVeTo Hessen: seasons {probe}, matches listed {len(fresh_m)}, reports read {read}/{len(todo)}, stored {len(D["details"])}')
 
 D['collected'] = datetime.datetime.utcnow().isoformat() + 'Z'; D['source'] = 'hpbv-veveto.de'

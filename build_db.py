@@ -308,6 +308,8 @@ if os.path.exists('data/hessen_veveto.json.gz'):
     for m in sorted(hv['matches'], key=lambda m: m['id']):
         txt = hv['details'].get(str(m['id']))
         if not txt: continue
+        pn = re.search(r'Partie-Nr\.:\n(\d+)', txt)   # report ids are shared with the snooker seasons: the report must be this match (6 Nov 2026)
+        if not pn or str(m.get('number')) != pn.group(1): continue
         dm = re.search(r'Datum:\n(\d\d)\.(\d\d)\.(\d{4})', txt)
         if not dm: continue
         day = datetime.date(int(dm.group(3)), int(dm.group(2)), int(dm.group(1)))
@@ -482,6 +484,7 @@ for i, t1 in enumerate(tids):
         ov = len(by_t[t1] & by_t[t2])
         if ov and ov >= 0.5 * min(len(by_t[t1]), len(by_t[t2])):
             sp = [t for t in (t1, t2) if T[t]['name'].endswith(', Spieltag')]   # nuLiga league day: drop only the repeated games, not the day
+            if len(sp) == 2: continue   # two league match days are never copies of each other
             if sp and len(sp) == 1:
                 other = t2 if sp[0] == t1 else t1
                 SAME_GAMES[sp[0]] |= by_t[other]
