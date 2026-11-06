@@ -65,14 +65,18 @@ if os.path.exists('data/team_raw.json'):
 TA_T, TA_P, TA_M = 7_000_000_000, 8_000_000_000, 7_000_000_000   # id offsets, so ids never clash with CueScore
 TA_GAME = {'8': '8-ball', '9': '9-ball', '10': '10-ball', '8910': 'multiball', 'Multiball': 'multiball', 'Diverse': 'multiball',
            '8-Ball': '8-ball', '9-Ball': '9-ball', '10-Ball': '10-ball'}
-TA_ABROAD = {'Ettelbruck', 'Wien', 'Tallinn', 'Worben', 'Eupen / Belgien', 'Demo'}   # tournamentapp.de events outside Germany (checked 3 Nov 2026)
+TA_ABROAD = {'Ettelbruck', 'Wien', 'Tallinn', 'Worben', 'Eupen / Belgien'}   # tournamentapp.de events outside Germany (checked 3 Nov 2026)
+# Events abroad (Aleksandrs 6 Nov 2026): every source except CueScore is collected in full; for events outside Germany the
+# German rating counts only the matches with a German player. Events in Germany and EPBF/Matchroom/PBS count all matches.
+ABROAD_GER_ONLY = set()
 TA_CC = {'ger': 'GER', 'aut': 'AUT', 'sui': 'SUI', 'ned': 'NED', 'lux': 'LUX', 'fra': 'FRA', 'ita': 'ITA', 'pol': 'POL', 'tur': 'TUR'}
 if os.path.exists('data/ta_raw.json'):
     ta = json.load(open('data/ta_raw.json', encoding='utf-8'))
     for t in ta['tournaments']:
         tid, name, date, kind, disc, cat, city = t[:7]
         if cat == 'DP' or disc not in TA_GAME: continue
-        if city in TA_ABROAD or re.search(r'\btest\b|\bdemo\b', name, re.I): continue   # only tournaments held in Germany
+        if city == 'Demo' or re.search(r'\btest\b|\bdemo\b', name, re.I): continue
+        if city in TA_ABROAD: ABROAD_GER_ONLY.add(TA_T + tid)   # held abroad: only matches with a German count
         if cat in ('DAM', 'MAD'): name += ' (Damen)'
         d['tournaments'].append([TA_T + tid, name, date, city, TA_GAME[disc], 'tournamentapp.de', 0, {}])
         SOURCE[TA_T + tid] = 'tournamentapp'
@@ -336,8 +340,8 @@ if os.path.exists('data/hessen_veveto.json.gz'):
 
 # ---------- Score Trek Battle (battle.score-trek.de): tournaments and league match days (added 6 Nov 2026) ----------
 # Mostly North Rhine-Westphalia clubs. Players have Score Trek ids (some entries are names only). No nationality:
-# country from a same-name player in the other sources, otherwise GER. All events count, also those in Belgium (Eupen) and
-# Austria (Aleksandrs 6 Nov 2026: add everything, the data will also be used for a European rating).
+# country from a same-name player in the other sources, otherwise GER. Everything is collected; events abroad (Belgium/Eupen,
+# Austria) count only the matches with a German player (ABROAD_GER_ONLY).
 # Singles only (a side with two players is doubles), 8/9/10-ball and Multiball (14.1 skipped), no handicap games.
 ST_T, ST_P, ST_M = 1_000_000_000, 2_000_000_000, 1_000_000_000_000
 ST_GAME = {'game08': '8-Ball', 'game09': '9-Ball', 'game10': '10-Ball', 'gameMulti': 'Multiball'}   # Multiball counts in Germany
@@ -358,6 +362,7 @@ if os.path.exists('data/scoretrek_raw.json.gz'):
             P[pid] = [w[-1], ' '.join(w[:-1]), known_st.get(tuple(sorted([ph(w[-1]), ph(' '.join(w[:-1]))])), 'GER'), '', None, 'm']
         return pid
     st_skipped = collections.Counter()
+    ST_ABROAD = set()
     def st_event(kind, eid, ev, name, day, city, org, url, team_singles):
         teams = {t['id']: t for t in ev.get('teams') or []}
         games = []
@@ -377,6 +382,7 @@ if os.path.exists('data/scoretrek_raw.json.gz'):
         disc = next(iter(kinds)).lower() if len(kinds) == 1 else 'multiball'
         d['tournaments'].append([tid, name, day.strftime('%d.%m.%y'), city, disc, org, 0, {}])
         SOURCE[tid] = 'scoretrek'; EXT_URL[tid] = url
+        if kind + eid in ST_ABROAD: ABROAD_GER_ONLY.add(tid)
         if team_singles: TEAM_SINGLES.add(tid)
         for gm, gt, a, b in games:
             ts = gm.get('dateTimeStartTimestamp') or int(datetime.datetime(day.year, day.month, day.day, 12).timestamp())
@@ -385,11 +391,13 @@ if os.path.exists('data/scoretrek_raw.json.gz'):
     for eid, ev in sorted(st['tournaments'].items()):
         t = ev['t']
         if t.get('isCancelled') or not t.get('dateTimeTournamentDate'): continue
+        if t.get('clubCountry') not in (None, '', 'Germany'): ST_ABROAD.add('t' + eid)
         st_event('t', eid, ev, s(t.get('title')).strip() or 'Score Trek Turnier', datetime.date.fromisoformat(t['dateTimeTournamentDate'][:10]),
                  s(t.get('locationCity')), s(t.get('clubName')) or 'Score Trek', f'https://battle.score-trek.de/tournament/live/{eid}', False)
     for eid, ev in sorted(st['matchdays'].items()):
         md = ev['md']
         if not md.get('dateTimeMatchdayDate'): continue
+        if (md.get('countryId') or 'DE') != 'DE' or md.get('clubCountry') not in (None, '', 'Germany'): ST_ABROAD.add('m' + eid)
         st_event('m', eid, ev, f"{s(md.get('groupLabel'))} {s(md.get('seasonLabel'))}, {s(md.get('title'))}".strip(),
                  datetime.date.fromisoformat(md['dateTimeMatchdayDate'][:10]), s(md.get('locationCity')), 'Score Trek Liga',
                  f'https://battle.score-trek.de/league/matchday/{eid}', True)
@@ -567,10 +575,12 @@ for i, t1 in enumerate(tids):
                 continue
             dup_of[t2] = t1
 DUPLICATE_ENTRIES = {t2: t1 for t2, t1 in dup_of.items()}
+GER_ROOTS = {find(k) for k, v in P.items() if v[2] == 'GER'}   # German players, also when the main profile has no country
 matches = []
 for m, a, b in cand:
     if m['tid'] in DUPLICATE_ENTRIES: continue   # the whole event is a copy of another entry; keep only the original
     if rkey(m, a, b) in SAME_GAMES.get(m['tid'], ()): continue
+    if m['tid'] in ABROAD_GER_ONLY and a not in GER_ROOTS and b not in GER_ROOTS: continue   # event abroad: only matches with a German
     matches.append(dict(m, a=a, b=b))
 print('duplicate entries', [(T[t2]['name'], T[t1]['name']) for t2, t1 in DUPLICATE_ENTRIES.items()])
 
