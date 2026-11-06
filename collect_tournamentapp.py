@@ -4,7 +4,9 @@ Python version of the browser collection of 3 Nov 2026. Everything is stored (al
 unfinished matches marked); build_db.py decides what counts.
 - Lists: turnierergebnisse.php?s=&saison=YY (one page per season, 2021 onwards).
 - Tournament: kalender-details.php?s=&tID=<id> (lists the result tabs), results: kalender-details.php?s=&tID=<id>&rub=rs&tabID=<tab>.
-Re-reads tournaments of the last DAYS days and any still marked LIVE; reads new ones; keeps everything else.
+Re-reads tournaments of the last DAYS days, tournaments of the last 180 days that still have unfinished matches, and
+tournaments without a discipline; reads new ones; keeps everything else. (The list shows "LIVE !" on many long-finished
+tournaments, so that badge is not used, 6 Nov 2026.)
 
 Format (data/ta_raw.json):
   tournaments: [id, name, date dd.mm.yy, kind (WT/OP/FREI), discipline, category, city, status, date text]
@@ -33,7 +35,11 @@ def get(path):
             if i == 3: raise
             time.sleep(4 * (i + 1))
 
-def soup(h): return BeautifulSoup(h, 'html.parser')
+def soup(h):
+    # The site writes two class attributes on one tag (class="badge badge-secondary" class="tooltip-custom"). Browsers keep
+    # the first, html.parser the last, so the list-page labels were lost on GitHub (found 4 Nov 2026): merge them first.
+    h = re.sub(r'class="([^"]*)"(\s+)class="([^"]*)"', r'class="\1 \3"\2', h)
+    return BeautifulSoup(h, 'html.parser')
 def txt(el): return re.sub(r'\s+', ' ', el.get_text()).strip() if el is not None else ''
 
 def tdate(s):
@@ -135,12 +141,14 @@ if __name__ == '__main__':
     listed = []
     for yy in seasons: listed += season_list(yy); time.sleep(0.5)
     cut = TODAY - datetime.timedelta(days=DAYS)
+    open_t = {m[0] for m in D['matches'] if len(m) > 10 and not m[10]}   # tournaments with unfinished matches
     todo = []
     for t in listed:
         dt = tdate(t['date'])
         recent = dt and datetime.date(dt[2], dt[1], dt[0]) >= cut
         old = have.get(t['tid'])
-        if old is None or recent or 'LIVE' in (t['status'] or '').upper() or (len(old) > 7 and 'LIVE' in (old[7] or '').upper()):
+        unfinished = t['tid'] in open_t and dt and datetime.date(dt[2], dt[1], dt[0]) >= TODAY - datetime.timedelta(days=180)
+        if old is None or recent or unfinished or not (old[4] if len(old) > 4 else ''):
             if 'abgesagt' not in (t['status'] or '').lower(): todo.append(t)
     print('tournaments listed', len(listed), 'to read', len(todo), flush=True)
     with ThreadPoolExecutor(3) as ex: res = list(ex.map(read_tournament, todo))

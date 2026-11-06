@@ -336,8 +336,11 @@ if os.path.exists('data/hessen_veveto.json.gz'):
 # BPL MINI events checked on CueScore (description / handicap setting): 2024-2025 MINIs were played without handicap
 MINI_NO_HCP = {40348549, 41569429, 46429630, 49205425, 50947813, 56092414, 60456046}
 TEAM_EVENT = re.compile(r'komand|\bteam\b|mannschaft', re.I)   # team championships: results inside are unreliable (decided 2026-10-23)
-EXCLUDE_TOURNAMENTS = {}
-PAIR = re.compile(r'pār|paru|pair|dubult|parn|mix ?pār|doppel|doubles?\b|scotch|\bpaar|pärchen|\bduo\b', re.I)
+EXCLUDE_TOURNAMENTS = {   # team / pair events whose entrants are team names (Aleksandrs 6 Nov 2026: not counted)
+    7_000_003_329: 'team event (team names)',   # tournamentapp.de Halloween Turnier 2026, Augsburg
+    84481438: 'team event (team names)',        # CueScore BCQ Sommerfest (vereinsintern) 2026
+}
+PAIR = re.compile(r'pār|paru|pair|dubult|parn|mix ?pār|doppel|doubles?\b|scotch|\bpaar|pärchen|\bduo\b|\bmixed\b|\bteams\b', re.I)
 EXCL_NAME = re.compile(r'bank ?pool|one ?pocket|14\+1|14/1|14\.1|straight|hcp|handi?cap|handikap|vorgabe|фора|marat|sn[uū]k|snooker|test', re.I)
 def game_of(t):
     disc, name = t[4], t[1]
