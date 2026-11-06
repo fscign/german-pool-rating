@@ -12,11 +12,11 @@ import json, re, sys, time, datetime, html, os, calendar
 import requests
 from concurrent.futures import ThreadPoolExecutor
 
-FILE = 'data/cuescore_raw.json.gz'   # gzipped: the GitHub website accepts at most 25 MB per uploaded file
+FILE = os.environ.get('CS_FILE', 'data/cuescore_raw.json.gz')   # gzipped: the GitHub website accepts at most 25 MB per uploaded file
 DAYS = int(sys.argv[sys.argv.index('--days') + 1]) if '--days' in sys.argv else 90
 TODAY = datetime.date.today()
 CUTOFF = TODAY - datetime.timedelta(days=DAYS)
-COUNTRY = 'Germany'
+COUNTRY = os.environ.get('CS_COUNTRY', 'Germany')   # events abroad (cuescore-abroad.yml): Austria, Switzerland, Italy, France
 FIRST_YEAR = 2016
 API = 'https://api.cuescore.com'
 S = requests.Session(); S.headers.update({'User-Agent': 'Mozilla/5.0 (pool rating updater)', 'Accept-Language': 'en-US,en;q=0.9'})
@@ -81,7 +81,7 @@ def fetch(tid):
     v = (j.get('venues') or [{}])[0] or {}
     trow = [j['tournamentId'], j['name'], (j.get('starttime') or '')[:10], j.get('discipline'), j.get('defaultRaceTo'),
             j.get('defaultBestOfSets'), handicap(j), j.get('type'), v.get('placename') or v.get('city') or '',
-            (j.get('owner') or {}).get('name', ''), nm, len(ms), 'germany', v.get('name') or '', j.get('status') or '',
+            (j.get('owner') or {}).get('name', ''), nm, len(ms), COUNTRY.lower(), v.get('name') or '', j.get('status') or '',
             (j.get('stoptime') or '')[:10]]
     return trow, ms
 

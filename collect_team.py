@@ -16,7 +16,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 API = 'https://api.cuescore.com'
 WEB = 'https://cuescore.com'
-COUNTRY = 'Germany'
+COUNTRY = os.environ.get('CS_COUNTRY', 'Germany')
 DAYS = 90
 TODAY = datetime.date.today()
 CUTOFF = TODAY - datetime.timedelta(days=DAYS)
@@ -32,7 +32,7 @@ def get(url):
             if i == 3: raise
             time.sleep(3 * (i + 1))
 
-FILE = 'data/team_raw.json'
+FILE = os.environ.get('CS_TEAM_FILE', 'data/team_raw.json')
 T = json.load(open(FILE, encoding='utf-8')) if os.path.exists(FILE) else \
     {'tournaments': [], 'matches': [], 'players': {}, 'rosters': {}, 'done': []}
 done = set(T['done'])
