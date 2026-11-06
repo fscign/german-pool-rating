@@ -18,16 +18,16 @@ a{color:inherit}
 button,input,select{font:inherit;color:inherit}
 .in{max-width:1180px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left)) 0 max(18px,env(safe-area-inset-right))}
 .bar{position:sticky;top:0;z-index:20;background:#09110d;border-bottom:3px solid var(--gold);padding-top:env(safe-area-inset-top)}
-.bar .in{display:flex;align-items:center;gap:28px;height:62px}
+.bar .in{display:flex;align-items:center;gap:18px;height:62px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:500 21px/1 var(--hd);letter-spacing:.04em;white-space:nowrap}
 .logo b{color:var(--gold);font-weight:500}
 .logo .ico{width:28px;height:28px;border-radius:50%;background:var(--gold);color:#09110d;display:grid;place-items:center;font:600 15px/1 var(--hd)}
 #nav{display:flex;height:100%}
-#nav a{display:flex;align-items:center;padding:0 14px;text-decoration:none;font:400 16px/1 var(--hd);letter-spacing:.06em;text-transform:uppercase;color:var(--mu);border-bottom:3px solid transparent;margin-bottom:-3px}
+#nav a{display:flex;align-items:center;padding:0 11px;text-decoration:none;font:400 16px/1 var(--hd);letter-spacing:.06em;text-transform:uppercase;color:var(--mu);border-bottom:3px solid transparent;margin-bottom:-3px}
 #nav a:hover{color:var(--fg)}
 #nav a.on{color:var(--fg);border-bottom-color:var(--fg)}
 .find{position:relative;margin-left:auto}
-.find input{width:230px;height:36px;border-radius:3px;border:1px solid var(--ln);background:var(--p1);padding:0 12px 0 34px}
+.find input{width:200px;height:36px;border-radius:3px;border:1px solid var(--ln);background:var(--p1);padding:0 12px 0 34px}
 .find svg{position:absolute;left:11px;top:11px;width:14px;height:14px;stroke:var(--mu)}
 .find input:focus{outline:none;border-color:var(--gold)}
 .drop{position:absolute;top:calc(100% + 4px);left:0;right:0;min-width:240px;background:var(--p2);border:1px solid var(--ln);border-radius:3px;list-style:none;margin:0;padding:4px 0;max-height:320px;overflow:auto;z-index:30;box-shadow:0 10px 30px rgba(0,0,0,.5)}
@@ -145,8 +145,31 @@ tbody tr:hover td{background:var(--p2)}
 .foot .in{display:flex;flex-wrap:wrap;gap:6px 24px;justify-content:space-between}
 .foot a{color:var(--gold);text-decoration:none}
 .empty{padding:30px;text-align:center;color:var(--mu)}
+.hpick{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:12px;align-items:end;background:var(--p1);padding:16px 18px;margin-bottom:20px}
+.hpick label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--mu)}
+.hpick input{width:100%}
+.swap{height:34px;width:42px;border:1px solid var(--ln);background:var(--p2);color:var(--gold);border-radius:3px;cursor:pointer;font-size:18px}
+.swap:hover{border-color:var(--gold)}
+.hbig{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px;background:linear-gradient(90deg,var(--p2),var(--p1),var(--p2));border-top:3px solid var(--gold);padding:22px 24px;margin-bottom:20px}
+.hbig .sd{display:flex;flex-direction:column;gap:2px}.hbig .sd.rt{text-align:right}
+.hbig .sd b{font-size:18px}.hbig .sd .rv{font:500 40px/1 var(--hd);color:var(--gold)}
+.hbig .mid{text-align:center}.hbig .mid .sc{font:500 52px/1 var(--hd)}
+.hbig .mid .s{color:var(--mu);font-size:13px;margin-top:4px}
+.chbar{display:flex;height:8px;border-radius:2px;overflow:hidden;margin:14px 0 6px;background:var(--p3)}
+.chbar i{display:block;background:var(--gold)}
+.chl{display:flex;justify-content:space-between;color:var(--mu);font-size:13px}
+.vsl{color:var(--gold);text-decoration:none;margin-left:6px;font-size:14px}
+.vsl:hover{color:var(--fg)}
+.star{background:none;border:0;padding:0 8px 0 0;cursor:pointer;color:#4f6a59;font-size:17px;line-height:1;vertical-align:-1px}
+.star:hover{color:var(--gold)}.star.on{color:var(--gold)}
+.hero .star{font-size:30px;padding:0 0 0 12px;vertical-align:4px}
+tr.pinh td{background:#0f1b15!important;color:var(--gold);font:400 13px/1 var(--hd);letter-spacing:.08em;text-transform:uppercase;padding:10px 12px}
+tr.pin td{background:rgba(242,194,48,.06)!important}
+tr.pin.last td{border-bottom:2px solid var(--gold2)}
+.hint{color:var(--mu);font-size:13px;margin:10px 0 0}
+.uw{color:var(--gold);font-family:var(--hd);font-size:17px}
 .load{padding:80px 0;text-align:center;font:400 18px/1 var(--hd);letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
-@media (max-width:980px){.lay{grid-template-columns:1fr}.ldr{grid-template-columns:1fr}}
+@media (max-width:980px){.lay{grid-template-columns:minmax(0,1fr)}.lay.pp>aside{order:-1}.ldr{grid-template-columns:1fr}}
 @media (max-width:860px){
  .bar .in{height:auto;flex-wrap:wrap;gap:0 12px;padding-top:10px}
  .find{order:2}.find input{width:150px;height:32px}
@@ -167,13 +190,18 @@ tbody tr:hover td{background:var(--p2)}
  .combo input,input.txt{width:100%}
  .fgrid label{flex:1 1 100%}
  .vs .side span{font-size:20px}.vs .mid .sc{font-size:26px}
+ .hpick{grid-template-columns:1fr;}.swap{width:100%}
+ .hbig{padding:16px 12px;gap:8px}.hbig .sd b{font-size:15px}.hbig .sd .rv{font-size:28px}.hbig .mid .sc{font-size:36px}
+ .hide2{display:none}
+ .rkt td:nth-child(2){white-space:normal;line-height:1.25}
+ .rkt th:first-child{width:44px}
 }
 </style>
 </head>
 <body>
 <header class="bar"><div class="in">
  <a class="logo" href="#ranking"><span class="ico">9</span><span>GERMAN <b>POOL</b> RATING</span></a>
- <nav id="nav"><a href="#ranking" data-r="ranking">Ranking</a><a href="#leaders" data-r="leaders">Leaders</a><a href="#tournaments" data-r="tournaments">Tournaments</a><a href="#info" data-r="info">Info</a><a href="#support" data-r="support">Support</a></nav>
+ <nav id="nav"><a href="#ranking" data-r="ranking">Ranking</a><a href="#leaders" data-r="leaders">Leaders</a><a href="#h2h" data-r="h2h">H2H</a><a href="#tournaments" data-r="tournaments">Tournaments</a><a href="#info" data-r="info">Info</a><a href="#support" data-r="support">Support</a></nav>
  <div class="find"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><circle cx="10" cy="10" r="7"/><path d="M15 15l6 6"/></svg><input id="find" type="search" placeholder="Search player" autocomplete="off" aria-label="Search player"><ul class="drop" id="findl" hidden></ul></div>
 </div></header>
 <main class="in" id="app"><div class="load">Loading ratings</div></main>
@@ -195,6 +223,10 @@ const shown=id=>PL[id]&&PL[id].de;
 const who=id=>shown(id)?`<a class="pl" href="#p${id}">${esc(nm(id))}</a>`:`<span>${esc(nm(id))}</span>${PL[id]&&PL[id].cc?`<span class="ctry">${esc(PL[id].cc)}</span>`:''}`;
 const ball=g=>{const k={'8-ball':'b8','9-ball':'b9','10-ball':'b10'}[g]||'bm';const n={'8-ball':8,'9-ball':9,'10-ball':10}[g]||'';return `<span class="bl ${k}" title="${esc(g)}">${n}</span>`};
 const seg=(name,opts,cur)=>`<span class="seg">${opts.map(([v,l])=>`<button data-${name}="${v}" class="${String(cur)===String(v)?'on':''}">${l}</button>`).join('')}</span>`;
+let STARS=new Set((mem('stars')||[]).map(Number));
+const star=id=>`<button class="star${STARS.has(id)?' on':''}" data-star="${id}" title="${STARS.has(id)?'Stop following':'Follow this player'}" aria-label="${STARS.has(id)?'Stop following':'Follow this player'}" aria-pressed="${STARS.has(id)}">${STARS.has(id)?'★':'☆'}</button>`;
+function bindStars(redraw){$$('[data-star]').forEach(b=>b.onclick=e=>{e.preventDefault();e.stopPropagation();const id=+b.dataset.star;STARS.has(id)?STARS.delete(id):STARS.add(id);mem('stars',[...STARS]);redraw()})}
+const GN=g=>({'8-ball':'8-ball','9-ball':'9-ball','10-ball':'10-ball','multiball':'Multiball'})[g]||g;
 const prov=p=>p.racks<200;
 const rateHtml=(p,cls='rating')=>`<span class="${cls}${prov(p)?' pv':''}">${p.r}</span>${prov(p)?'<span class="ptag" title="Provisional: fewer than 200 racks">PROV</span>':''}`;
 const sign=d=>d==null?'<span class="mu">-</span>':`<span class="${d>0?'up':d<0?'dn':'mu'}">${d>0?'+':''}${d}</span>`;
@@ -212,12 +244,13 @@ function route(){
  let h=location.hash.slice(1)||'ranking';
  const alias={stats:'leaders',form:'leaders',about:'info'};
  if(alias[h]){location.replace('#'+alias[h]);return}
- $$('#nav a').forEach(a=>a.classList.toggle('on',h===a.dataset.r||(a.dataset.r==='tournaments'&&/^t\d/.test(h))||(a.dataset.r==='ranking'&&/^p\d/.test(h))));
+ $$('#nav a').forEach(a=>a.classList.toggle('on',(h===a.dataset.r&&a.dataset.r!=='h2h')||(a.dataset.r==='tournaments'&&/^t\d/.test(h))||(a.dataset.r==='ranking'&&/^p\d/.test(h))||(a.dataset.r==='h2h'&&/^h2h/.test(h))));
  let m;
  if((m=h.match(/^p(\d+)$/))&&shown(+m[1]))return player(+m[1]);
  if((m=h.match(/^t(\d+)$/))&&TO[m[1]])return tournament(+m[1]);
  if(h==='tournaments')return tournaments();
  if(h==='leaders')return leaders();
+ if((m=h.match(/^h2h(?:-(\d+)-(\d+))?$/)))return h2hPage(m[1],m[2]);
  if(h==='info')return info();
  if(h==='support')return support();
  ranking();
@@ -249,10 +282,11 @@ function ranking(){
   <span class="fl">Active in ${seg('act',[['12','1 year'],['24','2 years'],['60','5 years'],['0','All']],RK.act)}</span>
   <span class="fl">Minimum racks <select id="min"><option value="0">None</option><option value="200">200</option><option value="500">500</option><option value="1000">1,000</option></select></span>
  </div>
- <div class="tb"><table><thead><tr>
+ <div class="tb"><table class="rkt"><thead><tr>
   <th>Rank</th><th class="s" data-s="name">Player</th><th class="s r" data-s="r">Rating</th><th class="s r hide" data-s="ch">12 months</th>
-  <th class="s r hide" data-s="racks">Racks</th><th class="s r" data-s="n">Matches</th><th class="s r hide" data-s="lp">Last match</th></tr></thead><tbody id="rk"></tbody></table></div>
+  <th class="s r hide" data-s="racks">Racks</th><th class="s r hide2" data-s="n">Matches</th><th class="s r hide" data-s="lp">Last match</th></tr></thead><tbody id="rk"></tbody></table></div>
  <div class="btnrow" id="more"></div>
+ <p class="hint" id="shint"></p>
  <p class="fine">Players who stop playing keep their last rating. PROV marks a provisional rating, based on fewer than 200 racks.</p>`;
  $('#min').value=RK.min;
  $('#min').onchange=e=>{RK.min=e.target.value;RK.lim=100;drawRank()};
@@ -271,17 +305,25 @@ function drawRank(){
  const key={r:p=>p.rs,name:p=>fold(p.last+' '+p.first),racks:p=>p.racks,n:p=>p.n,lp:p=>p.lp,ch:p=>p.ch??-1e9}[RK.sort];
  const list=rows.slice().sort((a,b)=>{const x=key(a),y=key(b);return(x<y?-1:x>y?1:0)*RK.dir});
  $$('th.s').forEach(th=>{const on=th.dataset.s===RK.sort;th.classList.toggle('cur',on);th.textContent=th.dataset.t+(on?(RK.dir>0?' ▲':' ▼'):'')});
- $('#rk').innerHTML=list.slice(0,RK.lim).map(p=>`<tr>
-  <td><span class="rkb${p.rank<4?' g'+p.rank:''}">${p.rank}</span></td>
-  <td>${who(p.id)}</td><td class="r">${rateHtml(p)}</td><td class="r hide">${sign(p.ch)}</td>
-  <td class="r hide">${fmt(p.racks)}</td><td class="r">${fmt(p.n)}</td><td class="r hide mu">${ds(p.lp)}</td></tr>`).join('')||'<tr><td colspan="7" class="empty">No players match these filters.</td></tr>';
+ const inList=new Set(rows.map(p=>p.id));
+ const pins=[...STARS].map(id=>PL[id]).filter(p=>p&&p.de).sort((a,b)=>b.rs-a.rs);
+ pins.forEach(p=>{if(!inList.has(p.id)){const h=hAt(p.id,12);p.ch=h?p.r-h:null}});
+ const row=(p,cls,rk)=>`<tr class="${cls}">
+  <td>${rk}</td>
+  <td>${star(p.id)}${who(p.id)}</td><td class="r">${rateHtml(p)}</td><td class="r hide">${sign(p.ch)}</td>
+  <td class="r hide">${fmt(p.racks)}</td><td class="r hide2">${fmt(p.n)}</td><td class="r hide mu">${ds(p.lp)}</td></tr>`;
+ const badge=r=>`<span class="rkb${r<4?' g'+r:''}">${r}</span>`;
+ const pinHtml=pins.length?`<tr class="pinh"><td colspan="7">★ My players</td></tr>`+pins.map((p,i)=>row(p,'pin'+(i===pins.length-1?' last':''),inList.has(p.id)?badge(p.rank):'<span class="mu" title="Not in this list">-</span>')).join(''):'';
+ $('#rk').innerHTML=pinHtml+(list.slice(0,RK.lim).map(p=>row(p,'',badge(p.rank))).join('')||'<tr><td colspan="7" class="empty">No players match these filters.</td></tr>');
+ $('#shint').textContent=pins.length?'':'Tap ☆ next to a name to follow a player. Followed players stay at the top of the ranking on this device.';
+ bindStars(drawRank);
  $('#more').innerHTML=list.length>RK.lim?`<button class="btn" id="mb">Show all ${fmt(list.length)} players</button>`:'';
  if($('#mb'))$('#mb').onclick=()=>{RK.lim=1e9;drawRank()};
 }
 
 function rowsOf(id,f){
  return (PM[id]||[]).map(m=>{const me=m[2]===id,o=me?m[3]:m[2],w=me?m[4]:m[5],l=me?m[5]:m[4],or=PL[o].r;
-  return{m,o,w,l,or,perf:w>0&&l>0?Math.round(or+100*Math.log2(w/l)):null,wt:Math.pow(.5,(NOW-toD(m[0]))/(365.25*864e5)/2)}}).filter(f||(()=>true));
+  return{m,o,w,l,or,perf:w+l>0?Math.round(or+100*Math.log2((w||.5)/(l||.5))):null,wt:Math.pow(.5,(NOW-toD(m[0]))/(365.25*864e5)/2)}}).filter(f||(()=>true));
 }
 function tally(rows){const mw=rows.filter(r=>r.w>r.l).length,rw=rows.reduce((s,r)=>s+r.w,0),rl=rows.reduce((s,r)=>s+r.l,0);
  return{n:rows.length,mw,ml:rows.length-mw,rw,rl,pct:rw+rl?Math.round(100*rw/(rw+rl)):0,avg:rw+rl?Math.round(rows.reduce((s,r)=>s+r.or*(r.w+r.l),0)/(rw+rl)):null}}
@@ -304,43 +346,36 @@ function player(id){
  const years=[...new Set(all.map(m=>String(m[0]).slice(0,4)))].sort().reverse();
  const tids=[...new Set(all.map(m=>m[1]))].map(x=>TO[x]).sort((a,b)=>b.date.localeCompare(a.date));
  const games=[...new Set(tids.map(x=>x.game))].sort();
- const rs=rowsOf(id),T=tally(rs),pf=rs.filter(r=>r.perf!=null);
- const best=pf.reduce((x,r)=>!x||r.perf>x.perf?r:x,null),worst=pf.reduce((x,r)=>!x||r.perf<x.perf?r:x,null);
  const {bad,good}=rivals(id);
  const links=[p.cs?`<a href="https://cuescore.com/player/x/${p.cs}" target="_blank" rel="noopener">CueScore profile</a>`:'',p.ta?`<a href="https://www.tournamentapp.de/spieler-portrait.php?sid=${p.ta}" target="_blank" rel="noopener">TournamentApp profile</a>`:''].filter(Boolean).join('');
  const oppBox=(x,k)=>x?`<div class="opp"><div class="k">${k}</div><div class="n">${who(x.o)}</div><div class="s">Matches ${x.w}-${x.n-x.w}, racks ${x.rw}:${x.rl}, ${Math.abs(x.d)} racks ${x.d<0?'below':'above'} expectation</div></div>`:'';
  $('#app').innerHTML=`
  <section class="hero"><div class="who">
   <div class="rkline">${rank?'Rank '+rank+' of active players':'Not active in the last 2 years'}</div>
-  <h1>${esc(p.first+' '+p.last)}</h1>
+  <h1>${esc(p.first+' '+p.last)}${star(id)}</h1>
   <div class="meta"><span>${fmt(p.n)} matches since ${all.length?ds(Math.min(...all.map(m=>m[0]))):'-'}</span>${links}</div></div>
   <div class="big"><div class="v${prov(p)?' pv':''}">${p.r}</div><div class="k">${prov(p)?'Provisional rating, fewer than 200 racks':'Rating'}</div></div>
  </section>
- <div class="lay"><div>
+ <div class="lay pp"><div>
   <div class="box chart"><h2>Rating history</h2><div id="chart"></div><p class="fine">Rating at the end of each month, from the results known at that time.</p></div>
   <div class="box"><h2>Match results</h2>
    <div class="fgrid">
     <label>Period<select id="per">${[['all','All years'],['1y','Last 12 months'],['2y','Last 2 years'],['5y','Last 5 years'],...years.map(y=>[y,y]),['custom','Choose dates']].map(([k,l])=>`<option value="${k}">${l}</option>`).join('')}</select></label>
     <label class="combo">Opponent<input id="oq" class="txt" type="search" autocomplete="off" placeholder="Any opponent"><ul class="drop" id="ol" hidden></ul></label>
     <label>Tournament<select id="ts" style="max-width:260px"><option value="">All tournaments</option>${tids.map(x=>`<option value="${x.id}">${x.date.slice(0,4)} ${esc(x.name)}</option>`).join('')}</select></label>
-    ${games.length>1?`<label>Game<select id="gs"><option value="">All games</option>${games.map(g=>`<option>${esc(g)}</option>`).join('')}</select></label>`:''}
+    <label>Game<select id="gs"><option value="">All games</option>${games.map(g=>`<option value="${esc(g)}">${GN(g)}</option>`).join('')}</select></label>
    </div>
    <div class="fgrid" id="cust" hidden><label>From<input type="date" id="fr"></label><label>To<input type="date" id="to"></label></div>
    <div id="vs"></div><p class="sumline" id="sum"></p>
    <div class="tb"><table><thead><tr><th>Date</th><th>Opponent</th><th class="r">Opp.</th><th class="r">Score</th><th class="r">Perf.</th><th class="hide">Tournament</th><th class="r hide">Weight</th></tr></thead><tbody id="res"></tbody></table></div>
-   <p class="fine">Perf. is the rating that matches this one result: opponent's rating + 100 x log2(racks won / racks lost). Shutouts have no perf. number. Weight shows how much the match counts today; it halves every 2 years.</p>
+   <p class="fine">Perf. is the rating that matches this one result: opponent's rating + 100 x log2(racks won / racks lost). In a shutout the zero side counts as half a rack. Weight shows how much the match counts today; it halves every 2 years.</p>
   </div></div>
   <aside>
-   <div class="box"><h2>Career</h2>
-    <div class="kv"><span class="k">Matches</span><span class="v">${fmt(T.n)}<span class="s">${T.mw} won, ${T.ml} lost</span></span></div>
-    <div class="kv"><span class="k">Racks</span><span class="v">${fmt(T.rw)} : ${fmt(T.rl)}<span class="s">${T.pct}% won</span></span></div>
-    <div class="kv"><span class="k">Average opponent</span><span class="v">${T.avg??'-'}</span></div>
-    <div class="kv"><span class="k">Best match</span><span class="v">${best?best.perf:'-'}<span class="s">${best?`${best.w}:${best.l} against ${esc(nm(best.o))}`:''}</span></span></div>
-    <div class="kv"><span class="k">Weakest match</span><span class="v">${worst?worst.perf:'-'}<span class="s">${worst?`${worst.w}:${worst.l} against ${esc(nm(worst.o))}`:''}</span></span></div>
-   </div>
-   ${bad||good?`<div class="box"><h2>Opponents</h2>${oppBox(bad,'Toughest opponent')}${oppBox(good,'Best record against')}<p class="fine">German opponents met at least 5 times and active in the last 5 years, compared with what the ratings expected.</p></div>`:''}
+   <div class="box"><h2>Opponents</h2>${bad||good?oppBox(bad,'Most uncomfortable opponent')+oppBox(good,'Most comfortable opponent'):'<p class="mu" style="margin:0">Not enough matches against the same German opponents yet.</p>'}<p class="fine">German opponents met at least 5 times and active in the last 5 years. Racks won compared with what the ratings expected before each match.</p></div>
+   <div class="box"><h2>Numbers</h2><p class="fine" id="carf" style="margin:-6px 0 8px"></p><div id="car"></div></div>
   </aside></div>`;
  drawChart(id);
+ bindStars(()=>{const b=document.querySelector('.hero [data-star]'),on=STARS.has(id);b.classList.toggle('on',on);b.textContent=on?'\u2605':'\u2606';b.title=on?'Stop following':'Follow this player';b.setAttribute('aria-label',b.title);b.setAttribute('aria-pressed',on)});
  const sync=()=>{$('#per').value=PF.per;$('#cust').hidden=PF.per!=='custom';drawRes(id)};
  $('#ts').value=PF.tid;if($('#gs'))$('#gs').value=PF.game;$('#fr').value=PF.from;$('#to').value=PF.to;
  $('#per').onchange=e=>{PF.per=e.target.value;sync()};
@@ -368,13 +403,29 @@ function drawRes(id){
  const[a,b]=range();
  const rows=rowsOf(id,r=>r.m[0]>=a&&r.m[0]<=b&&(!PF.tid||r.m[1]==PF.tid)&&(!PF.game||TO[r.m[1]].game===PF.game)&&(!PF.opp||r.o==PF.opp)).sort((x,y)=>y.m[0]-x.m[0]);
  const T=tally(rows);
+ drawNumbers(rows,T);
  $('#sum').innerHTML=rows.length?`<b>${fmt(T.n)}</b> matches: <b>${T.mw}</b> won, <b>${T.ml}</b> lost. Racks <b>${fmt(T.rw)}:${fmt(T.rl)}</b> (${T.pct}%).`:'';
  if(PF.opp){const o=+PF.opp,me=PL[id],op=PL[o],ex=Math.round(100/(1+Math.pow(2,(op.rs-me.rs)/100)));
-  $('#vs').innerHTML=`<div class="vs"><div class="side"><b>${esc(nm(id))}</b><span>${me.r}</span></div><div class="mid"><div class="sc">${T.mw} : ${T.ml}</div><div class="s">matches, racks ${T.rw}:${T.rl}</div><div class="s">Expected rack share today ${ex}%</div></div><div class="side rt"><b>${who(o)}</b><span>${op.r}</span></div></div>`}
+  $('#vs').innerHTML=`<div class="vs"><div class="side"><b>${esc(nm(id))}</b><span>${me.r}</span></div><div class="mid"><div class="sc">${T.mw} : ${T.ml}</div><div class="s">matches, racks ${T.rw}:${T.rl}</div><div class="s">Expected rack share today ${ex}%</div><div class="s"><a class="pl" style="color:var(--gold);font-weight:400" href="#h2h-${id}-${o}">Open head to head</a></div></div><div class="side rt"><b>${who(o)}</b><span>${op.r}</span></div></div>`}
  else $('#vs').innerHTML='';
- $('#res').innerHTML=rows.map(r=>{const x=TO[r.m[1]];return`<tr><td class="mu">${ds(r.m[0])}</td><td>${who(r.o)}</td><td class="r">${r.or}</td>
+ $('#res').innerHTML=rows.map(r=>{const x=TO[r.m[1]];return`<tr><td class="mu">${ds(r.m[0])}</td><td>${who(r.o)}<a class="vsl" href="#h2h-${id}-${r.o}" title="Head to head">\u21c4</a></td><td class="r">${r.or}</td>
   <td class="r"><span class="wl ${r.w>r.l?'w':'l'}">${r.w}:${r.l}</span></td><td class="r">${r.perf??'<span class="mu">-</span>'}</td>
   <td class="hide">${ball(x.game)} <a class="pl" href="#t${x.id}" style="font-weight:400">${esc(x.name)}</a></td><td class="r hide mu">${Math.round(r.wt*100)}%</td></tr>`}).join('')||'<tr><td colspan="7" class="empty">No matches for these filters.</td></tr>';
+}
+function drawNumbers(rows,T){
+ const pf=rows.filter(r=>r.perf!=null),best=pf.reduce((x,r)=>!x||r.perf>x.perf?r:x,null),worst=pf.reduce((x,r)=>!x||r.perf<x.perf?r:x,null);
+ const TT={};rows.forEach(r=>{const x=TT[r.m[1]]||(TT[r.m[1]]={tid:r.m[1],w:0,l:0,g:[]});x.w+=r.w;x.l+=r.l;
+  const s=String(r.m[0]),mi=D.months.indexOf(s.slice(0,4)+'-'+s.slice(4,6))-1;x.g.push([(mi>=0?hIdx(r.o,mi):null)??r.or,r.w+r.l])});
+ const tp=x=>{const W=x.w||.5,N=(x.w||.5)+(x.l||.5);let lo=0,hi=1600;for(let k=0;k<40;k++){const md=(lo+hi)/2,e=x.g.reduce((s,[ro,n])=>s+n/(1+Math.pow(2,(ro-md)/100)),0)*N/(x.w+x.l);if(e<W)lo=md;else hi=md}return Math.round((lo+hi)/2)};
+ const TL=Object.values(TT).filter(x=>x.w+x.l>=15).map(x=>({...x,p:tp(x)}));
+ const bt=TL.reduce((a,x)=>!a||x.p>a.p?x:a,null),wt=TL.reduce((a,x)=>!a||x.p<a.p?x:a,null);
+ const kv=(k,v,s)=>`<div class="kv"><span class="k">${k}</span><span class="v">${v}<span class="s">${s}</span></span></div>`;
+ const tl=x=>x?`<a class="pl" style="font-weight:400" href="#t${x.tid}">${esc(TO[x.tid].name)}</a>, ${x.w}:${x.l}`:'no event with 15+ racks';
+ const filt=PF.per!=='all'||PF.tid||PF.game||PF.opp;
+ $('#carf').textContent=filt?'For the selected matches':'All matches';
+ $('#car').innerHTML=kv('Matches',fmt(T.n),`${T.mw} won, ${T.ml} lost`)+kv('Racks',`${fmt(T.rw)} : ${fmt(T.rl)}`,`${T.pct}% won`)+kv('Average opponent',T.avg??'-','')
+  +kv('Best match',best?best.perf:'-',best?`${best.w}:${best.l} against ${esc(nm(best.o))}`:'')+kv('Weakest match',worst?worst.perf:'-',worst?`${worst.w}:${worst.l} against ${esc(nm(worst.o))}`:'')
+  +kv('Best tournament',bt?bt.p:'-',tl(bt))+kv('Weakest tournament',wt?wt.p:'-',tl(wt));
 }
 function drawChart(id){
  const h=D.history[id],el=$('#chart');if(!h){el.innerHTML='<div class="empty">Not enough results for a history yet.</div>';return}
@@ -402,12 +453,48 @@ function drawChart(id){
  sv.onmouseleave=()=>$('#tip').setAttribute('visibility','hidden');
 }
 
+const UPSET_SKIP=new Set([]);
+function raceWin(p,n){let s=0,c=1;for(let k=0;k<n;k++){if(k>0)c=c*(n-1+k)/k;s+=c*Math.pow(p,n)*Math.pow(1-p,k)}return s}
+const cutOf=days=>+new Date(NOW.getTime()-days*864e5).toISOString().slice(0,10).replace(/-/g,'');
+function racksBefore(cut){const rk={};for(const m of D.matches){if(m[0]>cut)continue;if(m[0]<=cut-20000)break;rk[m[2]]=(rk[m[2]]||0)+m[4]+m[5];rk[m[3]]=(rk[m[3]]||0)+m[4]+m[5]}return rk}
+function upsets(days){
+ const cut=cutOf(days),rk=racksBefore(cut),out=[];
+ for(const m of D.matches){if(m[0]<=cut)break;
+  const[d,tid,a,b,sa,sb]=m;if(sa===sb||Math.max(sa,sb)<4||UPSET_SKIP.has(`${d}:${tid}:${a}:${b}`))continue;
+  const[w,l,sw,sl]=sa>sb?[a,b,sa,sb]:[b,a,sb,sa];
+  if(!(shown(w)||shown(l)))continue;
+  if((rk[w]||0)<200||(rk[l]||0)<200)continue;
+  const s=String(d),mi=D.months.indexOf(s.slice(0,4)+'-'+s.slice(4,6))-1;if(mi<0)continue;
+  const rw=hIdx(w,mi),rl=hIdx(l,mi);if(rw==null||rl==null)continue;
+  const ch=raceWin(1/(1+Math.pow(2,(rl-rw)/100)),sw);if(ch>0.35)continue;
+  out.push({d,tid,w,l,sw,sl,rw,rl,ch})}
+ return out.sort((x,y)=>x.ch-y.ch);
+}
+function potm(days){
+ const cut=cutOf(days),rk=racksBefore(cut),P={};
+ for(const m of D.matches){if(m[0]<=cut)break;
+  const[d,tid,a,b,sa,sb]=m,s=String(d),mi=D.months.indexOf(s.slice(0,4)+'-'+s.slice(4,6))-1;if(mi<0)continue;
+  [[a,b,sa,sb],[b,a,sb,sa]].forEach(([p,o,w,l])=>{if(!shown(p)||(rk[p]||0)<200)return;const ro=hIdx(o,mi);if(ro==null)return;
+   const x=P[p]||(P[p]={id:p,w:0,l:0,g:[]});x.w+=w;x.l+=l;x.g.push([ro,w+l])})}
+ return Object.values(P).filter(x=>x.w+x.l>=50&&x.w>0&&x.l>0).map(x=>{let lo=0,hi=1400;for(let k=0;k<40;k++){const md=(lo+hi)/2,e=x.g.reduce((s,[ro,n])=>s+n/(1+Math.pow(2,(ro-md)/100)),0);if(e<x.w)lo=md;else hi=md}
+  const h=hAt(x.id,1);return{...x,perf:Math.round((lo+hi)/2),before:h??PL[x.id].r}}).sort((a,b)=>b.perf-a.perf).slice(0,5);
+}
+function drawMonth(){
+ const sn=id=>shown(id)?`<a class="pl" href="#p${id}">${esc(PL[id].last)}</a>`:`<span>${esc(PL[id]?PL[id].last:'?')}</span>${PL[id]&&PL[id].cc?`<span class="ctry">${esc(PL[id].cc)}</span>`:''}`;
+ const pc=c=>c<0.01?'<1':Math.round(c*100);
+ const U=upsets(30).slice(0,5);
+ $('#lu').innerHTML=`<div class="hd"><h2>Upsets of the month</h2></div>${U.length?`<table><thead><tr><th>#</th><th>Winner</th><th>Loser</th><th class="r">Score</th><th class="r">Chance</th></tr></thead><tbody>${U.map((y,i)=>`<tr><td><span class="rkb${i<3?' g'+(i+1):''}">${i+1}</span></td><td>${sn(y.w)} <span class="mu">${y.rw}</span></td><td>${sn(y.l)} <span class="mu">${y.rl}</span></td><td class="r"><a class="pl" style="font-weight:400" href="#t${y.tid}" title="${esc(TO[y.tid].name)}">${y.sw}:${y.sl}</a></td><td class="r uw">${pc(y.ch)}%</td></tr>`).join('')}</tbody></table>`:'<div class="empty">No upsets in the last 30 days.</div>'}<p class="fine">Last 30 days, races to 4 or longer. Chance = the winner's chance to win the match, from both ratings before it. Both players have 200+ racks.</p>`;
+ const PM5=potm(30);
+ $('#lp').innerHTML=`<div class="hd"><h2>Players of the month</h2></div>${PM5.length?`<table><thead><tr><th>#</th><th>Player</th><th class="r">Perf.</th><th class="r">+/-</th><th class="r">Racks</th></tr></thead><tbody>${PM5.map((x,i)=>{const dd=x.perf-x.before;return`<tr><td><span class="rkb${i<3?' g'+(i+1):''}">${i+1}</span></td><td>${who(x.id)}</td><td class="r"><span class="rating" style="font-size:18px">${x.perf}</span></td><td class="r">${sign(dd)}</td><td class="r mu">${x.w}:${x.l}</td></tr>`}).join('')}</tbody></table>`:'<div class="empty">Not enough matches in the last 30 days.</div>'}<p class="fine">Last 30 days, at least 50 racks. Perf. is the rating that best explains the racks won against these opponents; +/- compares it with the rating a month ago.</p>`;
+}
 const LF=Object.assign({gain:'6',act:'6',dec:'all'},mem('ld')||{});let LC=null;
 function leaders(){
- $('#app').innerHTML=`<div class="top"><div><h1>Leaders</h1><p class="sub">Form, activity, rivalries and deciding racks.</p></div></div>
+ $('#app').innerHTML=`<div class="top"><div><h1>Leaders</h1><p class="sub">Upsets, form, activity, rivalries and deciding racks.</p></div></div>
  <div class="ldr">
+  <div class="lb" id="lu"></div><div class="lb" id="lp"></div>
   <div class="lb" id="lg"></div><div class="lb" id="la"></div><div class="lb" id="lr"></div><div class="lb" id="lh"></div>
  </div>`;
+ drawMonth();
  drawLeaders();
 }
 function drawLeaders(){
@@ -435,6 +522,46 @@ function drawLeaders(){
  $$('[data-dec]').forEach(b=>b.onclick=()=>{LF.dec=b.dataset.dec;drawLeaders()});
 }
 
+const HH={a:0,b:0};
+function h2hPage(a,b){
+ if(a&&PL[a])HH.a=+a;if(b&&PL[b])HH.b=+b;
+ $('#app').innerHTML=`<div class="top"><div><h1>Head to head</h1><p class="sub">Pick two players to see all their matches against each other.</p></div></div>
+ <div class="hpick"><label class="combo">Player 1<input id="ha" class="txt" type="search" autocomplete="off" placeholder="Search player"><ul class="drop" id="hal" hidden></ul></label>
+ <button class="swap" id="hsw" title="Swap players" aria-label="Swap players">\u21c4</button>
+ <label class="combo">Player 2<input id="hb" class="txt" type="search" autocomplete="off" placeholder="Search player"><ul class="drop" id="hbl" hidden></ul></label></div>
+ <div id="hout"></div>`;
+ const everyone=Object.values(PL).filter(p=>PM[p.id]).sort((x,y)=>(y.de-x.de)||y.racks-x.racks).map(p=>[p.id,0,fold(p.first+' '+p.last)]);
+ const oppsOf=id=>{const c={};(PM[id]||[]).forEach(m=>{const o=m[2]===id?m[3]:m[2];c[o]=(c[o]||0)+1});return Object.entries(c).sort((x,y)=>y[1]-x[1]).map(([o,n])=>[+o,n,fold(nm(+o))])};
+ const picker=(inp,ul,key,src)=>{let cur=0;const I=$(inp),U=$(ul);
+  const set=o=>{HH[key]=o||0;U.hidden=true;if(key==='a'&&HH.b===HH.a)HH.b=0;sync()};
+  const show=()=>{const q=fold(I.value.trim()),L=src();const h=(q?L.filter(x=>x[2].includes(q)):L).slice(0,30);cur=0;
+   U.innerHTML=h.length?h.map(([o,n],i)=>`<li data-o="${o}" class="${i?'':'on'}">${esc(nm(o))}${!shown(o)&&PL[o].cc?` <em class="ctry">${esc(PL[o].cc)}</em>`:''}<span>${n?n+' m':PL[o].r}</span></li>`).join(''):'<li class="none">No player found</li>';
+   U.hidden=false;U.querySelectorAll('li[data-o]').forEach(li=>li.onmousedown=e=>{e.preventDefault();set(+li.dataset.o)})};
+  const clr=()=>{if(!I.value.trim()&&HH[key]){HH[key]=0;sync()}};
+  I.onfocus=show;I.oninput=()=>{clr();show()};I.addEventListener('search',()=>{clr();show()});
+  I.onblur=()=>{U.hidden=true;I.value=HH[key]?nm(HH[key]):''};
+  I.onkeydown=e=>{const li=[...U.querySelectorAll('li[data-o]')];
+   if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();if(!li.length)return;cur=(cur+(e.key==='ArrowDown'?1:-1)+li.length)%li.length;li.forEach((l,i)=>l.classList.toggle('on',i===cur))}
+   else if(e.key==='Enter'){e.preventDefault();if(li[cur])set(+li[cur].dataset.o)}else if(e.key==='Escape')I.blur()}};
+ picker('#ha','#hal','a',()=>everyone);
+ picker('#hb','#hbl','b',()=>HH.a?oppsOf(HH.a):everyone);
+ $('#hsw').onclick=()=>{[HH.a,HH.b]=[HH.b,HH.a];sync()};
+ const sync=()=>{$('#ha').value=HH.a?nm(HH.a):'';$('#hb').value=HH.b?nm(HH.b):'';
+  const want=HH.a&&HH.b?`#h2h-${HH.a}-${HH.b}`:'#h2h';if(location.hash!==want)try{history.replaceState(null,'',want)}catch(e){}
+  drawHH()};
+ sync();
+}
+function drawHH(){
+ const a=HH.a,b=HH.b,out=$('#hout');
+ if(!a||!b){out.innerHTML='<div class="empty">Choose two players above. Player 2 lists the opponents Player 1 has met, most matches first.</div>';return}
+ const ms=(PM[a]||[]).filter(m=>m[2]===b||m[3]===b).map(m=>{const me=m[2]===a;return{m,w:me?m[4]:m[5],l:me?m[5]:m[4]}});
+ const mw=ms.filter(x=>x.w>x.l).length,rw=ms.reduce((s,x)=>s+x.w,0),rl=ms.reduce((s,x)=>s+x.l,0);
+ const A=PL[a],B=PL[b],cw=raceWin(1/(1+Math.pow(2,(B.rs-A.rs)/100)),7),pct=x=>x>=0.995?'>99':x<=0.005?'<1':Math.round(x*100);
+ const side=(id,P,rt)=>`<div class="sd${rt?' rt':''}"><b>${who(id)}</b><span class="rv${prov(P)?' pv':''}">${P.r}</span><span class="mu" style="font-size:12px">${shown(id)?'':'Not in the German ranking'}</span></div>`;
+ out.innerHTML=`<div class="hbig">${side(a,A)}<div class="mid"><div class="sc">${mw} : ${ms.length-mw}</div><div class="s">matches</div><div class="s">racks ${fmt(rw)} : ${fmt(rl)}</div></div>${side(b,B,1)}</div>
+ <div class="box" style="margin-bottom:20px"><h2>Chance in a race to 7 today</h2><div class="chbar"><i style="width:${(cw*100).toFixed(1)}%"></i></div><div class="chl"><span>${esc(nm(a))} ${pct(cw)}%</span><span>${pct(1-cw)}% ${esc(nm(b))}</span></div><p class="fine">From the current ratings, whatever their past results.</p></div>
+ ${ms.length?`<div class="box"><h2>Matches</h2><div class="tb"><table><thead><tr><th>Date</th><th>Tournament</th><th class="hide">Round</th><th class="r">Score</th></tr></thead><tbody>${ms.map(x=>{const T=TO[x.m[1]];return`<tr><td class="mu">${ds(x.m[0])}</td><td style="white-space:normal">${ball(T.game)} <a class="pl" style="font-weight:400" href="#t${T.id}">${esc(T.name)}</a></td><td class="hide mu">${esc(D.stages[x.m[6]]||'')}</td><td class="r"><span class="wl ${x.w>x.l?'w':'l'}">${x.w}:${x.l}</span></td></tr>`}).join('')}</tbody></table></div></div>`:'<div class="empty">These two players have no counted matches against each other.</div>'}`;
+}
 const TF={q:'',y:'',g:''};
 function tournaments(){
  const years=[...new Set(Object.values(TO).map(x=>x.date.slice(0,4)))].sort().reverse();
@@ -442,7 +569,7 @@ function tournaments(){
  $('#app').innerHTML=`<div class="top"><div><h1>Tournaments</h1><p class="sub" id="tsub"></p></div></div>
  <div class="fbar"><input id="tq" class="txt" type="search" placeholder="Name, city or club" value="${esc(TF.q)}">
   <span class="fl">Year <select id="ty"><option value="">All</option>${years.map(y=>`<option>${y}</option>`).join('')}</select></span>
-  <span class="fl">Game <select id="tg"><option value="">All</option>${games.map(g=>`<option>${esc(g)}</option>`).join('')}</select></span></div>
+  <span class="fl">Game <select id="tg"><option value="">All</option>${games.map(g=>`<option value="${esc(g)}">${GN(g)}</option>`).join('')}</select></span></div>
  <div class="tb"><table><thead><tr><th>Date</th><th>Tournament</th><th class="hide">Place</th><th class="r">Matches</th></tr></thead><tbody id="tl"></tbody></table></div>
  <div class="btnrow" id="tmore"></div>`;
  $('#ty').value=TF.y;$('#tg').value=TF.g;let lim=300;
