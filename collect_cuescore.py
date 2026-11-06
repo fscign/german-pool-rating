@@ -119,7 +119,7 @@ def backfill():
             if datetime.date(y, mth, 1) > TODAY: break
             last = calendar.monthrange(y, mth)[1]
             todo += [it['tournamentId'] for it in cs_list(f'{y}-{mth:02d}-01', f'{y}-{mth:02d}-{last}') if wanted(it)]
-    todo = sorted(set(todo))
+    todo = sorted(set(todo) - have)   # events already stored are skipped, so a first run cut off by a time limit continues next time
     say(f'CueScore raw backfill: {len(todo)} German pool events to read')
     for k in range(0, len(todo), 300):
         run(todo[k:k + 300]); save()

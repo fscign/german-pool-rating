@@ -187,10 +187,11 @@ if os.path.exists('data/pbs_data.json.gz'):
 
 # ---------- CueScore events abroad: other countries' CueScore data (added 6 Nov 2026) ----------
 # Poland + Czech Republic: collected in polish-pool-rating and copied here by the daily workflow.
-# Austria, Switzerland, Italy, France: collected in this repo (cuescore-abroad.yml).
+# Austria, Switzerland, Italy, France: collected in this repo (cuescore-abroad.yml). Netherlands, Belgium, Luxembourg: benelux-pool-rating.
 # Only matches with a German player count (ABROAD_GER_ONLY). Player ids are CueScore ids, so they join German profiles directly.
 CS_ABROAD = [('data/pl_cuescore_raw.json.gz', 'data/pl_team_raw.json'), ('data/cz_cuescore_raw.json.gz', 'data/cz_team_raw.json')]
 CS_ABROAD += [(f'data/{c}_cuescore_raw.json.gz', f'data/{c}_team_raw.json') for c in ('at', 'ch', 'it', 'fr')]   # collected here by cuescore-abroad.yml
+CS_ABROAD += [(f'data/{c}_cuescore_raw.json.gz', f'data/{c}_team_raw.json') for c in ('nl', 'be', 'lu')]   # copied from benelux-pool-rating
 for ev_file, team_file in CS_ABROAD:
     for f_, is_team in ((ev_file, False), (team_file, True)):
         if not os.path.exists(f_): continue

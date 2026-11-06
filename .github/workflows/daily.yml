@@ -36,6 +36,18 @@ jobs:
           repository: ${{ github.repository_owner }}/polish-pool-rating
           path: pl
           sparse-checkout: data
+      - name: Get CueScore Netherlands, Belgium and Luxembourg from the Benelux repo (German players' matches abroad)
+        uses: actions/checkout@v4
+        continue-on-error: true      # public repo, no token needed; if it fails, the last copies in this repo are used
+        with:
+          repository: ${{ github.repository_owner }}/benelux-pool-rating
+          path: bnl
+          sparse-checkout: data
+      - run: |
+          for c in nl be lu; do for f in ${c}_cuescore_raw.json.gz ${c}_team_raw.json; do
+            cp "bnl/data/$f" data/ || echo "Benelux repo: $f not copied, kept the old file"
+          done; done
+          rm -rf bnl
       - run: |
           for p in "cuescore_raw.json.gz pl_cuescore_raw.json.gz" "team_raw.json pl_team_raw.json" "cuescore_cze_raw.json.gz cz_cuescore_raw.json.gz" "team_cze_raw.json cz_team_raw.json"; do
             set -- $p; cp "pl/data/$1" "data/$2" || echo "Polish repo: $1 not copied, kept the old file"
