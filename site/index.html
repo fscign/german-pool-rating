@@ -1,15 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Ratings of German pool players in 8-ball, 9-ball, 10-ball and Multiball, calculated from tournament and league results. Updated daily.">
 <meta name="theme-color" content="#0d1712">
-<title>German Pool Rating</title>
+<title>Pool-Rating Deutschland</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230d1712'/%3E%3Ccircle cx='32' cy='32' r='22' fill='%23f2c230'/%3E%3Ctext x='32' y='41' font-family='Arial' font-weight='700' font-size='26' text-anchor='middle' fill='%230d1712'%3E9%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap">
 <style>
+@font-face{font-family:'Oswald';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/oswald-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Oswald';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/oswald-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Oswald';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/oswald-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Oswald';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/oswald-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Oswald';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/oswald-latin-ext-600-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Oswald';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/oswald-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/roboto-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/roboto-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/roboto-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/roboto-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/roboto-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/roboto-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{--bg:#0d1712;--p1:#13211a;--p2:#182a20;--p3:#1f3529;--ln:#25402f;--fg:#e8eee9;--mu:#8fa597;--gold:#f2c230;--gold2:#c99b12;--up:#6fd08f;--dn:#f08a77;--felt:#1f6b45;--sil:#c5cec8;--brz:#d08a52;--hd:"Oswald","Arial Narrow",sans-serif;--tx:"Roboto",Arial,sans-serif;color-scheme:dark}
 *{box-sizing:border-box}
 html{background:var(--bg)}
@@ -19,15 +29,18 @@ button,input,select{font:inherit;color:inherit}
 .in{max-width:1180px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left)) 0 max(18px,env(safe-area-inset-right))}
 .bar{position:sticky;top:0;z-index:20;background:#09110d;border-bottom:3px solid var(--gold);padding-top:env(safe-area-inset-top)}
 .bar .in{display:flex;align-items:center;gap:18px;height:62px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:500 21px/1 var(--hd);letter-spacing:.04em;white-space:nowrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:500 20px/1 var(--hd);letter-spacing:.04em;white-space:nowrap}
 .logo b{color:var(--gold);font-weight:500}
 .logo .ico{width:28px;height:28px;border-radius:50%;background:var(--gold);color:#09110d;display:grid;place-items:center;font:600 15px/1 var(--hd)}
 #nav{display:flex;height:100%}
-#nav a{display:flex;align-items:center;padding:0 11px;text-decoration:none;font:400 16px/1 var(--hd);letter-spacing:.06em;text-transform:uppercase;color:var(--mu);border-bottom:3px solid transparent;margin-bottom:-3px}
+#nav a{display:flex;align-items:center;padding:0;margin-right:28px;text-decoration:none;font:400 16px/1 var(--hd);letter-spacing:.06em;text-transform:uppercase;color:var(--mu);border-bottom:3px solid transparent;margin-bottom:-3px}
 #nav a:hover{color:var(--fg)}
 #nav a.on{color:var(--fg);border-bottom-color:var(--fg)}
 .find{position:relative;margin-left:auto}
-.find input{width:200px;height:36px;border-radius:3px;border:1px solid var(--ln);background:var(--p1);padding:0 12px 0 34px}
+.lng{display:flex;border:1px solid var(--ln);border-radius:3px;overflow:hidden;flex:none}
+.lng button{border:0;background:transparent;color:var(--mu);font:500 13px/1 var(--tx);padding:9px 9px;cursor:pointer}
+.lng button.on{background:var(--gold);color:#0d1712}
+.find input{width:240px;height:36px;border-radius:3px;border:1px solid var(--ln);background:var(--p1);padding:0 12px 0 34px}
 .find svg{position:absolute;left:11px;top:11px;width:14px;height:14px;stroke:var(--mu)}
 .find input:focus{outline:none;border-color:var(--gold)}
 .drop{position:absolute;top:calc(100% + 4px);left:0;right:0;min-width:240px;background:var(--p2);border:1px solid var(--ln);border-radius:3px;list-style:none;margin:0;padding:4px 0;max-height:320px;overflow:auto;z-index:30;box-shadow:0 10px 30px rgba(0,0,0,.5)}
@@ -35,7 +48,8 @@ button,input,select{font:inherit;color:inherit}
 .drop li.on,.drop li:hover{background:var(--p3)}
 .drop li span{color:var(--gold);font-family:var(--hd)}
 .drop li.none{color:var(--mu);cursor:default}
-main{padding:30px 0 60px;min-height:70vh}
+main{min-height:70vh}
+main.in{padding-top:34px;padding-bottom:60px}
 h1,h2,h3{font-family:var(--hd);font-weight:500;margin:0;letter-spacing:.02em}
 h1{font-size:clamp(30px,5vw,46px);line-height:1.05;text-transform:uppercase}
 h2{font-size:22px;text-transform:uppercase;letter-spacing:.04em}
@@ -169,12 +183,17 @@ tr.pin.last td{border-bottom:2px solid var(--gold2)}
 .hint{color:var(--mu);font-size:13px;margin:10px 0 0}
 .uw{color:var(--gold);font-family:var(--hd);font-size:17px}
 .load{padding:80px 0;text-align:center;font:400 18px/1 var(--hd);letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
-@media (max-width:980px){.lay{grid-template-columns:minmax(0,1fr)}.lay.pp>aside{order:-1}.ldr{grid-template-columns:1fr}}
+.bar .in{height:auto;flex-wrap:wrap;gap:0 14px;padding-top:12px}
+.find{order:2}.lng{order:2}
+#nav{order:3;width:100%;height:44px;overflow-x:auto;scrollbar-width:none;margin-top:8px}
+#nav::-webkit-scrollbar{display:none}
+@media (max-width:980px){.lay{grid-template-columns:minmax(0,1fr)}.lay.pp>aside{order:-1}.ldr{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:860px){
  .bar .in{height:auto;flex-wrap:wrap;gap:0 12px;padding-top:10px}
  .find{order:2}.find input{width:150px;height:32px}
+ .lng{order:2}.lng button{padding:7px 7px}
  #nav{order:3;width:100%;height:42px;overflow-x:auto;scrollbar-width:none}
- #nav a{padding:0 10px;font-size:15px}
+ #nav a{padding:0;margin-right:18px;font-size:15px}
  .pod{grid-template-columns:1fr;gap:6px}
  .pc{padding:10px 14px;border-top:0;border-left:4px solid var(--c)}
  .pc .rk{font-size:28px;width:24px}.pc .rt{font-size:30px}
@@ -183,7 +202,8 @@ tr.pin.last td{border-bottom:2px solid var(--gold2)}
 }
 @media (max-width:520px){
  .logo{font-size:17px}.logo .ico{width:24px;height:24px;font-size:13px}
- .find input{width:118px}
+ .find{flex:1;margin-left:0}.find input{width:100%}
+ .logo{width:100%;margin-bottom:8px}
  td,th{padding:8px 7px}
  .fbar{padding:10px 12px}
  .hero{padding:18px}.big{text-align:left}
@@ -193,6 +213,8 @@ tr.pin.last td{border-bottom:2px solid var(--gold2)}
  .hpick{grid-template-columns:1fr;}.swap{width:100%}
  .hbig{padding:16px 12px;gap:8px}.hbig .sd b{font-size:15px}.hbig .sd .rv{font-size:28px}.hbig .mid .sc{font-size:36px}
  .hide2{display:none}
+ .lb table td{white-space:normal;padding:8px 8px}.lb th{padding:10px 8px}
+ .lb .hd{padding:12px 10px}
  .rkt td:nth-child(2){white-space:normal;line-height:1.25}
  .rkt th:first-child{width:44px}
 }
@@ -200,35 +222,150 @@ tr.pin.last td{border-bottom:2px solid var(--gold2)}
 </head>
 <body>
 <header class="bar"><div class="in">
- <a class="logo" href="#ranking"><span class="ico">9</span><span>GERMAN <b>POOL</b> RATING</span></a>
- <nav id="nav"><a href="#ranking" data-r="ranking">Ranking</a><a href="#leaders" data-r="leaders">Leaders</a><a href="#h2h" data-r="h2h">H2H</a><a href="#tournaments" data-r="tournaments">Tournaments</a><a href="#info" data-r="info">Info</a><a href="#support" data-r="support">Support</a></nav>
- <div class="find"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><circle cx="10" cy="10" r="7"/><path d="M15 15l6 6"/></svg><input id="find" type="search" placeholder="Search player" autocomplete="off" aria-label="Search player"><ul class="drop" id="findl" hidden></ul></div>
+ <a class="logo" href="#ranking"><span class="ico">9</span><span id="brand">POOL-RATING <b>DEUTSCHLAND</b></span></a>
+ <nav id="nav"><a href="#ranking" data-r="ranking" data-t="nRanking">Rangliste</a><a href="#leaders" data-r="leaders" data-t="nLeaders">Bestenlisten</a><a href="#h2h" data-r="h2h" data-t="nH2H">H2H</a><a href="#tournaments" data-r="tournaments" data-t="nTournaments">Turniere</a><a href="#info" data-r="info" data-t="nInfo">Info</a><a href="#support" data-r="support" data-t="nSupport">Unterstützen</a></nav>
+ <div class="find"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><circle cx="10" cy="10" r="7"/><path d="M15 15l6 6"/></svg><input id="find" type="search" placeholder="Spieler suchen" autocomplete="off" aria-label="Spieler suchen"><ul class="drop" id="findl" hidden></ul></div>
+ <div class="lng" role="group" aria-label="Sprache / Language"><button data-l="de">DE</button><button data-l="en">EN</button></div>
 </div></header>
-<main class="in" id="app"><div class="load">Loading ratings</div></main>
-<footer class="foot"><div class="in"><span>German Pool Rating by Aleksandrs Horsuns</span><span>Results from CueScore, TournamentApp, nuLiga, VeVeTo, EPBF, Matchroom and PBS</span><a href="#support">Support the project</a></div></footer>
+<main class="in" id="app"><div class="load" data-t="loading">Ratings werden geladen</div></main>
+<footer class="foot"><div class="in"><span data-t="fBrand">Pool-Rating Deutschland</span><span data-t="fUnoff">Inoffizielles Rating auf Basis gesammelter Turnier- und Ligaergebnisse</span><span data-t="fSources">Ergebnisse von CueScore, TournamentApp, Score Trek, nuLiga, VeVeTo, EPBF, Matchroom und PBS</span><a href="#support" data-t="fSupport">Projekt unterstützen</a></div></footer>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const fold=s=>String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
-const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const MON={en:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],de:['Jan.','Feb.','März','Apr.','Mai','Juni','Juli','Aug.','Sept.','Okt.','Nov.','Dez.']};
 let D,PL={},TO={},PM={},GEN='2026-11-01',NOW;
 const toD=n=>{const s=String(n);return new Date(Date.UTC(+s.slice(0,4),+s.slice(4,6)-1,+s.slice(6,8)))};
-const ds=n=>{const s=String(n);return +s.slice(6,8)+' '+MON[+s.slice(4,6)-1]+' '+s.slice(0,4)};
+const ds=n=>{const s=String(n);return LANG==='de'?s.slice(6,8)+'.'+s.slice(4,6)+'.'+s.slice(0,4):+s.slice(6,8)+' '+MON.en[+s.slice(4,6)-1]+' '+s.slice(0,4)};
 const di=s=>+String(s).replace(/-/g,'');
 const back=y=>{const d=new Date(NOW);d.setUTCMonth(d.getUTCMonth()-Math.round(y*12));return +d.toISOString().slice(0,10).replace(/-/g,'')};
-const fmt=n=>Number(n).toLocaleString('en-GB');
+const fmt=n=>Number(n).toLocaleString(LANG==='de'?'de-DE':'en-GB');
 const mem=(k,v)=>{try{if(v===undefined)return JSON.parse(localStorage.getItem('gpr_'+k));localStorage.setItem('gpr_'+k,JSON.stringify(v))}catch(e){return null}};
-const nm=id=>PL[id]?PL[id].first+' '+PL[id].last:'Unknown';
+const TX={
+en:{brand:'GERMAN <b>POOL</b> RATING',title:'German Pool Rating',nRanking:'Ranking',nLeaders:'Leaders',nH2H:'H2H',nTournaments:'Tournaments',nInfo:'Info',nSupport:'Support',
+ search:'Search player',loading:'Loading ratings',loadErr:'The rating data could not be loaded. Reload the page to try again.',noPlayer:'No player found',
+ fBrand:'German Pool Rating',fUnoff:'Unofficial rating based on collected tournament and league results',fSources:'Results from CueScore, TournamentApp, Score Trek, nuLiga, VeVeTo, EPBF, Matchroom and PBS',fSupport:'Support the project',
+ follow:'Follow this player',unfollow:'Stop following',provTip:'Provisional: fewer than 200 racks',prov:'PROV',
+ g8:'8-ball',g9:'9-ball',g10:'10-ball',gm:'Multiball',
+ rTitle:'Ranking',rSub:(n,t,d)=>`${n} of ${t} players match the filters. Ratings calculated on ${d}.`,activeIn:'Active in',y1:'1 year',y2:'2 years',y5:'5 years',all:'All',minRacks:'Minimum racks',none:'None',
+ thRank:'Rank',thPlayer:'Player',thRating:'Rating',th12:'12 months',thRacks:'Racks',thMatches:'Matches',thLast:'Last match',nRacks:n=>`${n} racks`,
+ myPlayers:'My players',notInList:'Not in this list',noPlayers:'No players match these filters.',starHint:'Tap ☆ next to a name to follow a player. Followed players stay at the top of the ranking on this device.',
+ showAllP:n=>`Show all ${n} players`,rFine:'Shown by default: players active in the last year with at least 200 racks. Set "All" and "None" to see every player. Players who stop playing keep their last rating. PROV marks a provisional rating, based on fewer than 200 racks.',
+ rankLine:n=>`Rank ${n} of active players`,notActive:'Not active in the last 2 years',since:(n,d)=>`${n} matches since ${d}`,csProf:'CueScore profile',taProf:'TournamentApp profile',
+ rating:'Rating',provLong:'Provisional rating, fewer than 200 racks',history:'Rating history',histFine:'Rating at the end of each month, from the results known at that time.',noHist:'Not enough results for a history yet.',
+ results:'Match results',period:'Period',allYears:'All years',last12:'Last 12 months',last2:'Last 2 years',last5:'Last 5 years',chooseDates:'Choose dates',
+ opponent:'Opponent',anyOpp:'Any opponent',tournament:'Tournament',allTours:'All tournaments',game:'Game',allGames:'All games',from:'From',to:'To',
+ thDate:'Date',thOpp:'Opponent',thOppR:'Opp.',thScore:'Score',thPerf:'Perf.',thTour:'Tournament',thWeight:'Weight',
+ perfFine:"Perf. is the rating that matches this one result: opponent's rating + 100 x log2(racks won / racks lost). In a shutout the zero side counts as half a rack. Weight shows how much the match counts today; it halves every 2 years.",
+ opponents:'Opponents',uncomf:'Most uncomfortable opponent',comf:'Most comfortable opponent',oppSub:(w,l,rw,rl,d)=>`Matches ${w}-${l}, racks ${rw}:${rl}, ${Math.abs(d)} racks ${d<0?'below':'above'} expectation`,
+ oppNone:'Not enough matches against the same German opponents yet.',oppFine:'German opponents met at least 5 times and active in the last 5 years. Racks won compared with what the ratings expected before each match.',
+ numbers:'Numbers',selMatches:'For the selected matches',allMatches:'All matches',kMatches:'Matches',wonLost:(w,l)=>`${w} won, ${l} lost`,kRacks:'Racks',pctWon:p=>`${p}% won`,avgOpp:'Average opponent',
+ bestMatch:'Best match',worstMatch:'Weakest match',against:(w,l,n)=>`${w}:${l} against ${n}`,bestTour:'Best tournament',worstTour:'Weakest tournament',noTour:'no event with 15+ racks',
+ sum:(n,w,l,rw,rl,p)=>`<b>${n}</b> matches: <b>${w}</b> won, <b>${l}</b> lost. Racks <b>${rw}:${rl}</b> (${p}%).`,
+ vsSub:(rw,rl)=>`matches, racks ${rw}:${rl}`,expShare:x=>`Expected rack share today ${x}%`,openH2H:'Open head to head',h2hTip:'Head to head',noMatches:'No matches for these filters.',noOpp:'No such opponent',
+ lTitle:'Leaders',lSub:'Upsets, form, activity, rivalries and deciding racks.',upsets:'Upsets of the month',thWinner:'Winner',thLoser:'Loser',thChance:'Chance',upNone:'No upsets in the last 30 days.',
+ upFine:"Last 30 days, races to 4 or longer. Chance = the winner's chance to win the match, from both ratings before it. Both players have 200+ racks.",
+ potm:'Players of the month',potmNone:'Not enough matches in the last 30 days.',potmFine:'Last 30 days, at least 50 racks. Perf. is the rating that best explains the racks won against these opponents; +/- compares it with the rating a month ago.',
+ m3:'3 months',m6:'6 months',m12:'1 year',noYet:'No players yet.',gains:'Biggest gains',thFrom:'From',thNow:'Now',thGain:'Gain',gainFine:'Players with at least 200 racks before the period.',
+ active:'Most racks played',pairs:'Most played pairings',thPlayers:'Players',vsShort:'v',pairFine:'Matches played to 4 racks or more.',
+ decid:'Deciding racks',allTime:'All time',thWon:'Won',thShare:'Share',ofN:(w,n)=>`${w} of ${n}`,decFine:n=>`Matches that went to the last rack, at least ${n} played.`,
+ hTitle:'Head to head',hSub:'Pick two players to see all their matches against each other.',p1:'Player 1',p2:'Player 2',swap:'Swap players',
+ hPick:'Choose two players above. Player 2 lists the opponents Player 1 has met, most matches first.',mShort:n=>`${n} m`,notDE:'Not in the German ranking',
+ hMatches:'matches',hRacks:(a,b)=>`racks ${a} : ${b}`,chance7:'Chance in a race to 7 today',chanceFine:'From the current ratings, whatever their past results.',matchesH:'Matches',thRound:'Round',hNone:'These two players have no counted matches against each other.',
+ tTitle:'Tournaments',tSub:n=>`${n} tournaments and league match days`,tPh:'Name, city or club',year:'Year',thPlace:'Place',noTours:'No tournaments found.',showAllN:n=>`Show all ${n}`,
+ kDate:'Date',kPlace:'Place',kClub:'Club',kGame:'Game',kRated:'Rated matches',kPlayers:'Players',viewOn:s=>`View on ${s}`,tFine:'Walkovers are left out. Foreign players are rated too but are not listed in the ranking.',
+ perfH:'Performance',thBefore:'Before',tpSub:(mw,ml,w,l)=>`${mw}-${ml} matches, ${w}:${l} racks`,noDE:'No German players.',tpFine:"Before is the rating at the end of the previous month. Perf. is the rating that best explains the player's racks in this event.",
+ sTitle:'Support',sSub:'Keep the rating running',sText:'I build and update this rating in my spare time: collecting results from many sites, joining duplicate player profiles and adding new sources. If you enjoy following it, a coffee helps keep it going. Thank you!',
+ sBtn:'Buy me a coffee on Ko-fi',sFine:'Pay by card, Apple Pay, Google Pay or PayPal. No account needed.',
+ info:(tn,nm,np,y0,y1,d)=>`<h1>Info</h1>
+ <p class="sub">${tn} tournaments and league match days, ${nm} matches, ${np} German players (${y0} to ${y1}).</p>
+ <p>This is an unofficial rating. It is calculated from tournament and league results collected from the public sites listed below.</p>
+ <h2>The scale</h2>
+ <p>Ratings use the FargoRate scale. A player rated 100 points higher is expected to win two racks for every one he loses. At 200 points the ratio is 4 to 1.</p>
+ <h2>Which results count</h2>
+ <ul><li>Singles in 8-ball, 9-ball, 10-ball and Multiball, played to at least 3 racks.</li>
+ <li>Tournaments in Germany on CueScore and TournamentApp, tournaments and league match days on Score Trek Battle, league and championship results from Bavaria (nuLiga) and Hessen (VeVeTo), and all EPBF, Matchroom and Predator Pro Billiard Series events. In events played in sets, every set counts as a separate match.</li>
+ <li>Singles from league match days. Doubles are left out.</li>
+ <li>Matches against foreign players. They are rated in the background, and players with an established FargoRate keep it as a fixed value.</li></ul>
+ <h2>Left out</h2>
+ <ul><li>Handicap events, doubles, straight pool, bank pool and one pocket.</li><li>Walkovers and unplayed matches.</li><li>Other events outside Germany.</li></ul>
+ <h2>The calculation</h2>
+ <p>Every rack counts as a small win or loss. A rating is the number that best explains all of a player's racks against all opponents at once, and everything is recalculated every day. Older results count less: a match loses half its weight every 2 years. A rating based on fewer than 200 racks is provisional (marked PROV).</p>
+ <p>When a player has more than one profile, the profiles are joined.</p>
+ <h2>Contact and corrections</h2>
+ <p>The rating is built and maintained by Aleksandrs Horsuns. A wrong profile merge or a missing tournament? Do you know a website or platform with pool results that is not included yet? Write to poolrating@gmail.com.</p>
+ <p class="fine" style="margin-top:28px">Sources: cuescore.com, tournamentapp.de, bbv-billard.liga.nu, hpbv-veveto.de, battle.score-trek.de, epbf.com, wntlivescores.com, probilliardseries.com. Last calculation ${d}.</p>`},
+de:{brand:'POOL-RATING <b>DEUTSCHLAND</b>',title:'Pool-Rating Deutschland',nRanking:'Rangliste',nLeaders:'Bestenlisten',nH2H:'H2H',nTournaments:'Turniere',nInfo:'Info',nSupport:'Unterstützen',
+ search:'Spieler suchen',loading:'Ratings werden geladen',loadErr:'Die Rating-Daten konnten nicht geladen werden. Bitte lade die Seite neu.',noPlayer:'Kein Spieler gefunden',
+ fBrand:'Pool-Rating Deutschland',fUnoff:'Inoffizielles Rating auf Basis gesammelter Turnier- und Ligaergebnisse',fSources:'Ergebnisse von CueScore, TournamentApp, Score Trek, nuLiga, VeVeTo, EPBF, Matchroom und PBS',fSupport:'Projekt unterstützen',
+ follow:'Spieler folgen',unfollow:'Nicht mehr folgen',provTip:'Vorläufig: weniger als 200 Spiele',prov:'VORL.',
+ g8:'8-Ball',g9:'9-Ball',g10:'10-Ball',gm:'Multiball',
+ rTitle:'Rangliste',rSub:(n,t,d)=>`${n} von ${t} Spielern passen zu den Filtern. Ratings berechnet am ${d}.`,activeIn:'Aktiv in',y1:'1 Jahr',y2:'2 Jahre',y5:'5 Jahre',all:'Alle',minRacks:'Mindestens Spiele',none:'Keine',
+ thRank:'Platz',thPlayer:'Spieler',thRating:'Rating',th12:'12 Monate',thRacks:'Spiele',thMatches:'Partien',thLast:'Letzte Partie',nRacks:n=>`${n} Spiele`,
+ myPlayers:'Meine Spieler',notInList:'Nicht in dieser Liste',noPlayers:'Keine Spieler für diese Filter.',starHint:'Tippe auf ☆ neben einem Namen, um einem Spieler zu folgen. Gefolgte Spieler bleiben auf diesem Gerät oben in der Rangliste.',
+ showAllP:n=>`Alle ${n} Spieler anzeigen`,rFine:'Standardmäßig zu sehen: Spieler, die im letzten Jahr aktiv waren und mindestens 200 Spiele haben. Mit "Alle" und "Keine" erscheinen alle Spieler. Wer nicht mehr spielt, behält sein letztes Rating. VORL. steht für ein vorläufiges Rating aus weniger als 200 Spielen.',
+ rankLine:n=>`Platz ${n} der aktiven Spieler`,notActive:'In den letzten 2 Jahren nicht aktiv',since:(n,d)=>`${n} Partien seit ${d}`,csProf:'CueScore-Profil',taProf:'TournamentApp-Profil',
+ rating:'Rating',provLong:'Vorläufiges Rating, weniger als 200 Spiele',history:'Rating-Verlauf',histFine:'Rating am Ende jedes Monats, berechnet aus den damals bekannten Ergebnissen.',noHist:'Noch nicht genug Ergebnisse für einen Verlauf.',
+ results:'Ergebnisse',period:'Zeitraum',allYears:'Alle Jahre',last12:'Letzte 12 Monate',last2:'Letzte 2 Jahre',last5:'Letzte 5 Jahre',chooseDates:'Daten wählen',
+ opponent:'Gegner',anyOpp:'Alle Gegner',tournament:'Turnier',allTours:'Alle Turniere',game:'Disziplin',allGames:'Alle Disziplinen',from:'Von',to:'Bis',
+ thDate:'Datum',thOpp:'Gegner',thOppR:'Geg.',thScore:'Erg.',thPerf:'Leist.',thTour:'Turnier',thWeight:'Gewicht',
+ perfFine:'Leist. ist das Rating, das genau zu diesem Ergebnis passt: Rating des Gegners + 100 x log2(gewonnene ÷ verlorene Spiele). Bei einem Ergebnis zu null zählt die Null als halbes Spiel. Das Gewicht zeigt, wie stark die Partie heute noch zählt; es halbiert sich alle 2 Jahre.',
+ opponents:'Gegner',uncomf:'Unangenehmster Gegner',comf:'Angenehmster Gegner',oppSub:(w,l,rw,rl,d)=>`Partien ${w}-${l}, Spiele ${rw}:${rl}, ${Math.abs(d)} Spiele ${d<0?'unter':'über'} der Erwartung`,
+ oppNone:'Noch nicht genug Partien gegen dieselben deutschen Gegner.',oppFine:'Deutsche Gegner mit mindestens 5 Partien, die in den letzten 5 Jahren aktiv waren. Gewonnene Spiele im Vergleich zur Erwartung aus den Ratings vor jeder Partie.',
+ numbers:'Zahlen',selMatches:'Für die gewählten Partien',allMatches:'Alle Partien',kMatches:'Partien',wonLost:(w,l)=>`${w} gewonnen, ${l} verloren`,kRacks:'Spiele',pctWon:p=>`${p} % gewonnen`,avgOpp:'Durchschnittlicher Gegner',
+ bestMatch:'Beste Partie',worstMatch:'Schwächste Partie',against:(w,l,n)=>`${w}:${l} gegen ${n}`,bestTour:'Bestes Turnier',worstTour:'Schwächstes Turnier',noTour:'kein Turnier mit 15+ Spielen',
+ sum:(n,w,l,rw,rl,p)=>`<b>${n}</b> Partien: <b>${w}</b> gewonnen, <b>${l}</b> verloren. Spiele <b>${rw}:${rl}</b> (${p} %).`,
+ vsSub:(rw,rl)=>`Partien, Spiele ${rw}:${rl}`,expShare:x=>`Erwarteter Anteil an Spielen heute: ${x} %`,openH2H:'Direkten Vergleich öffnen',h2hTip:'Direkter Vergleich',noMatches:'Keine Partien für diese Filter.',noOpp:'Kein solcher Gegner',
+ lTitle:'Bestenlisten',lSub:'Überraschungen, Form, Aktivität, Rivalitäten und Entscheidungsspiele.',upsets:'Überraschungen des Monats',thWinner:'Sieger',thLoser:'Verlierer',thChance:'Chance',upNone:'Keine Überraschungen in den letzten 30 Tagen.',
+ upFine:'Letzte 30 Tage, Partien auf mindestens 4 Gewinnspiele. Chance = die Chance des Siegers auf den Partiegewinn, aus beiden Ratings vor der Partie. Beide Spieler haben mindestens 200 Spiele.',
+ potm:'Spieler des Monats',potmNone:'Nicht genug Partien in den letzten 30 Tagen.',potmFine:'Letzte 30 Tage, mindestens 50 Spiele. Leist. ist das Rating, das die gewonnenen Spiele gegen diese Gegner am besten erklärt; +/- vergleicht es mit dem Rating vor einem Monat.',
+ m3:'3 Monate',m6:'6 Monate',m12:'1 Jahr',noYet:'Noch keine Spieler.',gains:'Größte Steigerung',thFrom:'Vorher',thNow:'Jetzt',thGain:'Plus',gainFine:'Spieler mit mindestens 200 Spielen vor dem Zeitraum.',
+ active:'Meiste Spiele',pairs:'Häufigste Duelle',thPlayers:'Spieler',vsShort:'gg.',pairFine:'Partien auf mindestens 4 Gewinnspiele.',
+ decid:'Entscheidungsspiele',allTime:'Gesamt',thWon:'Gewonnen',thShare:'Quote',ofN:(w,n)=>`${w} von ${n}`,decFine:n=>`Partien, die bis ins letzte Spiel gingen, mindestens ${n} gespielt.`,
+ hTitle:'Direkter Vergleich',hSub:'Wähle zwei Spieler und sieh alle Partien, die sie gegeneinander gespielt haben.',p1:'Spieler 1',p2:'Spieler 2',swap:'Spieler tauschen',
+ hPick:'Wähle oben zwei Spieler. Bei Spieler 2 stehen die Gegner von Spieler 1, die häufigsten zuerst.',mShort:n=>`${n} P.`,notDE:'Nicht in der deutschen Rangliste',
+ hMatches:'Partien',hRacks:(a,b)=>`Spiele ${a} : ${b}`,chance7:'Chance in einer Partie auf 7, Stand heute',chanceFine:'Aus den aktuellen Ratings, unabhängig von früheren Ergebnissen.',matchesH:'Partien',thRound:'Runde',hNone:'Diese beiden Spieler haben keine gewerteten Partien gegeneinander.',
+ tTitle:'Turniere',tSub:n=>`${n} Turniere und Ligaspieltage`,tPh:'Name, Stadt oder Verein',year:'Jahr',thPlace:'Ort',noTours:'Keine Turniere gefunden.',showAllN:n=>`Alle ${n} anzeigen`,
+ kDate:'Datum',kPlace:'Ort',kClub:'Verein',kGame:'Disziplin',kRated:'Gewertete Partien',kPlayers:'Spieler',viewOn:s=>`Auf ${s} ansehen`,tFine:'Kampflose Partien sind nicht enthalten. Ausländische Spieler werden mitbewertet, stehen aber nicht in der Rangliste.',
+ perfH:'Leistung',thBefore:'Vorher',tpSub:(mw,ml,w,l)=>`Partien ${mw}-${ml}, Spiele ${w}:${l}`,noDE:'Keine deutschen Spieler.',tpFine:'Vorher ist das Rating am Ende des Vormonats. Leist. ist das Rating, das die Spiele des Spielers in diesem Turnier am besten erklärt.',
+ sTitle:'Unterstützen',sSub:'Damit das Rating weiterläuft',sText:'Ich erstelle und pflege dieses Rating in meiner Freizeit: Ergebnisse von vielen Seiten sammeln, doppelte Spielerprofile zusammenführen und neue Quellen anbinden. Wenn du es gerne verfolgst, hilft ein Kaffee, dass es weitergeht. Danke!',
+ sBtn:'Spendiere mir einen Kaffee auf Ko-fi',sFine:'Zahlung per Karte, Apple Pay, Google Pay oder PayPal. Kein Konto nötig.',
+ info:(tn,nm,np,y0,y1,d)=>`<h1>Info</h1>
+ <p class="sub">${tn} Turniere und Ligaspieltage, ${nm} Partien, ${np} deutsche Spieler (${y0} bis ${y1}).</p>
+ <p>Dies ist ein inoffizielles Rating. Es wird aus Turnier- und Ligaergebnissen berechnet, die von den unten genannten öffentlichen Seiten gesammelt werden.</p>
+ <h2>Die Skala</h2>
+ <p>Die Ratings verwenden die Skala von FargoRate. Ein Spieler mit 100 Punkten mehr gewinnt im Schnitt zwei Spiele für jedes, das er verliert. Bei 200 Punkten Unterschied sind es 4 zu 1.</p>
+ <h2>Was gewertet wird</h2>
+ <ul><li>Einzel in 8-Ball, 9-Ball, 10-Ball und Multiball, gespielt auf mindestens 3 Gewinnspiele.</li>
+ <li>Turniere in Deutschland auf CueScore und TournamentApp, Turniere und Ligaspieltage auf Score Trek Battle, Liga- und Meisterschaftsergebnisse aus Bayern (nuLiga) und Hessen (VeVeTo) sowie alle Turniere von EPBF, Matchroom und der Predator Pro Billiard Series. Bei Turnieren im Satzmodus zählt jeder Satz als eigene Partie.</li>
+ <li>Einzel von Ligaspieltagen. Doppel zählen nicht.</li>
+ <li>Partien gegen ausländische Spieler. Sie werden im Hintergrund mitbewertet; wer ein gefestigtes FargoRate hat, behält es als festen Wert.</li></ul>
+ <h2>Was nicht gewertet wird</h2>
+ <ul><li>Vorgabe- und Handicap-Turniere, Doppel, 14/1 endlos, Bank Pool und One Pocket.</li><li>Kampflose und nicht gespielte Partien.</li><li>Andere Turniere außerhalb Deutschlands.</li></ul>
+ <h2>Die Berechnung</h2>
+ <p>Jedes Spiel zählt als kleiner Sieg oder kleine Niederlage. Das Rating ist die Zahl, die alle Spiele eines Spielers gegen alle Gegner gleichzeitig am besten erklärt, und alles wird jeden Tag neu berechnet. Ältere Ergebnisse zählen weniger: Eine Partie verliert alle 2 Jahre die Hälfte ihres Gewichts. Ein Rating aus weniger als 200 Spielen ist vorläufig (VORL.).</p>
+ <p>Hat ein Spieler mehrere Profile, werden sie zusammengeführt.</p>
+ <h2>Kontakt und Korrekturen</h2>
+ <p>Das Rating wird von Aleksandrs Horsuns erstellt und gepflegt. Falsch zusammengeführte Profile oder ein fehlendes Turnier? Du kennst eine Seite oder Plattform mit Pool-Ergebnissen, die hier noch fehlt? Schreib an poolrating@gmail.com.</p>
+ <p class="fine" style="margin-top:28px">Quellen: cuescore.com, tournamentapp.de, bbv-billard.liga.nu, hpbv-veveto.de, battle.score-trek.de, epbf.com, wntlivescores.com, probilliardseries.com. Zuletzt berechnet am ${d}.</p>`}};
+let LANG=mem('lang')==='en'?'en':'de';
+const t=(k,...a)=>{const v=TX[LANG][k]??TX.en[k];return typeof v==='function'?v(...a):v};
+function setLang(l){LANG=l;mem('lang',l);document.documentElement.lang=l;document.title=t('title');
+ $('#brand').innerHTML=t('brand');$$('[data-t]').forEach(e=>e.textContent=t(e.dataset.t));$('#find').placeholder=t('search');$('#find').setAttribute('aria-label',t('search'));
+ $$('.lng button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));if(D)route()}
+
+const nm=id=>PL[id]?PL[id].first+' '+PL[id].last:'?';
 const shown=id=>PL[id]&&PL[id].de;
 const who=id=>shown(id)?`<a class="pl" href="#p${id}">${esc(nm(id))}</a>`:`<span>${esc(nm(id))}</span>${PL[id]&&PL[id].cc?`<span class="ctry">${esc(PL[id].cc)}</span>`:''}`;
-const ball=g=>{const k={'8-ball':'b8','9-ball':'b9','10-ball':'b10'}[g]||'bm';const n={'8-ball':8,'9-ball':9,'10-ball':10}[g]||'';return `<span class="bl ${k}" title="${esc(g)}">${n}</span>`};
+const ball=g=>{const k={'8-ball':'b8','9-ball':'b9','10-ball':'b10'}[g]||'bm';const n={'8-ball':8,'9-ball':9,'10-ball':10}[g]||'';return `<span class="bl ${k}" title="${esc(GN(g))}">${n}</span>`};
 const seg=(name,opts,cur)=>`<span class="seg">${opts.map(([v,l])=>`<button data-${name}="${v}" class="${String(cur)===String(v)?'on':''}">${l}</button>`).join('')}</span>`;
 let STARS=new Set((mem('stars')||[]).map(Number));
-const star=id=>`<button class="star${STARS.has(id)?' on':''}" data-star="${id}" title="${STARS.has(id)?'Stop following':'Follow this player'}" aria-label="${STARS.has(id)?'Stop following':'Follow this player'}" aria-pressed="${STARS.has(id)}">${STARS.has(id)?'★':'☆'}</button>`;
+const star=id=>`<button class="star${STARS.has(id)?' on':''}" data-star="${id}" title="${t(STARS.has(id)?'unfollow':'follow')}" aria-label="${t(STARS.has(id)?'unfollow':'follow')}" aria-pressed="${STARS.has(id)}">${STARS.has(id)?'★':'☆'}</button>`;
 function bindStars(redraw){$$('[data-star]').forEach(b=>b.onclick=e=>{e.preventDefault();e.stopPropagation();const id=+b.dataset.star;STARS.has(id)?STARS.delete(id):STARS.add(id);mem('stars',[...STARS]);redraw()})}
-const GN=g=>({'8-ball':'8-ball','9-ball':'9-ball','10-ball':'10-ball','multiball':'Multiball'})[g]||g;
+const GN=g=>({'8-ball':t('g8'),'9-ball':t('g9'),'10-ball':t('g10'),'multiball':t('gm')})[g]||g;
+const PC=n=>LANG==='de'?n+' %':n+'%';
 const prov=p=>p.racks<200;
-const rateHtml=(p,cls='rating')=>`<span class="${cls}${prov(p)?' pv':''}">${p.r}</span>${prov(p)?'<span class="ptag" title="Provisional: fewer than 200 racks">PROV</span>':''}`;
+const rateHtml=(p,cls='rating')=>`<span class="${cls}${prov(p)?' pv':''}">${p.r}</span>${prov(p)?`<span class="ptag" title="${t('provTip')}">${t('prov')}</span>`:''}`;
 const sign=d=>d==null?'<span class="mu">-</span>':`<span class="${d>0?'up':d<0?'dn':'mu'}">${d>0?'+':''}${d}</span>`;
 
 Promise.all([fetch('data.json').then(r=>r.json()),fetch('matches.json').then(r=>r.json())]).then(([d,m])=>{
@@ -237,7 +374,8 @@ Promise.all([fetch('data.json').then(r=>r.json()),fetch('matches.json').then(r=>
  d.tournaments.forEach(x=>{TO[x[0]]={id:x[0],name:x[1],date:x[2],city:x[3],club:x[4],game:x[5],src:x[6],url:x[7],full:x[8]||'',n:0}});
  d.matches.forEach(m=>{(PM[m[2]]=PM[m[2]]||[]).push(m);(PM[m[3]]=PM[m[3]]||[]).push(m);TO[m[1]].n++});
  setupFind();route();
-}).catch(()=>{$('#app').innerHTML='<div class="empty">The rating data could not be loaded. Reload the page to try again.</div>'});
+}).catch(()=>{$('#app').innerHTML=`<div class="empty">${t('loadErr')}</div>`});
+$$('.lng button').forEach(b=>b.onclick=()=>setLang(b.dataset.l));setLang(LANG);
 addEventListener('hashchange',()=>{route();scrollTo(0,0)});
 
 function route(){
@@ -261,7 +399,7 @@ function setupFind(){
  const list=Object.values(PL).filter(p=>p.de).map(p=>[p,fold(p.first+' '+p.last)]);
  const show=()=>{const q=fold(inp.value.trim());if(!q){ul.hidden=true;return}
   hits=list.filter(([p,f])=>f.includes(q)).sort((a,b)=>(b[1].split(' ').some(w=>w.startsWith(q))-a[1].split(' ').some(w=>w.startsWith(q)))||b[0].rs-a[0].rs).slice(0,10).map(x=>x[0]);cur=0;
-  ul.innerHTML=hits.length?hits.map((p,i)=>`<li data-id="${p.id}" class="${i?'':'on'}">${esc(p.first+' '+p.last)}<span>${p.r}</span></li>`).join(''):'<li class="none">No player found</li>';
+  ul.innerHTML=hits.length?hits.map((p,i)=>`<li data-id="${p.id}" class="${i?'':'on'}">${esc(p.first+' '+p.last)}<span>${p.r}</span></li>`).join(''):`<li class="none">${t('noPlayer')}</li>`;
   ul.hidden=false;ul.querySelectorAll('li[data-id]').forEach(li=>li.onmousedown=e=>{e.preventDefault();go(li.dataset.id)})};
  const go=id=>{inp.value='';ul.hidden=true;inp.blur();location.hash='p'+id};
  inp.oninput=show;inp.onfocus=show;inp.onblur=()=>setTimeout(()=>ul.hidden=true,100);
@@ -276,18 +414,18 @@ function hIdx(id,i){const h=D.history[id];if(!h||i<h[0])return null;let j=Math.m
 const RK=Object.assign({act:'12',min:'200',sort:'r',dir:-1,lim:100},mem('rk')||{});
 function ranking(){
  $('#app').innerHTML=`
- <div class="top"><div><h1>Ranking</h1><p class="sub" id="rsub"></p></div></div>
+ <div class="top"><div><h1>${t('rTitle')}</h1><p class="sub" id="rsub"></p></div></div>
  <div class="pod" id="pod"></div>
  <div class="fbar">
-  <span class="fl">Active in ${seg('act',[['12','1 year'],['24','2 years'],['60','5 years'],['0','All']],RK.act)}</span>
-  <span class="fl">Minimum racks <select id="min"><option value="0">None</option><option value="200">200</option><option value="500">500</option><option value="1000">1,000</option></select></span>
+  <span class="fl">${t('activeIn')} ${seg('act',[['12',t('y1')],['24',t('y2')],['60',t('y5')],['0',t('all')]],RK.act)}</span>
+  <span class="fl">${t('minRacks')} <select id="min"><option value="0">${t('none')}</option><option value="200">200</option><option value="500">500</option><option value="1000">${fmt(1000)}</option></select></span>
  </div>
  <div class="tb"><table class="rkt"><thead><tr>
-  <th>Rank</th><th class="s" data-s="name">Player</th><th class="s r" data-s="r">Rating</th><th class="s r hide" data-s="ch">12 months</th>
-  <th class="s r hide" data-s="racks">Racks</th><th class="s r hide2" data-s="n">Matches</th><th class="s r hide" data-s="lp">Last match</th></tr></thead><tbody id="rk"></tbody></table></div>
+  <th>${t('thRank')}</th><th class="s" data-s="name">${t('thPlayer')}</th><th class="s r" data-s="r">${t('thRating')}</th><th class="s r hide" data-s="ch">${t('th12')}</th>
+  <th class="s r hide" data-s="racks">${t('thRacks')}</th><th class="s r hide2" data-s="n">${t('thMatches')}</th><th class="s r hide" data-s="lp">${t('thLast')}</th></tr></thead><tbody id="rk"></tbody></table></div>
  <div class="btnrow" id="more"></div>
  <p class="hint" id="shint"></p>
- <p class="fine">Players who stop playing keep their last rating. PROV marks a provisional rating, based on fewer than 200 racks.</p>`;
+ <p class="fine">${t('rFine')}</p>`;
  $('#min').value=RK.min;
  $('#min').onchange=e=>{RK.min=e.target.value;RK.lim=100;drawRank()};
  $$('[data-act]').forEach(b=>b.onclick=()=>{RK.act=b.dataset.act;RK.lim=100;$$('[data-act]').forEach(x=>x.classList.toggle('on',x===b));drawRank()});
@@ -299,9 +437,9 @@ function drawRank(){
  const cut=+RK.act?back(+RK.act/12):0,min=+RK.min;
  const rows=Object.values(PL).filter(p=>p.de&&p.lp>=cut&&p.racks>=min).sort((a,b)=>b.rs-a.rs);
  rows.forEach((p,i)=>{p.rank=i+1;const h=hAt(p.id,12);p.ch=h?p.r-h:null});
- $('#rsub').textContent=`${fmt(rows.length)} players, ratings calculated on ${ds(di(GEN))}`;
+ $('#rsub').textContent=t('rSub',fmt(rows.length),fmt(Object.values(PL).filter(p=>p.de).length),ds(di(GEN)));
  const cols=['var(--gold)','var(--sil)','var(--brz)'];
- $('#pod').innerHTML=rows.slice(0,3).map((p,i)=>`<a class="pc" style="--c:${cols[i]}" href="#p${p.id}"><span class="rk">${i+1}</span><span><div class="nm">${esc(p.first+' '+p.last)}</div><div class="mt">${fmt(p.racks)} racks</div></span><span class="rt">${p.r}</span></a>`).join('');
+ $('#pod').innerHTML=rows.slice(0,3).map((p,i)=>`<a class="pc" style="--c:${cols[i]}" href="#p${p.id}"><span class="rk">${i+1}</span><span><div class="nm">${esc(p.first+' '+p.last)}</div><div class="mt">${t('nRacks',fmt(p.racks))}</div></span><span class="rt">${p.r}</span></a>`).join('');
  const key={r:p=>p.rs,name:p=>fold(p.last+' '+p.first),racks:p=>p.racks,n:p=>p.n,lp:p=>p.lp,ch:p=>p.ch??-1e9}[RK.sort];
  const list=rows.slice().sort((a,b)=>{const x=key(a),y=key(b);return(x<y?-1:x>y?1:0)*RK.dir});
  $$('th.s').forEach(th=>{const on=th.dataset.s===RK.sort;th.classList.toggle('cur',on);th.textContent=th.dataset.t+(on?(RK.dir>0?' ▲':' ▼'):'')});
@@ -313,11 +451,11 @@ function drawRank(){
   <td>${star(p.id)}${who(p.id)}</td><td class="r">${rateHtml(p)}</td><td class="r hide">${sign(p.ch)}</td>
   <td class="r hide">${fmt(p.racks)}</td><td class="r hide2">${fmt(p.n)}</td><td class="r hide mu">${ds(p.lp)}</td></tr>`;
  const badge=r=>`<span class="rkb${r<4?' g'+r:''}">${r}</span>`;
- const pinHtml=pins.length?`<tr class="pinh"><td colspan="7">★ My players</td></tr>`+pins.map((p,i)=>row(p,'pin'+(i===pins.length-1?' last':''),inList.has(p.id)?badge(p.rank):'<span class="mu" title="Not in this list">-</span>')).join(''):'';
- $('#rk').innerHTML=pinHtml+(list.slice(0,RK.lim).map(p=>row(p,'',badge(p.rank))).join('')||'<tr><td colspan="7" class="empty">No players match these filters.</td></tr>');
- $('#shint').textContent=pins.length?'':'Tap ☆ next to a name to follow a player. Followed players stay at the top of the ranking on this device.';
+ const pinHtml=pins.length?`<tr class="pinh"><td colspan="7">★ ${t('myPlayers')}</td></tr>`+pins.map((p,i)=>row(p,'pin'+(i===pins.length-1?' last':''),inList.has(p.id)?badge(p.rank):`<span class="mu" title="${t('notInList')}">-</span>`)).join(''):'';
+ $('#rk').innerHTML=pinHtml+(list.slice(0,RK.lim).map(p=>row(p,'',badge(p.rank))).join('')||`<tr><td colspan="7" class="empty">${t('noPlayers')}</td></tr>`);
+ $('#shint').textContent=pins.length?'':t('starHint');
  bindStars(drawRank);
- $('#more').innerHTML=list.length>RK.lim?`<button class="btn" id="mb">Show all ${fmt(list.length)} players</button>`:'';
+ $('#more').innerHTML=list.length>RK.lim?`<button class="btn" id="mb">${t('showAllP',fmt(list.length))}</button>`:'';
  if($('#mb'))$('#mb').onclick=()=>{RK.lim=1e9;drawRank()};
 }
 
@@ -347,35 +485,35 @@ function player(id){
  const tids=[...new Set(all.map(m=>m[1]))].map(x=>TO[x]).sort((a,b)=>b.date.localeCompare(a.date));
  const games=[...new Set(tids.map(x=>x.game))].sort();
  const {bad,good}=rivals(id);
- const links=[p.cs?`<a href="https://cuescore.com/player/x/${p.cs}" target="_blank" rel="noopener">CueScore profile</a>`:'',p.ta?`<a href="https://www.tournamentapp.de/spieler-portrait.php?sid=${p.ta}" target="_blank" rel="noopener">TournamentApp profile</a>`:''].filter(Boolean).join('');
- const oppBox=(x,k)=>x?`<div class="opp"><div class="k">${k}</div><div class="n">${who(x.o)}</div><div class="s">Matches ${x.w}-${x.n-x.w}, racks ${x.rw}:${x.rl}, ${Math.abs(x.d)} racks ${x.d<0?'below':'above'} expectation</div></div>`:'';
+ const links=[p.cs?`<a href="https://cuescore.com/player/x/${p.cs}" target="_blank" rel="noopener">${t('csProf')}</a>`:'',p.ta?`<a href="https://www.tournamentapp.de/spieler-portrait.php?sid=${p.ta}" target="_blank" rel="noopener">${t('taProf')}</a>`:''].filter(Boolean).join('');
+ const oppBox=(x,k)=>x?`<div class="opp"><div class="k">${k}</div><div class="n">${who(x.o)}</div><div class="s">${t('oppSub',x.w,x.n-x.w,x.rw,x.rl,x.d)}</div></div>`:'';
  $('#app').innerHTML=`
  <section class="hero"><div class="who">
-  <div class="rkline">${rank?'Rank '+rank+' of active players':'Not active in the last 2 years'}</div>
+  <div class="rkline">${rank?t('rankLine',rank):t('notActive')}</div>
   <h1>${esc(p.first+' '+p.last)}${star(id)}</h1>
-  <div class="meta"><span>${fmt(p.n)} matches since ${all.length?ds(Math.min(...all.map(m=>m[0]))):'-'}</span>${links}</div></div>
-  <div class="big"><div class="v${prov(p)?' pv':''}">${p.r}</div><div class="k">${prov(p)?'Provisional rating, fewer than 200 racks':'Rating'}</div></div>
+  <div class="meta"><span>${t('since',fmt(p.n),all.length?ds(Math.min(...all.map(m=>m[0]))):'-')}</span>${links}</div></div>
+  <div class="big"><div class="v${prov(p)?' pv':''}">${p.r}</div><div class="k">${t(prov(p)?'provLong':'rating')}</div></div>
  </section>
  <div class="lay pp"><div>
-  <div class="box chart"><h2>Rating history</h2><div id="chart"></div><p class="fine">Rating at the end of each month, from the results known at that time.</p></div>
-  <div class="box"><h2>Match results</h2>
+  <div class="box chart"><h2>${t('history')}</h2><div id="chart"></div><p class="fine">${t('histFine')}</p></div>
+  <div class="box"><h2>${t('results')}</h2>
    <div class="fgrid">
-    <label>Period<select id="per">${[['all','All years'],['1y','Last 12 months'],['2y','Last 2 years'],['5y','Last 5 years'],...years.map(y=>[y,y]),['custom','Choose dates']].map(([k,l])=>`<option value="${k}">${l}</option>`).join('')}</select></label>
-    <label class="combo">Opponent<input id="oq" class="txt" type="search" autocomplete="off" placeholder="Any opponent"><ul class="drop" id="ol" hidden></ul></label>
-    <label>Tournament<select id="ts" style="max-width:260px"><option value="">All tournaments</option>${tids.map(x=>`<option value="${x.id}">${x.date.slice(0,4)} ${esc(x.name)}</option>`).join('')}</select></label>
-    <label>Game<select id="gs"><option value="">All games</option>${games.map(g=>`<option value="${esc(g)}">${GN(g)}</option>`).join('')}</select></label>
+    <label>${t('period')}<select id="per">${[['all',t('allYears')],['1y',t('last12')],['2y',t('last2')],['5y',t('last5')],...years.map(y=>[y,y]),['custom',t('chooseDates')]].map(([k,l])=>`<option value="${k}">${l}</option>`).join('')}</select></label>
+    <label class="combo">${t('opponent')}<input id="oq" class="txt" type="search" autocomplete="off" placeholder="${t('anyOpp')}"><ul class="drop" id="ol" hidden></ul></label>
+    <label>${t('tournament')}<select id="ts" style="max-width:260px"><option value="">${t('allTours')}</option>${tids.map(x=>`<option value="${x.id}">${x.date.slice(0,4)} ${esc(x.name)}</option>`).join('')}</select></label>
+    <label>${t('game')}<select id="gs"><option value="">${t('allGames')}</option>${games.map(g=>`<option value="${esc(g)}">${GN(g)}</option>`).join('')}</select></label>
    </div>
-   <div class="fgrid" id="cust" hidden><label>From<input type="date" id="fr"></label><label>To<input type="date" id="to"></label></div>
+   <div class="fgrid" id="cust" hidden><label>${t('from')}<input type="date" id="fr"></label><label>${t('to')}<input type="date" id="to"></label></div>
    <div id="vs"></div><p class="sumline" id="sum"></p>
-   <div class="tb"><table><thead><tr><th>Date</th><th>Opponent</th><th class="r">Opp.</th><th class="r">Score</th><th class="r">Perf.</th><th class="hide">Tournament</th><th class="r hide">Weight</th></tr></thead><tbody id="res"></tbody></table></div>
-   <p class="fine">Perf. is the rating that matches this one result: opponent's rating + 100 x log2(racks won / racks lost). In a shutout the zero side counts as half a rack. Weight shows how much the match counts today; it halves every 2 years.</p>
+   <div class="tb"><table><thead><tr><th>${t('thDate')}</th><th>${t('thOpp')}</th><th class="r">${t('thOppR')}</th><th class="r">${t('thScore')}</th><th class="r">${t('thPerf')}</th><th class="hide">${t('thTour')}</th><th class="r hide">${t('thWeight')}</th></tr></thead><tbody id="res"></tbody></table></div>
+   <p class="fine">${t('perfFine')}</p>
   </div></div>
   <aside>
-   <div class="box"><h2>Opponents</h2>${bad||good?oppBox(bad,'Most uncomfortable opponent')+oppBox(good,'Most comfortable opponent'):'<p class="mu" style="margin:0">Not enough matches against the same German opponents yet.</p>'}<p class="fine">German opponents met at least 5 times and active in the last 5 years. Racks won compared with what the ratings expected before each match.</p></div>
-   <div class="box"><h2>Numbers</h2><p class="fine" id="carf" style="margin:-6px 0 8px"></p><div id="car"></div></div>
+   <div class="box"><h2>${t('opponents')}</h2>${bad||good?oppBox(bad,t('uncomf'))+oppBox(good,t('comf')):`<p class="mu" style="margin:0">${t('oppNone')}</p>`}<p class="fine">${t('oppFine')}</p></div>
+   <div class="box"><h2>${t('numbers')}</h2><p class="fine" id="carf" style="margin:-6px 0 8px"></p><div id="car"></div></div>
   </aside></div>`;
  drawChart(id);
- bindStars(()=>{const b=document.querySelector('.hero [data-star]'),on=STARS.has(id);b.classList.toggle('on',on);b.textContent=on?'\u2605':'\u2606';b.title=on?'Stop following':'Follow this player';b.setAttribute('aria-label',b.title);b.setAttribute('aria-pressed',on)});
+ bindStars(()=>{const b=document.querySelector('.hero [data-star]'),on=STARS.has(id);b.classList.toggle('on',on);b.textContent=on?'\u2605':'\u2606';b.title=t(on?'unfollow':'follow');b.setAttribute('aria-label',b.title);b.setAttribute('aria-pressed',on)});
  const sync=()=>{$('#per').value=PF.per;$('#cust').hidden=PF.per!=='custom';drawRes(id)};
  $('#ts').value=PF.tid;if($('#gs'))$('#gs').value=PF.game;$('#fr').value=PF.from;$('#to').value=PF.to;
  $('#per').onchange=e=>{PF.per=e.target.value;sync()};
@@ -387,7 +525,7 @@ function player(id){
  const inp=$('#oq'),ul=$('#ol');let cur=0;if(PF.opp)inp.value=nm(+PF.opp);
  const pick=o=>{PF.opp=o?String(o):'';inp.value=o?nm(o):'';ul.hidden=true;sync()};
  const list=()=>{const q=fold(inp.value.trim());const h=q?opps.filter(x=>x[2].includes(q)):opps;cur=0;
-  ul.innerHTML=h.length?h.slice(0,40).map(([o,n],i)=>`<li data-o="${o}" class="${i?'':'on'}">${esc(nm(o))}<span>${n}</span></li>`).join(''):'<li class="none">No such opponent</li>';ul.hidden=false;
+  ul.innerHTML=h.length?h.slice(0,40).map(([o,n],i)=>`<li data-o="${o}" class="${i?'':'on'}">${esc(nm(o))}<span>${n}</span></li>`).join(''):`<li class="none">${t('noOpp')}</li>`;ul.hidden=false;
   ul.querySelectorAll('li[data-o]').forEach(li=>li.onmousedown=e=>{e.preventDefault();pick(+li.dataset.o)})};
  inp.onfocus=list;inp.oninput=()=>{if(!inp.value.trim()&&PF.opp){PF.opp='';sync()}list()};
  inp.onblur=()=>{ul.hidden=true;if(PF.opp)inp.value=nm(+PF.opp)};
@@ -404,13 +542,13 @@ function drawRes(id){
  const rows=rowsOf(id,r=>r.m[0]>=a&&r.m[0]<=b&&(!PF.tid||r.m[1]==PF.tid)&&(!PF.game||TO[r.m[1]].game===PF.game)&&(!PF.opp||r.o==PF.opp)).sort((x,y)=>y.m[0]-x.m[0]);
  const T=tally(rows);
  drawNumbers(rows,T);
- $('#sum').innerHTML=rows.length?`<b>${fmt(T.n)}</b> matches: <b>${T.mw}</b> won, <b>${T.ml}</b> lost. Racks <b>${fmt(T.rw)}:${fmt(T.rl)}</b> (${T.pct}%).`:'';
+ $('#sum').innerHTML=rows.length?t('sum',fmt(T.n),T.mw,T.ml,fmt(T.rw),fmt(T.rl),T.pct):'';
  if(PF.opp){const o=+PF.opp,me=PL[id],op=PL[o],ex=Math.round(100/(1+Math.pow(2,(op.rs-me.rs)/100)));
-  $('#vs').innerHTML=`<div class="vs"><div class="side"><b>${esc(nm(id))}</b><span>${me.r}</span></div><div class="mid"><div class="sc">${T.mw} : ${T.ml}</div><div class="s">matches, racks ${T.rw}:${T.rl}</div><div class="s">Expected rack share today ${ex}%</div><div class="s"><a class="pl" style="color:var(--gold);font-weight:400" href="#h2h-${id}-${o}">Open head to head</a></div></div><div class="side rt"><b>${who(o)}</b><span>${op.r}</span></div></div>`}
+  $('#vs').innerHTML=`<div class="vs"><div class="side"><b>${esc(nm(id))}</b><span>${me.r}</span></div><div class="mid"><div class="sc">${T.mw} : ${T.ml}</div><div class="s">${t('vsSub',T.rw,T.rl)}</div><div class="s">${t('expShare',ex)}</div><div class="s"><a class="pl" style="color:var(--gold);font-weight:400" href="#h2h-${id}-${o}">${t('openH2H')}</a></div></div><div class="side rt"><b>${who(o)}</b><span>${op.r}</span></div></div>`}
  else $('#vs').innerHTML='';
- $('#res').innerHTML=rows.map(r=>{const x=TO[r.m[1]];return`<tr><td class="mu">${ds(r.m[0])}</td><td>${who(r.o)}<a class="vsl" href="#h2h-${id}-${r.o}" title="Head to head">\u21c4</a></td><td class="r">${r.or}</td>
+ $('#res').innerHTML=rows.map(r=>{const x=TO[r.m[1]];return`<tr><td class="mu">${ds(r.m[0])}</td><td>${who(r.o)}<a class="vsl" href="#h2h-${id}-${r.o}" title="${t('h2hTip')}">\u21c4</a></td><td class="r">${r.or}</td>
   <td class="r"><span class="wl ${r.w>r.l?'w':'l'}">${r.w}:${r.l}</span></td><td class="r">${r.perf??'<span class="mu">-</span>'}</td>
-  <td class="hide">${ball(x.game)} <a class="pl" href="#t${x.id}" style="font-weight:400">${esc(x.name)}</a></td><td class="r hide mu">${Math.round(r.wt*100)}%</td></tr>`}).join('')||'<tr><td colspan="7" class="empty">No matches for these filters.</td></tr>';
+  <td class="hide">${ball(x.game)} <a class="pl" href="#t${x.id}" style="font-weight:400">${esc(x.name)}</a></td><td class="r hide mu">${Math.round(r.wt*100)}%</td></tr>`}).join('')||`<tr><td colspan="7" class="empty">${t('noMatches')}</td></tr>`;
 }
 function drawNumbers(rows,T){
  const pf=rows.filter(r=>r.perf!=null),best=pf.reduce((x,r)=>!x||r.perf>x.perf?r:x,null),worst=pf.reduce((x,r)=>!x||r.perf<x.perf?r:x,null);
@@ -420,17 +558,17 @@ function drawNumbers(rows,T){
  const TL=Object.values(TT).filter(x=>x.w+x.l>=15).map(x=>({...x,p:tp(x)}));
  const bt=TL.reduce((a,x)=>!a||x.p>a.p?x:a,null),wt=TL.reduce((a,x)=>!a||x.p<a.p?x:a,null);
  const kv=(k,v,s)=>`<div class="kv"><span class="k">${k}</span><span class="v">${v}<span class="s">${s}</span></span></div>`;
- const tl=x=>x?`<a class="pl" style="font-weight:400" href="#t${x.tid}">${esc(TO[x.tid].name)}</a>, ${x.w}:${x.l}`:'no event with 15+ racks';
+ const tl=x=>x?`<a class="pl" style="font-weight:400" href="#t${x.tid}">${esc(TO[x.tid].name)}</a>, ${x.w}:${x.l}`:t('noTour');
  const filt=PF.per!=='all'||PF.tid||PF.game||PF.opp;
- $('#carf').textContent=filt?'For the selected matches':'All matches';
- $('#car').innerHTML=kv('Matches',fmt(T.n),`${T.mw} won, ${T.ml} lost`)+kv('Racks',`${fmt(T.rw)} : ${fmt(T.rl)}`,`${T.pct}% won`)+kv('Average opponent',T.avg??'-','')
-  +kv('Best match',best?best.perf:'-',best?`${best.w}:${best.l} against ${esc(nm(best.o))}`:'')+kv('Weakest match',worst?worst.perf:'-',worst?`${worst.w}:${worst.l} against ${esc(nm(worst.o))}`:'')
-  +kv('Best tournament',bt?bt.p:'-',tl(bt))+kv('Weakest tournament',wt?wt.p:'-',tl(wt));
+ $('#carf').textContent=t(filt?'selMatches':'allMatches');
+ $('#car').innerHTML=kv(t('kMatches'),fmt(T.n),t('wonLost',T.mw,T.ml))+kv(t('kRacks'),`${fmt(T.rw)} : ${fmt(T.rl)}`,t('pctWon',T.pct))+kv(t('avgOpp'),T.avg??'-','')
+  +kv(t('bestMatch'),best?best.perf:'-',best?t('against',best.w,best.l,esc(nm(best.o))):'')+kv(t('worstMatch'),worst?worst.perf:'-',worst?t('against',worst.w,worst.l,esc(nm(worst.o))):'')
+  +kv(t('bestTour'),bt?bt.p:'-',tl(bt))+kv(t('worstTour'),wt?wt.p:'-',tl(wt));
 }
 function drawChart(id){
- const h=D.history[id],el=$('#chart');if(!h){el.innerHTML='<div class="empty">Not enough results for a history yet.</div>';return}
+ const h=D.history[id],el=$('#chart');if(!h){el.innerHTML=`<div class="empty">${t('noHist')}</div>`;return}
  const pts=[];for(let i=1;i<h.length;i++)if(h[i])pts.push([h[0]+i-1,h[i]]);
- if(pts.length<2){el.innerHTML='<div class="empty">Not enough results for a history yet.</div>';return}
+ if(pts.length<2){el.innerHTML=`<div class="empty">${t('noHist')}</div>`;return}
  const W=900,H=280,L=46,R=18,T=16,B=30,x0=pts[0][0],x1=Math.max(pts[pts.length-1][0],x0+6);
  let y0=Math.min(...pts.map(p=>p[1])),y1=Math.max(...pts.map(p=>p[1]));y0=Math.floor((y0-15)/50)*50;y1=Math.ceil((y1+15)/50)*50;
  const X=i=>L+(i-x0)/(x1-x0)*(W-L-R),Y=v=>T+(1-(v-y0)/(y1-y0))*(H-T-B);
@@ -438,14 +576,14 @@ function drawChart(id){
  const a0=+D.months[x0].slice(0,4),a1=+(D.months[x1]||D.months[D.months.length-1]).slice(0,4),st=Math.max(1,Math.ceil((a1-a0+1)/10));
  for(let y=a0+1;y<=a1;y+=st){const i=D.months.indexOf(y+'-01');if(i>=x0&&i<=x1)g+=`<text x="${X(i)}" y="${H-8}" text-anchor="middle" font-size="12" fill="#8fa597" font-family="Oswald">${y}</text><line x1="${X(i)}" x2="${X(i)}" y1="${H-B}" y2="${H-B+5}" stroke="#3a5a46"/>`}
  const ln=pts.map(p=>X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1)).join('L'),lp=pts[pts.length-1];
- el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Rating history"><defs><linearGradient id="gf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2c230" stop-opacity=".28"/><stop offset="1" stop-color="#f2c230" stop-opacity="0"/></linearGradient></defs>
+ el.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${t('history')}"><defs><linearGradient id="gf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f2c230" stop-opacity=".28"/><stop offset="1" stop-color="#f2c230" stop-opacity="0"/></linearGradient></defs>
   ${g}<path d="M${X(pts[0][0]).toFixed(1)},${H-B}L${ln}L${X(lp[0]).toFixed(1)},${H-B}Z" fill="url(#gf)"/><path d="M${ln}" fill="none" stroke="#f2c230" stroke-width="2.5" stroke-linejoin="round"/>
   <circle cx="${X(lp[0])}" cy="${Y(lp[1])}" r="5" fill="#f2c230"/>
   <rect x="${L}" y="${T}" width="${W-L-R}" height="${H-T-B}" fill="transparent"/>
   <g id="tip" visibility="hidden"><line id="tl" y1="${T}" y2="${H-B}" stroke="#5c7a66"/><circle id="tc" r="5" fill="#f2c230" stroke="#0d1712" stroke-width="2"/><rect id="tb" height="24" rx="2" fill="#09110d" stroke="#f2c230"/><text id="tt" font-size="13" fill="#e8eee9" font-family="Oswald"></text></g></svg>`;
  const sv=el.querySelector('svg');
  sv.onmousemove=e=>{const bx=sv.getBoundingClientRect(),xi=x0+((e.clientX-bx.left)/bx.width*W-L)/(W-L-R)*(x1-x0);
-  const p=pts.reduce((a,q)=>Math.abs(q[0]-xi)<Math.abs(a[0]-xi)?q:a),mo=D.months[p[0]],lab=MON[+mo.slice(5,7)-1]+' '+mo.slice(0,4)+'   '+p[1];
+  const p=pts.reduce((a,q)=>Math.abs(q[0]-xi)<Math.abs(a[0]-xi)?q:a),mo=D.months[p[0]],lab=MON[LANG][+mo.slice(5,7)-1]+' '+mo.slice(0,4)+'   '+p[1];
   const x=X(p[0]),left=x>W/2,w=lab.length*7.4+16;
   $('#tip').setAttribute('visibility','visible');$('#tl').setAttribute('x1',x);$('#tl').setAttribute('x2',x);$('#tc').setAttribute('cx',x);$('#tc').setAttribute('cy',Y(p[1]));
   const bx0=left?x-w-10:x+10;$('#tb').setAttribute('x',bx0);$('#tb').setAttribute('y',T);$('#tb').setAttribute('width',w);
@@ -481,15 +619,15 @@ function potm(days){
 }
 function drawMonth(){
  const sn=id=>shown(id)?`<a class="pl" href="#p${id}">${esc(PL[id].last)}</a>`:`<span>${esc(PL[id]?PL[id].last:'?')}</span>${PL[id]&&PL[id].cc?`<span class="ctry">${esc(PL[id].cc)}</span>`:''}`;
- const pc=c=>c<0.01?'<1':Math.round(c*100);
+ const pc=c=>c<0.01?'<1':Math.round(c*100);const PCx=c=>PC(pc(c));
  const U=upsets(30).slice(0,5);
- $('#lu').innerHTML=`<div class="hd"><h2>Upsets of the month</h2></div>${U.length?`<table><thead><tr><th>#</th><th>Winner</th><th>Loser</th><th class="r">Score</th><th class="r">Chance</th></tr></thead><tbody>${U.map((y,i)=>`<tr><td><span class="rkb${i<3?' g'+(i+1):''}">${i+1}</span></td><td>${sn(y.w)} <span class="mu">${y.rw}</span></td><td>${sn(y.l)} <span class="mu">${y.rl}</span></td><td class="r"><a class="pl" style="font-weight:400" href="#t${y.tid}" title="${esc(TO[y.tid].name)}">${y.sw}:${y.sl}</a></td><td class="r uw">${pc(y.ch)}%</td></tr>`).join('')}</tbody></table>`:'<div class="empty">No upsets in the last 30 days.</div>'}<p class="fine">Last 30 days, races to 4 or longer. Chance = the winner's chance to win the match, from both ratings before it. Both players have 200+ racks.</p>`;
+ $('#lu').innerHTML=`<div class="hd"><h2>${t('upsets')}</h2></div>${U.length?`<table><thead><tr><th>#</th><th>${t('thWinner')}</th><th>${t('thLoser')}</th><th class="r">${t('thScore')}</th><th class="r">${t('thChance')}</th></tr></thead><tbody>${U.map((y,i)=>`<tr><td><span class="rkb${i<3?' g'+(i+1):''}">${i+1}</span></td><td>${sn(y.w)} <span class="mu">${y.rw}</span></td><td>${sn(y.l)} <span class="mu">${y.rl}</span></td><td class="r"><a class="pl" style="font-weight:400" href="#t${y.tid}" title="${esc(TO[y.tid].name)}">${y.sw}:${y.sl}</a></td><td class="r uw">${PCx(y.ch)}</td></tr>`).join('')}</tbody></table>`:`<div class="empty">${t('upNone')}</div>`}<p class="fine">${t('upFine')}</p>`;
  const PM5=potm(30);
- $('#lp').innerHTML=`<div class="hd"><h2>Players of the month</h2></div>${PM5.length?`<table><thead><tr><th>#</th><th>Player</th><th class="r">Perf.</th><th class="r">+/-</th><th class="r">Racks</th></tr></thead><tbody>${PM5.map((x,i)=>{const dd=x.perf-x.before;return`<tr><td><span class="rkb${i<3?' g'+(i+1):''}">${i+1}</span></td><td>${who(x.id)}</td><td class="r"><span class="rating" style="font-size:18px">${x.perf}</span></td><td class="r">${sign(dd)}</td><td class="r mu">${x.w}:${x.l}</td></tr>`}).join('')}</tbody></table>`:'<div class="empty">Not enough matches in the last 30 days.</div>'}<p class="fine">Last 30 days, at least 50 racks. Perf. is the rating that best explains the racks won against these opponents; +/- compares it with the rating a month ago.</p>`;
+ $('#lp').innerHTML=`<div class="hd"><h2>${t('potm')}</h2></div>${PM5.length?`<table><thead><tr><th>#</th><th>${t('thPlayer')}</th><th class="r">${t('thPerf')}</th><th class="r">+/-</th><th class="r">${t('thRacks')}</th></tr></thead><tbody>${PM5.map((x,i)=>{const dd=x.perf-x.before;return`<tr><td><span class="rkb${i<3?' g'+(i+1):''}">${i+1}</span></td><td>${who(x.id)}</td><td class="r"><span class="rating" style="font-size:18px">${x.perf}</span></td><td class="r">${sign(dd)}</td><td class="r mu">${x.w}:${x.l}</td></tr>`}).join('')}</tbody></table>`:`<div class="empty">${t('potmNone')}</div>`}<p class="fine">${t('potmFine')}</p>`;
 }
 const LF=Object.assign({gain:'6',act:'6',dec:'all'},mem('ld')||{});let LC=null;
 function leaders(){
- $('#app').innerHTML=`<div class="top"><div><h1>Leaders</h1><p class="sub">Upsets, form, activity, rivalries and deciding racks.</p></div></div>
+ $('#app').innerHTML=`<div class="top"><div><h1>${t('lTitle')}</h1><p class="sub">${t('lSub')}</p></div></div>
  <div class="ldr">
   <div class="lb" id="lu"></div><div class="lb" id="lp"></div>
   <div class="lb" id="lg"></div><div class="lb" id="la"></div><div class="lb" id="lr"></div><div class="lb" id="lh"></div>
@@ -499,24 +637,24 @@ function leaders(){
 }
 function drawLeaders(){
  mem('ld',LF);
- const per=[['3','3 months'],['6','6 months'],['12','1 year']];
- const tbl=(head,rows)=>`<table><thead><tr>${head}</tr></thead><tbody>${rows||'<tr><td colspan="5" class="empty">No players yet.</td></tr>'}</tbody></table>`;
+ const per=[['3',t('m3')],['6',t('m6')],['12',t('m12')]];
+ const tbl=(head,rows)=>`<table><thead><tr>${head}</tr></thead><tbody>${rows||`<tr><td colspan="5" class="empty">${t('noYet')}</td></tr>`}</tbody></table>`;
  const mg=+LF.gain,cg=back(mg/12);
  const up=Object.values(PL).filter(p=>p.de&&p.lp>=cg&&(PM[p.id]||[]).reduce((s,m)=>m[0]<cg?s+m[4]+m[5]:s,0)>=200).map(p=>{const h=hAt(p.id,mg);return h?{p,d:p.r-h,h}:null}).filter(x=>x&&x.d>0).sort((a,b)=>b.d-a.d).slice(0,10);
- $('#lg').innerHTML=`<div class="hd"><h2>Biggest gains</h2>${seg('gain',per,LF.gain)}</div>${tbl('<th>#</th><th>Player</th><th class="r">From</th><th class="r">Now</th><th class="r">Gain</th>',up.map((x,i)=>`<tr><td><span class="rkb${i<3?' g'+(i+1):''}">${i+1}</span></td><td>${who(x.p.id)}</td><td class="r mu">${x.h}</td><td class="r"><span class="rating" style="font-size:18px">${x.p.r}</span></td><td class="r up">+${x.d}</td></tr>`).join(''))}<p class="fine">Players with at least 200 racks before the period.</p>`;
+ $('#lg').innerHTML=`<div class="hd"><h2>${t('gains')}</h2>${seg('gain',per,LF.gain)}</div>${tbl(`<th>#</th><th>${t('thPlayer')}</th><th class="r">${t('thFrom')}</th><th class="r">${t('thNow')}</th><th class="r">${t('thGain')}</th>`,up.map((x,i)=>`<tr><td><span class="rkb${i<3?' g'+(i+1):''}">${i+1}</span></td><td>${who(x.p.id)}</td><td class="r mu">${x.h}</td><td class="r"><span class="rating" style="font-size:18px">${x.p.r}</span></td><td class="r up">+${x.d}</td></tr>`).join(''))}<p class="fine">${t('gainFine')}</p>`;
  const ma=+LF.act,ca=back(ma/12);
  const act=Object.values(PL).filter(p=>p.de).map(p=>{const ms=(PM[p.id]||[]).filter(m=>m[0]>=ca);return{p,k:ms.length,r:ms.reduce((s,m)=>s+m[4]+m[5],0)}}).filter(x=>x.k>0).sort((a,b)=>b.r-a.r||b.k-a.k).slice(0,10);
- $('#la').innerHTML=`<div class="hd"><h2>Most racks played</h2>${seg('act',per,LF.act)}</div>${tbl('<th>#</th><th>Player</th><th class="r">Racks</th><th class="r">Matches</th>',act.map((x,i)=>`<tr><td><span class="rkb${i<3?' g'+(i+1):''}">${i+1}</span></td><td>${who(x.p.id)}</td><td class="r">${fmt(x.r)}</td><td class="r mu">${x.k}</td></tr>`).join(''))}`;
+ $('#la').innerHTML=`<div class="hd"><h2>${t('active')}</h2>${seg('act',per,LF.act)}</div>${tbl(`<th>#</th><th>${t('thPlayer')}</th><th class="r">${t('thRacks')}</th><th class="r">${t('thMatches')}</th>`,act.map((x,i)=>`<tr><td><span class="rkb${i<3?' g'+(i+1):''}">${i+1}</span></td><td>${who(x.p.id)}</td><td class="r">${fmt(x.r)}</td><td class="r mu">${x.k}</td></tr>`).join(''))}`;
  if(!LC){const pr={},hh={};
   D.matches.forEach(m=>{const a=m[2],b=m[3];if(!PL[a]||!PL[b])return;
    if(PL[a].de&&PL[b].de&&Math.max(m[4],m[5])>=4){const lo=Math.min(a,b),k=lo+'_'+Math.max(a,b),x=pr[k]||(pr[k]={a:lo,b:Math.max(a,b),n:0,wa:0,ra:0,rb:0});x.n++;const aw=m[4]>m[5];if((a===x.a)===aw)x.wa++;x.ra+=a===x.a?m[4]:m[5];x.rb+=a===x.a?m[5]:m[4]}
    if(Math.abs(m[4]-m[5])===1&&Math.max(m[4],m[5])>=3)[[a,m[4]>m[5]],[b,m[5]>m[4]]].forEach(([p,w])=>{if(PL[p].de)(hh[p]=hh[p]||[]).push([m[0],w])})});
   LC={riv:Object.values(pr).sort((p,q)=>q.n-p.n).slice(0,10).map(x=>{const f=x.wa>x.n-x.wa||(x.wa===x.n-x.wa&&x.ra>=x.rb);return f?{w:x.a,l:x.b,n:x.n,sw:x.wa,sl:x.n-x.wa}:{w:x.b,l:x.a,n:x.n,sw:x.n-x.wa,sl:x.wa}}),hh}}
  const sn=id=>`<a class="pl" href="#p${id}">${esc(PL[id].last)}</a>`;
- $('#lr').innerHTML=`<div class="hd"><h2>Most played pairings</h2></div>${tbl('<th>#</th><th>Players</th><th class="r">Matches</th><th class="r">Score</th>',LC.riv.map((x,i)=>`<tr><td><span class="rkb">${i+1}</span></td><td>${sn(x.w)} <span class="mu">v</span> ${sn(x.l)}</td><td class="r">${x.n}</td><td class="r">${x.sw}-${x.sl}</td></tr>`).join(''))}<p class="fine">Matches played to 4 racks or more.</p>`;
+ $('#lr').innerHTML=`<div class="hd"><h2>${t('pairs')}</h2></div>${tbl(`<th>#</th><th>${t('thPlayers')}</th><th class="r">${t('thMatches')}</th><th class="r">${t('thScore')}</th>`,LC.riv.map((x,i)=>`<tr><td><span class="rkb">${i+1}</span></td><td>${sn(x.w)} <span class="mu">${t('vsShort')}</span> ${sn(x.l)}</td><td class="r">${x.n}</td><td class="r">${x.sw}-${x.sl}</td></tr>`).join(''))}<p class="fine">${t('pairFine')}</p>`;
  const cut=LF.dec==='5'?back(5):LF.dec==='2'?back(2):0,mn=LF.dec==='5'?25:LF.dec==='2'?15:30;
  const hill=Object.entries(LC.hh).map(([p,l])=>{const x=l.filter(e=>e[0]>=cut);return{p:+p,n:x.length,w:x.filter(e=>e[1]).length}}).filter(y=>y.n>=mn).map(y=>({...y,pc:y.w/y.n})).sort((p,q)=>q.pc-p.pc||q.n-p.n).slice(0,10);
- $('#lh').innerHTML=`<div class="hd"><h2>Deciding racks</h2>${seg('dec',[['all','All time'],['5','5 years'],['2','2 years']],LF.dec)}</div>${tbl('<th>#</th><th>Player</th><th class="r">Won</th><th class="r">Share</th>',hill.map((x,i)=>`<tr><td><span class="rkb${i<3?' g'+(i+1):''}">${i+1}</span></td><td>${who(x.p)}</td><td class="r mu">${x.w} of ${x.n}</td><td class="r"><span class="rating" style="font-size:18px">${(x.pc*100).toFixed(1)}%</span></td></tr>`).join(''))}<p class="fine">Matches that went to the last rack, at least ${mn} played.</p>`;
+ $('#lh').innerHTML=`<div class="hd"><h2>${t('decid')}</h2>${seg('dec',[['all',t('allTime')],['5',t('y5')],['2',t('y2')]],LF.dec)}</div>${tbl(`<th>#</th><th>${t('thPlayer')}</th><th class="r">${t('thWon')}</th><th class="r">${t('thShare')}</th>`,hill.map((x,i)=>`<tr><td><span class="rkb${i<3?' g'+(i+1):''}">${i+1}</span></td><td>${who(x.p)}</td><td class="r mu">${t('ofN',x.w,x.n)}</td><td class="r"><span class="rating" style="font-size:18px">${PC((x.pc*100).toLocaleString(LANG==='de'?'de-DE':'en-GB',{minimumFractionDigits:1,maximumFractionDigits:1}))}</span></td></tr>`).join(''))}<p class="fine">${t('decFine',mn)}</p>`;
  $$('[data-gain]').forEach(b=>b.onclick=()=>{LF.gain=b.dataset.gain;drawLeaders()});
  $$('[data-act]').forEach(b=>b.onclick=()=>{LF.act=b.dataset.act;drawLeaders()});
  $$('[data-dec]').forEach(b=>b.onclick=()=>{LF.dec=b.dataset.dec;drawLeaders()});
@@ -525,17 +663,17 @@ function drawLeaders(){
 const HH={a:0,b:0};
 function h2hPage(a,b){
  if(a&&PL[a])HH.a=+a;if(b&&PL[b])HH.b=+b;
- $('#app').innerHTML=`<div class="top"><div><h1>Head to head</h1><p class="sub">Pick two players to see all their matches against each other.</p></div></div>
- <div class="hpick"><label class="combo">Player 1<input id="ha" class="txt" type="search" autocomplete="off" placeholder="Search player"><ul class="drop" id="hal" hidden></ul></label>
- <button class="swap" id="hsw" title="Swap players" aria-label="Swap players">\u21c4</button>
- <label class="combo">Player 2<input id="hb" class="txt" type="search" autocomplete="off" placeholder="Search player"><ul class="drop" id="hbl" hidden></ul></label></div>
+ $('#app').innerHTML=`<div class="top"><div><h1>${t('hTitle')}</h1><p class="sub">${t('hSub')}</p></div></div>
+ <div class="hpick"><label class="combo">${t('p1')}<input id="ha" class="txt" type="search" autocomplete="off" placeholder="${t('search')}"><ul class="drop" id="hal" hidden></ul></label>
+ <button class="swap" id="hsw" title="${t('swap')}" aria-label="${t('swap')}">\u21c4</button>
+ <label class="combo">${t('p2')}<input id="hb" class="txt" type="search" autocomplete="off" placeholder="${t('search')}"><ul class="drop" id="hbl" hidden></ul></label></div>
  <div id="hout"></div>`;
  const everyone=Object.values(PL).filter(p=>PM[p.id]).sort((x,y)=>(y.de-x.de)||y.racks-x.racks).map(p=>[p.id,0,fold(p.first+' '+p.last)]);
  const oppsOf=id=>{const c={};(PM[id]||[]).forEach(m=>{const o=m[2]===id?m[3]:m[2];c[o]=(c[o]||0)+1});return Object.entries(c).sort((x,y)=>y[1]-x[1]).map(([o,n])=>[+o,n,fold(nm(+o))])};
  const picker=(inp,ul,key,src)=>{let cur=0;const I=$(inp),U=$(ul);
   const set=o=>{HH[key]=o||0;U.hidden=true;if(key==='a'&&HH.b===HH.a)HH.b=0;sync()};
   const show=()=>{const q=fold(I.value.trim()),L=src();const h=(q?L.filter(x=>x[2].includes(q)):L).slice(0,30);cur=0;
-   U.innerHTML=h.length?h.map(([o,n],i)=>`<li data-o="${o}" class="${i?'':'on'}">${esc(nm(o))}${!shown(o)&&PL[o].cc?` <em class="ctry">${esc(PL[o].cc)}</em>`:''}<span>${n?n+' m':PL[o].r}</span></li>`).join(''):'<li class="none">No player found</li>';
+   U.innerHTML=h.length?h.map(([o,n],i)=>`<li data-o="${o}" class="${i?'':'on'}">${esc(nm(o))}${!shown(o)&&PL[o].cc?` <em class="ctry">${esc(PL[o].cc)}</em>`:''}<span>${n?t('mShort',n):PL[o].r}</span></li>`).join(''):`<li class="none">${t('noPlayer')}</li>`;
    U.hidden=false;U.querySelectorAll('li[data-o]').forEach(li=>li.onmousedown=e=>{e.preventDefault();set(+li.dataset.o)})};
   const clr=()=>{if(!I.value.trim()&&HH[key]){HH[key]=0;sync()}};
   I.onfocus=show;I.oninput=()=>{clr();show()};I.addEventListener('search',()=>{clr();show()});
@@ -553,31 +691,31 @@ function h2hPage(a,b){
 }
 function drawHH(){
  const a=HH.a,b=HH.b,out=$('#hout');
- if(!a||!b){out.innerHTML='<div class="empty">Choose two players above. Player 2 lists the opponents Player 1 has met, most matches first.</div>';return}
+ if(!a||!b){out.innerHTML=`<div class="empty">${t('hPick')}</div>`;return}
  const ms=(PM[a]||[]).filter(m=>m[2]===b||m[3]===b).map(m=>{const me=m[2]===a;return{m,w:me?m[4]:m[5],l:me?m[5]:m[4]}});
  const mw=ms.filter(x=>x.w>x.l).length,rw=ms.reduce((s,x)=>s+x.w,0),rl=ms.reduce((s,x)=>s+x.l,0);
- const A=PL[a],B=PL[b],cw=raceWin(1/(1+Math.pow(2,(B.rs-A.rs)/100)),7),pct=x=>x>=0.995?'>99':x<=0.005?'<1':Math.round(x*100);
- const side=(id,P,rt)=>`<div class="sd${rt?' rt':''}"><b>${who(id)}</b><span class="rv${prov(P)?' pv':''}">${P.r}</span><span class="mu" style="font-size:12px">${shown(id)?'':'Not in the German ranking'}</span></div>`;
- out.innerHTML=`<div class="hbig">${side(a,A)}<div class="mid"><div class="sc">${mw} : ${ms.length-mw}</div><div class="s">matches</div><div class="s">racks ${fmt(rw)} : ${fmt(rl)}</div></div>${side(b,B,1)}</div>
- <div class="box" style="margin-bottom:20px"><h2>Chance in a race to 7 today</h2><div class="chbar"><i style="width:${(cw*100).toFixed(1)}%"></i></div><div class="chl"><span>${esc(nm(a))} ${pct(cw)}%</span><span>${pct(1-cw)}% ${esc(nm(b))}</span></div><p class="fine">From the current ratings, whatever their past results.</p></div>
- ${ms.length?`<div class="box"><h2>Matches</h2><div class="tb"><table><thead><tr><th>Date</th><th>Tournament</th><th class="hide">Round</th><th class="r">Score</th></tr></thead><tbody>${ms.map(x=>{const T=TO[x.m[1]];return`<tr><td class="mu">${ds(x.m[0])}</td><td style="white-space:normal">${ball(T.game)} <a class="pl" style="font-weight:400" href="#t${T.id}">${esc(T.name)}</a></td><td class="hide mu">${esc(D.stages[x.m[6]]||'')}</td><td class="r"><span class="wl ${x.w>x.l?'w':'l'}">${x.w}:${x.l}</span></td></tr>`}).join('')}</tbody></table></div></div>`:'<div class="empty">These two players have no counted matches against each other.</div>'}`;
+ const A=PL[a],B=PL[b],cw=raceWin(1/(1+Math.pow(2,(B.rs-A.rs)/100)),7),pct=x=>PC(x>=0.995?'>99':x<=0.005?'<1':Math.round(x*100));
+ const side=(id,P,rt)=>`<div class="sd${rt?' rt':''}"><b>${who(id)}</b><span class="rv${prov(P)?' pv':''}">${P.r}</span><span class="mu" style="font-size:12px">${shown(id)?'':t('notDE')}</span></div>`;
+ out.innerHTML=`<div class="hbig">${side(a,A)}<div class="mid"><div class="sc">${mw} : ${ms.length-mw}</div><div class="s">${t('hMatches')}</div><div class="s">${t('hRacks',fmt(rw),fmt(rl))}</div></div>${side(b,B,1)}</div>
+ <div class="box" style="margin-bottom:20px"><h2>${t('chance7')}</h2><div class="chbar"><i style="width:${(cw*100).toFixed(1)}%"></i></div><div class="chl"><span>${esc(nm(a))} ${pct(cw)}</span><span>${pct(1-cw)} ${esc(nm(b))}</span></div><p class="fine">${t('chanceFine')}</p></div>
+ ${ms.length?`<div class="box"><h2>${t('matchesH')}</h2><div class="tb"><table><thead><tr><th>${t('thDate')}</th><th>${t('thTour')}</th><th class="hide">${t('thRound')}</th><th class="r">${t('thScore')}</th></tr></thead><tbody>${ms.map(x=>{const T=TO[x.m[1]];return`<tr><td class="mu">${ds(x.m[0])}</td><td style="white-space:normal">${ball(T.game)} <a class="pl" style="font-weight:400" href="#t${T.id}">${esc(T.name)}</a></td><td class="hide mu">${esc(D.stages[x.m[6]]||'')}</td><td class="r"><span class="wl ${x.w>x.l?'w':'l'}">${x.w}:${x.l}</span></td></tr>`}).join('')}</tbody></table></div></div>`:`<div class="empty">${t('hNone')}</div>`}`;
 }
 const TF={q:'',y:'',g:''};
 function tournaments(){
  const years=[...new Set(Object.values(TO).map(x=>x.date.slice(0,4)))].sort().reverse();
  const games=[...new Set(Object.values(TO).map(x=>x.game))].sort();
- $('#app').innerHTML=`<div class="top"><div><h1>Tournaments</h1><p class="sub" id="tsub"></p></div></div>
- <div class="fbar"><input id="tq" class="txt" type="search" placeholder="Name, city or club" value="${esc(TF.q)}">
-  <span class="fl">Year <select id="ty"><option value="">All</option>${years.map(y=>`<option>${y}</option>`).join('')}</select></span>
-  <span class="fl">Game <select id="tg"><option value="">All</option>${games.map(g=>`<option value="${esc(g)}">${GN(g)}</option>`).join('')}</select></span></div>
- <div class="tb"><table><thead><tr><th>Date</th><th>Tournament</th><th class="hide">Place</th><th class="r">Matches</th></tr></thead><tbody id="tl"></tbody></table></div>
+ $('#app').innerHTML=`<div class="top"><div><h1>${t('tTitle')}</h1><p class="sub" id="tsub"></p></div></div>
+ <div class="fbar"><input id="tq" class="txt" type="search" placeholder="${t('tPh')}" value="${esc(TF.q)}">
+  <span class="fl">${t('year')} <select id="ty"><option value="">${t('all')}</option>${years.map(y=>`<option>${y}</option>`).join('')}</select></span>
+  <span class="fl">${t('game')} <select id="tg"><option value="">${t('all')}</option>${games.map(g=>`<option value="${esc(g)}">${GN(g)}</option>`).join('')}</select></span></div>
+ <div class="tb"><table><thead><tr><th>${t('thDate')}</th><th>${t('thTour')}</th><th class="hide">${t('thPlace')}</th><th class="r">${t('thMatches')}</th></tr></thead><tbody id="tl"></tbody></table></div>
  <div class="btnrow" id="tmore"></div>`;
  $('#ty').value=TF.y;$('#tg').value=TF.g;let lim=300;
  const draw=()=>{const q=fold(TF.q.trim());
   const rows=Object.values(TO).filter(x=>(!TF.y||x.date.startsWith(TF.y))&&(!TF.g||x.game===TF.g)&&(!q||fold(x.name+' '+x.city+' '+x.club+' '+x.full).includes(q))).sort((a,b)=>b.date.localeCompare(a.date));
-  $('#tsub').textContent=`${fmt(rows.length)} tournaments and league match days`;
-  $('#tl').innerHTML=rows.slice(0,lim).map(x=>`<tr><td class="mu">${ds(di(x.date))}</td><td style="white-space:normal">${ball(x.game)} <a class="pl" href="#t${x.id}">${esc(x.name)}</a></td><td class="hide mu">${esc(x.city)}</td><td class="r">${x.n}</td></tr>`).join('')||'<tr><td colspan="4" class="empty">No tournaments found.</td></tr>';
-  $('#tmore').innerHTML=rows.length>lim?`<button class="btn" id="tm">Show all ${fmt(rows.length)}</button>`:'';
+  $('#tsub').textContent=t('tSub',fmt(rows.length));
+  $('#tl').innerHTML=rows.slice(0,lim).map(x=>`<tr><td class="mu">${ds(di(x.date))}</td><td style="white-space:normal">${ball(x.game)} <a class="pl" href="#t${x.id}">${esc(x.name)}</a></td><td class="hide mu">${esc(x.city)}</td><td class="r">${x.n}</td></tr>`).join('')||`<tr><td colspan="4" class="empty">${t('noTours')}</td></tr>`;
+  $('#tmore').innerHTML=rows.length>lim?`<button class="btn" id="tm">${t('showAllN',fmt(rows.length))}</button>`:'';
   if($('#tm'))$('#tm').onclick=()=>{lim=1e9;draw()}};
  $('#tq').oninput=e=>{TF.q=e.target.value;lim=300;draw()};$('#ty').onchange=e=>{TF.y=e.target.value;lim=300;draw()};$('#tg').onchange=e=>{TF.g=e.target.value;lim=300;draw()};
  draw();
@@ -587,46 +725,30 @@ function tournament(tid){
  const mi=D.months.indexOf(x.date.slice(0,7))-1,rb=id=>{const v=mi>=0?hIdx(id,mi):null;return v??PL[id].r};
  const P={};ms.forEach(m=>[[m[2],m[3],m[4],m[5]],[m[3],m[2],m[5],m[4]]].forEach(([a,b,w,l])=>{const q=P[a]||(P[a]={id:a,g:[],w:0,l:0,mw:0,mn:0});q.g.push([rb(b),w+l]);q.w+=w;q.l+=l;q.mn++;if(w>l)q.mw++}));
  const perf=Object.values(P).filter(p=>shown(p.id)).map(p=>{let v=null;if(p.w&&p.l){let lo=0,hi=1400;for(let k=0;k<40;k++){const md=(lo+hi)/2,e=p.g.reduce((s,[ro,n])=>s+n/(1+Math.pow(2,(ro-md)/100)),0);if(e<p.w)lo=md;else hi=md}v=Math.round((lo+hi)/2)}return{...p,bf:rb(p.id),v}}).sort((a,b)=>(b.v??-1)-(a.v??-1)||b.w/(b.w+b.l)-a.w/(a.w+a.l));
- const src={cuescore:'CueScore',tournamentapp:'TournamentApp',epbf:'EPBF',wnt:'WNT Live Scores',nuliga:'nuLiga'}[x.src]||x.src;
+ const src={cuescore:'CueScore',tournamentapp:'TournamentApp',epbf:'EPBF',wnt:'WNT Live Scores',nuliga:'nuLiga',veveto:'VeVeTo',scoretrek:'Score Trek'}[x.src]||x.src;
  $('#app').innerHTML=`<div class="top"><div><h1 style="text-transform:none">${esc(x.name)}</h1></div></div>
- <div class="thead"><div class="it"><span class="k">Date</span><span class="v">${ds(di(x.date))}</span></div><div class="it"><span class="k">Place</span><span class="v">${esc(x.city||'-')}</span></div>
-  ${x.club?`<div class="it"><span class="k">Club</span><span class="v">${esc(x.club)}</span></div>`:''}<div class="it"><span class="k">Game</span><span class="v">${ball(x.game)} ${esc(x.game)}</span></div>
-  <div class="it"><span class="k">Rated matches</span><span class="v">${ms.length}</span></div><div class="it"><span class="k">Players</span><span class="v">${ps.size}</span></div>
-  ${x.url?`<a class="ext" href="${esc(x.url)}" target="_blank" rel="noopener">View on ${esc(src)}</a>`:''}</div>
- <div class="lay"><div class="box"><h2>Matches</h2><div class="tb"><table><thead><tr><th class="hide">Round</th><th class="r">Player</th><th style="text-align:center">Score</th><th>Player</th></tr></thead><tbody>
+ <div class="thead"><div class="it"><span class="k">${t('kDate')}</span><span class="v">${ds(di(x.date))}</span></div><div class="it"><span class="k">${t('kPlace')}</span><span class="v">${esc(x.city||'-')}</span></div>
+  ${x.club?`<div class="it"><span class="k">${t('kClub')}</span><span class="v">${esc(x.club)}</span></div>`:''}<div class="it"><span class="k">${t('kGame')}</span><span class="v">${ball(x.game)} ${esc(GN(x.game))}</span></div>
+  <div class="it"><span class="k">${t('kRated')}</span><span class="v">${ms.length}</span></div><div class="it"><span class="k">${t('kPlayers')}</span><span class="v">${ps.size}</span></div>
+  ${x.url?`<a class="ext" href="${esc(x.url)}" target="_blank" rel="noopener">${t('viewOn',esc(src))}</a>`:''}</div>
+ <div class="lay"><div class="box"><h2>${t('matchesH')}</h2><div class="tb"><table><thead><tr><th class="hide">${t('thRound')}</th><th class="r">${t('thPlayer')}</th><th style="text-align:center">${t('thScore')}</th><th>${t('thPlayer')}</th></tr></thead><tbody>
   ${ms.slice().reverse().map(m=>`<tr><td class="hide mu">${esc(D.stages[m[6]]||'')}</td><td class="r">${who(m[2])} <span class="mu">${PL[m[2]].r}</span></td><td style="text-align:center;font-family:var(--hd);font-size:17px"><span class="${m[4]>m[5]?'up':'mu'}">${m[4]}</span> : <span class="${m[5]>m[4]?'up':'mu'}">${m[5]}</span></td><td><span class="mu">${PL[m[3]].r}</span> ${who(m[3])}</td></tr>`).join('')}
- </tbody></table></div><p class="fine">Walkovers are left out. Foreign players are rated too but are not listed in the ranking.</p></div>
- <aside class="box"><h2>Performance</h2><table><thead><tr><th>Player</th><th class="r">Before</th><th class="r">Perf.</th></tr></thead><tbody>
-  ${perf.map(p=>`<tr><td style="white-space:normal">${who(p.id)}<div class="mu" style="font-size:12px">${p.mw}-${p.mn-p.mw} matches, ${p.w}:${p.l} racks</div></td><td class="r mu">${p.bf}</td><td class="r"><span class="rating" style="font-size:18px">${p.v??'-'}</span><div style="font-size:12px">${p.v!=null?sign(p.v-p.bf):''}</div></td></tr>`).join('')||'<tr><td colspan="3" class="empty">No German players.</td></tr>'}
- </tbody></table><p class="fine">Before is the rating at the end of the previous month. Perf. is the rating that best explains the player's racks in this event.</p></aside></div>`;
+ </tbody></table></div><p class="fine">${t('tFine')}</p></div>
+ <aside class="box"><h2>${t('perfH')}</h2><table><thead><tr><th>${t('thPlayer')}</th><th class="r">${t('thBefore')}</th><th class="r">${t('thPerf')}</th></tr></thead><tbody>
+  ${perf.map(p=>`<tr><td style="white-space:normal">${who(p.id)}<div class="mu" style="font-size:12px">${t('tpSub',p.mw,p.mn-p.mw,p.w,p.l)}</div></td><td class="r mu">${p.bf}</td><td class="r"><span class="rating" style="font-size:18px">${p.v??'-'}</span><div style="font-size:12px">${p.v!=null?sign(p.v-p.bf):''}</div></td></tr>`).join('')||`<tr><td colspan="3" class="empty">${t('noDE')}</td></tr>`}
+ </tbody></table><p class="fine">${t('tpFine')}</p></aside></div>`;
 }
 
 function support(){
- $('#app').innerHTML=`<div class="text"><h1>Support</h1>
- <p class="sub">Keep the rating running</p>
- <p style="margin-top:22px">I build and update this rating in my spare time: collecting results from many sites, joining duplicate player profiles and adding new sources. If you enjoy following it, a coffee helps keep it going. Thank you!</p>
- <p style="margin:26px 0"><a class="cta" href="https://ko-fi.com/ahorsun" target="_blank" rel="noopener">Buy me a coffee on Ko-fi</a></p>
- <p class="fine">Pay by card, Apple Pay, Google Pay or PayPal. No account needed.</p></div>`;
+ $('#app').innerHTML=`<div class="text"><h1>${t('sTitle')}</h1>
+ <p class="sub">${t('sSub')}</p>
+ <p style="margin-top:22px">${t('sText')}</p>
+ <p style="margin:26px 0"><a class="cta" href="https://ko-fi.com/ahorsun" target="_blank" rel="noopener">${t('sBtn')}</a></p>
+ <p class="fine">${t('sFine')}</p></div>`;
 }
 function info(){
- const tn=Object.keys(TO).length,yrs=Object.values(TO).map(x=>+x.date.slice(0,4)),np=Object.values(PL).filter(p=>p.de).length;
- $('#app').innerHTML=`<div class="text"><h1>Info</h1>
- <p class="sub">${fmt(tn)} tournaments and league match days, ${fmt(D.matches.length)} matches, ${fmt(np)} German players (${Math.min(...yrs)} to ${Math.max(...yrs)}).</p>
- <h2>The scale</h2>
- <p>Ratings use the FargoRate scale. A player rated 100 points higher is expected to win two racks for every one he loses. At 200 points the ratio is 4 to 1.</p>
- <h2>Which results count</h2>
- <ul><li>Singles in 8-ball, 9-ball, 10-ball and Multiball, played to at least 3 racks.</li>
- <li>Tournaments in Germany on CueScore and TournamentApp, league and championship results from Bavaria (nuLiga) and Hessen (VeVeTo), and all EPBF, Matchroom and Predator Pro Billiard Series events. In events played in sets, every set counts as a separate match.</li>
- <li>Singles from league match days. Doubles are left out.</li>
- <li>Matches against foreign players. They are rated in the background, and players with an established FargoRate keep it as a fixed value.</li></ul>
- <h2>Left out</h2>
- <ul><li>Handicap events, doubles, straight pool, bank pool and one pocket.</li><li>Walkovers and unplayed matches.</li><li>Other events outside Germany.</li></ul>
- <h2>The calculation</h2>
- <p>Every rack counts as a small win or loss. A rating is the number that best explains all of a player's racks against all opponents at once, and everything is recalculated every day. Older results count less: a match loses half its weight every 2 years. A rating based on fewer than 200 racks is provisional (marked PROV).</p>
- <p>When a player has more than one profile, the profiles are joined.</p>
- <h2>Corrections</h2>
- <p>A wrong profile merge or a missing tournament? Write to ahorsun@gmail.com.</p>
- <p class="fine" style="margin-top:28px">Sources: cuescore.com, tournamentapp.de, bbv-billard.liga.nu, hpbv-veveto.de, battle.score-trek.de, epbf.com, wntlivescores.com, probilliardseries.com. Last calculation ${ds(di(GEN))}.</p></div>`;
+ const yrs=Object.values(TO).map(x=>+x.date.slice(0,4));
+ $('#app').innerHTML=`<div class="text">${t('info',fmt(Object.keys(TO).length),fmt(D.matches.length),fmt(Object.values(PL).filter(p=>p.de).length),Math.min(...yrs),Math.max(...yrs),ds(di(GEN)))}</div>`;
 }
 </script>
 </body>
