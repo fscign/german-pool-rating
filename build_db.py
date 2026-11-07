@@ -55,9 +55,11 @@ for x in cs['matches']: add_cs_match(x)
 # ---------- CueScore team events: singles inside league match days (decided 3 Nov 2026) ----------
 TEAM_SINGLES = set()   # team events whose singles count (the team-event name rules below do not apply to them)
 NAME_ONLY = {}         # 'n:<name>' (team player not found in a roster) -> synthetic id
+import hashlib
 def name_id(k):
+    # stable id from the name (7 Nov 2026: was a running number, which changed whenever the team file was re-read)
     if not str(k).startswith('n:'): return str(k)
-    return NAME_ONLY.setdefault(k, str(9_000_000_000 + len(NAME_ONLY)))
+    return NAME_ONLY.setdefault(k, str(9_000_000_000 + int(hashlib.sha1(str(k).encode('utf-8')).hexdigest()[:12], 16) % 400_000_000))
 if os.path.exists('data/team_raw.json'):
     tm = json.load(open('data/team_raw.json', encoding='utf-8'))
     for t in tm['tournaments']: add_cs_tournament(t, 'team'); TEAM_SINGLES.add(t[0])
@@ -192,7 +194,12 @@ if os.path.exists('data/pbs_data.json.gz'):
 CS_ABROAD = [('data/pl_cuescore_raw.json.gz', 'data/pl_team_raw.json'), ('data/cz_cuescore_raw.json.gz', 'data/cz_team_raw.json')]
 CS_ABROAD += [(f'data/{c}_cuescore_raw.json.gz', f'data/{c}_team_raw.json') for c in ('at', 'ch', 'it', 'fr')]   # collected here by cuescore-abroad.yml
 CS_ABROAD += [(f'data/{c}_cuescore_raw.json.gz', f'data/{c}_team_raw.json') for c in ('nl', 'be', 'lu')]   # copied from benelux-pool-rating
+import hashlib
+ABROAD_CSIDS = set()   # CueScore profiles seen only in events abroad: joined to a German profile by name only when the flags match
 for ev_file, team_file in CS_ABROAD:
+    tag = os.path.basename(ev_file)[:2]
+    # name-only team players stay per country, with a stable id from the name (does not shift the German name-only ids)
+    nid = lambda k, tag=tag: str(9_500_000_000 + int(hashlib.sha1(('n:' + tag + ':' + k[2:]).encode('utf-8')).hexdigest()[:12], 16) % 400_000_000) if str(k).startswith('n:') else str(k)
     for f_, is_team in ((ev_file, False), (team_file, True)):
         if not os.path.exists(f_): continue
         xs = json.load(gzip.open(f_, 'rt', encoding='utf-8') if f_.endswith('.gz') else open(f_, encoding='utf-8'))
@@ -202,9 +209,12 @@ for ev_file, team_file in CS_ABROAD:
             add_cs_tournament(t, 'team' if is_team else '')
             if t[0] in SOURCE: new_t.add(t[0]); ABROAD_GER_ONLY.add(t[0])
             if is_team and t[0] in SOURCE: TEAM_SINGLES.add(t[0])
-        for k, v in xs['players'].items(): add_cs_player(name_id(k) if is_team else k, v)
+        for k, v in xs['players'].items():
+            k2 = nid(k) if is_team else str(k)
+            if k2 not in P: ABROAD_CSIDS.add(k2)
+            add_cs_player(k2, v)
         for x in xs['matches']:
-            if x[0] in new_t: add_cs_match(x, name_id if is_team else str)
+            if x[0] in new_t: add_cs_match(x, nid if is_team else str)
 
 # ---------- profile merges and fixes (Germany: none yet; add confirmed ones here) ----------
 MANUAL_MERGES = []
@@ -550,6 +560,11 @@ for cid in sorted(CSIDS, key=int):
     v = P[cid]
     if cid in CS_MANUAL: attach(cid, CS_MANUAL[cid]); continue
     key = tuple(sorted([ph(s(v[0])), ph(s(v[1]))]))
+    if cid in ABROAD_CSIDS:   # profile only from events abroad: a same name is not enough (Dutch, Polish... namesakes), the flag must match too
+        cands = [k for k in ts_index.get(key, []) if v[2] != '?' and P[k][2] == v[2]]
+        if cands: attach(cid, sorted({find(k) for k in cands}, key=keep_order)[0])
+        elif v[2] != '?' and is_person(v) and not ABBREV(v): cs_new[(v[2],) + key].append(cid)
+        continue
     if key in ts_index:
         roots = sorted({find(k) for k in ts_index[key]}, key=keep_order)   # an id already shown on the site first, then most matches
         attach(cid, roots[0])
