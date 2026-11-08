@@ -1,1 +1,1 @@
-2026-11-07 07:33 UTC | OK |   18/18: events 18, singles 404, names without roster match 156, doubles skipped 31
+2026-11-08 06:43 UTC | OK |   2/2: events 2, singles 15, names without roster match 3, doubles skipped 0

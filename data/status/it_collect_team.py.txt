@@ -1,1 +1,1 @@
-2026-11-07 07:07 UTC | OK |   97/97: events 47, singles 2776, names without roster match 1472, doubles skipped 518
+2026-11-08 06:42 UTC | OK |   2/2: events 2, singles 210, names without roster match 0, doubles skipped 42
