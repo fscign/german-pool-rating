@@ -13,13 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - run: pip install numpy requests beautifulsoup4 lxml
       - name: Get EPBF, Matchroom and PBS data from the Latvian repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         continue-on-error: true      # if the token is missing or expired, the last copies in this repo are used
         with:
           repository: ${{ github.repository_owner }}/latvian-pool-rating
@@ -30,14 +30,14 @@ jobs:
           for f in epbf_data.json.gz wnt_data.json.gz pbs_data.json.gz; do cp "lv/data/$f" data/ || echo "Latvian repo: $f not copied, kept the old file"; done
           rm -rf lv
       - name: Get CueScore Poland and Czech Republic from the Polish repo (German players' matches abroad)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         continue-on-error: true      # public repo, no token needed; if it fails, the last copies in this repo are used
         with:
           repository: ${{ github.repository_owner }}/polish-pool-rating
           path: pl
           sparse-checkout: data
       - name: Get CueScore Netherlands, Belgium and Luxembourg from the Benelux repo (German players' matches abroad)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         continue-on-error: true      # public repo, no token needed; if it fails, the last copies in this repo are used
         with:
           repository: ${{ github.repository_owner }}/benelux-pool-rating
@@ -73,5 +73,5 @@ jobs:
           git config user.email "rating-bot@users.noreply.github.com"
           git add site data
           git commit -m "Daily update $(date +%Y-%m-%d)" || echo "No changes"
-          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 10; done
+          for i in 1 2 3; do git pull --rebase --autostash && git push && exit 0; sleep 10; done
           exit 1
