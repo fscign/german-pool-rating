@@ -1,7 +1,7 @@
 name: Daily rating update
 on:
   schedule:
-    - cron: '47 2 * * *'   # every day 02:47 UTC, after the collection workflows (00:41-02:11) and before the Latvian update at 03:23; off the full hour, when GitHub is busiest
+    - cron: '47 2 * * *'   # every day 02:47 UTC, after the collection in fscign/pool-data (00:07 and 01:07) and before the Latvian update at 03:23; off the full hour, when GitHub is busiest
   workflow_dispatch:       # "Run workflow" button for manual updates
 permissions:
   contents: write
@@ -18,42 +18,11 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install numpy requests beautifulsoup4 lxml
-      - name: Get EPBF, Matchroom and PBS data from the Latvian repo
-        uses: actions/checkout@v5
-        continue-on-error: true      # if the token is missing or expired, the last copies in this repo are used
-        with:
-          repository: ${{ github.repository_owner }}/latvian-pool-rating
-          token: ${{ secrets.LV_REPO_TOKEN }}
-          path: lv
-          sparse-checkout: data
-      - run: |
-          for f in epbf_data.json.gz wnt_data.json.gz pbs_data.json.gz; do cp "lv/data/$f" data/ || echo "Latvian repo: $f not copied, kept the old file"; done
-          rm -rf lv
-      - name: Get CueScore Poland and Czech Republic from the Polish repo (German players' matches abroad)
-        uses: actions/checkout@v5
-        continue-on-error: true      # public repo, no token needed; if it fails, the last copies in this repo are used
-        with:
-          repository: ${{ github.repository_owner }}/polish-pool-rating
-          path: pl
-          sparse-checkout: data
-      - name: Get CueScore Netherlands, Belgium and Luxembourg from the Benelux repo (German players' matches abroad)
-        uses: actions/checkout@v5
-        continue-on-error: true      # public repo, no token needed; if it fails, the last copies in this repo are used
-        with:
-          repository: ${{ github.repository_owner }}/benelux-pool-rating
-          path: bnl
-          sparse-checkout: data
-      - run: |
-          for c in nl be lu; do for f in ${c}_cuescore_raw.json.gz ${c}_team_raw.json; do
-            cp "bnl/data/$f" data/ || echo "Benelux repo: $f not copied, kept the old file"
-          done; done
-          rm -rf bnl
-      - run: |
-          for p in "cuescore_raw.json.gz pl_cuescore_raw.json.gz" "team_raw.json pl_team_raw.json" "cuescore_cze_raw.json.gz cz_cuescore_raw.json.gz" "team_cze_raw.json cz_team_raw.json"; do
-            set -- $p; cp "pl/data/$1" "data/$2" || echo "Polish repo: $1 not copied, kept the old file"
-          done
-          rm -rf pl
-      - name: Build the rating from the collected data (each source is collected by its own workflow before this)
+      - name: Get the raw data from fscign/pool-data (all sources are collected there)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: sh get_data.sh
+      - name: Build the rating from the collected data 
         run: sh run_update.sh --no-collect
       - name: Save new results
         run: |
@@ -62,16 +31,16 @@ jobs:
           today=$(date -u +%Y-%m-%d)
           {
             echo; echo "### Data sources"; echo; echo "| Source | Last collected | Result | Last log line |"; echo "|---|---|---|---|"
-            for f in data/status/*.txt; do
+            for f in status/status_*.txt; do
               [ -f "$f" ] || continue
-              n=$(basename "$f" .txt); IFS='|' read -r when res last < "$f"
+              n=$(basename "$f" .txt); n=${n#status_}; IFS='|' read -r when res last < "$f"
               case "$when" in "$today"*) flag="";; *) flag=" ⚠ not today";; esac
               echo "| $n | $when$flag | $res | $last |"
             done
           } >> "$GITHUB_STEP_SUMMARY" || true
           git config user.name "rating-bot"
           git config user.email "rating-bot@users.noreply.github.com"
-          git add site data
+          git add site data/site_ids.json data/fargo_fixed.json data/fargo_ref.json data/fargo_foreign.json
           git commit -m "Daily update $(date +%Y-%m-%d)" || echo "No changes"
           for i in 1 2 3; do git pull --rebase --autostash && git push && exit 0; sleep 10; done
           exit 1

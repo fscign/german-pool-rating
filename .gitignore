@@ -1,0 +1,13 @@
+# raw data comes from fscign/pool-data (get_data.sh)
+data/*
+!data/site_ids.json
+!data/fargo_fixed.json
+!data/fargo_ref.json
+!data/fargo_foreign.json
+status/
+__pycache__/
+*.sqlite
+previous_*.json
+*_log.txt
+update_log.txt
+report.txt

@@ -18,6 +18,10 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install numpy requests beautifulsoup4 lxml
+      - name: Get the raw data from fscign/pool-data
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: sh get_data.sh
       - name: Build the player list and look them up on FargoRate
         run: |
           python3 -I build_db.py > build_log.txt 2>&1

@@ -3,16 +3,11 @@
 A FargoRate-style rating of German pool players (8-ball, 9-ball, 10-ball and Multiball), built the same way as the
 Latvian Pool Rating (https://poolrating.horsuns.eu). Non-commercial, for the pool community.
 
-## Sources (everything is collected raw; build_db.py decides what counts)
-- CueScore, every pool event held in Germany: `collect_cuescore.py` -> `data/cuescore_raw.json.gz`
-- CueScore team events (league match days, team cups), singles read from each team match: `collect_team.py` -> `data/team_raw.json`
-- tournamentapp.de: `collect_tournamentapp.py` -> `data/ta_raw.json`
-- nuLiga Bavaria (bbv-billard.liga.nu): `collect_nuliga.py` -> `data/bbv_nuliga_data.json.gz` (league singles from 2025/26, BBV championships)
-- Hessen leagues (hpbv-veveto.de): `collect_veveto.py` -> `data/hessen_veveto.json.gz` (league singles from 2022/23; the site allows 20 requests a minute, so daily runs read only new reports)
-- EPBF (Euro Tour, European Championships) and Matchroom / World Nineball Tour: collected only in the Latvian repo
-  (`latvian-pool-rating`); the daily update copies `data/epbf_data.json.gz` and `data/wnt_data.json.gz` from there
-  with the read-only token secret `LV_REPO_TOKEN`. If the token is missing or expired, the last copies here are used.
-- FargoRate of foreign players: `fargo_update.py` -> `data/fargo_foreign.json` (weekly). Foreign players with 200+ FargoRate games keep their FargoRate as a fixed rating.
+## Sources
+All raw data is collected in https://github.com/fscign/pool-data (since 9 Nov 2026): CueScore (Germany and 9 other
+countries, tournaments and team events), tournamentapp.de, nuLiga Bavaria, VeVeTo Hessen, Score Trek Battle, EPBF,
+Matchroom / WNT and PBS. `get_data.sh` downloads the files the build uses (release "data" of pool-data).
+- FargoRate of foreign players: `fargo_update.py` -> `data/fargo_foreign.json` (weekly).
 
 ## What counts (rules in build_db.py)
 - 8/9/10-ball and Multiball singles, races to 3 or more; singles inside team events count, doubles don't.
@@ -21,7 +16,7 @@ Latvian Pool Rating (https://poolrating.horsuns.eu). Non-commercial, for the poo
 - German players are shown; foreign players are rated in the background.
 
 ## Daily update
-`run_update.sh`: collect (CueScore, team events, tournamentapp.de, nuLiga Bavaria, VeVeTo Hessen) -> `build_db.py` -> `make_fargo_fixed.py` -> `rate.py`
+`get_data.sh` (download from pool-data) -> `run_update.sh`: `build_db.py` -> `make_fargo_fixed.py` -> `rate.py`
 -> `export.py` (`site/data.json` + `site/matches.json`, two files because Cloudflare Pages allows 25 MiB per file) -> `report.py`.
 GitHub Actions runs it every day (`.github/workflows/daily.yml`); the summary of each run shows the report.
 

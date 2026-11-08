@@ -20,7 +20,7 @@ CS_EXCLUDE = set()     # placeholder profiles
 CS_MATCH_OFFSET = 0    # only one source, so CueScore match ids are used as they are
 CS_CC = {'LTU': 'LIT', 'GBR': 'ENG', 'DEU': 'GER', 'NLD': 'NED', 'CHE': 'SUI', 'DNK': 'DEN'}   # CueScore codes -> the codes used on the site
 import gzip
-cs = json.load(gzip.open('data/cuescore_raw.json.gz', 'rt', encoding='utf-8') if os.path.exists('data/cuescore_raw.json.gz') else open('data/cuescore_raw.json', encoding='utf-8'))
+cs = json.load(gzip.open('data/de_cuescore_raw.json.gz', 'rt', encoding='utf-8') if os.path.exists('data/de_cuescore_raw.json.gz') else open('data/cuescore_raw.json', encoding='utf-8'))
 NOT_POOL_GAME = re.compile(r'straight|14|one ?pocket|bank|snooker|black ?ball|heyball|^5$|^6$|^7$', re.I)   # games inside mixed events that are not counted
 def add_cs_tournament(t, kind=''):
     tid, name, date, disc, dr, dsets, hc, typ, city, owner, nm, kept, ctry = t[:13]
@@ -60,8 +60,8 @@ def name_id(k):
     # stable id from the name (7 Nov 2026: was a running number, which changed whenever the team file was re-read)
     if not str(k).startswith('n:'): return str(k)
     return NAME_ONLY.setdefault(k, str(9_000_000_000 + int(hashlib.sha1(str(k).encode('utf-8')).hexdigest()[:12], 16) % 400_000_000))
-if os.path.exists('data/team_raw.json'):
-    tm = json.load(open('data/team_raw.json', encoding='utf-8'))
+if os.path.exists('data/de_team_raw.json'):
+    tm = json.load(open('data/de_team_raw.json', encoding='utf-8'))
     for t in tm['tournaments']: add_cs_tournament(t, 'team'); TEAM_SINGLES.add(t[0])
     for k, v in tm['players'].items(): add_cs_player(name_id(k), v)
     for x in tm['matches']: add_cs_match(x, name_id)
