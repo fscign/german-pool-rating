@@ -11,6 +11,12 @@ for name, (rating, rob, rid, loc, amb) in F.items():
     for pid in names.get(name, []):
         ref[pid] = [rating, rob, rid]
         if rob >= 200 and not amb and len(names[name]) == 1: fixed[pid] = [rating, rob, rid]
+prior = {}
+for name, (rating, rob, rid, loc, amb) in F.items():
+    for pid in names.get(name, []):
+        if rob >= 30 and not amb and len(names[name]) == 1: prior[pid] = [rating, rob, rid]
+json.dump(prior, open('data/fargo_prior.json', 'w'))
+print('FargoRate prior (30+ games, unique name):', len(prior))
 json.dump(fixed, open('data/fargo_fixed.json', 'w'))
 json.dump(ref, open('data/fargo_ref.json', 'w'))
 print('found in database', len(ref), 'fixed (200+ games)', len(fixed))

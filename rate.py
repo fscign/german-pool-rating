@@ -36,10 +36,14 @@ for ln_fn, val in ANCHORS.items():
 LV = np.array([bool(p[3]) for p in pl])   # shown (German) players
 # Foreign players with an established FargoRate (200+ games, decided 3 Nov 2026) keep it as a fixed rating (fargo_fixed.json: player id -> rating)
 import os
-FIX = np.zeros(N, bool); FIXV = np.zeros(N)
-if os.path.exists('data/fargo_fixed.json'):
-    for k, v in json.load(open('data/fargo_fixed.json')).items():
-        if int(k) in idx and not LV[idx[int(k)]]: FIX[idx[int(k)]] = True; FIXV[idx[int(k)]] = v[0]
+# Option C (9 Nov 2026): a foreign player's FargoRate counts as virtual racks at that rating, weighted by his FargoRate
+# games (FARGO_W racks per game, capped), on top of his results here. Nobody is fixed.
+FARGO_W, FARGO_CAP = 0.5, 1500
+FIX = np.zeros(N, bool); FIXV = np.zeros(N); FW = np.zeros(N)
+if os.path.exists('data/fargo_prior.json'):
+    for k, v in json.load(open('data/fargo_prior.json')).items():
+        if int(k) in idx and not LV[idx[int(k)]]:
+            i = idx[int(k)]; FIX[i] = True; FIXV[i] = v[0]; FW[i] = min(v[1] * FARGO_W, FARGO_CAP) / 2
 print('fixed FargoRate players:', int(FIX.sum()))
 PIN_OFFSET = None   # solver scale -> FargoRate scale; set once known
 # Newcomer prior: a player is pulled (3 virtual racks won and lost) towards the average of his own group.
@@ -62,17 +66,18 @@ def solve(upto_ord, r0=None, prior_mu=0.0, iters=400, mu_f=0.0):
         pp = 1 / (1 + np.exp(-K * (r - mu)))
         gp = PRIOR_RACKS - 2 * PRIOR_RACKS * pp; hp = 2 * PRIOR_RACKS * pp * (1 - pp) * K
         g += gp; H += hp
+        if PIN_OFFSET is not None and FIX.any():   # FargoRate as weighted virtual racks
+            t = FIXV[FIX] - PIN_OFFSET; pf = 1 / (1 + np.exp(-K * (r[FIX] - t)))
+            g[FIX] += FW[FIX] - 2 * FW[FIX] * pf; H[FIX] += 2 * FW[FIX] * pf * (1 - pf) * K
         step = np.clip(g / H, -60, 60)
         step[~active] = 0
         r += step
-        if PIN_OFFSET is not None: r[FIX] = FIXV[FIX] - PIN_OFFSET
         # the overall level is pinned only by the weak prior, so move everyone together towards it as well
         pp = 1 / (1 + np.exp(-K * (r - mu)))
         gp = PRIOR_RACKS - 2 * PRIOR_RACKS * pp; hp = 2 * PRIOR_RACKS * pp * (1 - pp) * K
         al, af = active & LV, active & ~LV
         shift = float(np.clip(gp[al].sum() / hp[al].sum(), -60, 60)) if al.any() else 0.0
         r[active] += shift
-        if PIN_OFFSET is not None: r[FIX] = FIXV[FIX] - PIN_OFFSET
         dmf = float(np.clip(-gp[af].sum() / hp[af].sum(), -60, 60)) if af.any() else 0.0
         mu_f += dmf
         if np.abs(step).max() < 0.005 and abs(shift) < 0.005 and abs(dmf) < 0.005: break

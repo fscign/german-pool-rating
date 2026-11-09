@@ -18,8 +18,12 @@ def norm(s):
     return ' '.join(sorted(t for t in re.sub(r'[^a-z ]', ' ', s).split() if t))
 
 db = sqlite3.connect('de_pool.sqlite')
+# only foreign players who played a German (9 Nov 2026): since every match counts, there are ~15,000 foreign players with
+# 10+ matches; those who never met a German are rated from their own history and are not looked up
 names = [r[0] for r in db.execute('''SELECT TRIM(p.first_name || ' ' || p.last_name) FROM players p
-    JOIN matches m ON p.id IN (m.player_a, m.player_b) WHERE p.shown = 0 GROUP BY p.id HAVING COUNT(*) >= 10''')]
+    JOIN matches m ON p.id IN (m.player_a, m.player_b) WHERE p.shown = 0 GROUP BY p.id HAVING COUNT(*) >= 10
+    AND p.id IN (SELECT m2.player_a FROM matches m2 JOIN players q ON q.id = m2.player_b WHERE q.shown = 1
+                 UNION SELECT m2.player_b FROM matches m2 JOIN players q ON q.id = m2.player_a WHERE q.shown = 1)''')]
 
 def look(n):
     for i in range(3):

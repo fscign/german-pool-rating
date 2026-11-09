@@ -616,7 +616,7 @@ matches = []
 for m, a, b in cand:
     if m['tid'] in DUPLICATE_ENTRIES: continue   # the whole event is a copy of another entry; keep only the original
     if rkey(m, a, b) in SAME_GAMES.get(m['tid'], ()): continue
-    if m['tid'] in ABROAD_GER_ONLY and a not in GER_ROOTS and b not in GER_ROOTS: continue   # event abroad: only matches with a German
+    # every match counts, also in events abroad (Aleksandrs 8 Nov 2026); the country only decides who is shown
     matches.append(dict(m, a=a, b=b))
 print('duplicate entries', [(T[t2]['name'], T[t1]['name']) for t2, t1 in DUPLICATE_ENTRIES.items()])
 
