@@ -194,6 +194,7 @@ if os.path.exists('data/pbs_data.json.gz'):
 CS_ABROAD = [('data/pl_cuescore_raw.json.gz', 'data/pl_team_raw.json'), ('data/cz_cuescore_raw.json.gz', 'data/cz_team_raw.json')]
 CS_ABROAD += [(f'data/{c}_cuescore_raw.json.gz', f'data/{c}_team_raw.json') for c in ('at', 'ch', 'it', 'fr')]   # collected here by cuescore-abroad.yml
 CS_ABROAD += [(f'data/{c}_cuescore_raw.json.gz', f'data/{c}_team_raw.json') for c in ('nl', 'be', 'lu')]   # copied from benelux-pool-rating
+CS_ABROAD += [(f'data/{c}_cuescore_raw.json.gz', f'data/{c}_team_raw.json') for c in ('fi', 'se', 'dk', 'no')]   # CueScore Nordic in pool-data (added 12 Nov 2026)
 import hashlib
 ABROAD_CSIDS = set()   # CueScore profiles seen only in events abroad: joined to a German profile by name only when the flags match
 for ev_file, team_file in CS_ABROAD:
