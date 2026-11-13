@@ -14,6 +14,12 @@ SOURCE = {}            # tournament id -> 'cuescore'
 # Events abroad (Aleksandrs 6 Nov 2026): every source except CueScore is collected in full; for events outside Germany the
 # German rating counts only the matches with a German player. Events in Germany and EPBF/Matchroom/PBS count all matches.
 ABROAD_GER_ONLY = set()
+# Aleksandrs 13 Nov 2026: foreign-only matches count only from countries around Germany (Benelux, Austria, Switzerland,
+# Poland, Czechia, Denmark, France, Italy). Events in other countries (Nordic except Denmark, UK, Southern and Eastern
+# Europe, Serbia, rest of the world) count only their matches with a German player (FAR_GER_ONLY).
+# International pro events (EPBF, Matchroom/WNT, PBS) keep counting in full.
+FAR_GER_ONLY = set()
+FAR_CS = {'fi', 'se', 'no', 'uk', 'so', 're', 'ea'}   # CueScore files by tag: Finland, Sweden, Norway, UK, south, rest, east
 CSIDS = set()          # player ids that come from CueScore
 CS_GERMAN = set()      # CueScore ids of German players with another flag (to fill in)
 CS_EXCLUDE = set()     # placeholder profiles
@@ -210,6 +216,7 @@ for ev_file, team_file in CS_ABROAD:
             if t[0] in SOURCE: continue                 # already loaded (e.g. a PBS event): keep the earlier rule
             add_cs_tournament(t, 'team' if is_team else '')
             if t[0] in SOURCE: new_t.add(t[0]); ABROAD_GER_ONLY.add(t[0])
+            if t[0] in SOURCE and tag in FAR_CS: FAR_GER_ONLY.add(t[0])
             if is_team and t[0] in SOURCE: TEAM_SINGLES.add(t[0])
         for k, v in xs['players'].items():
             k2 = nid(k) if is_team else str(k)
@@ -282,7 +289,7 @@ if os.path.exists('data/bilijar_raw.json.gz'):
         if hcp or kind != 'Singl' or game == 'straight' or not status.startswith('Završen'): continue
         y, mo, dd = date.split('-')
         d['tournaments'].append([BJ_T + tid, title, f'{dd}.{mo}.{y[2:]}', club, GAME_ANY.get(game, 'multiball'), 'bilijar.club', 0, {}])
-        SOURCE[BJ_T + tid] = 'bilijar'; ABROAD_GER_ONLY.add(BJ_T + tid)
+        SOURCE[BJ_T + tid] = 'bilijar'; ABROAD_GER_ONLY.add(BJ_T + tid); FAR_GER_ONLY.add(BJ_T + tid)
     for pid, (name, flag) in bj['players'].items():
         w = name.split()
         if len(w) >= 2: P[str(BJ_P + int(pid))] = [w[0], ' '.join(w[1:]), cc_any(flag), '', None, 'm']
@@ -711,7 +718,9 @@ matches = []
 for m, a, b in cand:
     if m['tid'] in DUPLICATE_ENTRIES: continue   # the whole event is a copy of another entry; keep only the original
     if rkey(m, a, b) in SAME_GAMES.get(m['tid'], ()): continue
-    # every match counts, also in events abroad (Aleksandrs 8 Nov 2026); the country only decides who is shown
+    # every match counts, also in events abroad (Aleksandrs 8 Nov 2026); the country only decides who is shown.
+    # Exception (13 Nov 2026): events in countries not around Germany count only their matches with a German.
+    if m['tid'] in FAR_GER_ONLY and find(a) not in GER_ROOTS and find(b) not in GER_ROOTS: continue
     matches.append(dict(m, a=a, b=b))
 print('duplicate entries', [(T[t2]['name'], T[t1]['name']) for t2, t1 in DUPLICATE_ENTRIES.items()])
 
