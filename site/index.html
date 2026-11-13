@@ -693,7 +693,7 @@ function drawLeaders(){
  $$('[data-dec]').forEach(b=>b.onclick=()=>{LF.dec=b.dataset.dec;drawLeaders()});
 }
 
-const HH={a:0,b:0};
+const HH={a:0,b:0,off:[]};   // off: games switched off in the H2H game filter
 function h2hPage(a,b){
  if(a&&PL[a])HH.a=+a;if(b&&PL[b])HH.b=+b;
  $('#app').innerHTML=`<div class="top"><div><h1>${t('hTitle')}</h1><p class="sub">${t('hSub')}</p></div></div>
@@ -725,13 +725,18 @@ function h2hPage(a,b){
 function drawHH(){
  const a=HH.a,b=HH.b,out=$('#hout');
  if(!a||!b){out.innerHTML=`<div class="empty">${t('hPick')}</div>`;return}
- const ms=(PM[a]||[]).filter(m=>m[2]===b||m[3]===b).map(m=>{const me=m[2]===a;return{m,w:me?m[4]:m[5],l:me?m[5]:m[4]}});
+ const GO=['8-ball','9-ball','10-ball','multiball'],all=(PM[a]||[]).filter(m=>m[2]===b||m[3]===b);
+ const games=[...new Set(all.map(m=>TO[m[1]].game))].sort((x,y)=>(GO.indexOf(x)+1||9)-(GO.indexOf(y)+1||9));
+ if(games.length&&games.every(g=>HH.off.includes(g)))HH.off=HH.off.filter(g=>!games.includes(g));   // never all off
+ const ms=all.filter(m=>!HH.off.includes(TO[m[1]].game)).map(m=>{const me=m[2]===a;return{m,w:me?m[4]:m[5],l:me?m[5]:m[4]}});
+ const gsel=games.length>1?`<div style="margin:0 0 14px"><span class="seg">${games.map(g=>`<button data-hg="${esc(g)}" class="${HH.off.includes(g)?'':'on'}">${esc(GN(g))}</button>`).join('')}</span></div>`:'';
  const mw=ms.filter(x=>x.w>x.l).length,rw=ms.reduce((s,x)=>s+x.w,0),rl=ms.reduce((s,x)=>s+x.l,0);
  const A=PL[a],B=PL[b],cw=raceWin(1/(1+Math.pow(2,(B.rs-A.rs)/100)),7),pct=x=>PC(x>=0.995?'>99':x<=0.005?'<1':Math.round(x*100));
  const side=(id,P,rt)=>`<div class="sd${rt?' rt':''}"><b>${who(id)}</b><span class="rv${prov(P)?' pv':''}">${P.r}</span><span class="mu" style="font-size:12px">${shown(id)?'':t('notDE')}</span></div>`;
- out.innerHTML=`<div class="hbig">${side(a,A)}<div class="mid"><div class="sc">${mw} : ${ms.length-mw}</div><div class="s">${t('hMatches')}</div><div class="s">${t('hRacks',fmt(rw),fmt(rl))}</div></div>${side(b,B,1)}</div>
+ out.innerHTML=`${gsel}<div class="hbig">${side(a,A)}<div class="mid"><div class="sc">${mw} : ${ms.length-mw}</div><div class="s">${t('hMatches')}</div><div class="s">${t('hRacks',fmt(rw),fmt(rl))}</div></div>${side(b,B,1)}</div>
  <div class="box" style="margin-bottom:20px"><h2>${t('chance7')}</h2><div class="chbar"><i style="width:${(cw*100).toFixed(1)}%"></i></div><div class="chl"><span>${esc(nm(a))} ${pct(cw)}</span><span>${pct(1-cw)} ${esc(nm(b))}</span></div><p class="fine">${t('chanceFine')}</p></div>
  ${ms.length?`<div class="box"><h2>${t('matchesH')}</h2><div class="tb"><table><thead><tr><th>${t('thDate')}</th><th>${t('thTour')}</th><th class="hide">${t('thRound')}</th><th class="r">${t('thScore')}</th></tr></thead><tbody>${ms.map(x=>{const T=TO[x.m[1]];return`<tr><td class="mu">${ds(x.m[0])}</td><td style="white-space:normal">${ball(T.game)} <a class="pl" style="font-weight:400" href="#t${T.id}">${esc(T.name)}</a></td><td class="hide mu">${esc(D.stages[x.m[6]]||'')}</td><td class="r"><span class="wl ${x.w>x.l?'w':'l'}">${x.w}:${x.l}</span></td></tr>`}).join('')}</tbody></table></div></div>`:`<div class="empty">${t('hNone')}</div>`}`;
+ out.querySelectorAll('[data-hg]').forEach(x=>x.onclick=()=>{const g=x.dataset.hg;if(HH.off.includes(g))HH.off=HH.off.filter(y=>y!==g);else if(games.filter(y=>!HH.off.includes(y)).length>1)HH.off.push(g);drawHH()});
 }
 const TF={q:'',y:'',g:''};
 function tournaments(){
