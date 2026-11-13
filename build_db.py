@@ -195,6 +195,7 @@ CS_ABROAD = [('data/pl_cuescore_raw.json.gz', 'data/pl_team_raw.json'), ('data/c
 CS_ABROAD += [(f'data/{c}_cuescore_raw.json.gz', f'data/{c}_team_raw.json') for c in ('at', 'ch', 'it', 'fr')]   # collected here by cuescore-abroad.yml
 CS_ABROAD += [(f'data/{c}_cuescore_raw.json.gz', f'data/{c}_team_raw.json') for c in ('nl', 'be', 'lu')]   # copied from benelux-pool-rating
 CS_ABROAD += [(f'data/{c}_cuescore_raw.json.gz', f'data/{c}_team_raw.json') for c in ('fi', 'se', 'dk', 'no')]   # CueScore Nordic in pool-data (added 12 Nov 2026)
+CS_ABROAD += [(f'data/{c}_cuescore_raw.json.gz', f'data/{c}_team_raw.json') for c in ('uk', 'south', 'east', 'rest')]   # CueScore regions in pool-data (added 13 Nov 2026)
 import hashlib
 ABROAD_CSIDS = set()   # CueScore profiles seen only in events abroad: joined to a German profile by name only when the flags match
 for ev_file, team_file in CS_ABROAD:
@@ -216,6 +217,99 @@ for ev_file, team_file in CS_ABROAD:
             add_cs_player(k2, v)
         for x in xs['matches']:
             if x[0] in new_t: add_cs_match(x, nid if is_team else str)
+
+# ---------- other sources from fscign/pool-data (added 13 Nov 2026): events abroad, every match counts in the background ----------
+# Players of these sources have their own ids (offsets below) and join other profiles through the usual same-name-and-country
+# merge (so a German with flag GER joins his German profile). Handicap and doubles events are skipped.
+CC2 = {'de': 'GER', 'at': 'AUT', 'ch': 'SUI', 'rs': 'SRB', 'hr': 'CRO', 'ba': 'BIH', 'me': 'MNE', 'mk': 'MKD', 'si': 'SLO', 'hu': 'HUN',
+       'pl': 'POL', 'nl': 'NED', 'cz': 'CZE', 'sk': 'SVK', 'it': 'ITA', 'fr': 'FRA', 'gb': 'ENG', 'dk': 'DEN', 'lt': 'LIT', 'lv': 'LAT',
+       'ee': 'EST', 'ua': 'UKR', 'ro': 'ROU', 'bg': 'BUL', 'gr': 'GRE', 'tr': 'TUR', 'ru': 'RUS', 'by': 'BLR', 'se': 'SWE', 'no': 'NOR',
+       'fi': 'FIN', 'es': 'ESP', 'pt': 'POR', 'be': 'BEL', 'lu': 'LUX', 'al': 'ALB', 'xk': 'KOS', 'ger': 'GER', 'aut': 'AUT',
+       'sui': 'SUI', 'pol': 'POL', 'ned': 'NED', 'ita': 'ITA', 'fra': 'FRA', 'cze': 'CZE', 'hun': 'HUN', 'svk': 'SVK', 'slo': 'SLO',
+       'cro': 'CRO', 'bih': 'BIH', 'srb': 'SRB', 'tur': 'TUR', 'ukr': 'UKR', 'rou': 'ROU', 'lux': 'LUX', 'bel': 'BEL', 'den': 'DEN'}
+def cc_any(c): c = (c or '').strip(); return CC2.get(c.lower(), c.upper() or '?')
+def to_ts(y, mo, dd): return int(datetime.datetime(y, mo, dd, 12).timestamp())
+GAME_ANY = {'8': '8-ball', '9': '9-ball', '10': '10-ball', '8910': 'multiball', '8-ball': '8-ball', '9-ball': '9-ball', '10-ball': '10-ball',
+            '8 Ball': '8-ball', '9 Ball': '9-ball', '10 Ball': '10-ball', '': 'multiball', 'Multiball': 'multiball',
+            '8-Ball': '8-ball', '9-Ball': '9-ball', '10-Ball': '10-ball'}
+
+# Swisspool (Swiss federation, same software and file format as tournamentapp.de)
+SP_T, SP_P, SP_M = 7_100_000_000, 8_100_000_000, 7_100_000_000
+if os.path.exists('data/swisspool_raw.json'):
+    sp = json.load(open('data/swisspool_raw.json', encoding='utf-8'))
+    for t in sp['tournaments']:
+        tid, name, date, kind, disc, cat, city = t[:7]
+        if cat == 'DP' or disc not in TA_GAME or re.search(r'\btest\b|\bdemo\b', name, re.I): continue
+        if cat in ('DAM', 'MAD'): name += ' (Damen)'
+        d['tournaments'].append([SP_T + tid, name, date, city, TA_GAME[disc], 'swisspool-billard.ch', 0, {}])
+        SOURCE[SP_T + tid] = 'swisspool'; ABROAD_GER_ONLY.add(SP_T + tid)
+    for sid, (name, cc) in sp['players'].items():
+        w = name.split()
+        if len(w) >= 2: P[str(SP_P + int(sid))] = [w[0], ' '.join(w[1:]), cc_any(cc), '', None, 'm']
+    for x in sp['matches']:
+        tid, mid, code, game, a, b, sa, sb, ts = x[:9]
+        if (len(x) > 10 and not x[10]) or SP_T + tid not in SOURCE or (game and game not in TA_GAME): continue
+        d['matches'].append([SP_T + tid, SP_M + mid, str(SP_P + a), str(SP_P + b), str(sa), str(sb), 0, ts, code, ''])
+
+# ÖPBV (Austrian federation): players by licence number
+OE_T, OE_P, OE_M = 7_200_000_000, 8_200_000_000, 7_200_000_000
+if os.path.exists('data/oepbv_raw.json.gz'):
+    oe = json.load(gzip.open('data/oepbv_raw.json.gz', 'rt', encoding='utf-8'))
+    ODATE = {}
+    for t in oe['tournaments']:
+        tid, name, date, place, disc = t[:5]
+        days = re.findall(r'(\d\d)\.(\d\d)\.', date); y = re.findall(r'(\d{4})', date)
+        if not days or not y or disc not in GAME_ANY or not disc: continue
+        dd, mo = days[0]; yy = int(y[-1])
+        ODATE[tid] = (yy, int(mo), int(dd))
+        d['tournaments'].append([OE_T + tid, name, f'{dd}.{mo}.{str(yy)[2:]}', place, GAME_ANY[disc], 'oepbv.at', 0, {}])
+        SOURCE[OE_T + tid] = 'oepbv'; ABROAD_GER_ONLY.add(OE_T + tid)
+    for lic, (name, flag, club) in oe['players'].items():
+        w = name.split()
+        if len(w) >= 2: P[str(OE_P + int(lic))] = [w[0], ' '.join(w[1:]), cc_any(flag), '', None, 'm']
+    for x in oe['matches']:
+        tid, tab, part, code, mid, la, lb, na, nb, sa, sb, tm, fin, dbl = x[:14]
+        if dbl or not fin or not la or not lb or OE_T + tid not in SOURCE: continue
+        d['matches'].append([OE_T + tid, OE_M + (mid or hash((tid, code)) % 10**8), str(OE_P + la), str(OE_P + lb), str(sa), str(sb), 0,
+                             to_ts(*ODATE[tid]), part or code, ''])
+
+# bilijar.club (Serbia and nearby): handicap events skipped; game from the title (none named: counted as mixed pool)
+BJ_T, BJ_P, BJ_M = 7_300_000_000, 8_300_000_000, 7_300_000_000
+if os.path.exists('data/bilijar_raw.json.gz'):
+    bj = json.load(gzip.open('data/bilijar_raw.json.gz', 'rt', encoding='utf-8'))
+    for t in bj['tournaments']:
+        tid, title, date, scheme, cat, n, kind, status, club, cid, desc, hcp, game = t[:13]
+        if hcp or kind != 'Singl' or game == 'straight' or not status.startswith('Završen'): continue
+        y, mo, dd = date.split('-')
+        d['tournaments'].append([BJ_T + tid, title, f'{dd}.{mo}.{y[2:]}', club, GAME_ANY.get(game, 'multiball'), 'bilijar.club', 0, {}])
+        SOURCE[BJ_T + tid] = 'bilijar'; ABROAD_GER_ONLY.add(BJ_T + tid)
+    for pid, (name, flag) in bj['players'].items():
+        w = name.split()
+        if len(w) >= 2: P[str(BJ_P + int(pid))] = [w[0], ' '.join(w[1:]), cc_any(flag), '', None, 'm']
+    for k, x in enumerate(bj['matches']):
+        tid, no, rnd, a, b, sa, sb, spot, md, table = x[:10]
+        if BJ_T + tid not in SOURCE or max(sa, sb) > 25: continue
+        ts = to_ts(*map(int, md.split('-'))) if md else 0
+        d['matches'].append([BJ_T + tid, BJ_M + k, str(BJ_P + a), str(BJ_P + b), str(sa), str(sb), 0, ts, rnd, ''])
+
+# online-brackets.com (Polish clubs): handicap-hinted and doubles events skipped
+OB_T, OB_P, OB_M = 7_400_000_000, 8_400_000_000, 7_400_000_000
+if os.path.exists('data/onlinebrackets_raw.json.gz'):
+    ob = json.load(gzip.open('data/onlinebrackets_raw.json.gz', 'rt', encoding='utf-8'))
+    for t in ob['tournaments']:
+        tid, name, cat, fmt, state, start, end, org, hcp = t[:9]
+        m = re.match(r'(\d\d)/(\d\d)/(\d{4})', start or '')
+        if hcp or not m or cat == 'Straight': continue
+        d['tournaments'].append([OB_T + tid, name, f'{m.group(1)}.{m.group(2)}.{m.group(3)[2:]}', '', GAME_ANY.get(cat, 'multiball'), 'online-brackets.com', 0, {}])
+        SOURCE[OB_T + tid] = 'onlinebrackets'; ABROAD_GER_ONLY.add(OB_T + tid)
+    for pid, (fn, ln, cc, uid) in ob['players'].items():
+        if fn and ln: P[str(OB_P + int(pid))] = [ln, fn, cc_any(cc), '', None, 'm']
+    for x in ob['matches']:
+        tid, mid, a, b, sa, sb, race, dt, state, where, ffa, ffb = x[:12]
+        if OB_T + tid not in SOURCE or ffa or ffb or state not in ('COMPLETE', 'FINISHED'): continue
+        mm = re.match(r'(\d{4})-(\d\d)-(\d\d)', dt or '')
+        ts = to_ts(int(mm.group(1)), int(mm.group(2)), int(mm.group(3))) if mm else 0
+        d['matches'].append([OB_T + tid, OB_M + mid, str(OB_P + a), str(OB_P + b), str(sa), str(sb), race or 0, ts, where, ''])
 
 # ---------- profile merges and fixes (Germany: none yet; add confirmed ones here) ----------
 MANUAL_MERGES = []
