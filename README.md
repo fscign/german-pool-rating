@@ -3,6 +3,8 @@
 A FargoRate-style rating of German pool players (8-ball, 9-ball, 10-ball and Multiball), built the same way as the
 Latvian Pool Rating (https://poolrating.horsuns.eu). Non-commercial, for the pool community.
 
+Live: https://de.poolrating.eu
+
 ## Sources
 All raw data is collected in https://github.com/fscign/pool-data (since 9 Nov 2026): CueScore (Germany and 9 other
 countries, tournaments and team events), tournamentapp.de, nuLiga Bavaria, VeVeTo Hessen, Score Trek Battle, EPBF,
