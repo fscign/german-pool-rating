@@ -323,6 +323,16 @@ MANUAL_MERGES = []
 EXCLUDE_PLAYERS = set()     # rated in the background, not shown
 NAME_OVERRIDE = {}          # id: (first, last)
 NOT_SAME = set()
+# Merge check by Aleksandrs (7 Nov, recheck 17 Nov 2026), data/merge_decisions.json:
+#   merge = same person, not_same = different people, split = profile wrongly merged automatically (kept apart)
+try: MD = json.load(open('data/merge_decisions.json', encoding='utf-8'))
+except Exception: MD = dict(merge=[], not_same=[], split=[])
+SPLIT = {x[0] for x in MD.get('split', [])}
+NOT_SAME |= {frozenset(x[:2]) for x in MD.get('not_same', [])}
+# Placeholders are not players: matches against them are left out (walkovers, byes, "did not show up", dummies,
+# nicknames with start numbers). Pair events (entries like "Anna und Jan") are left out completely.
+NOT_A_PLAYER = re.compile(r'walk\s*-?over|freilos|dummy|\bbye\b|spielfrei|kampflos|nicht\s+angetreten|platzhalter|\bnobody\b|nomen\s+nescio|\bunbekannt\b|wolny\s*los|vara\s*pelaaja|\bover\b.*\bwalk\b|^\S+\s+\d+$', re.I)
+PAIR_ENTRY = re.compile(r'\s(und|&|\+)\s', re.I)
 
 def ph(t):
     t = unicodedata.normalize('NFKD', t.lower()); t = ''.join(c for c in t if not unicodedata.combining(c))
@@ -604,6 +614,13 @@ for x in d['matches']:
     stage_all[(x[0], x[8])] += 1
     if w >= 3: stage_long[(x[0], x[8])] += 1
 odd_long = collections.Counter()
+def full_name(k): v = P.get(k); return (s(v[1]) + ' ' + s(v[0])).strip() if v else ''
+ent = collections.defaultdict(set)
+for x in d['matches']: ent[x[0]] |= {x[2], x[3]}
+PAIR_T = {t_ for t_, es in ent.items() if es and sum(1 for k in es if PAIR_ENTRY.search(' ' + full_name(k) + ' ')) >= 0.3 * len(es)}
+for t_ in PAIR_T: T[t_]['excl'] = T[t_]['excl'] or 'pair event'
+print('pair events left out', len(PAIR_T), sorted({T[t_]['name'] for t_ in PAIR_T})[:10])
+placeholder = collections.Counter()
 raw_valid = []
 for x in d['matches']:
     t = T[x[0]]
@@ -615,10 +632,14 @@ for x in d['matches']:
         odd_long[x[0]] += 1; continue
     a, b = x[2], x[3]
     if a == b or not is_person(P.get(a)) or not is_person(P.get(b)): continue
+    if PAIR_ENTRY.search(' ' + full_name(a) + ' ') or PAIR_ENTRY.search(' ' + full_name(b) + ' '): continue
+    if NOT_A_PLAYER.search(full_name(a)) or NOT_A_PLAYER.search(full_name(b)):
+        placeholder[full_name(a) if NOT_A_PLAYER.search(full_name(a)) else full_name(b)] += 1; continue
     ts = x[7]
     md = datetime.datetime.utcfromtimestamp(ts).date() if ts else t['date']
     if abs((md - t['date']).days) > 20: md = t['date']
     raw_valid.append(dict(tid=x[0], mid=x[1], a=a, b=b, sa=sc[0], sb=sc[1], race=x[6], date=md, stage=x[8]))
+print('matches against placeholders left out', sum(placeholder.values()), placeholder.most_common(15))
 
 # ---------- canonical player mapping ----------
 cnt = collections.Counter()
@@ -638,21 +659,37 @@ try:
 except Exception: pass
 KEEP_IDS = set(SITE_IDS)
 def keep_order(k): return (k not in KEEP_IDS, SITE_IDS.get(k, ''), -cnt[k], int(k))
+# profiles Aleksandrs marked as different people never end up in one player, whatever links them
+NS = collections.defaultdict(set)
+for a_, b_ in (tuple(x) for x in NOT_SAME): NS[a_].add(b_); NS[b_].add(a_)
+COMP = {}   # root -> profiles in it (only tracked for profiles that have a not-same mark)
+def comp(r): return COMP.get(r, {r})
+def can_join(r1, r2):
+    c1, c2 = comp(r1), comp(r2)
+    return not any(NS[k] & c2 for k in c1 if k in NS)
+blocked = []
+def join(r, into):
+    if r == into: return
+    if not can_join(r, into): blocked.append((r, into)); return
+    canon[r] = into
+    if r in COMP or into in COMP or r in NS or into in NS: COMP[into] = comp(into) | comp(r); COMP.pop(r, None)
 def union(ids):
     roots = sorted({find(k) for k in ids}, key=keep_order)   # fixed order, so ids stay the same between runs
-    for r in roots[1:]: canon[r] = roots[0]
+    for r in roots[1:]: join(find(r), find(roots[0]))
 groups = collections.defaultdict(list)
 for k, v in P.items():
     if is_person(v) and cnt[k] and k not in CSIDS:
         groups[(v[2] or '?',) + tuple(sorted([ph(s(v[0])), ph(s(v[1]))]))].append(k)
 for ids in groups.values():
+    ids = [k for k in ids if k not in SPLIT]
     if len(ids) > 1 and frozenset(ids) not in NOT_SAME: union(ids)
 for ids in MANUAL_MERGES: union(ids)
 
 # CueScore profiles -> Tournament Service players (exact name match, or confirmed by Aleksandrs)
 CS_MANUAL = {}   # CueScore id -> main id (confirmed merges)
 def attach(cid, ts):
-    canon[find(cid)] = find(ts)       # Tournament Service profile stays the main one
+    if cid in SPLIT or ts in SPLIT: return   # kept apart by the merge check
+    join(find(cid), find(ts))       # Tournament Service profile stays the main one
 ts_index = collections.defaultdict(list)
 for k, v in P.items():
     if k not in CSIDS and is_person(v): ts_index[tuple(sorted([ph(s(v[0])), ph(s(v[1]))]))].append(k)
@@ -672,9 +709,18 @@ for cid in sorted(CSIDS, key=int):
         attach(cid, roots[0])
     elif is_person(v) and not ABBREV(v): cs_new[(v[2],) + key].append(cid)   # same name and country: merged (abbreviated names like "Alex W." are not)
 for ids in cs_new.values():
+    ids = [k for k in ids if k not in SPLIT]
     if len(ids) > 1: union(ids)
-LATE_MERGES = []   # [main id, other id] confirmed by Aleksandrs
-for ids in LATE_MERGES: union(ids)
+LATE_MERGES = [x[:2] for x in MD.get('merge', [])] + [g['profiles'] for g in MD.get('keep_together', [])]   # confirmed by Aleksandrs in the merge check
+miss = 0
+for ids in LATE_MERGES:
+    ids = [k for k in ids if k in P or k in canon or k in cnt]
+    if len(ids) >= 2: union(ids)
+    else: miss += 1
+print('merge check: links blocked by a not-same mark', len(blocked))
+print('merge check: merges applied', len(LATE_MERGES) - miss, 'ids not found', miss)
+bad = [(a, b) for a, b, *_ in MD.get('not_same', []) if a in P and b in P and find(a) == find(b)]
+print('merge check: pairs marked different but still together', len(bad), [(a, b, sorted(k for k in members_ if find(k) == find(a))) for a, b in bad for members_ in [set(canon) | set(cnt)]][:10])
 # every merged group keeps its oldest shown id as the main id (the CueScore attach step above does not look at site ids)
 members = collections.defaultdict(list)
 for k in set(cnt) | set(canon): members[find(k)].append(k)
@@ -682,12 +728,15 @@ for r, ms in members.items():
     best = min(ms, key=keep_order)
     if best != r and best in KEEP_IDS:
         canon.pop(best, None); canon[r] = best
+        if r in COMP: COMP[best] = COMP.pop(r)
 C = lambda k: find(k)
 
 # ---------- everyone in the counted events is rated; only German players are shown on the site ----------
 def country(k): return P[k][2]
 eligible = set(C(k) for k in cnt)
-SHOWN = {k for k in eligible if country(k) == 'GER' and k not in EXCLUDE_PLAYERS}
+# shown: a player with at least one German profile (Aleksandrs 17 Nov 2026: people move; he keeps the flag of his main profile)
+GER_ANY = {find(k) for k, v in P.items() if v[2] == 'GER'}
+SHOWN = {k for k in eligible if (country(k) == 'GER' or k in GER_ANY) and k not in EXCLUDE_PLAYERS}
 
 # ---------- final matches; a tournament entry that repeats another entry (>=50% same results) is a duplicate ----------
 def rkey(m, a, b): return tuple(sorted([(a, m['sa']), (b, m['sb'])]))

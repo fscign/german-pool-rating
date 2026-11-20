@@ -4,6 +4,7 @@ data/*
 !data/fargo_fixed.json
 !data/fargo_ref.json
 !data/fargo_foreign.json
+!data/merge_decisions.json
 status/
 __pycache__/
 *.sqlite

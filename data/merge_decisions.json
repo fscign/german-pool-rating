@@ -1,0 +1,7703 @@
+{
+"note": "Player merge decisions by Aleksandrs (merge check 7 Nov, recheck 17 Nov 2026). merge: same person. not_same: different people. split: profile wrongly merged automatically, keep it apart from that player. keep_together: the remaining profiles of a player after a split stay one player. Chain conflicts resolved by Aleksandrs 17 Nov 2026. remapped: a player id whose own profile was split off is replaced in merge/not_same by the profile that stays with the player.",
+"merge": [
+[
+"8000100558",
+"3712999",
+"Andre Schützenhofer",
+"Andre Hyun-Kook Schützenhofer"
+],
+[
+"8000100059",
+"8194225",
+"Michael Voglhuber",
+"Michael Voglhuber (other Club)"
+],
+[
+"2208617",
+"8000101564",
+"Torsten \"TURBO\" Bonke",
+"Torsten Bonke"
+],
+[
+"8000105991",
+"12847891",
+"Daniel Patrahau",
+"Daniel Partrahau"
+],
+[
+"8000103112",
+"2806864543",
+"Yusuf Kavi",
+"Yusuf Kavi"
+],
+[
+"8000100909",
+"2821336452",
+"Giuseppe Ingrasci",
+"Giuseppe Ingrasci"
+],
+[
+"8000117196",
+"8000119580",
+"Eugen-Stefan Weber",
+"Stefan Weber"
+],
+[
+"8000100147",
+"2195910828",
+"Lars Kuckherm",
+"Lars Kuckherm"
+],
+[
+"6500007344",
+"8000123315",
+"Dennis Laszkowski",
+"Dennis Laskowski"
+],
+[
+"17393914",
+"14979577",
+"Gerhard Brockmeyer - Kloepper",
+"Gerhard Brockmeier-Klöpper"
+],
+[
+"8000116409",
+"2449459890",
+"Bahadir Bilici",
+"Bahadir Bilici"
+],
+[
+"8000102039",
+"5522255",
+"Julien Lindstädt",
+"Julian Lindstädt"
+],
+[
+"8000107733",
+"2633151178",
+"Ramazan Yildirim",
+"Ramazan Yildirim"
+],
+[
+"8000103987",
+"8315078",
+"Sven Brunner",
+"Sven Brunner (other Club)"
+],
+[
+"2462863485",
+"8000128707",
+"Samer Alkareemawi",
+"Samer Alkareemawi"
+],
+[
+"2425663",
+"8000103059",
+"Michael Kanngießer",
+"M Kanngießer"
+],
+[
+"8000105520",
+"9380638474",
+"Tatjana Kasper",
+"Tatjana Kasper-Wilk"
+],
+[
+"2228502",
+"50642671",
+"Holger \"Psycho\" Heinzel",
+"Holger Heinzel"
+],
+[
+"3500000600",
+"8000128672",
+"Damir Cosic",
+"Damir Cosic"
+],
+[
+"6500000011",
+"8000100007",
+"Roman Hybler",
+"Roman Hybler"
+],
+[
+"8000116409",
+"9224775",
+"Bahadir Bilici",
+"Bahadir Bilici (other club)"
+],
+[
+"8000103454",
+"8000116512",
+"Carsten Schröter",
+"Carsten Schröder"
+],
+[
+"5500000727",
+"31085137",
+"Qeis Mansoor",
+"Ahmad Qeis Mansoor"
+],
+[
+"8000118310",
+"27648205",
+"Kay Klahold",
+"Kay Klarhold"
+],
+[
+"8000103850",
+"2064531877",
+"Jörg Rywotzki",
+"Jörg Rywotzski"
+],
+[
+"8000103850",
+"17215012",
+"Jörg Rywotzki",
+"Jörg Rysotzki"
+],
+[
+"8000103850",
+"5500000400",
+"Jörg Rywotzki",
+"Joerg Rywotzki"
+],
+[
+"8000116869",
+"14957956",
+"R Milosevic",
+"Radenko Milosević"
+],
+[
+"3500000104",
+"8000100446",
+"Zlatibor Micic",
+"Zlatibor Micic"
+],
+[
+"8000107257",
+"9705376",
+"Harald Müller",
+"Harald Müller (other Club)"
+],
+[
+"8000117536",
+"8000101325",
+"Pascal Bruckmann",
+"Pascal Bruckmann"
+],
+[
+"8000105480",
+"6880955",
+"Artur Morari",
+"Arthur Morari"
+],
+[
+"8000107920",
+"2925198618",
+"Kamal Nabou",
+"Kamal Nabou"
+],
+[
+"8000107920",
+"3706723",
+"Kamal Nabou",
+"Kamal Nabo"
+],
+[
+"6500003720",
+"8000118972",
+"Mohsein Saadawy",
+"Mohsein Saddawy"
+],
+[
+"8000106215",
+"3120653",
+"Torsten Müller",
+"Torsten C Müller"
+],
+[
+"8000118343",
+"8000118342",
+"Thomas Kupfer",
+"Thomas Kuper"
+],
+[
+"8000121397",
+"4500000276",
+"Mika Reitgassl",
+"Mika Reitgaßl"
+],
+[
+"8000106861",
+"25775017",
+"Michael Walther",
+"Mike Walther"
+],
+[
+"4719653",
+"3500000174",
+"Sascha Gomes Dos Santos",
+"Sascha Gomes Dos Santos"
+],
+[
+"9911749",
+"37256815",
+"Jörg \"Jogi\" Ernst",
+"Jörg-Friedrich Ernst"
+],
+[
+"8000107920",
+"2995698128",
+"Kamal Nabou",
+"Kamal Nabu"
+],
+[
+"8000101485",
+"8000117272",
+"Ralf Grießhaber",
+"Ralf Griesshaber"
+],
+[
+"5557640",
+"2546617",
+"Jürgen Düvelsdorf",
+"Jürgen Düvelsdorf"
+],
+[
+"8000105107",
+"8000116509",
+"Melanie Liniek",
+"Melanie Linek"
+],
+[
+"4847948",
+"8000126680",
+"Rainer Christiansen",
+"R Christiansen"
+],
+[
+"6500002558",
+"8000100212",
+"Yvonne Ullmann-Hybler",
+"Y Ullmann-Hybler"
+],
+[
+"8000120192",
+"8000117390",
+"Murat Yarloglues",
+"Murat Yarlioglues"
+],
+[
+"8000108793",
+"8000126244",
+"Marco Bardischewski",
+"Marco Baduschewski"
+],
+[
+"3573860",
+"49854415",
+"Thorsten (Lala) Brockmeyer",
+"Thorsten Brockmeyer"
+],
+[
+"8000101523",
+"17978164",
+"Hendrik Reckers",
+"Hendrick Reckers"
+],
+[
+"27151183",
+"3500000639",
+"Rafa Maslowski",
+"Rafal Maslowski"
+],
+[
+"8000128396",
+"11951215",
+"Mandy Müller",
+"Mandy Müller (expo)"
+],
+[
+"8000102466",
+"8000122755",
+"Andre Wansner",
+"Andre Wasner"
+],
+[
+"29249002",
+"8000125355",
+"Presiyan \"Pepe\" Stoyanov",
+"Presiyan Stoyanov"
+],
+[
+"6500004115",
+"8000103724",
+"Jacques Wollschläger",
+"J Wollschläger"
+],
+[
+"3500000773",
+"9372645489",
+"Tom-Luca Harms",
+"Tom Harms"
+],
+[
+"8000101781",
+"8000117348",
+"Sinan Calisgan",
+"Sinan Calisgan"
+],
+[
+"8000120787",
+"6500013796",
+"Kemal Kilic",
+"Kemal Önder Kilic"
+],
+[
+"8000117956",
+"8000125297",
+"Stefan Nipps",
+"Stefan Nipps"
+],
+[
+"8000118174",
+"16624585",
+"Thomas Dörfler",
+"Thomas Doerfler"
+],
+[
+"8000121149",
+"2607463820",
+"Ammar Al Khalaf",
+"Ammar Alkhalaf"
+],
+[
+"8000118471",
+"25618327",
+"Hans - Jürgen Jung",
+"Hans - Jürgen Jung ( Jay Jay )"
+],
+[
+"32354194",
+"29400202",
+"Mohammad Shakeel",
+"Mohammed Shakeel"
+],
+[
+"8000106745",
+"8194228",
+"Kadir Türkü",
+"Kadir Türkü (other Club)"
+],
+[
+"8000123225",
+"8000129054",
+"Yanico Weckemann",
+"Yanico Weckmann"
+],
+[
+"6500008233",
+"8000116558",
+"Markus Messingschlager",
+"M Messingschlager"
+],
+[
+"8000116741",
+"8000105274",
+"M Grigore-Martini",
+"Michael Martini"
+],
+[
+"8000123745",
+"8000120799",
+"Sebastian Meininger",
+"Basti Meininger"
+],
+[
+"51199933",
+"30614752",
+"Marco Venditti",
+"Marco Venditti"
+],
+[
+"10288966",
+"8000107645",
+"Ralf Seuken (The Breakers Oberhausen e.V.)",
+"Ralf Seuken"
+],
+[
+"6500008233",
+"49203688",
+"Markus Messingschlager",
+"markus-Johann Messingschlager"
+],
+[
+"8000101411",
+"8000120752",
+"Achim Krieger",
+"Achim (Bonn) Krieger"
+],
+[
+"30453166",
+"3500000758",
+"Dirk van den Dungen",
+"Dirk Van den Dungen"
+],
+[
+"8000117341",
+"8000101414",
+"Alexander Conradt",
+"Alex Conradt"
+],
+[
+"8000123222",
+"8194218",
+"Christopher Vogt",
+"Christopher Vogt (the breakers)"
+],
+[
+"82428727",
+"81615445",
+"Peter Szakacs",
+"Peter Scakacs"
+],
+[
+"8000130405",
+"25593013",
+"Maximilian Schuster",
+"Max Schuster"
+],
+[
+"2374008",
+"16500463",
+"Detlef Bolten",
+"D Bolten"
+],
+[
+"8000117037",
+"9224771",
+"Tobias Perzewski",
+"Tobias Perzewski (other club)"
+],
+[
+"8000102669",
+"2744834189",
+"Orhan Usluoglu",
+"Orhan Usluoglu"
+],
+[
+"8000100248",
+"2762770113",
+"Ilya Bertsun",
+"Ilya Bertsun"
+],
+[
+"6500014361",
+"3500000126",
+"Dario De Prisco",
+"Dario De Prisco"
+],
+[
+"6500014463",
+"2477899546",
+"Sabri Manla Ali‬‏",
+"Sabri Manla"
+],
+[
+"8000108869",
+"8000116538",
+"Alexander Born",
+"Alexander Lucas Born"
+],
+[
+"8000118282",
+"2039151494",
+"Niko Theodorou",
+"Niko Theodoru"
+],
+[
+"6500011801",
+"8000118526",
+"Cem Schwandt",
+"Cem Schwandt"
+],
+[
+"2127273",
+"9793291",
+"John R Kenny",
+"John Kenny"
+],
+[
+"8000120800",
+"24708970",
+"Goran Ivancicevic",
+"Goran Ivanicevic"
+],
+[
+"6334810",
+"2668474",
+"Berislav Trogrlic",
+"Berislav Trogrlic"
+],
+[
+"8000118100",
+"2867889662",
+"Josef Lehnen",
+"Josef Lehnen"
+],
+[
+"5500002050",
+"3078349",
+"Duy Hai Dinh",
+"Duy Hai Dinh"
+],
+[
+"5500001625",
+"8000107624",
+"Paul Müller",
+"P Müller"
+],
+[
+"21729967",
+"5500000596",
+"Oliver \"HORNISSE\" Horn",
+"Oliver Horn"
+],
+[
+"27931954",
+"17750605",
+"Luca Mielke",
+"Luca Milke"
+],
+[
+"4748681",
+"2546619",
+"Mike Evers",
+"Mike Evers"
+],
+[
+"8000117110",
+"8000118289",
+"Michael Ohlig",
+"Michael Olig"
+],
+[
+"8000117267",
+"4500000742",
+"Martin Fäßler",
+"Martin Fässler"
+],
+[
+"8000100416",
+"2621537707",
+"Simon Blümel",
+"Simon Blümel"
+],
+[
+"8000103410",
+"2036554841",
+"Svetlana Dedic",
+"Svjetlana Dedic"
+],
+[
+"10288966",
+"8235746",
+"Ralf Seuken (The Breakers Oberhausen e.V.)",
+"Ralf Seuken (the breakers)"
+],
+[
+"8000101486",
+"8902305",
+"R Titzmann-Diebold",
+"Raphael Titzmann-Diebold"
+],
+[
+"8000121132",
+"8000119656",
+"Dirk Richter",
+"D Richter"
+],
+[
+"8000100219",
+"6500000262",
+"Thomas Pöschl",
+"Thomas Poeschl"
+],
+[
+"8000125814",
+"4500006701",
+"Edgar Silva",
+"Edgar Silva Moreno"
+],
+[
+"8000121412",
+"2477899546",
+"Sabri Manlla",
+"Sabri Manla"
+],
+[
+"7299979",
+"2964388",
+"Marco Ripke",
+"Marco Ripke"
+],
+[
+"8000118792",
+"8000122316",
+"Florian Dietzel",
+"Florian Diezel"
+],
+[
+"8000117293",
+"33372061",
+"Bastian Meister",
+"Basti Meister"
+],
+[
+"2925198618",
+"3706723",
+"Kamal Nabou",
+"Kamal Nabo"
+],
+[
+"10288966",
+"7943831",
+"Ralf Seuken (The Breakers Oberhausen e.V.)",
+"Ralf Breakers Oberhausen"
+],
+[
+"8000102244",
+"2878352915",
+"Reiner Schuhbaum",
+"Rainer Schuhbaum"
+],
+[
+"8000117267",
+"8000131189",
+"Martin Fäßler",
+"Martin Fessler"
+],
+[
+"37019479",
+"3103165",
+"Vino Broschinski",
+"Vino Broschinski"
+],
+[
+"17350468",
+"3500000024",
+"Robert van den Bossche",
+"Robert van den Bossche"
+],
+[
+"8000117267",
+"8000131188",
+"Martin Fäßler",
+"Martin Faessler"
+],
+[
+"8000104233",
+"17401075",
+"Steffen Mämecke",
+"Steffen Maemecke"
+],
+[
+"5755570",
+"5567923",
+"Patryk Gurzynski",
+"Patryk Gurzynski"
+],
+[
+"8000130465",
+"2648082654",
+"Ercan Akcapinar",
+"Ercan Akcapinar"
+],
+[
+"17355769",
+"3500000030",
+"Rene Ojeda",
+"Rene Ojeda-Peter"
+],
+[
+"41277763",
+"39081736",
+"Ercan Yilmaz",
+"Ercan Yilmaz"
+],
+[
+"8000104516",
+"8352561",
+"Harald Grundmann",
+"Harald Grundmann (other club)"
+],
+[
+"6500013223",
+"5500000794",
+"Martin-Takeshi Röser",
+"Martin Röser"
+],
+[
+"5500000420",
+"6500002589",
+"Fitim Haradinaj",
+"Fitim Haradinaj"
+],
+[
+"8000106748",
+"8000128670",
+"Steffen Krueger",
+"Steffen Krüger"
+],
+[
+"6570552",
+"2546616",
+"Justin Dürig",
+"Justin Dürig"
+],
+[
+"14498356",
+"8000116757",
+"Thomas Kniephof",
+"Tom Kniephof"
+],
+[
+"46396888",
+"6628452",
+"Han-Hao Wong",
+"Han Hao Wong"
+],
+[
+"3500000580",
+"3311968",
+"Nicolas Ottermann",
+"Nico Ottermann"
+],
+[
+"8000119845",
+"8000119245",
+"Ralph Scherler",
+"Ralph Scheuler"
+],
+[
+"2405510739",
+"8000122610",
+"Luka Bajovic",
+"Luka Bajovic"
+],
+[
+"8000128931",
+"8000119875",
+"Marcel Rossow",
+"Marcel Roßow"
+],
+[
+"5405795",
+"5136837",
+"Angelo La Rocca",
+"Angelo La Rocca"
+],
+[
+"24988126",
+"20427544",
+"Bernd (Berndi) Schubert",
+"Bernd Schubert"
+],
+[
+"8000125354",
+"4500017762",
+"M Schallinger",
+"Manfred Schallinger"
+],
+[
+"3500000612",
+"25045627",
+"Ismael Cebador Garcia",
+"Ismael Cebador Garcia"
+],
+[
+"5664538",
+"3177094",
+"Tonja Heißenhuber",
+"Tonja Egli Heißenhuber"
+],
+[
+"6500009025",
+"8000107800",
+"Dominik Deisenrieder",
+"D Deisenrieder"
+],
+[
+"8000104131",
+"65395930",
+"Oliver Hacker",
+"Oli Hacker"
+],
+[
+"7018412",
+"2000081533",
+"Marcello di Benedetto",
+"Marcello Di Benedetto"
+],
+[
+"3500000033",
+"18189346",
+"Michael Klaus Haag",
+"Michael Haag"
+],
+[
+"6500010498",
+"5500000808",
+"Paul Görgen",
+"Paul Goergen"
+],
+[
+"9172304",
+"5408732",
+"Andreas Quinque",
+"Andreas Quinque"
+],
+[
+"8000100212",
+"8000118836",
+"Y Ullmann-Hybler",
+"Y Ullmann-Hybler"
+],
+[
+"7089212",
+"61619299",
+"Hayretin Hantelmann",
+"Hayretin Hantelmann"
+],
+[
+"53968411",
+"12810898",
+"Dirk (Weste) Westerhoff",
+"Dirk Westerhoff"
+],
+[
+"8000103692",
+"8000103059",
+"Marie Kanngießer",
+"M Kanngießer"
+],
+[
+"45792532",
+"43691407",
+"Ahmet Sgarra",
+"Ahmet Sgarra"
+],
+[
+"10288948",
+"7943763",
+"Wolfgang Peekel (The Breakers Oberhausen e.V.)",
+"Wolfgang P Breakers Oberhausen"
+],
+[
+"8000123723",
+"1343400",
+"Sascha-Andrej Tege",
+"Sascha Tege"
+],
+[
+"54922987",
+"3492704",
+"Larissa Eckardt",
+"Larissa Eckardt"
+],
+[
+"3500000342",
+"17434552",
+"Andreas Benjamins",
+"Andreas Paul Benjamins"
+],
+[
+"3610838",
+"3500000118",
+"Joscha Zirkelbach",
+"Joscha David Zirkelbach"
+],
+[
+"8000120044",
+"6500013592",
+"Lea Bockstegers",
+"Lea Marie Bockstegers"
+],
+[
+"5408196",
+"2546631",
+"Thomas Mertes",
+"Thomas Mertes"
+],
+[
+"8000122123",
+"2821501151",
+"Bernd Kiszelis",
+"Bernd Walter Kiszelis"
+],
+[
+"75770581",
+"73318789",
+"Güven Turan",
+"Güven Turan"
+],
+[
+"4500000798",
+"8901603",
+"Matthias Ort",
+"Matthias Orth"
+],
+[
+"15150280",
+"20595517",
+"Kosta Goudinis",
+"Kosta Goudinis"
+],
+[
+"17350468",
+"7464268",
+"Robert van den Bossche",
+"Robert van den Bossche"
+],
+[
+"8000129012",
+"35703001",
+"Kevin Lukas-Nülle",
+"Kevin Lucas-Nülle"
+],
+[
+"8000119410",
+"4500001781",
+"Yasin Astnbeli",
+"Yasin Astnbeli"
+],
+[
+"8000118369",
+"7943765",
+"Oliver Prison",
+"Oli Prison"
+],
+[
+"6500001527",
+"8000103639",
+"Kim Christin Witzel",
+"Kim Witzel"
+],
+[
+"8000122354",
+"8000118811",
+"Andreas Kurz",
+"Andy Kurz"
+],
+[
+"8000129029",
+"8000119250",
+"Markus Unger",
+"Marcus Unger"
+],
+[
+"58669471",
+"80636518",
+"Mehmet Abuzer Erenulug",
+"Mehmet Erenelug"
+],
+[
+"6457060",
+"6426767",
+"Csaba Adam",
+"Adam Csaba"
+],
+[
+"2546622",
+"61307824",
+"Frank Hachmöller",
+"(Hachi) Frank Hachmöller"
+],
+[
+"9073396",
+"15480103",
+"Hansi Hett",
+"Hans-Jörg Hett"
+],
+[
+"4500000844",
+"13475143",
+"Christian Hadaschik",
+"Chris Hadaschik"
+],
+[
+"2784243041",
+"8000117306",
+"Alexander Duemling",
+"Alexander Dümling"
+],
+[
+"8000118576",
+"2668697",
+"Udo Krüger-Evans",
+"Udo Krüger-Evens"
+],
+[
+"46677640",
+"9596446",
+"Amir Divan",
+"Amir Divan"
+],
+[
+"8000117374",
+"16624576",
+"Ralph Barthauer",
+"Ralph Barthauer (expo)"
+],
+[
+"8000117379",
+"4500000536",
+"Nurmurat Lohner",
+"Numurat Lohner"
+],
+[
+"7943837",
+"8235738",
+"Peter Herdt",
+"Peter Herdt (the breakers)"
+],
+[
+"31942429",
+"55183072",
+"Lukas Röse",
+"Lucas Röse"
+],
+[
+"5500000796",
+"6500013390",
+"Yasin De Castro Manhas",
+"Yasin de Castro Manhas"
+],
+[
+"8000122792",
+"8000136379",
+"Quirin Klaiber",
+"Quirino Klaiber"
+],
+[
+"16624573",
+"4500003065",
+"Kalle Zummach",
+"Karl-Heinz Zummach"
+],
+[
+"8000122505",
+"8000120783",
+"Arnd Bähr",
+"Arndt Bähr"
+],
+[
+"8724481",
+"19567186",
+"Edin Avdicc",
+"Edin Avdic"
+],
+[
+"46396888",
+"18792292",
+"Han-Hao Wong",
+"Han Wong"
+],
+[
+"6608299",
+"9058173",
+"Nikolaos Alexiadis",
+"Niko Alexiadis"
+],
+[
+"2719177094",
+"65039104",
+"Partheepan Selvarajah",
+"Partheephan Selvarajah"
+],
+[
+"82070797",
+"81142120",
+"Tomás Bacelos",
+"Tomas Bacelos"
+],
+[
+"8000117624",
+"2445608345",
+"Michael Knirim",
+"Michael Knirim"
+],
+[
+"8000100295",
+"2271939817",
+"Basri Sejdi",
+"Basri Sejdi"
+],
+[
+"8000118629",
+"8000108531",
+"Kadir Kalkan",
+"Kadir Kalkan"
+],
+[
+"8000105388",
+"8000123365",
+"Xhemajl Ibrahimi",
+"Xhemajl Ibraimi"
+],
+[
+"56642257",
+"28467685",
+"Jawad Muhammad",
+"Jawad Muhammad"
+],
+[
+"8000117368",
+"41520676",
+"Federico Scholz",
+"Frederico Scholz"
+],
+[
+"26327707",
+"8000119318",
+"Thomas Remmers",
+"Thomas Remmert"
+],
+[
+"8000122145",
+"8000130601",
+"Klaus Dittkrist",
+"Klaus Dittkist"
+],
+[
+"8000121415",
+"6500013592",
+"L Bockstegers",
+"Lea Marie Bockstegers"
+],
+[
+"8000117426",
+"4500000301",
+"T Weichselbaumer",
+"Tobias Weichselbaumer"
+],
+[
+"15152596",
+"19548007",
+"Wolfgang Schmidt",
+"Wolfgang Schmitz"
+],
+[
+"3240677",
+"9634786",
+"Gregor Hermann",
+"Gregor Hermann"
+],
+[
+"8000120719",
+"17226256",
+"Dragan Vasic",
+"Dragan Vasic (BC SB Horst Emscher)"
+],
+[
+"8000122781",
+"2854690071",
+"Karl Heinz Kulik",
+"Kalle Kulik"
+],
+[
+"19829233",
+"10136077",
+"Manuel Schmidt",
+"Manuel Schmidt (other Club)"
+],
+[
+"10288927",
+"8235739",
+"Zlatan Kurbasic (The Breakers Oberhausen e.V.)",
+"Zlatan Kurbasic (the breakers)"
+],
+[
+"8000117339",
+"2617521",
+"Jörg Tenbuss",
+"Jörg Tenbuß"
+],
+[
+"4500000958",
+"17816326",
+"Brian Dowell",
+"Brain Dowell"
+],
+[
+"8000107469",
+"8000128590",
+"Willy Weise",
+"Willy Weiße"
+],
+[
+"59180410",
+"42818653",
+"Wolfgang van Limbeek",
+"Wolfgang von Limbeek"
+],
+[
+"8000107901",
+"8000121629",
+"Stephan Eder",
+"Step Eder"
+],
+[
+"10288927",
+"7943758",
+"Zlatan Kurbasic (The Breakers Oberhausen e.V.)",
+"Zlatan Breakers Oberhausen"
+],
+[
+"8000120062",
+"8000120063",
+"Kian Sohns",
+"Kian-David Sohns"
+],
+[
+"8000122792",
+"4500015121",
+"Quirin Klaiber",
+"Quirin Klaiber"
+],
+[
+"8000131533",
+"8000101285",
+"Jürgen Törmer",
+"Jürgen Törmer"
+],
+[
+"8000131335",
+"25775017",
+"Mike Walter",
+"Mike Walther"
+],
+[
+"8000117324",
+"18483532",
+"Thorsten Meyer",
+"Torsten Meyer"
+],
+[
+"4500002964",
+"86334526",
+"Jürgen Bodenstein",
+"(Boso) Jürgen Bodenstein"
+],
+[
+"8000108920",
+"2651162043",
+"Masum Mansurie",
+"Mohammad Masum Mansurie"
+],
+[
+"4500000863",
+"8000121428",
+"Eva Weißmann",
+"Eva Weissmann"
+],
+[
+"54726544",
+"55863034",
+"Ahmad Sous",
+"Ahmad Sous"
+],
+[
+"8000125794",
+"2214269598",
+"Ismail Türker",
+"Ismail Tuerker"
+],
+[
+"10288807",
+"8235733",
+"Wolfgang Dittrich (The Breakers Oberhausen e.V.)",
+"Wolfgang Dittrich (the breakers)"
+],
+[
+"59180410",
+"55485376",
+"Wolfgang van Limbeek",
+"Wofgang van Limbeek"
+],
+[
+"6104238",
+"18482383",
+"Bülent Yilmaz",
+"Bülent Yilmaz"
+],
+[
+"15103399",
+"8194211",
+"Michael Bolder",
+"Michael Bolder (the breakers)"
+],
+[
+"24797818",
+"8000127484",
+"Cezar Obersteller",
+"Cesar Obersteller"
+],
+[
+"4500009242",
+"29858473",
+"Christoph Weigand",
+"Christopher Weigand"
+],
+[
+"8000120002",
+"8000119966",
+"Jörg Marsollek",
+"Jörg Masollek"
+],
+[
+"8000121543",
+"3521869",
+"Winfried Krause",
+"Winfrid Krause"
+],
+[
+"4500012345",
+"8000129211",
+"Anastasia Andrei",
+"A Andrei"
+],
+[
+"8000102999",
+"8235815",
+"Klaus Görtz",
+"Klaus Görtz (BC Oberhausen 5)"
+],
+[
+"10288807",
+"7943764",
+"Wolfgang Dittrich (The Breakers Oberhausen e.V.)",
+"Wolfgang D Breakers Oberhausen"
+],
+[
+"8000129033",
+"2754049229",
+"S Mohajerani",
+"Seyedparham Mohajerani"
+],
+[
+"8000131334",
+"26471758",
+"Markus Wörner",
+"Marcus Wörner"
+],
+[
+"10288885",
+"8235736",
+"Donald Haas (The Breakers Oberhausen e.V.)",
+"Donald Haas (the breakers)"
+],
+[
+"8000128376",
+"8000121424",
+"Christoph Wimmer",
+"Christian Wimmer"
+],
+[
+"8000116713",
+"8000118403",
+"T Anastasiadis",
+"Themi Anastasiadis"
+],
+[
+"15192568",
+"8235741",
+"Thomas Mölleken",
+"Thomas Mölleken (the breakers)"
+],
+[
+"8000116661",
+"65640910",
+"Robert Fess",
+"Robert Feß"
+],
+[
+"68437717",
+"15269557",
+"Andreas Hahn",
+"Andre Hahn- Diekmann"
+],
+[
+"11040376",
+"9696109813",
+"Eck Lunkes",
+"Eck Lunckes"
+],
+[
+"45306106",
+"56064667",
+"Mavi Gutierrez Attanasi",
+"Mavi Gutierrez"
+],
+[
+"8000119566",
+"9291430",
+"Max Hömig",
+"Max Höming"
+],
+[
+"8000123246",
+"8000128854",
+"Shaojun Fu",
+"Fu Shaojun"
+],
+[
+"5086248",
+"5027956",
+"Ahmet Ecir",
+"Ahmet Ecir"
+],
+[
+"59181241",
+"42818650",
+"Petra van Limbeek",
+"Petra von Limbeek"
+],
+[
+"8000116522",
+"9705223",
+"Daniel Smolinski",
+"Daniel Smolinski (other Club)"
+],
+[
+"10288930",
+"8951586",
+"Klaus Marjan (The Breakers Oberhausen e.V.)",
+"Klaus Majan(the breakers)"
+],
+[
+"8000101415",
+"2884813519",
+"A Woditsch",
+"Alexander Woditsch"
+],
+[
+"8235746",
+"7943831",
+"Ralf Seuken (the breakers)",
+"Ralf Breakers Oberhausen"
+],
+[
+"43697533",
+"39027835",
+"Alaettin Keles",
+"Akaettin Keles"
+],
+[
+"8000119086",
+"79003513",
+"Alexander Keist",
+"Alex Keist"
+],
+[
+"4500013841",
+"65625898",
+"Gabriel Strangar",
+"Gabriel Stranga"
+],
+[
+"8000119451",
+"8000128589",
+"Hakan Söyler",
+"Hakan Söyler"
+],
+[
+"8000119323",
+"8000122509",
+"Djordie Klop",
+"Djordie Odiel Klop"
+],
+[
+"4500010025",
+"4500015441",
+"Franz Weinzierl",
+"Franz Jun Weinzierl"
+],
+[
+"4500003124",
+"8000126650",
+"Thomas Früchtl",
+"Thomas Früchtel"
+],
+[
+"5500000783",
+"84784552",
+"Patrik Meyer",
+"Patrick Meyer"
+],
+[
+"8235739",
+"7943758",
+"Zlatan Kurbasic (the breakers)",
+"Zlatan Breakers Oberhausen"
+],
+[
+"8235733",
+"7943764",
+"Wolfgang Dittrich (the breakers)",
+"Wolfgang D Breakers Oberhausen"
+],
+[
+"8235741",
+"7943835",
+"Thomas Mölleken (the breakers)",
+"Thomas Breakers Oberhausen"
+],
+[
+"8955901",
+"7943767",
+"Heinz-Jörg Schminder",
+"Heinz-Jörg Schminder"
+],
+[
+"53274949",
+"4500009756",
+"David-Volker (Ev) Jahn",
+"David-Volker Jahn"
+],
+[
+"8000117247",
+"8000119531",
+"Jonny Stojanovic",
+"Jonny Stojanovic"
+],
+[
+"40365841",
+"34725139",
+"Selcuk Altinparmak",
+"Selcuk Altinparmak"
+],
+[
+"85474057",
+"4500002217",
+"Martin Pleßgott",
+"Martin Plessgott"
+],
+[
+"40365550",
+"48145945",
+"Turan Türk",
+"Turhan Türk"
+],
+[
+"49089682",
+"82056265",
+"Hossein Arabzadeh",
+"Hossein Arabzadeh"
+],
+[
+"3709166",
+"5065833",
+"Kai Köhler",
+"Kai Köhler"
+],
+[
+"36521977",
+"35725924",
+"Christian Wessler",
+"Chris Weßler"
+],
+[
+"80430772",
+"77444443",
+"Michael Pommern - Wonhöfer",
+"Michael Pommer-Wonhöfer"
+],
+[
+"40365550",
+"38368627",
+"Turan Türk",
+"Turan Türk"
+],
+[
+"8000119297",
+"8000121679",
+"Max Weißacher",
+"M Weißacher"
+],
+[
+"8000125778",
+"2915884527",
+"Karl-Heinz Monat",
+"Kalle Monat"
+],
+[
+"17194693",
+"16178413",
+"Manuel Gaspers",
+"Manuel Caspers"
+],
+[
+"35702554",
+"32063698",
+"Gast 8-Ball",
+"Gast 8-Ball"
+],
+[
+"33415588",
+"51176188",
+"Ali Ersin Güler",
+"Ali Ersin Güler"
+],
+[
+"36229186",
+"47302294",
+"Esmaeil Rezaei Gavabary",
+"Esmaeil Rezaei"
+],
+[
+"8000136450",
+"8000131505",
+"Nasanbat Namsrai",
+"Nasanbat Namsrai"
+],
+[
+"9226027",
+"8341854",
+"Ty Brook Tidswell",
+"Ty Brook Tidswell"
+],
+[
+"2144863779",
+"8000129627",
+"Andreas J. M Hellmann",
+"Andreas Hellmann"
+],
+[
+"1164419",
+"2079580732",
+"Piotr Buczek",
+"Piotrek Buczek"
+],
+[
+"12279136",
+"15106012",
+"Patrick Scholl Krämer",
+"Patrick Scholl kremer"
+],
+[
+"9396247",
+"9240367",
+"Christine Coverdale",
+"Christine Coverdale"
+],
+[
+"79257679",
+"82957255",
+"Günther Hofmann",
+"Günter Hofmann"
+],
+[
+"21720769",
+"15041020",
+"Tim Lüning",
+"Tim Bernhard Lüning"
+],
+[
+"8000122717",
+"8000117499",
+"Stephan Assmuß",
+"Stephan Asmuss"
+],
+[
+"49838992",
+"8000123198",
+"Nikola Stanchev",
+"Nikola Sdanchev"
+],
+[
+"8000100633",
+"82424224",
+"Sami Capar",
+"Samir Capar"
+],
+[
+"8000116449",
+"11075548",
+"Michael Berghold",
+"Michael Bergold"
+],
+[
+"8000108793",
+"7982866",
+"Marco Bardischewski",
+"Marco Bardischweski"
+],
+[
+"3500000083",
+"5500000448",
+"Daniel Stürz",
+"Daniel Stuerz"
+],
+[
+"8000118606",
+"8000116600",
+"Richard Jung",
+"Reinhard Jung"
+],
+[
+"8000100056",
+"9205838",
+"Frank Wagenmann",
+"Francky Wagenmann"
+],
+[
+"3500000549",
+"5500000586",
+"Rüdiger Barth",
+"Ruediger Barth"
+],
+[
+"4500000393",
+"2342378702",
+"Lukas Gruhn",
+"Lukas Grun"
+],
+[
+"8000129032",
+"2039598487",
+"Abdullah Dumanli",
+"Abdullah Damanli"
+],
+[
+"3500000238",
+"5353627",
+"Ralf Uhrhan",
+"Ralf Urhan"
+],
+[
+"3500000245",
+"5353624",
+"Mario Uhrhan",
+"Mario Urhan"
+],
+[
+"52271665",
+"56244961",
+"Andreas Wegener",
+"Andreas Wagener"
+],
+[
+"8000117316",
+"11483881",
+"Stephan Ewald",
+"Stepahn Ewald"
+],
+[
+"5704246",
+"16160941",
+"Koonman Au",
+"Au Koonman"
+],
+[
+"4500012761",
+"2030215844",
+"Marsel Glavota",
+"Marses Glavota"
+],
+[
+"8000117664",
+"15493954",
+"Jens Schröder",
+"Jens Schöder"
+],
+[
+"6107035",
+"5087887",
+"Dirk Terbüchte",
+"Dirk Terbuechte"
+],
+[
+"3500000157",
+"2789940",
+"Asmatullah Qari",
+"Asmatullah Quari"
+],
+[
+"6500011577",
+"28135582",
+"Johanna Indlekofer",
+"Johanna Indlekofa"
+],
+[
+"3500000075",
+"5680947",
+"Jan Scheyer",
+"Jan-Ole Scheuer"
+],
+[
+"5500000007",
+"2278600163",
+"Thorsten Hohmann",
+"Thorsten Homann"
+],
+[
+"38992288",
+"8000131767",
+"Patrick Gautzsch",
+"Patrick Gautsch"
+],
+[
+"8000100344",
+"17949004",
+"Rainer Wohlrab",
+"Reiner Wohlrab"
+],
+[
+"8000108327",
+"2843964478",
+"Pawlos Karachatzidis",
+"Pawlos Karachatzides"
+],
+[
+"8000104309",
+"6500003888",
+"Florian Vögele",
+"Florian Voegele"
+],
+[
+"8000116748",
+"35583127",
+"Sascha Mertens",
+"Sascha Martens"
+],
+[
+"8000118687",
+"6500002808",
+"Simone Künzl",
+"Simone Kuenzl"
+],
+[
+"6982235",
+"18483532",
+"Thorsten Meyer (BBC Bremen)",
+"Torsten Meyer"
+],
+[
+"8000102641",
+"6837735",
+"Patrick Woditsch",
+"Patrik Woditsch"
+],
+[
+"4500000515",
+"86470972",
+"Thorsten Günther",
+"Torsten Günther"
+],
+[
+"5196741",
+"8000117412",
+"Bartosch Paczuski",
+"Bartosz Paczuski"
+],
+[
+"8000123300",
+"42679672",
+"Natali Stürtzer",
+"Natali Stuertzer"
+],
+[
+"21892108",
+"3500000036",
+"Hans Joachim Muehlenbrock",
+"Hans-Joachim Mühlenbrock"
+],
+[
+"20531956",
+"29858473",
+"Christopher Wiegand",
+"Christopher Weigand"
+],
+[
+"2615815076",
+"67661770",
+"Zeljko Mihajlovic",
+"Zeljko Mihsjlovic"
+],
+[
+"8000118620",
+"8000116715",
+"Savas Günes",
+"Savas Guenes"
+],
+[
+"8000117043",
+"20612428",
+"Antoni Minakovski",
+"Toni Minakovski"
+],
+[
+"8000118527",
+"8000101620",
+"Serdar Tunbek",
+"Serdac Tunbek"
+],
+[
+"8000105922",
+"9937714",
+"Florian Müzel",
+"Florian Mützel"
+],
+[
+"8000100488",
+"6500004220",
+"Thomas Köhler",
+"Thomas Koehler"
+],
+[
+"8000136554",
+"4500020141",
+"Marc Noelkenbockhoff",
+"Marc Nölkenbockhoff"
+],
+[
+"8000117985",
+"28077229",
+"Frank Matten",
+"Frank Mattern"
+],
+[
+"2529118527",
+"8000131200",
+"Thiemo Biesinger",
+"Timo Biesinger"
+],
+[
+"8000120050",
+"8000119956",
+"Sara Heidorn",
+"Sarah Heidorn"
+],
+[
+"6500000021",
+"2278600163",
+"Thorsten Hohmann",
+"Thorsten Homann"
+],
+[
+"5500000441",
+"30603121",
+"Ralf Zigahn",
+"Ralf Zigan"
+],
+[
+"4500004382",
+"32085622",
+"Ragab Hilles",
+"Ragap Hilles"
+],
+[
+"2272869243",
+"8000121777",
+"Torsten Hassel",
+"Thorsten Hassel"
+],
+[
+"3500000026",
+"30321373",
+"Hannes Luettringhaus",
+"Hannes Lüttringhaus"
+],
+[
+"3500000636",
+"16673320",
+"Tahamtan Dastagil",
+"Tahamtan Dastagir"
+],
+[
+"48404983",
+"3500000683",
+"Jürgen Boesme",
+"Jürgen Bösme"
+],
+[
+"8000101136",
+"8000123221",
+"Björn Franzen",
+"Björn Franken"
+],
+[
+"8000119657",
+"18972418",
+"Lasse Schmitz",
+"Lasse Schmidt"
+],
+[
+"8000100220",
+"6500004024",
+"Christian Fröhlich",
+"Christian Froehlich"
+],
+[
+"8000100062",
+"42723583",
+"Oezer Bulunmaz",
+"Ozer Bulunmaz"
+],
+[
+"80653183",
+"8000119857",
+"Frank Tatarkowski",
+"Frank Tatakowski"
+],
+[
+"8000122611",
+"2037177",
+"Sebastian Arendts",
+"Sebastian Arends"
+],
+[
+"3500000573",
+"8000118512",
+"Ilja Kalinin",
+"Ilja Kolinin"
+],
+[
+"56642257",
+"27668485",
+"Jawad Muhammad",
+"Jawad Mohammad"
+],
+[
+"53968411",
+"8000127474",
+"Dirk (Weste) Westerhoff",
+"Dirk Westhoff"
+],
+[
+"5500000555",
+"16014106",
+"Ernst Schmidt",
+"Ernst Schmitt"
+],
+[
+"29758255",
+"8000120047",
+"Luis Platzek",
+"Luis Platzeck"
+],
+[
+"3500000230",
+"28077400",
+"Ingo Schmitt",
+"Ingo Schmidt"
+],
+[
+"4500019381",
+"8000106532",
+"Andreas Jäger",
+"André Jager"
+],
+[
+"8000119135",
+"80239117",
+"Andreas Friedrich",
+"Andreas Fredrich"
+],
+[
+"8000100466",
+"6545315",
+"Michael Bonhoff",
+"Michael Bohnhoff"
+],
+[
+"8000100107",
+"2673247287",
+"Alexander Großmann",
+"Alexander Graßmann"
+],
+[
+"8000127481",
+"5500001663",
+"Sukhbat Batjargal",
+"Batjargal Sukhbat"
+],
+[
+"3500000529",
+"18152389",
+"Joannis Angelidis",
+"Jannis Angelidis"
+],
+[
+"47585461",
+"36229195",
+"Paul Derhahn",
+"Paul Derhan"
+],
+[
+"2133752253",
+"8000121497",
+"Roswitha Giesen",
+"Roswitha Gießen"
+],
+[
+"12936862",
+"8000129632",
+"Reiner Köster",
+"Rainer Köster"
+],
+[
+"6500001700",
+"8000119225",
+"Tomasz Malinowski",
+"Thomas Malinowski"
+],
+[
+"12810898",
+"8000127474",
+"Dirk Westerhoff",
+"Dirk Westhoff"
+],
+[
+"8000102590",
+"3509648",
+"Siegfried Bund",
+"Siegfrid Bund"
+],
+[
+"4500000742",
+"8000131189",
+"Martin Fässler",
+"Martin Fessler"
+],
+[
+"3500000169",
+"59338933",
+"Sven Kühn",
+"Steven Kühn"
+],
+[
+"8000105934",
+"79854889",
+"Wolfgang Königer",
+"Wolgang Königer"
+],
+[
+"41923450",
+"19548019",
+"Stefan Schrödter",
+"Stefan Schröder"
+],
+[
+"4827589",
+"8000129039",
+"Antonio Gargiullo",
+"Antonio Gargullio"
+],
+[
+"2207776",
+"1127620",
+"Torsten Mehrens",
+"Thorsten Mehrens"
+],
+[
+"8000101564",
+"6500001520",
+"Torsten Bonke",
+"Thorsten Bonke"
+],
+[
+"68437717",
+"7772709",
+"Andreas Hahn",
+"Andre Hahn"
+],
+[
+"2609680",
+"18059662",
+"Christopher Mertz",
+"Christopher Merz"
+],
+[
+"19828768",
+"2896701952",
+"Oliver Swienty",
+"Oliver Swienly"
+],
+[
+"8000121163",
+"4500000090",
+"Vasco Lalic",
+"Vasko Lalic"
+],
+[
+"8000118798",
+"4500009705",
+"Michael Zieglmeir",
+"Michael Zieglmeier"
+],
+[
+"77450830",
+"8000122172",
+"Patrick Abelt",
+"Patrick Abeldt"
+],
+[
+"4500000742",
+"8000131188",
+"Martin Fässler",
+"Martin Faessler"
+],
+[
+"80636518",
+"3500000873",
+"Mehmet Erenelug",
+"Mehmet Erenulug"
+],
+[
+"8000123193",
+"8000132891",
+"Florian Schärtl",
+"Florian Schaertl"
+],
+[
+"8000108305",
+"8341864",
+"Harun Ramić",
+"Harum Ramic"
+],
+[
+"4993388",
+"16160941",
+"Koonman Au",
+"Au Koonman"
+],
+[
+"7099202",
+"6837734",
+"Patrick Günther",
+"Patrik Günther"
+],
+[
+"8000119568",
+"3509656",
+"Niels Gottwald",
+"Nils Gottwald"
+],
+[
+"42227932",
+"8000133695",
+"Hassan Najjar",
+"Hassan Alnajjar"
+],
+[
+"2272005768",
+"8000127472",
+"Eugen Dalhoff",
+"Eugen Dahlhoff"
+],
+[
+"5086248",
+"7086095",
+"Ahmet Ecir",
+"Ahmed Ecir"
+],
+[
+"8000122476",
+"63938950",
+"Valdas Raslanas",
+"Valdas Raslanos"
+],
+[
+"8000117914",
+"8000136481",
+"Marco Kühn",
+"Marco Kuehn"
+],
+[
+"2147498339",
+"4500015421",
+"Bruno Andrianimanantsoa",
+"Bruno Andrianimanatsoa"
+],
+[
+"13300636",
+"5522281",
+"Benjamin Dimond",
+"Benjamin Diamond"
+],
+[
+"8000128348",
+"8000123220",
+"Rainer Driessen",
+"Rainer Dießen"
+],
+[
+"8000117914",
+"79694527",
+"Marco Kühn",
+"Marko Kuhn"
+],
+[
+"4500018381",
+"8000129229",
+"Thomasz Smolka",
+"Tomasz Smolka"
+],
+[
+"43119058",
+"43057219",
+"Torsten Gorablenkow",
+"Torsten Gorablenko"
+],
+[
+"8000128939",
+"8000130451",
+"Thorsten Zöller",
+"Thorstern Zöller"
+],
+[
+"29056390",
+"53293876",
+"Matthias Schmitt",
+"Matthias Schmidt"
+],
+[
+"24717184",
+"8000116508",
+"Guiseppe Erbori",
+"Giuseppe Erbori"
+],
+[
+"8000116744",
+"9283001929",
+"Frank Schwenk",
+"Frank Schenk"
+],
+[
+"18342025",
+"41656642",
+"Marc Effertz",
+"Marc Efferts"
+],
+[
+"4500001982",
+"82424224",
+"Sami Capar",
+"Samir Capar"
+],
+[
+"3294643",
+"8000116386",
+"Jörg Saborowski",
+"Jörg Saburowski"
+],
+[
+"3708354",
+"9981802",
+"Klaus Paljens",
+"Klaus Patjens"
+],
+[
+"4500000985",
+"8000131312",
+"Hidayet Özbek",
+"Hidayet Oezbek"
+],
+[
+"8000125322",
+"8000136917",
+"Heiko Groben",
+"Heikio Groben"
+],
+[
+"3500000440",
+"11679112",
+"Kai Lennartz",
+"Kai Lennarz"
+],
+[
+"8000127100",
+"47227741",
+"Giuseppe Cappello",
+"Guiseppe Cappello"
+],
+[
+"8000136810",
+"81055963",
+"Hüseyin Bicer",
+"Hüsyin Bicer"
+],
+[
+"2424135",
+"2202432",
+"Daniel Thomson",
+"Daniel Thomsen"
+],
+[
+"48145945",
+"38368627",
+"Turhan Türk",
+"Turan Türk"
+],
+[
+"21077875",
+"65647291",
+"Thomas Wollstaedter",
+"Thomas Wolfstädter"
+],
+[
+"31828183",
+"2624924",
+"Dominik Schnucklake",
+"Dominik Schnuklake"
+],
+[
+"9225636",
+"8000103083",
+"Bernd Woitanowski",
+"Bernd Waitanowski"
+],
+[
+"7116192",
+"8000131440",
+"Thomas Kaliszewski",
+"Tomasz Kaliszewski"
+],
+[
+"73997149",
+"38368627",
+"Turhan Türk",
+"Turan Türk"
+],
+[
+"16158739",
+"41929645",
+"Nicole Wühlbeck",
+"Nicole Wülbeck"
+],
+[
+"8000119255",
+"2802882320",
+"Rainer Becker",
+"Reiner Becker"
+],
+[
+"4500003187",
+"7279973",
+"Andreas Schröder",
+"André Schröder"
+],
+[
+"3500000940",
+"63988465",
+"Dimitrij Lewtschenko",
+"Dmitrij Lewtschenko"
+],
+[
+"65130760",
+"8000129038",
+"Aravinth Sivagnanam",
+"Aravinth Sivagnnam"
+],
+[
+"3500000881",
+"51619117",
+"Domenik Wolf",
+"Dominik Wolf"
+],
+[
+"7103214",
+"25832308",
+"George Petean",
+"Georg Petean"
+],
+[
+"70683166",
+"50880127",
+"Josip Guja",
+"Josep Guja"
+],
+[
+"67577095",
+"65158762",
+"Savva Trassanidis",
+"Savvas Trassanidis"
+],
+[
+"8000125811",
+"8000128713",
+"Pascal Sanna",
+"Paskal Sanna"
+],
+[
+"79725910",
+"6500014955",
+"Jochen Lücke",
+"Jochen Luecke"
+],
+[
+"8000122681",
+"8000128946",
+"Florian Köth",
+"Florian Koeth"
+],
+[
+"8000116516",
+"2704558490",
+"Jo Blombereg",
+"Jo Blomberg"
+],
+[
+"4500000291",
+"8000118810",
+"Ignaz Englmeier",
+"Ignaz Englmaier"
+],
+[
+"8000132990",
+"52725349",
+"Thomas Wochner",
+"Thomas Wöhner"
+],
+[
+"8000131189",
+"8000131188",
+"Martin Fessler",
+"Martin Faessler"
+],
+[
+"37686514",
+"20348776",
+"Tobias Inselsberger",
+"Tobias Inselberger"
+],
+[
+"8000136878",
+"8000136391",
+"Dirk Bastin",
+"Dirk Bastian"
+],
+[
+"6454202",
+"9937696",
+"Vinzenz Seep",
+"Vienz Seep"
+],
+[
+"2533679",
+"8000128570",
+"Jan-Henrik Schult",
+"Jan Schuldt"
+],
+[
+"6500013898",
+"8000136724",
+"Timo Wolff",
+"Timo Wolf"
+],
+[
+"8000118960",
+"8000104102",
+"Mohammed Soufi",
+"Mohammad Soufi"
+],
+[
+"19650355",
+"20333461",
+"Timo Hugger",
+"Thimo Hugger"
+],
+[
+"8000122614",
+"8000120746",
+"Thomas Bahr",
+"Thomas Bahrl"
+],
+[
+"4500003187",
+"4500003710",
+"Andreas Schröder",
+"Andreas Schloder"
+],
+[
+"75757594",
+"79709608",
+"Vojtech Szalontai",
+"Voitech Szalontai"
+],
+[
+"4500001357",
+"53146804",
+"Günther Schmid",
+"Günther Schmidt"
+],
+[
+"79691497",
+"6500014963",
+"Neo Luecke",
+"Neo Lücke"
+],
+[
+"31828183",
+"8000127501",
+"Dominik Schnucklake",
+"Domonik Schnucklake"
+],
+[
+"87562207",
+"92675545",
+"Sakuu Hashimoto",
+"Saku Hashimoto"
+],
+[
+"2869772875",
+"8000130531",
+"Torsten Gromann",
+"Thorsten Gromann"
+],
+[
+"8000122706",
+"2152793376",
+"Paul Naumann",
+"Paul Neumann"
+],
+[
+"80488864",
+"8000123208",
+"Alexander Wagner",
+"Alexander Wagener"
+],
+[
+"7675634",
+"8110882",
+"Frank Koester",
+"Frank Köster"
+],
+[
+"2394680215",
+"2490962747",
+"Klaus Quadflieg",
+"Klaus Quadfieg"
+],
+[
+"29122921",
+"73088308",
+"Arnold Ahrends",
+"Arnold Arends"
+],
+[
+"42818653",
+"55485376",
+"Wolfgang von Limbeek",
+"Wofgang van Limbeek"
+],
+[
+"47013118",
+"2033646822",
+"Thomas Giesler",
+"Thomas Giesder"
+],
+[
+"24822601",
+"29128906",
+"Stefan Vettel",
+"Stefan Vette"
+],
+[
+"8000120771",
+"8000122317",
+"Martin Henrich",
+"Martin Heinrich"
+],
+[
+"8000133008",
+"8000131479",
+"Joachim Kolander",
+"Joachim Kolender"
+],
+[
+"8000122385",
+"41520661",
+"Stephan Haensler",
+"Stephan Hänßler"
+],
+[
+"19605514",
+"8379906",
+"Andreas Heineke",
+"Andreas Heinecke"
+],
+[
+"31460953",
+"2903247669",
+"Markus Strobl",
+"Markus Stobl"
+],
+[
+"8000117200",
+"18791053",
+"Maximilian Günther",
+"Maximilian Günter"
+],
+[
+"5408739",
+"5377569",
+"Florian Burghardt",
+"Florian Burghart"
+],
+[
+"4500001057",
+"8000129222",
+"Bülent Kizilirmak",
+"Bülent Krizilirmak"
+],
+[
+"8000130526",
+"2689944545",
+"Mesut Oener",
+"Mesut Öner"
+],
+[
+"8972202",
+"2079580732",
+"Piotr Buczek",
+"Piotrek Buczek"
+],
+[
+"2857075",
+"9027059",
+"Torsten Baublies",
+"Thorsten Baublies"
+],
+[
+"5027956",
+"7086095",
+"Ahmet Ecir",
+"Ahmed Ecir"
+],
+[
+"8000117976",
+"8117107",
+"Andreas Jans",
+"Andres Jans"
+],
+[
+"74569576",
+"73997089",
+"Thorsten Beckemeyer",
+"Thorsten Beckenmeyer"
+],
+[
+"3500000827",
+"62931805",
+"Andre Jungmannn",
+"André Jungmann"
+],
+[
+"8000100574",
+"2342378702",
+"Lukas Gruhn",
+"Lukas Grun"
+],
+[
+"2230708160",
+"8000118587",
+"Fortunato Placenti",
+"Fortunator Placenti"
+],
+[
+"28371700",
+"35677705",
+"Serhan Sari",
+"Sehan Sari"
+],
+[
+"68311171",
+"3500000276",
+"Michael Höh",
+"Michael Hoch"
+],
+[
+"8000118694",
+"2022380419",
+"Dirk Badorreck",
+"Dirk Badorrek"
+],
+[
+"3500000878",
+"90681472",
+"Philipp Schmitt",
+"Philipp Schmidt"
+],
+[
+"8000118387",
+"71207863",
+"Gerd Friedl",
+"Gerd Friedel"
+],
+[
+"74162020",
+"50880127",
+"Josip Guja",
+"Josep Guja"
+],
+[
+"8000118194",
+"2753273807",
+"Miri Sonnet",
+"Miriam Sonnet"
+],
+[
+"8000125330",
+"8000124567",
+"Kevin Saoburny",
+"Kevin Sabourny"
+],
+[
+"75700174",
+"74037526",
+"Francesco Bern",
+"Franschesco Bern"
+],
+[
+"1108388",
+"2624895",
+"Sebastian Schouren",
+"Sebastian Schüren"
+],
+[
+"26519599",
+"8000130433",
+"Leo Waetherspoon",
+"Leo Weatherspoon"
+],
+[
+"8000104449",
+"68320846",
+"Manuel Pereira",
+"Manuel Fereira"
+],
+[
+"5002445",
+"1549910",
+"Günter Noak",
+"Günter Noack"
+],
+[
+"2635324",
+"8000117184",
+"Mario Pušić",
+"Pusic Mario"
+],
+[
+"8000121129",
+"3416559",
+"Michael Engelen",
+"Michel Engelen"
+],
+[
+"9206268",
+"33866050",
+"Patrick Riedel",
+"Patric Riedel"
+],
+[
+"16057036",
+"15482473",
+"Enrik Spoerer",
+"Enrick Spoerer"
+],
+[
+"72013522",
+"81055960",
+"Erkan Bicer",
+"Ercan Bicer"
+],
+[
+"2166410069",
+"8000128845",
+"Fabian Schröder",
+"Fabian Schröter"
+],
+[
+"16301422",
+"46559326",
+"Günther Fritsch",
+"Günther Fritzsch"
+],
+[
+"80648059",
+"8000128617",
+"Bernd Schröder",
+"Bernd Schroeder"
+],
+[
+"43159477",
+"42202405",
+"Alisia Baum",
+"Alicia Baum"
+],
+[
+"72728788",
+"72237049",
+"Daniela Lüdtke",
+"Daniela Lüdke"
+],
+[
+"73997086",
+"74569519",
+"Dietmar Becker",
+"Ditmar Becker"
+],
+[
+"83835634",
+"83528446",
+"Cedrik Tekbas",
+"Cerdrik Tekbas"
+],
+[
+"5353674",
+"7449891",
+"Carsten Kreuter",
+"Carsten Kräuter"
+],
+[
+"53051881",
+"53928340",
+"Mark Pfaffenroth",
+"Mark Pfaffenrodt"
+],
+[
+"8000117343",
+"8000117442",
+"Martin Trippel",
+"Martin Trippl"
+],
+[
+"1090809",
+"6500001560",
+"Hoa Nguyen",
+"Hoa Nguyen"
+],
+[
+"1090809",
+"17811250",
+"Hoa Nguyen",
+"Hoa Nguyen"
+],
+[
+"8000100059",
+"6500013765",
+"Michael Voglhuber",
+"Michael Voglhuber"
+],
+[
+"8000119553",
+"5500000329",
+"Armin Mahmoudi",
+"Armin Mahmoudi"
+],
+[
+"8000119553",
+"6500004593",
+"Armin Mahmoudi",
+"Armin Mahmoudi"
+],
+[
+"8000100053",
+"5500000541",
+"Mazi Shahverdi",
+"Farhad Mazi Shahverdi"
+],
+[
+"9156235",
+"2546645",
+"Peter Weets",
+"Peter Weets"
+],
+[
+"3363528",
+"3500000168",
+"Tomas Roth",
+"Thomas Roth"
+],
+[
+"8000100372",
+"5216947",
+"Stefan Klein",
+"Steffen Klein"
+],
+[
+"2425663",
+"58525534",
+"Michael Kanngießer",
+"Michael Kannengießer"
+],
+[
+"21096961",
+"47561440",
+"Christian Sambulski",
+"Christian Sanbulski"
+],
+[
+"27184684",
+"3500000640",
+"Kacper Masłowski",
+"Kacper Maslowski"
+],
+[
+"8000108779",
+"8315079",
+"Peter Kautz",
+"Peter Kautz (other Club)"
+],
+[
+"8000118304",
+"4500000460",
+"Thore Sönksen",
+"Thore Sönksen"
+],
+[
+"8000118532",
+"8000117527",
+"Faiz Alizay",
+"Faiz Alizay"
+],
+[
+"5500000001",
+"8000104414",
+"Moritz Neuhausen",
+"M Neuhausen"
+],
+[
+"9911749",
+"3551467",
+"Jörg \"Jogi\" Ernst",
+"Jörg Ernst"
+],
+[
+"8000121726",
+"26495803",
+"Dennis Waldecker",
+"Dennis \"Huggy Wuggy\" Waldecker"
+],
+[
+"3602165",
+"3500000621",
+"Cay-Michael Bastian",
+"Michael Bastian"
+],
+[
+"3602165",
+"8000116451",
+"Cay-Michael Bastian",
+"Cay Bastian"
+],
+[
+"8000102691",
+"8194222",
+"Dietmar Ptak",
+"Dietmar Ptak (other Club)"
+],
+[
+"8000101612",
+"6500008434",
+"Patrick Mungiuri",
+"Patrick Mungiuri"
+],
+[
+"6500003217",
+"8000104642",
+"Stephan Huber",
+"Stephan Huber"
+],
+[
+"8000100979",
+"1090674",
+"Sascha Abbas",
+"Sascha Abbas Negead Farrokh"
+],
+[
+"8000100579",
+"16657159",
+"Sebastian Bock",
+"Sebastian Bock"
+],
+[
+"8000116869",
+"53738881",
+"R Milosevic",
+"Radenko Milosevic"
+],
+[
+"8000116869",
+"2390099900",
+"R Milosevic",
+"Radenko Jony Milosevic"
+],
+[
+"8000100197",
+"24662866",
+"David Wißen",
+"David Wissen"
+],
+[
+"8000101133",
+"24892771",
+"Andreas Pauling",
+"Andi Pauling"
+],
+[
+"4500001043",
+"8000118447",
+"Andreas Gsänger",
+"Andy Gsänger"
+],
+[
+"3500000272",
+"8000129176",
+"Gina-Maria Ciola",
+"Gina-Maria Ciola"
+],
+[
+"8106610",
+"6348362",
+"Antonio Sanchez-Carillo",
+"Antonio Carrillo Sanchez"
+],
+[
+"4500000393",
+"8000100574",
+"Lukas Gruhn",
+"Lukas Gruhn"
+],
+[
+"4500009901",
+"8000120983",
+"Philipp Racherbäumer",
+"P Racherbäumer"
+],
+[
+"8000105794",
+"1093105",
+"Nedim Bacevac",
+"Nedim Bacevac"
+],
+[
+"8000105794",
+"8207357",
+"Nedim Bacevac",
+"Nedim Bacevac (other Club)"
+],
+[
+"8000103472",
+"6500013550",
+"Michael Smith",
+"Michael Smith"
+],
+[
+"6500002558",
+"8000118836",
+"Yvonne Ullmann-Hybler",
+"Y Ullmann-Hybler"
+],
+[
+"14957956",
+"2390099900",
+"Radenko Milosević",
+"Radenko Jony Milosevic"
+],
+[
+"3500000027",
+"5769883",
+"Jens Bernhardt",
+"Jens Bernhardt (Expo)"
+],
+[
+"6628449",
+"4500004682",
+"Thomas Weber",
+"Tom Weber"
+],
+[
+"19690399",
+"7675448",
+"Klaus Rother",
+"Klaus-Jürgen Rother"
+],
+[
+"8000118534",
+"8000120081",
+"Christopher Kaminski",
+"C Kaminski"
+],
+[
+"8000104990",
+"2898125307",
+"Melis Pogossjan",
+"Melis Pogossjan"
+],
+[
+"8000117959",
+"27813247",
+"Marc Hoewer",
+"Mark Hoewer"
+],
+[
+"6500003871",
+"8000104102",
+"Mohammad Soufi",
+"Mohammad Soufi"
+],
+[
+"8000104369",
+"8338133",
+"Frank Jaszczerski",
+"Frank Jaszczerski (other club)"
+],
+[
+"6500008389",
+"34241881",
+"Ayoub Bakhtaoui",
+"Ayub Bakhtaoui"
+],
+[
+"8000117432",
+"84623785",
+"J Vieluf",
+"Jannick Marcel Vieluf"
+],
+[
+"21729967",
+"8000126362",
+"Oliver \"HORNISSE\" Horn",
+"O Horn"
+],
+[
+"21263302",
+"3500000690",
+"Jonas Kornalewicz",
+"Jonas-Maximilian Kornalewicz"
+],
+[
+"3500000547",
+"6500014819",
+"Alexander Hofmann",
+"Alexandr Hofmann"
+],
+[
+"4500000617",
+"8000118684",
+"Marco Schachner",
+"Marco Schachner"
+],
+[
+"62610097",
+"4500017421",
+"Klaus John",
+"Klaus-Dieter John"
+],
+[
+"8000121367",
+"4500000963",
+"Christa Chevalier",
+"Christa Chevalier - Eizenhöfer"
+],
+[
+"8000118599",
+"35623642",
+"Alexander Rehborn",
+"Alex Rehborn"
+],
+[
+"8000136715",
+"8000121429",
+"Stefan Weißmann",
+"Stefan Weissmann"
+],
+[
+"3500000043",
+"8000125810",
+"Mohong Xing",
+"Mohong Xing"
+],
+[
+"8000125331",
+"8000118406",
+"Haydar Chehade",
+"Haydar Chehade"
+],
+[
+"8000131317",
+"3500000751",
+"Oliver Bartels",
+"Patrick Oliver Bartels-Rielandt"
+],
+[
+"6500005352",
+"8000118405",
+"Ajdin Piknjač",
+"Ajdin Piknjac"
+],
+[
+"4500002415",
+"8000136724",
+"Timo Wolf",
+"Timo Wolf"
+],
+[
+"8000118081",
+"3712997",
+"Yasin Bülbül",
+"Yasin Bülbül"
+],
+[
+"2283142050",
+"8000121187",
+"Mike Fischer",
+"Mike Fischer"
+],
+[
+"8000100788",
+"2245395200",
+"Frank Bär",
+"Frank Bär"
+],
+[
+"28341796",
+"35677702",
+"Dominik Dähn",
+"Dominik-Rene Dähn"
+],
+[
+"28947757",
+"3500000641",
+"Sandor Schmidt",
+"Sandor-Roman Schmidt"
+],
+[
+"2930969",
+"8000100622",
+"Melanie Süßenguth",
+"M Süßenguth"
+],
+[
+"2449459890",
+"9224775",
+"Bahadir Bilici",
+"Bahadir Bilici (other club)"
+],
+[
+"8000119823",
+"8000123360",
+"Rolf Elster",
+"Rolf-Peter Elster"
+],
+[
+"8259725",
+"45709099",
+"Michael Kirsch",
+"Michael Kirsch"
+],
+[
+"8000119833",
+"16630966",
+"Peter Moosbrugger",
+"Peter Moosbrugger (expo)"
+],
+[
+"8000108528",
+"2155638826",
+"Günter Behrendt",
+"Hans-Günter Behrendt"
+],
+[
+"2930969",
+"2890682",
+"Melanie Süßenguth",
+"Melanie Sussenguth"
+],
+[
+"8000106939",
+"5500002130",
+"Jörg Struschka",
+"Joerg Struschka"
+],
+[
+"6500001683",
+"2032049828",
+"Patrick Griess",
+"Patrick Grieß"
+],
+[
+"8000103077",
+"3624318",
+"Alexander Hombach",
+"Alex Hombach"
+],
+[
+"8000120789",
+"4500003127",
+"Nesa Mirkovic",
+"Nesa Mirkovic"
+],
+[
+"8000101486",
+"3759657",
+"R Titzmann-Diebold",
+"Raphael Titzmann"
+],
+[
+"6982235",
+"8000117324",
+"Thorsten Meyer (BBC Bremen)",
+"Thorsten Meyer"
+],
+[
+"8000123343",
+"9833865614",
+"Eric Plein",
+"Eric Plein"
+],
+[
+"3500000598",
+"8000117125",
+"Vyacheslav Nemcheninov",
+"V Nemcheninov"
+],
+[
+"4500022561",
+"76306480",
+"Alexander Kowalzczek",
+"Alex Kowalzczek"
+],
+[
+"3500000395",
+"8000108167",
+"Andreas Kupfer-Puleo",
+"Andreas Kupfer"
+],
+[
+"8000103767",
+"5500001039",
+"Michael Anderson",
+"Michael Anderson"
+],
+[
+"8000126553",
+"9839286363",
+"Jean-Marie Speltz",
+"Jean-Marie Speltz"
+],
+[
+"8000117533",
+"4500003174",
+"Herbert Gessnitzer",
+"Herbert Geßnitzer"
+],
+[
+"7089212",
+"64370602",
+"Hayretin Hantelmann",
+"Hayre Hantelmann"
+],
+[
+"3500000656",
+"53089321",
+"Alex Falk",
+"Alexander Falk"
+],
+[
+"26885053",
+"3500000290",
+"Doro Reimer",
+"Dorothea Reimer"
+],
+[
+"3500000020",
+"17396362",
+"Dragan Gesovic-König",
+"Dragan Gesovic-Koenig"
+],
+[
+"8000118371",
+"2461248348",
+"Udo Stölting",
+"Udo Stölting"
+],
+[
+"8000118467",
+"4500014921",
+"Daniel Dimitrov",
+"Daniel Dimitrov"
+],
+[
+"8000107645",
+"8235746",
+"Ralf Seuken",
+"Ralf Seuken (the breakers)"
+],
+[
+"3500000581",
+"17402296",
+"Marco Ciola",
+"Marco Antonio Ciola"
+],
+[
+"8000127128",
+"6500014004",
+"Delmon Khwaja",
+"Delmon Khwaja"
+],
+[
+"8000102282",
+"68630785",
+"Uasim Gurialschmon",
+"Uasim Gurialschmon"
+],
+[
+"8000100982",
+"2133443",
+"Werner Hartmann",
+"Werner Josef Hartmann"
+],
+[
+"8000120044",
+"8000121415",
+"Lea Bockstegers",
+"L Bockstegers"
+],
+[
+"16500463",
+"5709614",
+"D Bolten",
+"Dennis Bolten"
+],
+[
+"8000117494",
+"21259894",
+"Alexander Brickmann",
+"Alex Brickmann"
+],
+[
+"4993398",
+"9072229",
+"Uwe Weißenberg",
+"Uwe Weissenberg"
+],
+[
+"13990399",
+"8000119247",
+"Gerhard Tuffentsammer",
+"G Tuffentsammer"
+],
+[
+"3500000381",
+"5500000789",
+"Adam Abdul Hafiz",
+"Abdul Hafiz"
+],
+[
+"3500000057",
+"9784831",
+"Rainer Schlüter",
+"Rainer \"Bino\" Schlüter"
+],
+[
+"8000103094",
+"2992478840",
+"Hans Mosbach",
+"Hans Mosbach"
+],
+[
+"4500000865",
+"8000121430",
+"Patrick Weißmann",
+"Patrick Weissmann"
+],
+[
+"8000104566",
+"4500000160",
+"Dario Gasparovic",
+"Dario Gasparovic"
+],
+[
+"4500000949",
+"8000118344",
+"Ralph Schachner",
+"Ralph Schachner"
+],
+[
+"8000108529",
+"4500017763",
+"Dennis Schmitz",
+"Dennis Schmidt"
+],
+[
+"8000100356",
+"8368416",
+"Marco Schmitt",
+"Marco Schmitt (Pool Fashion)"
+],
+[
+"3500000063",
+"42551029",
+"Jürgen Klink",
+"Juergen Klink"
+],
+[
+"78809758",
+"86494438",
+"Max Holländer",
+"Maximilian Collin Holländer"
+],
+[
+"7124230",
+"3500000987",
+"Marco Beck",
+"Marcus Beck"
+],
+[
+"8312857",
+"73449865",
+"Matze Schinkopf",
+"Matthias Schinkopf"
+],
+[
+"58669471",
+"3500000873",
+"Mehmet Abuzer Erenulug",
+"Mehmet Erenulug"
+],
+[
+"8000107064",
+"4500013462",
+"Marc Weber",
+"Marco Weber"
+],
+[
+"3500000024",
+"7464268",
+"Robert van den Bossche",
+"Robert van den Bossche"
+],
+[
+"78809758",
+"2294399789",
+"Max Holländer",
+"Maximilian Holländer"
+],
+[
+"25842838",
+"5500001992",
+"Markus Vonderstraß",
+"Marcus Vonderstrass"
+],
+[
+"2546622",
+"5522282",
+"Frank Hachmöller",
+"Frank Hachmöller"
+],
+[
+"8000130512",
+"5500002382",
+"Hiro Kamppeter",
+"Hiro Noel Kamppeter-Minematsu"
+],
+[
+"46308724",
+"65941960",
+"Alexander Lahl",
+"Alex Lahl"
+],
+[
+"8000131831",
+"70942870",
+"Klodian Laska",
+"Klodian Laska"
+],
+[
+"8000117403",
+"3500000283",
+"Andreas Reinart",
+"Andreas Reinhardt"
+],
+[
+"6880955",
+"2604862",
+"Arthur Morari",
+"Arthur Morari"
+],
+[
+"10288888",
+"2227264893",
+"Oliver Hagemann (The Breakers Oberhausen e.V.)",
+"Oliver Hagemann"
+],
+[
+"3500000602",
+"8000120189",
+"Peter Faust",
+"Peter Faust"
+],
+[
+"8000119668",
+"48172387",
+"Manuela Mannhaupt",
+"Manu Mannhaupt"
+],
+[
+"6500014710",
+"2661824775",
+"Sead Bojadzic",
+"Sead Denisa Bojadzic"
+],
+[
+"8000101645",
+"5489810",
+"C Krulikiewicz",
+"Chris Krulikiewicz"
+],
+[
+"6500013527",
+"4500004348",
+"Justus Päfgen",
+"Peter Justus Päfgen"
+],
+[
+"8000122433",
+"8000136732",
+"Ron Kreutzer",
+"Ronald Kreutzer"
+],
+[
+"8902305",
+"3759657",
+"Raphael Titzmann-Diebold",
+"Raphael Titzmann"
+],
+[
+"8000119656",
+"2671539713",
+"D Richter",
+"David Richter"
+],
+[
+"6628452",
+"18792292",
+"Han Hao Wong",
+"Han Wong"
+],
+[
+"4500004761",
+"14178004",
+"Juan Carlos Ramos Carril",
+"Carlos Ramos"
+],
+[
+"4823836",
+"6762788",
+"Elton Picari",
+"Elton Picari"
+],
+[
+"56758726",
+"43058629",
+"Jamal Mellouk",
+"Jamal Mellouk"
+],
+[
+"2478239661",
+"6109663",
+"Marcus van Hees",
+"Marcus van Hees"
+],
+[
+"8000100044",
+"2120263689",
+"Julian Kortüm",
+"Julian Kortüm"
+],
+[
+"12837724",
+"4500000534",
+"Vinh Nguyen",
+"Thanh Vinh Nguyen"
+],
+[
+"4500000353",
+"5221865",
+"Christian Schmidt",
+"Christian Schmidt (IOP)"
+],
+[
+"8000100107",
+"8000122142",
+"Alexander Großmann",
+"Alex Grossmann"
+],
+[
+"6303706",
+"2605182",
+"Thomas Berg",
+"Thomas Berg"
+],
+[
+"8000122501",
+"8000131433",
+"Marcus Müller",
+"Markus Müller"
+],
+[
+"5500000424",
+"8000104102",
+"Mohammad Soufi",
+"Mohammad Soufi"
+],
+[
+"8000117418",
+"4500000490",
+"G Bottiglieri",
+"Giuseppe Bottiglieri"
+],
+[
+"8000118775",
+"4500001040",
+"Wolfgang Steiner",
+"Wolfgang Steiner"
+],
+[
+"3500000162",
+"17430232",
+"Daniel Nunez Gonzalez",
+"Daniel Nunez-Gonzalez"
+],
+[
+"8000117269",
+"53232301",
+"N Seristatidis",
+"Nikolaos Seristatidis"
+],
+[
+"8000116410",
+"3500000968",
+"Glen Johnson",
+"Glen Johnson"
+],
+[
+"3619119",
+"8000122618",
+"Sven Kießner",
+"Sven Kiessner"
+],
+[
+"8000132879",
+"8000132911",
+"Ömer Yildirim",
+"Ömer Can Yildirim"
+],
+[
+"8000122496",
+"8000104189",
+"Christian Thoma",
+"Chris Thoma"
+],
+[
+"8000119341",
+"2248293307",
+"Marcus Monat",
+"Markus Monat"
+],
+[
+"46205422",
+"43101259",
+"Dusan Jovic",
+"Dusan Jovic"
+],
+[
+"56064691",
+"8000117608",
+"Lena de la Cal Wäsche",
+"Lena Wäsche"
+],
+[
+"3500000136",
+"8000118484",
+"Steffen Stoll",
+"Stefan Stoll"
+],
+[
+"8000117690",
+"2622296203",
+"Daniel Jadanec",
+"Daniel Jadanec"
+],
+[
+"4500000258",
+"6500013210",
+"Christian Hütter",
+"Christian Hütter"
+],
+[
+"3500000294",
+"30623728",
+"Christian Becker",
+"Chris Becker"
+],
+[
+"8000107353",
+"2537463266",
+"Yousef Farajzadeh",
+"Yousef Farajzadeh"
+],
+[
+"2374068",
+"84968773",
+"Thomas Bolten",
+"Th Bolten"
+],
+[
+"41088922",
+"4500012781",
+"Gabriel Alin Patatu",
+"Gabriel-Alin Patatu"
+],
+[
+"2719177094",
+"8000122469",
+"Partheepan Selvarajah",
+"P Selvarajah"
+],
+[
+"8000133079",
+"2421808319",
+"Harm Schmees",
+"Harm Schmees"
+],
+[
+"34241872",
+"6192342",
+"Stephanus Klitzke",
+"Stephanus Klitzke"
+],
+[
+"8000128573",
+"63957073",
+"S Harbrecht-Berndt",
+"Susi Harbrecht-Berndt"
+],
+[
+"6500013326",
+"1093104",
+"Christophe Nussbaumer",
+"Christophe Nussbaumer"
+],
+[
+"1160444",
+"15654699",
+"Nomen Nescio",
+"Nomen Nescio"
+],
+[
+"8000100663",
+"8315070",
+"Sascha Löbert",
+"Sascha Löbert (other Club)"
+],
+[
+"3500000358",
+"29217430",
+"Maximilian Emig",
+"Max Emig"
+],
+[
+"3602275",
+"10737172",
+"Jan „Schori“ Schories",
+"Jan-Sebastian Schories"
+],
+[
+"8000117614",
+"3500000905",
+"Sascha Sauer",
+"Alexander Sauer"
+],
+[
+"8000136379",
+"4500015121",
+"Quirino Klaiber",
+"Quirin Klaiber"
+],
+[
+"8000120201",
+"9224905",
+"Björn Brugmann",
+"Björn Brugmann (other Club)"
+],
+[
+"4500001827",
+"2934367429",
+"Günther Maier",
+"Günter Maier"
+],
+[
+"8000119690",
+"15500401",
+"A Becker-Datukishvili",
+"Ana Becker-Datukishvili"
+],
+[
+"8000126251",
+"2548740010",
+"Stefan Drechsler",
+"Stefan Drechsler"
+],
+[
+"8000128580",
+"57732091",
+"Andreas Sattler",
+"Andy Sattler"
+],
+[
+"28346896",
+"9065425",
+"Zehrudin Vereget",
+"Zehrudin Vereget"
+],
+[
+"8000116848",
+"45591229",
+"A Vassiliadis",
+"Alex Vassiliadis"
+],
+[
+"8000125300",
+"8000136913",
+"Patrick Bund",
+"Patrick R Bund"
+],
+[
+"4500013161",
+"59754904",
+"Mike Anton",
+"Michael Anton"
+],
+[
+"4500012345",
+"2993500276",
+"Anastasia Andrei",
+"Anastasia-Elena Andrei"
+],
+[
+"8000118699",
+"4900001879",
+"P Gräfensteiner",
+"Phillip Gräfensteiner"
+],
+[
+"2880549757",
+"17226256",
+"Dragan Vasic",
+"Dragan Vasic (BC SB Horst Emscher)"
+],
+[
+"8000130538",
+"8000126362",
+"Olaf Horn",
+"O Horn"
+],
+[
+"65039104",
+"8000122469",
+"Partheephan Selvarajah",
+"P Selvarajah"
+],
+[
+"4500003328",
+"8000132321",
+"Matthias Wagner",
+"Matthias Wagner"
+],
+[
+"4500011421",
+"28681603",
+"Hans Voigt",
+"Hans-Joachim Voigt"
+],
+[
+"8000119234",
+"8000128602",
+"Sebastian Friedrich",
+"S Friedrich"
+],
+[
+"8000116558",
+"49203688",
+"M Messingschlager",
+"markus-Johann Messingschlager"
+],
+[
+"49382461",
+"8000117665",
+"Michael Bocking",
+"Michael Bocking"
+],
+[
+"76076932",
+"66982213",
+"Aissam Labiad",
+"Aissam Labiad"
+],
+[
+"33630877",
+"3500000797",
+"Patrick M Vogel",
+"Patrick Vogel"
+],
+[
+"63883285",
+"8000107322",
+"Volker WAßERLOOS",
+"Volker Wasserloos"
+],
+[
+"8000118749",
+"2704029871",
+"Marco Rath",
+"Marco Rath"
+],
+[
+"13327561",
+"2546638",
+"Michael Ruwe",
+"Michael Ruwe"
+],
+[
+"52725388",
+"44516608",
+"Hans Dieter Müller",
+"Dieter Müller"
+],
+[
+"29430241",
+"16067011",
+"Silvano Congiu",
+"Silvano Congiu"
+],
+[
+"26593036",
+"7171603",
+"Michael Kuhnigk",
+"Michael McQ Kuhnigk"
+],
+[
+"48484105",
+"4500009755",
+"Manuel Silvano Peruffo",
+"Manuel Peruffo"
+],
+[
+"8000100044",
+"87294004",
+"Julian Kortüm",
+"Julian Kortüm-Burdinski"
+],
+[
+"16004572",
+"8000117467",
+"Christopher Klatt",
+"Christoph Klatt"
+],
+[
+"8000101461",
+"5672305",
+"Alexander Lück",
+"Alex Lück"
+],
+[
+"8000121558",
+"2631482961",
+"Thomas Tiemann",
+"Tom Tiemann"
+],
+[
+"4908488",
+"3500000267",
+"Karl-Heinz Schmidt",
+"Heinz Schmidt"
+],
+[
+"4500001303",
+"8000122696",
+"Stephan Schmid von Neubeck",
+"Stephan Schmid"
+],
+[
+"8000119596",
+"4500005144",
+"Juliano Reinhardt",
+"Juliano Reinhardt"
+],
+[
+"8000116453",
+"3629350",
+"Benjamin Vroomen",
+"Benjamin Vroomen"
+],
+[
+"3500000445",
+"51884437",
+"Matthias Steffan",
+"Matthias Steffan (Schalke)"
+],
+[
+"8000119700",
+"8000123240",
+"Patrick Lewandowski",
+"P Lewandowski"
+],
+[
+"8000122419",
+"2729266217",
+"Ines Buschmann-Falk",
+"Ines Buschmann"
+],
+[
+"6500002076",
+"8000130411",
+"Markus Reischl",
+"Markus Reischl"
+],
+[
+"2855847",
+"8000103943",
+"Torsten \"ToKo\" Köhler",
+"Torsten Köhler"
+],
+[
+"8000102967",
+"8235806",
+"Christian Jäger",
+"Christian Jäger (BC Oberhausen 4)"
+],
+[
+"36521977",
+"87299536",
+"Christian Wessler",
+"Christian Weßler"
+],
+[
+"44377096",
+"8000133080",
+"Roland Hunkenschröder",
+"R Hunkenschröder"
+],
+[
+"81461245",
+"3500001008",
+"Miguel Perez Molina",
+"Miguel Perez"
+],
+[
+"8000117382",
+"3587940",
+"Torsten Schult",
+"Torsten Schult \"Borstie\""
+],
+[
+"30848323",
+"8000117521",
+"Hans-Peter Hansi Benzinger",
+"Hansi Benzinger"
+],
+[
+"3500000036",
+"41443555",
+"Hans-Joachim Mühlenbrock",
+"H. J Mühlenbrock"
+],
+[
+"3500000851",
+"54680800",
+"Nicola-Rocco Nigro",
+"Nicola Rocco Nigro"
+],
+[
+"47030290",
+"8000124559",
+"Rik Girbes",
+"Rik Alexander Girbes"
+],
+[
+"8000125370",
+"6500009062",
+"Sebastian Wagner",
+"Sebastian Wagner"
+],
+[
+"8000118685",
+"2800340965",
+"Alexander Fuest",
+"Alex Fuest"
+],
+[
+"8000122697",
+"4500012441",
+"Dennis Ayoub Anthes",
+"Dennis Anthes"
+],
+[
+"44442361",
+"47013550",
+"Dasun Attanayake",
+"Dasun Attanayake"
+],
+[
+"8000121753",
+"53928343",
+"Joel Strohmayer",
+"Joel Louis Egon Strohmayer"
+],
+[
+"4500001610",
+"2050844952",
+"Matthias Von Pfaler",
+"Matthias von Pfaler"
+],
+[
+"8000100944",
+"2195065482",
+"Maurizio Gallo",
+"Mauri Gallo"
+],
+[
+"10060162",
+"8194230",
+"Magdalena Fritz",
+"Magdalena Fritz (other Club)"
+],
+[
+"8000128348",
+"9224770",
+"Rainer Driessen",
+"Rainer Driessen (the breakers)"
+],
+[
+"8000128348",
+"10288819",
+"Rainer Driessen",
+"Rainer Driessen (The Breakers Oberhausen e.V.)"
+],
+[
+"4500009285",
+"8000119297",
+"Maximilian Weißacher",
+"Max Weißacher"
+],
+[
+"6500007520",
+"8000136729",
+"David Mrázek",
+"David Mrázek"
+],
+[
+"8000120797",
+"4500009121",
+"Alexander Weber",
+"Alexander Weber"
+],
+[
+"16619158",
+"20434831",
+"Tom Schüßler",
+"Tom Schüssler"
+],
+[
+"2856216",
+"1343398",
+"Stephan Weihnacht",
+"Stephan Weihnacht"
+],
+[
+"4500001444",
+"8000122572",
+"Alfred Hermann",
+"A Hermann"
+],
+[
+"4900001876",
+"8000130406",
+"Durmus Cubukcu",
+"Durmus Cubukcu"
+],
+[
+"10288957",
+"9224769",
+"Sascha Samland (The Breakers Oberhausen e.V.)",
+"Sascha Samland (the breakers)"
+],
+[
+"2813972155",
+"1407022",
+"Marc De Bruecker",
+"Marc de Bruecker"
+],
+[
+"15991447",
+"2505099117",
+"Dominik Reuter",
+"Dom Reuter"
+],
+[
+"20492911",
+"3500001030",
+"H.d Tylle",
+"Hans Dieter Tylle"
+],
+[
+"8000117757",
+"2782761761",
+"Fred Müller",
+"Fred Müller-Harf"
+],
+[
+"8000100622",
+"2890682",
+"M Süßenguth",
+"Melanie Sussenguth"
+],
+[
+"8000107250",
+"3568235",
+"Shafin Sanym",
+"Shafin Sanym"
+],
+[
+"8000117595",
+"27069673",
+"M Lutz",
+"Manfred Lutz"
+],
+[
+"15294613",
+"14178004",
+"Carlos Ramos",
+"Carlos Ramos"
+],
+[
+"15305548",
+"15275131",
+"Hasan Ökcü",
+"Hasan Ökcü"
+],
+[
+"8000106994",
+"2091197068",
+"Volker Hess",
+"Volker Heß"
+],
+[
+"2677026224",
+"8000128268",
+"Stephanie Oberdellmann",
+"Steffi Oberdellmann"
+],
+[
+"4500000579",
+"8000121426",
+"Siegfried Laubmayer",
+"S Laubmayer"
+],
+[
+"4500001083",
+"8000122770",
+"Patrick Mittermüller",
+"P Mittermüller"
+],
+[
+"8000118542",
+"2309615",
+"A Renwanz",
+"Alexander Renwanz"
+],
+[
+"8000119246",
+"73564960",
+"Marcus Schmidt",
+"Markus Schmidt"
+],
+[
+"6500011495",
+"8000121587",
+"Daniel Kübler",
+"Daniel Kübler"
+],
+[
+"21445465",
+"45350383",
+"Rafael Arce",
+"Rafael Arce Guillen"
+],
+[
+"2120263689",
+"87294004",
+"Julian Kortüm",
+"Julian Kortüm-Burdinski"
+],
+[
+"4500012581",
+"8000132985",
+"Konstantinos Eleftheriadis",
+"K Eleftheriadis"
+],
+[
+"4500001797",
+"8000132974",
+"Siegfried Haberl",
+"Sigi Haberl"
+],
+[
+"23449804",
+"8235730",
+"Mustafa Aybir",
+"Mustafa Aybir (the breakers)"
+],
+[
+"8000123166",
+"8000122648",
+"C Schreiner",
+"Chris Schreiner"
+],
+[
+"9291343",
+"33372106",
+"Maximilian Marx",
+"Maxi Marx"
+],
+[
+"9781357",
+"11951194",
+"Guenter Gerhard",
+"Günter Gerhard"
+],
+[
+"48145945",
+"73997149",
+"Turhan Türk",
+"Turhan Türk"
+],
+[
+"4500009285",
+"8000121679",
+"Maximilian Weißacher",
+"M Weißacher"
+],
+[
+"4500003166",
+"2571030942",
+"Frank Brossler",
+"F Brossler"
+],
+[
+"8000126257",
+"2679575011",
+"Mark Funda",
+"Mark Funda"
+],
+[
+"8000120105",
+"5500000541",
+"Farhad Shahverdi",
+"Farhad Mazi Shahverdi"
+],
+[
+"6316836",
+"58996258",
+"Victor da Costa",
+"Victor da Costa"
+],
+[
+"8000118789",
+"8000104073",
+"Mark Wagner",
+"Marc Wagner"
+],
+[
+"4827575",
+"10500340",
+"Sergiy Goncharov",
+"Sergiy Goncharov"
+],
+[
+"3500000934",
+"85408147",
+"Mohamed El Bachiri",
+"Mohamed El Bachiri"
+],
+[
+"4500001320",
+"8000121252",
+"Sven Trautmannsheimer",
+"S Trautmannsheimer"
+],
+[
+"8000119781",
+"4500020361",
+"Valentin Reitz",
+"Lucian-Valentin Reitz"
+],
+[
+"8000117757",
+"83700631",
+"Fred Müller",
+"Frederik Müller"
+],
+[
+"7147065",
+"7010953",
+"Erhan Ucar",
+"Erhan Ucar"
+],
+[
+"20642845",
+"11683336",
+"Angelo Santangelo",
+"Angelo Santangelo"
+],
+[
+"70683166",
+"74162020",
+"Josip Guja",
+"Josip Guja"
+],
+[
+"61290220",
+"55828705",
+"Bülent Doganhan",
+"Bülent Doganhan"
+],
+[
+"8000117987",
+"2008968452",
+"Thomas Skurski",
+"Thomas Skurski"
+],
+[
+"8000136954",
+"2655486495",
+"Berk Özdek",
+"Berk Özdek"
+],
+[
+"4500000761",
+"8000121445",
+"Ludwig Weidinger",
+"Ludwig Weidinger"
+],
+[
+"3181620",
+"4827588",
+"Hans-Eberhard Schulz",
+"Eberhard Schulz"
+],
+[
+"8000118657",
+"8000119232",
+"Daniel Schmid",
+"D Schmid"
+],
+[
+"4500001048",
+"84994381",
+"Thomas Scheffler",
+"Tom Scheffler"
+],
+[
+"2280536642",
+"8000131435",
+"Annette Klaus-Stöhner",
+"A Klaus-Stöhner"
+],
+[
+"27672868",
+"8315071",
+"Bernd Lücker",
+"Bernd Lücker (other Club)"
+],
+[
+"18060997",
+"19544008",
+"Jasmin Isanovic",
+"Jasmin Isanovic"
+],
+[
+"73742977",
+"4500006421",
+"Leo Orschler",
+"Leonard Orschler"
+],
+[
+"30848323",
+"3500000655",
+"Hans-Peter Hansi Benzinger",
+"Hans-Peter Benzinger"
+],
+[
+"8000117521",
+"3500000655",
+"Hansi Benzinger",
+"Hans-Peter Benzinger"
+],
+[
+"8000136716",
+"65716516",
+"Carmen Tatar",
+"C Tatar"
+],
+[
+"8000126248",
+"2412643848",
+"Uwe Gestwa",
+"Uwe Gestwa"
+],
+[
+"15654699",
+"35012698",
+"Nomen Nescio",
+"Nomen Nescio"
+],
+[
+"43057225",
+"1562064",
+"Alexander Gerhardt",
+"Alex Gerhardt"
+],
+[
+"8000126238",
+"2978014770",
+"Roman Rabichev",
+"Roman Rabichev"
+],
+[
+"8000121184",
+"6206927",
+"Thomas Dalitz",
+"Tom Dalitz"
+],
+[
+"4500003603",
+"52725343",
+"Alex Beck",
+"Alexander Beck"
+],
+[
+"6500013765",
+"8194225",
+"Michael Voglhuber",
+"Michael Voglhuber (other Club)"
+],
+[
+"8000123166",
+"63892147",
+"C Schreiner",
+"Christian Schreiner"
+],
+[
+"10288930",
+"2177241557",
+"Klaus Marjan (The Breakers Oberhausen e.V.)",
+"Klaus Marjan"
+],
+[
+"5500000596",
+"8000126362",
+"Oliver Horn",
+"O Horn"
+],
+[
+"8000117022",
+"29104567",
+"Alexander Dinov",
+"Aleksander Dinov"
+],
+[
+"43058617",
+"45350383",
+"Rafael Arce Guillen",
+"Rafael Arce Guillen"
+],
+[
+"8000136659",
+"5500001660",
+"Vojtěch Daněk",
+"Vojtěch Daněk"
+],
+[
+"4500010781",
+"8000121473",
+"Jaime Cuartero Burzaco",
+"Jaime Cuartero"
+],
+[
+"1549911",
+"7077630",
+"Justin Dolling",
+"Justin Kevin Dolling"
+],
+[
+"2609682",
+"9677404",
+"Marcel Da Cruz",
+"Marcel da Cruz"
+],
+[
+"85923847",
+"4500002024",
+"Volker (Örbi) Stahl",
+"Volker Stahl"
+],
+[
+"15269557",
+"7772709",
+"Andre Hahn- Diekmann",
+"Andre Hahn"
+],
+[
+"10323385",
+"10301752",
+"Harald Biel",
+"Harald Biel (Expo)"
+],
+[
+"15158989",
+"8000118054",
+"Jürgen Hein",
+"Juergen Hein"
+],
+[
+"3500000727",
+"29451352",
+"Christopher Friesicke",
+"Chris Friesicke"
+],
+[
+"4500012101",
+"8000122386",
+"Christian Hettenkofer",
+"C Hettenkofer"
+],
+[
+"8000121268",
+"8000118548",
+"Alen Nasufi",
+"Alen Nasufi"
+],
+[
+"44516617",
+"63644695",
+"Don Nguyen",
+"Don Nguyen"
+],
+[
+"8953176",
+"19548019",
+"Stephan Schröder(the breakers)",
+"Stefan Schröder"
+],
+[
+"4500001628",
+"8000119850",
+"Armin Messerschmitt",
+"A Messerschmitt"
+],
+[
+"16386151",
+"2546640",
+"Jürgen Schönfelder",
+"Jürgen Schönfelder"
+],
+[
+"8000103093",
+"2624936",
+"Ibrahim Ayir",
+"Ibrahim Ayir"
+],
+[
+"2890673",
+"33114499",
+"Paulo Mendes",
+"Paulo Mendes"
+],
+[
+"4500003694",
+"4500003701",
+"Wolfgang Buchwald Jun",
+"Wolfgang Buchwald Sen"
+],
+[
+"5515389",
+"5112228",
+"Ximo Bellido",
+"Ximo Bellido"
+],
+[
+"8000119352",
+"2357839099",
+"Leo Liu",
+"Leo Zhenyu Liu"
+],
+[
+"84495328",
+"45591229",
+"Alexandros Vassiliadis",
+"Alex Vassiliadis"
+],
+[
+"4500014101",
+"49723633",
+"Maurizio Rieß",
+"Maurizio Riess"
+],
+[
+"80762440",
+"3500001033",
+"Cedric von Schwerin",
+"Cedric von Schwerin"
+],
+[
+"8000117340",
+"2463083471",
+"Alex Neiß",
+"Alexander Neiß"
+],
+[
+"8000102728",
+"1107466",
+"Alexander Pütz",
+"Alex Pütz"
+],
+[
+"8000107624",
+"4500010961",
+"P Müller",
+"Peter Müller"
+],
+[
+"12138586",
+"2325903800",
+"Enrico Hans-Pepito Heib-Walter",
+"Enrico Heib-Walter"
+],
+[
+"31819996",
+"40616545",
+"Ferhad Hajji Mohammad",
+"Ferhard Hajji Mohammad"
+],
+[
+"87299536",
+"35725924",
+"Christian Weßler",
+"Chris Weßler"
+],
+[
+"54014611",
+"88870255",
+"Ercan Durukan",
+"Ercan Durukan"
+],
+[
+"4500009285",
+"69915256",
+"Maximilian Weißacher",
+"Max Weissacher"
+],
+[
+"8000126246",
+"2826326737",
+"Guido Rosenkranz",
+"Guido Rosenkranz"
+],
+[
+"8000123381",
+"5500000928",
+"Darko Ilic",
+"Darko Ilic"
+],
+[
+"7943834",
+"8194218",
+"Christopher Breakers Oberhausen",
+"Christopher Vogt (the breakers)"
+],
+[
+"7943760",
+"8235806",
+"Christian Breakers Oberhausen",
+"Christian Jäger (BC Oberhausen 4)"
+],
+[
+"8000123167",
+"5500001064",
+"Luka Mitrovic",
+"Luka Mitrovic"
+],
+[
+"8000121206",
+"8000128619",
+"Joshua Lorkowski",
+"J Lorkowski"
+],
+[
+"2244348",
+"6106460",
+"Steffen Sellnau",
+"Stefan Sellnau"
+],
+[
+"2774485",
+"5227978",
+"Arthur Glandorf",
+"Arthur Glandorf"
+],
+[
+"6545333",
+"8000131257",
+"Achim Krause",
+"Jean Achim Krause"
+],
+[
+"8000108675",
+"8000122777",
+"Christopher Witt",
+"Christian Witt"
+],
+[
+"73997092",
+"87298516",
+"Joao Carlos Ferreira De Castro",
+"Joao Carlos Ferreira De Castro"
+],
+[
+"8000119283",
+"53052868",
+"R Preda",
+"Robert-Alexandru Preda"
+],
+[
+"8000119297",
+"69915256",
+"Max Weißacher",
+"Max Weissacher"
+],
+[
+"76045219",
+"8000136867",
+"Hermann Himmler",
+"H Himmler"
+],
+[
+"8000129211",
+"2993500276",
+"A Andrei",
+"Anastasia-Elena Andrei"
+],
+[
+"4500000518",
+"8000118676",
+"Alexander Glass",
+"Alexander Glaß"
+],
+[
+"8000121508",
+"8000121374",
+"Maxim Buchstab",
+"Maxim Buchstab"
+],
+[
+"8000129116",
+"8000124542",
+"Robert Leszczak",
+"Robert Leszczak"
+],
+[
+"15283687",
+"8000133089",
+"C. - Karl Wagner",
+"Karl Wagner"
+],
+[
+"3078348",
+"2955772",
+"Hai Long Le",
+"Hai Long Le"
+],
+[
+"8000132846",
+"70208959",
+"Marc Andre Schmid",
+"Marc Schmid"
+],
+[
+"8000118302",
+"8000117980",
+"Uwe Esser",
+"Josef-Uwe Esser"
+],
+[
+"3500000733",
+"15103018",
+"Andre Kenneth Boin",
+"Andre Boin"
+],
+[
+"24779695",
+"8000137329",
+"Andreas Jäckel",
+"Andi Jäckel"
+],
+[
+"50310490",
+"2496142334",
+"Joe von Montigny",
+"Joe Von Montigny"
+],
+[
+"51547729",
+"8000129209",
+"Lena Sereda",
+"Helene Sereda"
+],
+[
+"8000129614",
+"2347656485",
+"Zeljko Halapa",
+"Zeljko Halapa"
+],
+[
+"4500010281",
+"8000120780",
+"Elvedin Rekic",
+"Elvedin Dino Rekic"
+],
+[
+"8000132311",
+"8000136968",
+"Theo Georgoudious",
+"T Georgoudious"
+],
+[
+"8000122572",
+"53049148",
+"A Hermann",
+"Andreas-Rainer Hermann"
+],
+[
+"3682322",
+"5340022",
+"Frank (Frenzel) Sandering",
+"Frank Sandering"
+],
+[
+"5142183",
+"5142184",
+"Justin Beer",
+"Justin Beer"
+],
+[
+"80383222",
+"79825924",
+"Steffen Höfer-Achatz",
+"Steffen Höfer"
+],
+[
+"8000106079",
+"14969821",
+"Max Löhle",
+"Maximilian Löhle"
+],
+[
+"17355352",
+"2962474303",
+"Ricardo Manuel Da Cunha Fernandes",
+"Ricardo Fernandes"
+],
+[
+"8000120117",
+"27161212",
+"A Bayarsaikhan",
+"Altankhuyag Bayarsaikhan"
+],
+[
+"31981045",
+"40790800",
+"Francisco Bustamante jr",
+"Francisco Bustamante Junior"
+],
+[
+"54697594",
+"5500001722",
+"Ali Mohamed",
+"Haider Ali Mohamed"
+],
+[
+"8000103331",
+"6500012578",
+"Dominik Huber",
+"Johann Dominik Huber"
+],
+[
+"3500001026",
+"89670400",
+"Kane Tristan Knauer",
+"Kane Knauer"
+],
+[
+"8000117480",
+"1090774",
+"Vural Sayin",
+"Vural Sayin"
+],
+[
+"2998788403",
+"8000105378",
+"Moritz Becker",
+"M.b Becker"
+],
+[
+"26491774",
+"3500000755",
+"Jaime Moreno",
+"Jaime Pinana Moreno"
+],
+[
+"4500002559",
+"92290276",
+"Daniel Meyer",
+"Daniel Meyer-Thorke"
+],
+[
+"2782761761",
+"83700631",
+"Fred Müller-Harf",
+"Frederik Müller"
+],
+[
+"2624922",
+"35331466",
+"Jörg Wiegard",
+"Jörg Wiegard"
+],
+[
+"5567923",
+"2781963",
+"Patryk Gurzynski",
+"Patryk Gurzynski"
+],
+[
+"8000122572",
+"53067535",
+"A Hermann",
+"Andreas Rainer-Hermann"
+],
+[
+"37256815",
+"3551467",
+"Jörg-Friedrich Ernst",
+"Jörg Ernst"
+],
+[
+"8784761",
+"8000119906",
+"Ekkhard Schneider Lombard",
+"E Schneider-Lombard"
+],
+[
+"9937690",
+"8000121262",
+"Franz-Josef Heiming",
+"Franz-Josel Heiming"
+],
+[
+"8000117837",
+"17884990",
+"Christian Joos",
+"Chris Joos"
+],
+[
+"44652145",
+"48229171",
+"Daniel Liu",
+"Jiayi Daniel Liu"
+],
+[
+"67410619",
+"31818820",
+"Edin Poturovic",
+"Edin Poturovic"
+],
+[
+"8000119283",
+"8000126656",
+"R Preda",
+"Robert Preda"
+],
+[
+"6500014888",
+"2914372609",
+"Aleyna De Castro Manhas",
+"Aleyna De Castro Manhas"
+],
+[
+"2369178006",
+"1095464",
+"Toni San Jose",
+"Toni San Jose"
+],
+[
+"3624272",
+"10230061",
+"Kenn Nguyen",
+"Kenn Nguyen"
+],
+[
+"5566108",
+"2605180",
+"Jan Donnermeyer",
+"Jan Donnermeyer"
+],
+[
+"9168226",
+"49089751",
+"Eric Krüger",
+"Eric Pascal Krüger"
+],
+[
+"5091028",
+"10900870",
+"Ibrahim Yildiz",
+"İbrahim Yildiz"
+],
+[
+"4500003989",
+"3503924",
+"Markus Ullrich",
+"Marcus Ullrich"
+],
+[
+"8784761",
+"3669138",
+"Ekkhard Schneider Lombard",
+"Ekkhard Ekkes Schneider Lombard"
+],
+[
+"8000119671",
+"53082151",
+"Jan-Henrik Wolf",
+"Jan-Hendrik Wolf"
+],
+[
+"9574423",
+"56562394",
+"Günter Klawonn",
+"Guenter Klawonn"
+],
+[
+"19767616",
+"11685469",
+"Robert Majlat",
+"Robert Majlat"
+],
+[
+"49090567",
+"49079230",
+"Olli Dornberg",
+"Oliver Dornberg"
+],
+[
+"68373442",
+"49090855",
+"Martin Gapa-Hoening",
+"Martin Gapa-Höning"
+],
+[
+"53052868",
+"8000126656",
+"Robert-Alexandru Preda",
+"Robert Preda"
+],
+[
+"55190803",
+"54804286",
+"Ingo Heinzmann",
+"Ingo Heinzmann"
+],
+[
+"1093104",
+"8000122420",
+"Christophe Nussbaumer",
+"C Nussbaumer"
+],
+[
+"3727047",
+"2126350",
+"Thibaut De Bruecker",
+"Thibaut De Bruecker"
+],
+[
+"36311032",
+"8000133089",
+"Kalle Wagner",
+"Karl Wagner"
+],
+[
+"8000117322",
+"2701310",
+"Frank Werner",
+"Frank Werner"
+],
+[
+"47013556",
+"5408894",
+"Günter Jetzlaff",
+"Günther Jetzlaff"
+],
+[
+"21206974",
+"3500000718",
+"Alex Augustin",
+"Alexandru-Ilie Augustin"
+],
+[
+"6500000060",
+"3500000105",
+"Manuel Montejo Fernandez",
+"Manuel Fernandez"
+],
+[
+"8000118265",
+"8000121145",
+"Robert Karaica",
+"Robert Karaica"
+],
+[
+"8000119557",
+"8000130383",
+"Merle Stanko",
+"Nadine Merle Stanko"
+],
+[
+"3727047",
+"2204635701",
+"Thibaut De Bruecker",
+"Thibaut De Bruecker"
+],
+[
+"8128339",
+"6707714",
+"Olli Dürig",
+"Olli Dürig"
+],
+[
+"2615154997",
+"3718575",
+"Michael Stahl",
+"Michael M Stahl"
+],
+[
+"61619299",
+"64370602",
+"Hayretin Hantelmann",
+"Hayre Hantelmann"
+],
+[
+"8000122648",
+"63892147",
+"Chris Schreiner",
+"Christian Schreiner"
+],
+[
+"12852874",
+"56982667",
+"Alex Holzwarth",
+"Alexander Holzwarth"
+],
+[
+"18289594",
+"18296782",
+"Daniel Vidackovic",
+"Daniel Vidackovic"
+],
+[
+"2171820357",
+"2357839099",
+"Zhenyu Liu",
+"Leo Zhenyu Liu"
+],
+[
+"52469878",
+"3500001007",
+"Nico Campese",
+"Niko Campese"
+],
+[
+"8000121679",
+"69915256",
+"M Weißacher",
+"Max Weissacher"
+],
+[
+"10288822",
+"8194210",
+"Werner Drost (The Breakers Oberhausen e.V.)",
+"Werner Drost (the breakers)"
+],
+[
+"9355434095",
+"6608295",
+"Mike Otto",
+"Mike-Andre Otto"
+],
+[
+"42671446",
+"6248856",
+"Stefan Küpper",
+"Stephan Küpper"
+],
+[
+"8000125344",
+"7021753",
+"Stefanie Beck",
+"Steffi Beck"
+],
+[
+"2567403426",
+"48229171",
+"Jiayi Liu",
+"Jiayi Daniel Liu"
+],
+[
+"55361638",
+"21803842",
+"Ralf Hellmuth",
+"Ralf Michael Hellmuth"
+],
+[
+"8000121452",
+"25505488",
+"Vincenzo Dattolo",
+"Vincenzo Dattolo Vincenzo Dattolo"
+],
+[
+"2701932048",
+"8000129626",
+"Joerg Wichelhaus",
+"Jörg Wichelhaus"
+],
+[
+"8000121637",
+"2914284673",
+"M Collier-Wright",
+"Marcus Collier-Wright"
+],
+[
+"3709809",
+"58996258",
+"Victor da Costa",
+"Victor da Costa"
+],
+[
+"1093105",
+"8207357",
+"Nedim Bacevac",
+"Nedim Bacevac (other Club)"
+],
+[
+"1108825",
+"8000123158",
+"Lutz Simon",
+"L Simon"
+],
+[
+"8128339",
+"7300191",
+"Olli Dürig",
+"Oliver Dürig"
+],
+[
+"61307824",
+"5522282",
+"(Hachi) Frank Hachmöller",
+"Frank Hachmöller"
+],
+[
+"6650159",
+"2546630",
+"Michael Meier",
+"Michael Meier"
+],
+[
+"25334323",
+"21960463",
+"Jorge Martins Chaves",
+"Jorge Martins-Chaves"
+],
+[
+"53833126",
+"8000118249",
+"Leon Peter Auer",
+"Leon Auer"
+],
+[
+"65196388",
+"8000128602",
+"Stefan Friedrich",
+"S Friedrich"
+],
+[
+"86494438",
+"2294399789",
+"Maximilian Collin Holländer",
+"Maximilian Holländer"
+],
+[
+"8000123242",
+"8000123244",
+"Anna Schmiedbauer",
+"Anna Schmiedbauer"
+],
+[
+"1108378",
+"2604070587",
+"Armin von Brechan",
+"Armin von Brechan"
+],
+[
+"40678204",
+"34719457",
+"Martin Schulz",
+"Martin Schulz"
+],
+[
+"74036023",
+"53146804",
+"Günter Schmidt",
+"Günther Schmidt"
+],
+[
+"5445719",
+"33114499",
+"Paulo Mendes",
+"Paulo Mendes"
+],
+[
+"8000119906",
+"3669138",
+"E Schneider-Lombard",
+"Ekkhard Ekkes Schneider Lombard"
+],
+[
+"8000121516",
+"8000121509",
+"F Wieczorek",
+"Frank Wieczorek"
+],
+[
+"25504876",
+"8000131290",
+"Gabi Mayr",
+"Gabriele Mayr"
+],
+[
+"64379203",
+"8000130539",
+"Theodor Sous",
+"Theo Sous"
+],
+[
+"8000126228",
+"2971368210",
+"Ralf Ertl",
+"Ralf Ertl"
+],
+[
+"9224770",
+"10288819",
+"Rainer Driessen (the breakers)",
+"Rainer Driessen (The Breakers Oberhausen e.V.)"
+],
+[
+"81142474",
+"82381903",
+"Kevin Huang",
+"Kevin Huang"
+],
+[
+"2202423",
+"5339729",
+"Michael Peter Lüders",
+"Michael Lüders"
+],
+[
+"6707714",
+"7300191",
+"Olli Dürig",
+"Oliver Dürig"
+],
+[
+"8000124547",
+"5221865",
+"Christian G Schmidt",
+"Christian Schmidt (IOP)"
+],
+[
+"53049148",
+"53067535",
+"Andreas-Rainer Hermann",
+"Andreas Rainer-Hermann"
+],
+[
+"5387543",
+"5408851",
+"Li Xeufeng",
+"Li Xeufeng"
+],
+[
+"4500022801",
+"2039871073",
+"Andreas Dietz",
+"A Dietz"
+],
+[
+"8000137327",
+"85942057",
+"Lara Böhn",
+"Laura Böhn"
+],
+[
+"8000124566",
+"8000121175",
+"Arian Esfahani",
+"Arian Esfahani"
+],
+[
+"5500000653",
+"2827368471",
+"Sabri Manila Ali",
+"Sabri Manla Ali"
+],
+[
+"2126350",
+"2204635701",
+"Thibaut De Bruecker",
+"Thibaut De Bruecker"
+],
+[
+"5500000917",
+"53053417",
+"Daniel Sanchez",
+"Daniel Sanchez (Torro)"
+],
+[
+"53738881",
+"2390099900",
+"Radenko Milosevic",
+"Radenko Jony Milosevic"
+],
+[
+"21482431",
+"36402424",
+"Alexander Strauch",
+"Alexander ,,Tweety\" Strauch"
+],
+[
+"87298516",
+"5500001221",
+"Joao Carlos Ferreira De Castro",
+"Jed De Castro"
+],
+[
+"80334625",
+"74067058",
+"Jan Klass",
+"Jan Klaß"
+],
+[
+"78189925",
+"76492690",
+"Dario De Ruvo",
+"Dario de Ruvo"
+],
+[
+"8000128958",
+"8000123323",
+"Andreas Fogt Fogt",
+"Andreas Fogt"
+],
+[
+"8000120700",
+"1163939",
+"Frank Strerath",
+"Frank Strerath"
+],
+[
+"17950405",
+"3500000546",
+"Lena (Robin) Köhler",
+"Robin Köhler"
+],
+[
+"8000119232",
+"8000129648",
+"D Schmid",
+"Dennnis Schmid"
+],
+[
+"65180899",
+"3435491",
+"Stefan Jacobi",
+"Stefan Jacobi"
+],
+[
+"45348484",
+"8000119647",
+"Dani Majer",
+"Daniela Majer"
+],
+[
+"61180276",
+"73758535",
+"Arslan Altaf",
+"Arslan Altaf"
+],
+[
+"8000131270",
+"4500020361",
+"L Reitz",
+"Lucian-Valentin Reitz"
+],
+[
+"8000100026",
+"3500000567",
+"Rattapol Sassmann",
+"Rattapol Sassmann"
+],
+[
+"5500000310",
+"8000116406",
+"Thomas Kirsch",
+"Tomas Kirsch"
+],
+[
+"8000128718",
+"3500000381",
+"Adam Abdul Hafiz",
+"Adam Abdul Hafiz"
+],
+[
+"3500000183",
+"3500000287",
+"Marius Poth",
+"Markus Poth"
+],
+[
+"8000119240",
+"4500006301",
+"Patrick Schrepper",
+"Patrick Schrepper"
+],
+[
+"3500000221",
+"16739974",
+"Juergen Zoth",
+"Jürgen Zoth"
+],
+[
+"8000125335",
+"8000105378",
+"Michael Becker",
+"M.b Becker"
+],
+[
+"9707152",
+"52532923",
+"Hans-juergen Eigler",
+"Hansi Eigler"
+],
+[
+"4500000353",
+"8000122466",
+"Christian Schmidt",
+"Christian Schmitt"
+],
+[
+"44517253",
+"50079457",
+"Song Nguyen",
+"Son Nguyen"
+],
+[
+"8000122466",
+"8000124547",
+"Christian Schmitt",
+"Christian G Schmidt"
+],
+[
+"2763096660",
+"8000105378",
+"Micha Becker",
+"M.b Becker"
+],
+[
+"73011415",
+"3500001023",
+"Tom Müller",
+"Thomas Müller"
+],
+[
+"65640844",
+"50079457",
+"Sơn Nguyễn",
+"Son Nguyen"
+],
+[
+"3500001023",
+"9211735",
+"Thomas Müller",
+"Thomas Müller"
+],
+[
+"51582007",
+"17997643",
+"Jan-Henrik Müller",
+"Jan Hendrik Müller"
+],
+[
+"8000103649",
+"9707152",
+"Hans-Jürgen Eigler",
+"Hans-juergen Eigler"
+]
+],
+"not_same": [
+[
+"8000118407",
+"8000119671",
+"Jan Wolf",
+"Jan-Henrik Wolf"
+],
+[
+"8000118407",
+"53082151",
+"Jan Wolf",
+"Jan-Hendrik Wolf"
+],
+[
+"9705376",
+"8352561",
+"Harald Müller (other Club)",
+"Harald Grundmann (other club)"
+],
+[
+"10288948",
+"7943764",
+"Wolfgang Peekel (The Breakers Oberhausen e.V.)",
+"Wolfgang D Breakers Oberhausen"
+],
+[
+"42893806",
+"73540720",
+"Phi Anh Hoang",
+"Hoang Phi Anh"
+],
+[
+"17210698",
+"51582007",
+"Jan Müller",
+"Jan-Henrik Müller"
+],
+[
+"10288807",
+"7943763",
+"Wolfgang Dittrich (The Breakers Oberhausen e.V.)",
+"Wolfgang P Breakers Oberhausen"
+],
+[
+"3500000859",
+"3500001035",
+"Thanh Hung Nguyen",
+"Manh Hung Nguyen"
+],
+[
+"10288945",
+"8951587",
+"Hans-Jörg Ostendorf (The Breakers Oberhausen e.V.)",
+"Jörg Krein(the breakers)"
+],
+[
+"10288945",
+"8235735",
+"Hans-Jörg Ostendorf (The Breakers Oberhausen e.V.)",
+"Jörg Fromme (the breakers)"
+],
+[
+"8235733",
+"7943763",
+"Wolfgang Dittrich (the breakers)",
+"Wolfgang P Breakers Oberhausen"
+],
+[
+"8000103467",
+"8000136559",
+"Thomas May",
+"Thomas Mayr"
+],
+[
+"8000102112",
+"3500001015",
+"Marco Schmidt",
+"Mario Schmidt"
+],
+[
+"2247914",
+"35331367",
+"Michael Kampers",
+"Michael Kämper"
+],
+[
+"6500002580",
+"8000102188",
+"Sandra Baumgartner",
+"Sandor Baumgärtner"
+],
+[
+"3500000070",
+"8000131669",
+"Patrick Lampert",
+"Patrickt Lampert"
+],
+[
+"7105207",
+"5557899",
+"Marian Kruse",
+"Maria Kruse"
+],
+[
+"16652068",
+"9793741",
+"Hieu Nguyen",
+"Thiyeu Nguyen"
+],
+[
+"5500002050",
+"1536149",
+"Duy Hai Dinh",
+"Duy Hai Dingh"
+],
+[
+"19140133",
+"8000119367",
+"Kai Petersen",
+"Kai Peters"
+],
+[
+"8000103240",
+"8000116480",
+"Michael Schmitt",
+"Michael Schmidt"
+],
+[
+"8000121155",
+"8000119320",
+"Thomas Holzinger",
+"Thomas Holzner"
+],
+[
+"4500000876",
+"8000101586",
+"Daniel Vetter",
+"Daniel_ Etter"
+],
+[
+"3500000666",
+"8000100032",
+"Christian Schneider",
+"Christina Schneider"
+],
+[
+"5088091",
+"11050063",
+"Sascha Eilts",
+"Sascha Eilt"
+],
+[
+"5027909",
+"8000121558",
+"Thomas Wiemann",
+"Thomas Tiemann"
+],
+[
+"3500000197",
+"36521977",
+"Christian Kessler",
+"Christian Wessler"
+],
+[
+"8000117962",
+"8000136487",
+"Jörg Homann",
+"Jörg Höftmann"
+],
+[
+"6500001108",
+"68320846",
+"Manuel Pereira",
+"Manuel Fereira"
+],
+[
+"3500000197",
+"87299536",
+"Christian Kessler",
+"Christian Weßler"
+],
+[
+"8000123305",
+"1187061",
+"Mark Bongers",
+"Mark Bongaerts"
+],
+[
+"8000116480",
+"8000117611",
+"Michael Schmidt",
+"Michelle Schmidt"
+],
+[
+"2433635043",
+"19624390",
+"Aleksandar Stanojevic",
+"Aleksandar Stankovic"
+],
+[
+"9053474",
+"79257673",
+"Sandra Hofmann",
+"Andrea Hofmann"
+],
+[
+"8000100521",
+"34851940",
+"Gerald Müller",
+"Gerd Müller"
+],
+[
+"8000117230",
+"8295372",
+"Michael Schroer",
+"Michael Schroeder"
+],
+[
+"8000119546",
+"8000118444",
+"Goran Stankovic",
+"Goran Stanojevic"
+],
+[
+"8000130403",
+"8000132958",
+"Patrick Leistner",
+"Patrick Leitner"
+],
+[
+"2373785",
+"43051003",
+"Andreas Schultz",
+"Andreas Schulze"
+],
+[
+"8000120201",
+"2789154385",
+"Björn Brugmann",
+"Björn Bergmann"
+],
+[
+"8000118657",
+"8000119556",
+"Daniel Schmid",
+"Daniel Schmidt"
+],
+[
+"3500000896",
+"8000104211",
+"Andreas Noack",
+"Andreas Nowack"
+],
+[
+"8000100677",
+"8000130434",
+"Roland Burghof",
+"Roland Burhoff"
+],
+[
+"4500003197",
+"1090711",
+"Michael Speicher",
+"Michael Seichter"
+],
+[
+"4500000619",
+"24899461",
+"Michael Berninger",
+"Michael Benninger"
+],
+[
+"8000103817",
+"52725343",
+"Alexander Eck",
+"Alexander Beck"
+],
+[
+"59181241",
+"8000123355",
+"Petra van Limbeek",
+"Peter Van Den Bussche"
+],
+[
+"79257673",
+"4500001173",
+"Andrea Hofmann",
+"Andreas Hofmann"
+],
+[
+"29056585",
+"6206915",
+"Uland Schwindtke",
+"Uland Schwandtke"
+],
+[
+"3181620",
+"4500002130",
+"Hans-Eberhard Schulz",
+"Hans-Dieter Schulzke"
+],
+[
+"8000102125",
+"2375589924",
+"Jörg Kellner",
+"Jörg Keller"
+],
+[
+"4500001782",
+"20292202",
+"Andreas Auburger",
+"Andreas Bürger"
+],
+[
+"43057210",
+"19567168",
+"Christian Dorsch",
+"Christian Dorausch"
+],
+[
+"8000121539",
+"7197521",
+"Andreas Groneberg",
+"Andreas Roneberg"
+],
+[
+"53006854",
+"5173778",
+"Michael Hulsch",
+"Michael Hülscher"
+],
+[
+"8000119309",
+"8000122107",
+"David Oehler",
+"David Koehler"
+],
+[
+"44517253",
+"81656842",
+"Song Nguyen",
+"Son Nguyen Ngoc"
+],
+[
+"58976680",
+"8000123238",
+"Thanh Nguyen",
+"Thuan Nguyen"
+],
+[
+"8000127461",
+"8000122166",
+"Jason Haselwanter",
+"Jason Haserlwander"
+],
+[
+"11951185",
+"4500000906",
+"Uwe Bittner",
+"Uwe Büttner"
+],
+[
+"5500001030",
+"10230061",
+"Kenney Nguyen",
+"Kenn Nguyen"
+],
+[
+"6500013937",
+"75314245",
+"Daniel van Hout",
+"Daniela van Rijn"
+],
+[
+"41279425",
+"6500002315",
+"Thomas Stalter",
+"Thomas Stadler"
+],
+[
+"8000108768",
+"8000107256",
+"Mike Schmidt",
+"Mike Schmitz"
+],
+[
+"26469625",
+"16296043",
+"Marco Zieger",
+"Marco Ziegler"
+],
+[
+"3500000370",
+"3500001028",
+"Jan-Asmus Baltzer",
+"Jan Felix Balzer"
+],
+[
+"8000119824",
+"65196388",
+"Stefan Friedrichsen",
+"Stefan Friedrich"
+],
+[
+"8000123238",
+"2174515507",
+"Thuan Nguyen",
+"Tuấn Nguyen"
+],
+[
+"9355434095",
+"4900001893",
+"Mike Otto",
+"Mike Ott"
+],
+[
+"75901642",
+"82266199",
+"Minh Nguyen",
+"Nguyen Minh"
+],
+[
+"6608295",
+"4900001893",
+"Mike-Andre Otto",
+"Mike Ott"
+],
+[
+"8000123174",
+"8000127076",
+"Stefan Maierhofer",
+"Stefan Mayrhofer"
+],
+[
+"2620754",
+"52990441",
+"Marco Straub",
+"Mario Straub"
+],
+[
+"79470043",
+"8000119257",
+"Holger Bittner",
+"Holger Büttner"
+],
+[
+"43057222",
+"4500022321",
+"Tobias Gellert",
+"Tobias Greller"
+],
+[
+"32859682",
+"75314245",
+"Daniël van der Vegte",
+"Daniela van Rijn"
+],
+[
+"53928250",
+"4500002444",
+"Sebastian Wanke",
+"Sebastian Wanzke"
+],
+[
+"24822598",
+"44223949",
+"Fiona Scheling",
+"Fiona Scholing"
+],
+[
+"49203211",
+"34952566",
+"Michael Kruse",
+"Michael Krause"
+],
+[
+"1090809",
+"8000130392",
+"Hoa Nguyen",
+"Hoang Nguyen"
+],
+[
+"8000100415",
+"8000103311",
+"Pascual Parra",
+"jr. Pascual Parra"
+],
+[
+"2247900",
+"8000100492",
+"Carsten \"Calle\" Becker",
+"Carsten Becker"
+],
+[
+"8000101628",
+"6628449",
+"Thomas Wember",
+"Thomas Weber"
+],
+[
+"8000102112",
+"8000119246",
+"Marco Schmidt",
+"Marcus Schmidt"
+],
+[
+"8000102554",
+"6500003866",
+"Martin Walter",
+"Jackson Martin Walter"
+],
+[
+"8000102112",
+"73564960",
+"Marco Schmidt",
+"Markus Schmidt"
+],
+[
+"10236370",
+"37761781",
+"Alex Reichel",
+"Alexander Reichel"
+],
+[
+"8000117384",
+"8000117435",
+"Alex Weiß",
+"Alexander Weiß"
+],
+[
+"8000116585",
+"6500014824",
+"B Hirschberger",
+"Benjamin Hirschberger"
+],
+[
+"8000120697",
+"8000122825",
+"Sven Götz",
+"Sven Goetz"
+],
+[
+"8000104036",
+"3500000699",
+"Minh Duc Nguyen",
+"Duc Trong Nguyen"
+],
+[
+"8000104036",
+"75901642",
+"Minh Duc Nguyen",
+"Minh Nguyen"
+],
+[
+"8000104005",
+"52725388",
+"Hans Jörg Müller",
+"Hans Dieter Müller"
+],
+[
+"4500007241",
+"8000131335",
+"Michael Walter",
+"Mike Walter"
+],
+[
+"8000119696",
+"65395927",
+"Oliver Frank",
+"Oli Frank"
+],
+[
+"8000108117",
+"8000106483",
+"Weymarn Kai Von",
+"der Twer Kai Von"
+],
+[
+"8000117035",
+"18059662",
+"Christian Merz",
+"Christopher Merz"
+],
+[
+"2470236",
+"8000105885",
+"Moha Darwish",
+"Mohammed Darwish"
+],
+[
+"8000119873",
+"8000132326",
+"Florian Weber",
+"Florian Martin Weber"
+],
+[
+"58942423",
+"4500002230",
+"Stefan Müller",
+"Steffen Müller"
+],
+[
+"58942423",
+"3500001019",
+"Stefan Müller",
+"Steffen Müller-Böttcher"
+],
+[
+"8000119790",
+"53068519",
+"Walk Over",
+"Walk Over 7"
+],
+[
+"8000102541",
+"8000102542",
+"Brechan Susanne Von",
+"Brechan Armin Von"
+],
+[
+"8000116662",
+"8194218",
+"Christian Vogt",
+"Christopher Vogt (the breakers)"
+],
+[
+"42893806",
+"4500002567",
+"Phi Anh Hoang",
+"Anh Duc Hoang"
+],
+[
+"8000125793",
+"2505099117",
+"Domenico Reuter",
+"Dom Reuter"
+],
+[
+"54995584",
+"8000117298",
+"Michael Müller-Könemund",
+"Michael Müller"
+],
+[
+"53060290",
+"3500000908",
+"Viet Mai",
+"Viet Anh Mai"
+],
+[
+"8000116417",
+"27677599",
+"Hans-Peter Werner",
+"Hans Werner"
+],
+[
+"8000116480",
+"8000108768",
+"Michael Schmidt",
+"Mike Schmidt"
+],
+[
+"71744860",
+"2898096034",
+"Dinh Nguyen",
+"Dinh Nhan Nguyen"
+],
+[
+"25746469",
+"8000136475",
+"Ralf Müller",
+"Raphael Müller"
+],
+[
+"17210698",
+"4500003195",
+"Jan Müller",
+"Jens Müller"
+],
+[
+"15152596",
+"4500003184",
+"Wolfgang Schmidt",
+"Wolfgang Schmid"
+],
+[
+"3500000356",
+"8000120102",
+"Kevin Müller",
+"K Müller-Berthold"
+],
+[
+"8000121744",
+"8000136620",
+"Markus Schneider",
+"M Schneider"
+],
+[
+"9048227",
+"15507970",
+"Johan Van Veldhoven",
+"Johannes van Limbeek"
+],
+[
+"6500014083",
+"15507970",
+"Johan van der Leest",
+"Johannes van Limbeek"
+],
+[
+"8000117375",
+"52633939",
+"Carsten Bauhammer",
+"Carsten \"Gonzo\" Bauhammer"
+],
+[
+"8000118357",
+"8000136752",
+"Jan Meyer",
+"Janika Saskia Meyer"
+],
+[
+"5500000796",
+"2914372609",
+"Yasin De Castro Manhas",
+"Aleyna De Castro Manhas"
+],
+[
+"6500004017",
+"3500001035",
+"My Nguyen",
+"Manh Hung Nguyen"
+],
+[
+"8000118357",
+"1128342",
+"Jan Meyer",
+"Janika Meyer"
+],
+[
+"6500004017",
+"75901642",
+"My Nguyen",
+"Minh Nguyen"
+],
+[
+"8000128838",
+"8000125824",
+"Christoph Horn",
+"Christian Horn"
+],
+[
+"79465870",
+"3500000699",
+"Duc Thai Nguyen",
+"Duc Trong Nguyen"
+],
+[
+"6500004017",
+"2958472347",
+"My Nguyen",
+"Michael-Trai Nguyen"
+],
+[
+"3500000162",
+"6500012186",
+"Daniel Nunez Gonzalez",
+"Daniel González Palacios"
+],
+[
+"49325107",
+"8000136620",
+"Mona Schneider",
+"M Schneider"
+],
+[
+"81772369",
+"8000130474",
+"Tina Hoai Tu Anh Nguyen",
+"Viet Anh Nguyen"
+],
+[
+"5175143",
+"5500002087",
+"Minh Hieu Pham",
+"Minh Duc Pham"
+],
+[
+"3500000859",
+"58976680",
+"Thanh Hung Nguyen",
+"Thanh Nguyen"
+],
+[
+"8000118368",
+"2624926",
+"Van Tien Nguyen",
+"Tien Nguyen"
+],
+[
+"81772369",
+"3500000698",
+"Tina Hoai Tu Anh Nguyen",
+"Duy Anh Nguyen"
+],
+[
+"39926548",
+"8000130474",
+"Tuấn Anh Nguyễn",
+"Viet Anh Nguyen"
+],
+[
+"4500000408",
+"6500006519",
+"Christian Fischer",
+"Christian Sparrenlöv-Fischer"
+],
+[
+"8000118368",
+"8000129280",
+"Van Tien Nguyen",
+"Tien Tan Nguyen"
+],
+[
+"3500000859",
+"11050000",
+"Thanh Hung Nguyen",
+"Ngoc Thanh Nguyen"
+],
+[
+"8000118368",
+"72451666",
+"Van Tien Nguyen",
+"Van Chung Nguyen"
+],
+[
+"8000118368",
+"91032772",
+"Van Tien Nguyen",
+"Van Binh Nguyen"
+],
+[
+"56026576",
+"8962288",
+"Dennis van Rijn",
+"Dennis Van veldhoven"
+],
+[
+"39926548",
+"3500000698",
+"Tuấn Anh Nguyễn",
+"Duy Anh Nguyen"
+],
+[
+"8000118368",
+"8000119622",
+"Van Tien Nguyen",
+"Van Cuong Nguyen"
+],
+[
+"8000118213",
+"31981045",
+"Francisco Bustamante",
+"Francisco Bustamante jr"
+],
+[
+"56026576",
+"6322373",
+"Dennis van Rijn",
+"Dennis van Belzen"
+],
+[
+"65179753",
+"3500000699",
+"Duc Tho Nguyen",
+"Duc Trong Nguyen"
+],
+[
+"4500014325",
+"86542660",
+"Thanh Tran",
+"Van Thanh Tran"
+],
+[
+"39926548",
+"2174515507",
+"Tuấn Anh Nguyễn",
+"Tuấn Nguyen"
+],
+[
+"8000118368",
+"5500000812",
+"Van Tien Nguyen",
+"Van Giap Nguyen"
+],
+[
+"6601887",
+"84453985",
+"Anh-Khoa Pham",
+"Dinh Anh Pham"
+],
+[
+"39926548",
+"2716786436",
+"Tuấn Anh Nguyễn",
+"Huu Tuan Nguyen"
+],
+[
+"40598617",
+"3500000699",
+"Duc Binh Nguyen",
+"Duc Trong Nguyen"
+],
+[
+"8000127129",
+"6610935",
+"Alexander Joppe",
+"Alex Joppe"
+],
+[
+"56026576",
+"3578990",
+"Dennis van Rijn",
+"Dennis van Royen"
+],
+[
+"4500000534",
+"58976680",
+"Thanh Vinh Nguyen",
+"Thanh Nguyen"
+],
+[
+"8000128970",
+"3500001035",
+"Manh Nguyen",
+"Manh Hung Nguyen"
+],
+[
+"34140352",
+"68045152",
+"Torsten von Bohr",
+"Torsten von der Heide"
+],
+[
+"6601887",
+"24817255",
+"Anh-Khoa Pham",
+"Anh Duc Pham"
+],
+[
+"6601887",
+"4500022626",
+"Anh-Khoa Pham",
+"Anh viet Pham"
+],
+[
+"15507970",
+"1159832",
+"Johannes van Limbeek",
+"Johan van Beek"
+],
+[
+"8000106496",
+"4500001244",
+"Christoph Weber",
+"Christian Weber"
+],
+[
+"10288930",
+"8235815",
+"Klaus Marjan (The Breakers Oberhausen e.V.)",
+"Klaus Görtz (BC Oberhausen 5)"
+],
+[
+"8000128770",
+"2776943825",
+"Klaus Schmölz",
+"Klaus Scholz"
+],
+[
+"15507970",
+"44580508",
+"Johannes van Limbeek",
+"Johan van Oorschot"
+],
+[
+"78202045",
+"8000130474",
+"Anh Quang Nguyen",
+"Viet Anh Nguyen"
+],
+[
+"4500002230",
+"3500001019",
+"Steffen Müller",
+"Steffen Müller-Böttcher"
+],
+[
+"8000136706",
+"8000130474",
+"Hoai Tu Anh Nguyen",
+"Viet Anh Nguyen"
+],
+[
+"4500003195",
+"51582007",
+"Jens Müller",
+"Jan-Henrik Müller"
+],
+[
+"3218642",
+"2043806632",
+"Yang Zhang",
+"Yi Zhang"
+],
+[
+"2259039884",
+"43102894",
+"Alessandro Carmelo Placenti",
+"Alessandro Placenti"
+],
+[
+"78202045",
+"74642239",
+"Anh Quang Nguyen",
+"Quang Anh Nguyen"
+],
+[
+"8000121559",
+"5500000812",
+"Giap Nguyen",
+"Van Giap Nguyen"
+],
+[
+"4500014325",
+"76092112",
+"Thanh Tran",
+"Ngoc Thanh Tran"
+],
+[
+"8000103311",
+"6500004242",
+"jr. Pascual Parra",
+"Pascual Parra Sanchez"
+],
+[
+"5500002358",
+"87298516",
+"Denzhel De Castro",
+"Joao Carlos Ferreira De Castro"
+],
+[
+"51663166",
+"3500000699",
+"Duc Anh Nguyen",
+"Duc Trong Nguyen"
+],
+[
+"51663166",
+"8000130474",
+"Duc Anh Nguyen",
+"Viet Anh Nguyen"
+],
+[
+"91737163",
+"8000130474",
+"Anh Tuan Nguyen",
+"Viet Anh Nguyen"
+],
+[
+"2624926",
+"8000129280",
+"Tien Nguyen",
+"Tien Tan Nguyen"
+],
+[
+"78202045",
+"3500000698",
+"Anh Quang Nguyen",
+"Duy Anh Nguyen"
+],
+[
+"2813972155",
+"2204635701",
+"Marc De Bruecker",
+"Thibaut De Bruecker"
+],
+[
+"17430232",
+"6500012186",
+"Daniel Nunez-Gonzalez",
+"Daniel González Palacios"
+],
+[
+"4500000534",
+"11050000",
+"Thanh Vinh Nguyen",
+"Ngoc Thanh Nguyen"
+],
+[
+"83781691",
+"2174515507",
+"Tuan Long Nguyen",
+"Tuấn Nguyen"
+],
+[
+"8000136706",
+"3500000698",
+"Hoai Tu Anh Nguyen",
+"Duy Anh Nguyen"
+],
+[
+"4500003195",
+"17997643",
+"Jens Müller",
+"Jan Hendrik Müller"
+],
+[
+"21716749",
+"8000131833",
+"Yusa Efe Dincer",
+"Yusa Dincer"
+],
+[
+"8000118398",
+"3500000466",
+"Michael Merkinger",
+"Mike Merkinger"
+],
+[
+"49351411",
+"81929668",
+"Nam Nguyen",
+"Nam Nguyen"
+],
+[
+"8000123211",
+"56781013",
+"Huy Ann Nguyen",
+"Huy Nguyen"
+],
+[
+"3500000699",
+"65165473",
+"Duc Trong Nguyen",
+"Trong Nguyen"
+],
+[
+"39926770",
+"4500015661",
+"Huy Dang",
+"Xuan Huy Dang"
+],
+[
+"83781691",
+"2716786436",
+"Tuan Long Nguyen",
+"Huu Tuan Nguyen"
+],
+[
+"4500010841",
+"6500014025",
+"Jon de Castro",
+"Jonathan Castro"
+],
+[
+"51663166",
+"3500000698",
+"Duc Anh Nguyen",
+"Duy Anh Nguyen"
+],
+[
+"91737163",
+"3500000698",
+"Anh Tuan Nguyen",
+"Duy Anh Nguyen"
+],
+[
+"7943757",
+"9224773",
+"Udo Breakers Oberhausen",
+"Udo Schneider (the breakers)"
+],
+[
+"7943760",
+"8194218",
+"Christian Breakers Oberhausen",
+"Christopher Vogt (the breakers)"
+],
+[
+"7943834",
+"8235806",
+"Christopher Breakers Oberhausen",
+"Christian Jäger (BC Oberhausen 4)"
+],
+[
+"58976680",
+"11050000",
+"Thanh Nguyen",
+"Ngoc Thanh Nguyen"
+],
+[
+"3500000699",
+"76257835",
+"Duc Trong Nguyen",
+"Tho Duc Nguyen"
+],
+[
+"8000130474",
+"3500000698",
+"Viet Anh Nguyen",
+"Duy Anh Nguyen"
+],
+[
+"86542660",
+"76092112",
+"Van Thanh Tran",
+"Ngoc Thanh Tran"
+],
+[
+"74642239",
+"49351597",
+"Quang Anh Nguyen",
+"Quang Nguyen"
+],
+[
+"91737163",
+"2174515507",
+"Anh Tuan Nguyen",
+"Tuấn Nguyen"
+],
+[
+"8000130474",
+"72615319",
+"Viet Anh Nguyen",
+"Anh Tuấn Nguyễn 🇩🇪"
+],
+[
+"8000118789",
+"8000122646",
+"Mark Wagner",
+"Markus Wagner"
+],
+[
+"2043806632",
+"7784613",
+"Yi Zhang",
+"Ying Zhang"
+],
+[
+"3500001035",
+"63721255",
+"Manh Hung Nguyen",
+"Christian Hung Nguyen"
+],
+[
+"91737163",
+"2716786436",
+"Anh Tuan Nguyen",
+"Huu Tuan Nguyen"
+],
+[
+"1164525",
+"11053687",
+"Marco Harms",
+"Marc Harms"
+],
+[
+"8000104073",
+"8000122646",
+"Marc Wagner",
+"Markus Wagner"
+],
+[
+"31981045",
+"5500001557",
+"Francisco Bustamante jr",
+"Francisco Bustamante"
+],
+[
+"50079457",
+"81656842",
+"Son Nguyen",
+"Son Nguyen Ngoc"
+],
+[
+"6109663",
+"6500005383",
+"Marcus van Hees",
+"Markus Van Rüth"
+],
+[
+"6109663",
+"1161830",
+"Marcus van Hees",
+"Marco van Tiel"
+],
+[
+"6109663",
+"1163309",
+"Marcus van Hees",
+"Mark van Kerckhoven"
+],
+[
+"3500000882",
+"5411571",
+"Juan-Antonio Garcia",
+"Antonio Garcia Lourenco"
+],
+[
+"3500000698",
+"72615319",
+"Duy Anh Nguyen",
+"Anh Tuấn Nguyễn 🇩🇪"
+],
+[
+"8000118046",
+"8000122625",
+"der Weken Louis Van",
+"der Most Erik Van"
+],
+[
+"5388330",
+"8290012",
+"Thomas Winkler",
+"Thomas Stahl Ralf Winkler"
+],
+[
+"88496356",
+"15152605",
+"Huu Thai Pham",
+"Thai Pham"
+],
+[
+"8000136705",
+"8000128967",
+"Hoa Phan",
+"Hoang Ha Phan"
+],
+[
+"8000117811",
+"8000122625",
+"der Velden G Van",
+"der Most Erik Van"
+],
+[
+"72615319",
+"2174515507",
+"Anh Tuấn Nguyễn 🇩🇪",
+"Tuấn Nguyen"
+],
+[
+"84453985",
+"4500022626",
+"Dinh Anh Pham",
+"Anh viet Pham"
+],
+[
+"50671291",
+"71587162",
+"Jannes und Marco G",
+"Lena und Marco"
+],
+[
+"72615319",
+"2716786436",
+"Anh Tuấn Nguyễn 🇩🇪",
+"Huu Tuan Nguyen"
+],
+[
+"2174515507",
+"2716786436",
+"Tuấn Nguyen",
+"Huu Tuan Nguyen"
+],
+[
+"5112220",
+"5112221",
+"Jan L-Bbc",
+"Jens P-Bbc"
+],
+[
+"50671447",
+"71587162",
+"Konrad und Marco K",
+"Lena und Marco"
+],
+[
+"8000120720",
+"51806602",
+"Christobal Serrano",
+"Christobal Serrano Y Schröder"
+],
+[
+"82167862",
+"82167994",
+"Dummy Freilos 1",
+"Dummy Freilos 2"
+],
+[
+"82167862",
+"82167997",
+"Dummy Freilos 1",
+"Dummy Freilos 3"
+],
+[
+"82167994",
+"82167997",
+"Dummy Freilos 2",
+"Dummy Freilos 3"
+],
+[
+"8000122625",
+"8000126371",
+"der Most Erik Van",
+"der meijde W Van"
+],
+[
+"8000122625",
+"8000120994",
+"der Most Erik Van",
+"der schoot Rob Van"
+],
+[
+"24817255",
+"4500022626",
+"Anh Duc Pham",
+"Anh viet Pham"
+],
+[
+"8157999",
+"5500002122",
+"Jonathan Weber",
+"Jon Weber"
+],
+[
+"6500005383",
+"1161830",
+"Markus Van Rüth",
+"Marco van Tiel"
+],
+[
+"6500005383",
+"1163309",
+"Markus Van Rüth",
+"Mark van Kerckhoven"
+],
+[
+"8899874",
+"53068519",
+"Walk Over 8",
+"Walk Over 7"
+],
+[
+"8899872",
+"53068519",
+"Walk Over 6",
+"Walk Over 7"
+],
+[
+"15114859",
+"53068519",
+"Walk Over 1",
+"Walk Over 7"
+],
+[
+"83759197",
+"18488098",
+"Christian (CeeDee) Drees",
+"Christian Drees"
+],
+[
+"8000106861",
+"4500007241",
+"Michael Walther",
+"Michael Walter"
+],
+[
+"3500000099",
+"8000117351",
+"Markus Schwarz",
+"Marco Schwarz"
+],
+[
+"3500000816",
+"4500003037",
+"Andreas Haupt",
+"André Haupt"
+],
+[
+"8000128362",
+"2536232853",
+"Frank Hermann",
+"Frank Herrmann"
+],
+[
+"14162107",
+"3614849",
+"Kai von Weymarn",
+"Kai von der Twer"
+],
+[
+"29266111",
+"8000131317",
+"Oliver Barthel",
+"Oliver Bartels"
+],
+[
+"8000123222",
+"8000116662",
+"Christopher Vogt",
+"Christian Vogt"
+],
+[
+"8000106711",
+"8000119514",
+"CanTekin Bülbül",
+"Cantekin Bülbül"
+],
+[
+"8000116748",
+"15509641",
+"Sascha Mertens",
+"Sascha Mehrtens"
+],
+[
+"8000117457",
+"4500009541",
+"Andre Beck",
+"Andreas Beck"
+],
+[
+"8000103487",
+"3500000186",
+"Stefan Schneider",
+"Steffen Schneider"
+],
+[
+"8000117385",
+"8000122294",
+"Patrick Mittmann",
+"Patrick Rittmann"
+],
+[
+"3500000190",
+"8000119330",
+"Andreas Schmidko",
+"Andreas Schmid"
+],
+[
+"3500000859",
+"4500000534",
+"Thanh Hung Nguyen",
+"Thanh Vinh Nguyen"
+],
+[
+"3500000666",
+"8000122703",
+"Christian Schneider",
+"C Schneider-Radunovic"
+],
+[
+"8000122703",
+"8000100032",
+"C Schneider-Radunovic",
+"Christina Schneider"
+],
+[
+"3500000370",
+"17508775",
+"Jan-Asmus Baltzer",
+"Jan Baltzer"
+],
+[
+"17508775",
+"3500001028",
+"Jan Baltzer",
+"Jan Felix Balzer"
+],
+[
+"8000104005",
+"8000136824",
+"Hans Jörg Müller",
+"Hans Horst Müller"
+],
+[
+"8000136824",
+"52725388",
+"Hans Horst Müller",
+"Hans Dieter Müller"
+],
+[
+"17210698",
+"17997643",
+"Jan Müller",
+"Jan Hendrik Müller"
+]
+],
+"split": [
+[
+"8000125304",
+"8000125304",
+"Khoa NGuyen",
+"Hoa Nguyen"
+],
+[
+"85450789",
+"8000125304",
+"Khoi Nguyen",
+"Hoa Nguyen"
+],
+[
+"85177303",
+"8000125304",
+"Khoi Nguyen",
+"Hoa Nguyen"
+],
+[
+"8000126646",
+"6500000851",
+"Mario Hieß",
+"Mario He"
+],
+[
+"20756323",
+"4500000624",
+"Thomas Heer",
+"Thomas Herr"
+],
+[
+"31163716",
+"6500013449",
+"Masha Zarif",
+"Massi Zarif"
+],
+[
+"3500000628",
+"6500013449",
+"Masha Zarif",
+"Massi Zarif"
+],
+[
+"8000116983",
+"8000116983",
+"Stefan Bosch",
+"Stefan Boie"
+],
+[
+"91802404",
+"8000116983",
+"Stefan Boßy",
+"Stefan Boie"
+],
+[
+"4500003128",
+"4500003128",
+"Tommi Pusch",
+"Tom P"
+],
+[
+"6500013449",
+"6500013449",
+"Masha ZARIF",
+"Massi Zarif"
+]
+],
+"pending": [],
+"keep_together": [
+{
+"profiles": [
+"39871561",
+"4500000624"
+],
+"names": [
+"Thomas Herr"
+]
+},
+{
+"profiles": [
+"6500000851",
+"5500000205",
+"1046692",
+"8000118929"
+],
+"names": [
+"Mario HE",
+"Mario He"
+]
+},
+{
+"profiles": [
+"63365872",
+"9508573656"
+],
+"names": [
+"Tom P"
+]
+},
+{
+"profiles": [
+"31163716",
+"3500000628",
+"6500013449"
+],
+"names": [
+"Masha Zarif",
+"Masha ZARIF"
+]
+}
+],
+"remapped": {
+"8000125304": "1090809",
+"8000116983": "80300386",
+"4500003128": "63365872",
+"6500013449": "54877663"
+}
+}
